@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace PremierServiceSolutions.Business_Logic_Layer
 {
     class Ticket
-    class Ticket
     {
         private int ticketID;
         private string ticketTitle;
