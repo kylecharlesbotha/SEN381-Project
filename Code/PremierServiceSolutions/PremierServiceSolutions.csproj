@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Business Logic Layer\Package.cs" />
     <Compile Include="Business Logic Layer\Service.cs" />
+    <Compile Include="Business Logic Layer\Technician.cs" />
     <Compile Include="Business Logic Layer\Ticket.cs" />
     <Compile Include="Business Logic Layer\User.cs" />
     <Compile Include="Business Logic Layer\Business.cs" />
