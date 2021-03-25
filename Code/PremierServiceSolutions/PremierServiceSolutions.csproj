@@ -49,6 +49,13 @@
     <Compile Include="Business Logic Layer\Package.cs" />
     <Compile Include="Business Logic Layer\Ticket.cs" />
     <Compile Include="Business Logic Layer\User.cs" />
+	<Compile Include="Business Logic Layer\Business.cs" />
+	<Compile Include="Business Logic Layer\Satisfaction.cs" />
+	<Compile Include="Business Logic Layer\Schedule.cs" />
+	<Compile Include="Business Logic Layer\CustomerContract.cs" />
+	<Compile Include="Business Logic Layer\Person.cs" />
+	<Compile Include="Business Logic Layer\Employee.cs" />
+	<Compile Include="Business Logic Layer\ServiceLevelAgreement.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
