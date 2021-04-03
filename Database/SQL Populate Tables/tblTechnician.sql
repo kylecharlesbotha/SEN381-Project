@@ -1,0 +1,17 @@
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (1, 1, 5);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (4, 1, 14);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (4, 1, 15);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (3, 1, 18);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (2, 1, 19);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (2, 1, 36);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (3, 1, 40);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (4, 1, 54);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (2, 1, 59);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (2, 1, 66);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (2, 1, 69);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (2, 1, 71);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (3, 1, 72);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (3, 1, 76);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (2, 1, 79);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (2, 1, 82);
+insert into tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID) values (1, 1, 87);
