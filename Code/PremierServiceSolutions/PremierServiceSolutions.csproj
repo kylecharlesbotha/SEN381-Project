@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business Logic Layer\BusinessContact.cs" />
+    <Compile Include="Business Logic Layer\Call.cs" />
+    <Compile Include="Business Logic Layer\Client.cs" />
+    <Compile Include="Business Logic Layer\Contract.cs" />
     <Compile Include="Business Logic Layer\Package.cs" />
     <Compile Include="Business Logic Layer\Service.cs" />
     <Compile Include="Business Logic Layer\Technician.cs" />
