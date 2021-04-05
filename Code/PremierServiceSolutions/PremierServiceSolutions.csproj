@@ -62,6 +62,7 @@
     <Compile Include="Business Logic Layer\Person.cs" />
     <Compile Include="Business Logic Layer\Employee.cs" />
     <Compile Include="Business Logic Layer\ServiceLevelAgreement.cs" />
+    <Compile Include="Data Access Layer\DBHandler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,8 +93,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data Access Layer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
