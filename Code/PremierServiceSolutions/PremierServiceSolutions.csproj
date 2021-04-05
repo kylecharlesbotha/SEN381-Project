@@ -61,6 +61,7 @@
     <Compile Include="Business Logic Layer\CustomerContract.cs" />
     <Compile Include="Business Logic Layer\Person.cs" />
     <Compile Include="Business Logic Layer\Employee.cs" />
+	<Compile Include="Business Logic Layer\Testing.cs" />
     <Compile Include="Business Logic Layer\ServiceLevelAgreement.cs" />
     <Compile Include="Data Access Layer\DBHandler.cs" />
     <Compile Include="Form1.cs">
