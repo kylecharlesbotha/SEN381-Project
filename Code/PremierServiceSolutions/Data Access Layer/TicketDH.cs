@@ -96,7 +96,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             try
             {
                 //Check if it exists in tblCall first then if it does continue with checking tblTechnician.
-                //If it is not found in tblCall then return false. If it is found within tblTechnician return true else return false
+                //If it is not found in tblCall then return false. If it is found within tblTechnician then check if the record exists in tblEmployee. If it does return true else return false
                 return true;
             }
             catch (SqlException SQLE)
