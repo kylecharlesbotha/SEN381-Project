@@ -78,6 +78,7 @@
     <Compile Include="Data Access Layer\SLADH.cs" />
     <Compile Include="Data Access Layer\SLAFilesDH.cs" />
     <Compile Include="Data Access Layer\TechnicianDH.cs" />
+    <Compile Include="Data Access Layer\TestExampleDH.cs" />
     <Compile Include="Data Access Layer\TicketDH.cs" />
     <Compile Include="Data Access Layer\UserDH.cs" />
     <Compile Include="Form1.cs">
