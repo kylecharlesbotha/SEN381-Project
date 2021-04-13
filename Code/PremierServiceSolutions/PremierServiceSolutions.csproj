@@ -61,9 +61,25 @@
     <Compile Include="Business Logic Layer\CustomerContract.cs" />
     <Compile Include="Business Logic Layer\Person.cs" />
     <Compile Include="Business Logic Layer\Employee.cs" />
-	<Compile Include="Business Logic Layer\Testing.cs" />
+    <Compile Include="Business Logic Layer\Testing.cs" />
     <Compile Include="Business Logic Layer\ServiceLevelAgreement.cs" />
+    <Compile Include="Data Access Layer\BusinessContactDH.cs" />
+    <Compile Include="Data Access Layer\BusinessDH.cs" />
+    <Compile Include="Data Access Layer\CallDH.cs" />
+    <Compile Include="Data Access Layer\ClientDH.cs" />
+    <Compile Include="Data Access Layer\ContractDH.cs" />
+    <Compile Include="Data Access Layer\CustomerContractDH.cs" />
     <Compile Include="Data Access Layer\DBHandler.cs" />
+    <Compile Include="Data Access Layer\EmployeeDH.cs" />
+    <Compile Include="Data Access Layer\PackageDH.cs" />
+    <Compile Include="Data Access Layer\SatisfactionDH.cs" />
+    <Compile Include="Data Access Layer\ScheduleDH.cs" />
+    <Compile Include="Data Access Layer\ServiceDH.cs" />
+    <Compile Include="Data Access Layer\SLADH.cs" />
+    <Compile Include="Data Access Layer\SLAFilesDH.cs" />
+    <Compile Include="Data Access Layer\TechnicianDH.cs" />
+    <Compile Include="Data Access Layer\TicketDH.cs" />
+    <Compile Include="Data Access Layer\UserDH.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
