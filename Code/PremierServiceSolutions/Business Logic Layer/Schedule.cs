@@ -24,6 +24,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.ticketObject = ticketObject;
             this.scheduleStatus = scheduleStatus;
         }
+        public Schedule()
+        {
+
+        }
 
         public int ScheduleID { get => scheduleID; set => scheduleID = value; }
         public DateTime ScheduleDate { get => scheduleDate; set => scheduleDate = value; }
