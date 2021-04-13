@@ -18,6 +18,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.satisfactionStatus = satisfactionStatus;
             this.ticketObject = ticketObject;
         }
+        public Satisfaction()
+        {
+
+        }
 
         public int SatisfactionID { get => satisfactionID; set => satisfactionID = value; }
         public string SatisfactionStatus { get => satisfactionStatus; set => satisfactionStatus = value; }
