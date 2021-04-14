@@ -20,6 +20,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.serviceDescription = serviceDescription;
             this.serviceLevel = serviceLevel;
         }
+        public Service()
+        {
+
+        }
 
         public int ServiceID { get => serviceID; set => serviceID = value; }
         public string ServiceName { get => serviceName; set => serviceName = value; }
