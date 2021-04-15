@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
@@ -21,6 +22,21 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //First Check if the record already exsists by calling  FindTechnician()
                 //If found return false and display a message that it already exists else continue with creating
                 //Then you will need to check if the Employee Record Exists Call CheckAllTables() as that will check all the tables it needs to
+
+
+                    SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+
+                    string InsertQuery = string.Format(@"INSERT INTO tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID, TechnicianState) VALUES ('{0}','{1}','{2}','{3}')", objTech.TechnicianLevel,objTech.TechnicianStatus,objTech.EmployeeID,objTech.TechnicianSate);
+                    SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
+                    sqlCon.Open();
+                    InsertCommand.ExecuteNonQuery();
+                    sqlCon.Close();
+
+
+
+
+
+
                 return true;
             }
             catch (SqlException SQLE)
@@ -36,6 +52,17 @@ namespace PremierServiceSolutions.Data_Access_Layer
             try
             {
                 //Update to new records where it matches the old TechnicianID
+
+
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+
+                string UpdateQuery = string.Format(@"UPDATE tblEmployee SET Field1 ='{0}' WHERE Field2 ='{1}'", objEmp.EmployeeStatus, objEmp.EmployeeStart);
+                SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
+                sqlCon.Open();
+                UpdateCommand.ExecuteNonQuery();
+                sqlCon.Close();
+
+
                 return true;
             }
             catch (SqlException SQLE)
