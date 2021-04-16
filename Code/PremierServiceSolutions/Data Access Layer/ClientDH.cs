@@ -30,7 +30,20 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (ClientVal == 0)
                 {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                        string InsertQuery = string.Format(@"INSERT INTO tblClient (TechnicianLevel, TechnicianStatus, EmployeeID, TechnicianState, TechnicianStatus, EmployeeID, TechnicianState) VALUES ('{0}','{1}','{2}','{3}')", objTech.TechnicianLevel, objTech.TechnicianStatus, objTech.EmployeeID, objTech.TechnicianState);
+                        string InsertQuery = string.Format(@"INSERT INTO tblClient (ClientIDNumber, ClientName, ClientSurname, ClientTitle, ClientGender, ClientAddress, ClientCell, ClientCreationDate, ClientEmail, ClientPriority, ClientState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", 
+                            objClient.ClientIdNumber, 
+                            objClient.PersonName, 
+                            objClient.PersonSurname, 
+                            objClient.ClientTitle, 
+                            objClient.ClientGender, 
+                            objClient.ClientAddress, 
+                            objClient.ClientCell, 
+                            objClient.ClientCreationDate, 
+                            objClient.ClientEmail, 
+                            objClient.ClientPriority, 
+                            objClient.ClientState
+                            
+                            );
                         SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
                         sqlCon.Open();
                         InsertCommand.ExecuteNonQuery();
@@ -140,7 +153,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                                 (string)sqlDataReader.GetValue(4),
                                 (string)sqlDataReader.GetValue(5),
                                 (string)sqlDataReader.GetValue(6), 
-                                (string)sqlDataReader.GetValue(7), 
+                                (DateTime)sqlDataReader.GetValue(7), 
                                 (string)sqlDataReader.GetValue(8) 
                                 ));
                 }
