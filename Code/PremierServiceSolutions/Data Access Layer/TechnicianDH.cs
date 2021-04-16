@@ -33,7 +33,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     if(CheckAllTables(objTech)== true)
                     {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                        string InsertQuery = string.Format(@"INSERT INTO tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID, TechnicianState) VALUES ('{0}','{1}','{2}','{3}')", objTech.TechnicianLevel, objTech.TechnicianStatus, objTech.EmployeeID, objTech.TechnicianSate);
+                        string InsertQuery = string.Format(@"INSERT INTO tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID, TechnicianState) VALUES ('{0}','{1}','{2}','{3}')", objTech.TechnicianLevel, objTech.TechnicianStatus, objTech.EmployeeID, objTech.TechnicianState);
                         SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
                         sqlCon.Open();
                         InsertCommand.ExecuteNonQuery();
@@ -41,7 +41,6 @@ namespace PremierServiceSolutions.Data_Access_Layer
                         return true;
                        
                     }
-
                 }
                 return false;
             }
@@ -60,7 +59,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tblTechnician
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblTechnician SET TechnicianLevel ='{0}',TechnicianStatus ='{1}',EmployeeID ='{2}',TechnicianState ='{3}' WHERE TechnicianID ='{4}'", newObjTech.TechnicianLevel,newObjTech.TechnicianStatus,newObjTech.EmployeeID,newObjTech.TechnicianSate, oldObjTech.TechnicianID);
+                string UpdateQuery = string.Format(@"UPDATE tblTechnician SET TechnicianLevel ='{0}',TechnicianStatus ='{1}',EmployeeID ='{2}',TechnicianState ='{3}' WHERE TechnicianID ='{4}'", newObjTech.TechnicianLevel,newObjTech.TechnicianStatus,newObjTech.EmployeeID,newObjTech.TechnicianState, oldObjTech.TechnicianID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database
@@ -154,7 +153,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblTechnician
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Technicains
-                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblTechnician WHERE TechnicianLevel = '{0}' AND TechnicianStatus = '{1}' AND EmployeeID = '{2}' and TechnicianState = '{3}'", objTech.TechnicianLevel, objTech.TechnicianStatus, objTech.EmployeeID, objTech.TechnicianSate);
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblTechnician WHERE TechnicianLevel = '{0}' AND TechnicianStatus = '{1}' AND EmployeeID = '{2}' and TechnicianState = '{3}'", objTech.TechnicianLevel, objTech.TechnicianStatus, objTech.EmployeeID, objTech.TechnicianState);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
@@ -213,6 +212,47 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return false;
             }
+        }
+
+        private Technician GetTechnician(Technician objTech)
+        {
+            Technician objRecord = new Technician();
+            try
+            {
+                //List of type Technician which will store all the records and then return that list
+                List<Technician> allTechnicians = new List<Technician>();
+                //New SQL Connection which the query will use to perform the Select of tblTechnician
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Technicains
+                string SelectQuery =string.Format("SELECT * FROM tblTechnician WHERE TechnicianID = '{0}'",objTech.TechnicianID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    objRecord.TechnicianID = (int)sqlDataReader.GetValue(0);
+                    objRecord.TechnicianLevel = (int)sqlDataReader.GetValue(1);
+                    objRecord.TechnicianStatus = (string)sqlDataReader.GetValue(2);
+                    objRecord.EmployeeID = (int)sqlDataReader.GetValue(3);
+                    objRecord.TechnicianState = (int)sqlDataReader.GetValue(4);
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Technicians
+                return objRecord;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+
         }
     }
 }
