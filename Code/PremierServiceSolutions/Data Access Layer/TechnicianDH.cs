@@ -39,6 +39,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                         InsertCommand.ExecuteNonQuery();
                         sqlCon.Close();
                         return true;
+                       
                     }
 
                 }
@@ -144,7 +145,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to find one record within the table
+        //Method used to find one record within the tablea
         private int FindTechnician(Technician objTech)
         {
             int RecordCount;
