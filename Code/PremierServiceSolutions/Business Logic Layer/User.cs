@@ -29,6 +29,16 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.userState = userState;
             this.userAuthToken = userAuthToken;
         }
+        public User(int userID, EmployeeID employeeID, string userName, string userPassword, string userAccessLevel, string userState, string userAuthToken)
+        {
+            this.userID = userID;
+            this.employeeID = employeeID;
+            this.userName = userName;
+            this.userPassword = userPassword;
+            this.userAccessLevel = userAccessLevel;
+            this.userState = userState;
+            this.userAuthToken = userAuthToken;
+        }
 
         public User()
         {

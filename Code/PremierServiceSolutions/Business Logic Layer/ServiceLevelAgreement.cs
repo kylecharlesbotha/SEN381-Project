@@ -20,6 +20,13 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.slaDescription = slaDescription;
             this.slaFile = slaFile;
         }
+        public ServiceLevelAgreement(int slaID, string slaTitle, string slaDescription)
+        {
+            this.slaID = slaID;
+            this.slaTitle = slaTitle;
+            this.slaDescription = slaDescription;
+           
+        }
 
         public int SlaID { get => slaID; set => slaID = value; }
         public string SlaTitle { get => slaTitle; set => slaTitle = value; }
