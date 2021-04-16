@@ -15,7 +15,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string businessAddress;
         private string businessState;
 
-        public Business(int businessID, string businessName, string businessPhone, string businessRegistrationNumber, string businessAddress, string businessState)
+        public Business(int businessID, string businessAddress, string businessName, string businessPhone, string businessRegistrationNumber, string businessState)
         {
             this.businessID = businessID;
             this.businessName = businessName;

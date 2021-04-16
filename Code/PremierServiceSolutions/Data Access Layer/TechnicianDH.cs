@@ -109,8 +109,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
         }
         //Method used to Get all the records from the table in the database
         private List<Technician> GetAllTechnician(Technician objTech)
-        {
-            
+        {        
             try
             {
                 //List of type Technician which will store all the records and then return that list
