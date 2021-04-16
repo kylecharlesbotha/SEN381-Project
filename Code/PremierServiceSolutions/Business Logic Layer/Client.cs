@@ -14,12 +14,12 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string clientTitle;
         private string clientIDNumber;
         private string clientAddress;
-        private string cliendGender;
+        private string clientGender;
         private string clientState;
-        private string clientCreationDate;
+        private DateTime clientCreationDate;
         private string clientPriority;
 
-        public Client(string clientEmail, string clientPhone, string clientTitle, string clientIdNumber, string clientAddress, string cliendGender, string clientState, string clientCreationDate, string clientPriority)
+        public Client(string clientEmail, string clientPhone, string clientTitle, string clientIdNumber, string clientAddress, string clientGender, string clientState, DateTime clientCreationDate, string clientPriority)
         {
 
             this.clientEmail = clientEmail;
@@ -27,7 +27,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.clientTitle = clientTitle;
             this.clientIDNumber = clientIdNumber;
             this.clientAddress = clientAddress;
-            this.cliendGender = cliendGender;
+            this.clientGender = clientGender;
             this.clientState = clientState;
             this.clientCreationDate = clientCreationDate;
             this.clientPriority = clientPriority;
@@ -42,9 +42,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string ClientTitle { get => clientTitle; set => clientTitle = value; }
         public string ClientIdNumber { get => clientIDNumber; set => clientIDNumber = value; }
         public string ClientAddress { get => clientAddress; set => clientAddress = value; }
-        public string CliendGender { get => cliendGender; set => cliendGender = value; }
+        public string ClientGender { get => clientGender; set => clientGender = value; }
         public string ClientState { get => clientState; set => clientState = value; }
-        public string ClientCreationDate { get => clientCreationDate; set => clientCreationDate = value; }
+        public DateTime ClientCreationDate { get => clientCreationDate; set => clientCreationDate = value; }
         public string ClientPriority { get => clientPriority; set => clientPriority = value; }
 
         public int CompareTo(Client other)

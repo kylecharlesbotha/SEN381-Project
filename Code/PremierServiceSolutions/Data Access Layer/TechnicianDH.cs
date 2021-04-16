@@ -153,7 +153,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblTechnician
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Technicains
-                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblTechnician WHERE TechnicianLevel = '{0}' AND TechnicianStatus = '{1}' AND EmployeeID = '{2}' and TechnicianState = '{3}'", objTech.TechnicianLevel, objTech.TechnicianStatus, objTech.EmployeeID, objTech.TechnicianState);
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblTechnician WHERE TechnicianLevel = '{0}' AND TechnicianStatus = '{1}' AND EmployeeID = '{2}' AND TechnicianState = '{3}'", objTech.TechnicianLevel, objTech.TechnicianStatus, objTech.EmployeeID, objTech.TechnicianState);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
