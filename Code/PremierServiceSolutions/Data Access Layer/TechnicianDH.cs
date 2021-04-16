@@ -156,8 +156,6 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 string SelectQuery = string.Format("SELECT COUNT(*) FROM tblTechnician WHERE TechnicianLevel = '{0}' AND TechnicianStatus = '{1}' AND EmployeeID = '{2}' AND TechnicianState = '{3}'", objTech.TechnicianLevel, objTech.TechnicianStatus, objTech.EmployeeID, objTech.TechnicianState);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
-                //SQL Datareader which will be used to pull specific fields from the Select Return statement
-                SqlDataReader sqlDataReader;
                 //Open the connection to the database
                 sqlCon.Open();
                 //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
@@ -35,11 +36,33 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             try
             {
-                //Update to new records where it matches the old BusinessID Client ID and CustomerContractID
+                //New SQL Connection which the query will use to perform the update of tblCustomerContract
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Update Query which will store the SQL Query to be used when the connection is open
+                string UpdateQuery = string.Format(@"UPDATE tblTechnician SET BusinessID ='{0}',ClientID ='{1}',ContractID ='{2}',CustomerContractStatus ='{3}',StartDate ='{4}',EndDate ='{4}',CustomerState ='{6}' WHERE CustomerContractID ='{7}'", 
+                    newObjCusCon.BusinessID, 
+                    newObjCusCon.ClientID, 
+                    newObjCusCon.ContractID, 
+                    newObjCusCon.CustomerContractStatus, 
+                    newObjCusCon.StartDate, 
+                    newObjCusCon.EndDate, 
+                    oldObjCusCon.EndDate
+                    );
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Perform the Update Query
+                UpdateCommand.ExecuteNonQuery();
+                //Close the connection to the database
+                sqlCon.Close();
+                //If it all works it will then return true to indicate update successful
                 return true;
             }
             catch (SqlException SQLE)
             {
+                //If any error has to occur during the try phase it will display a Error message and will return false to indicate it was unsuccessful
+                MessageBox.Show("Error has occured please try again");
                 return false;
             }
         }
@@ -49,60 +72,229 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             try
             {
-                //Dont delete the record instead change the state of the record to 0 now as that will be inactive records
+                //New SQL Connection which the query will use to perform the update of tblCustomerContract to change the state of the record to indicate that it is deleted but we still keep it
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Update Query which will store the SQL Query to be used when the connection is open
+                string UpdateQuery = string.Format(@"UPDATE tblCustomerContract SET CustomerState = 0 WHERE CustomerContractID ='{0}'", objCusCon.CustomerContractID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Perform the Update Query
+                UpdateCommand.ExecuteNonQuery();
+                //Close the connection to the database
+                sqlCon.Close();
+                //If it all works it will then return true to indicate update successful
                 return true;
             }
             catch (SqlException SQLE)
             {
+                //If any error has to occur during the try phase it will display a Error message and will return false to indicate it was unsuccessful
+                MessageBox.Show("Error has occured please try again");
                 return false;
             }
         }
         //Method used to Get all the records from the table in the database
         private List<CustomerContract> GetAllCustomerContract(CustomerContract objCusCon)
         {
-            //List of type CustomerContract which will store all the records and then return that list
-            List<CustomerContract> allCusCon = new List<CustomerContract>();
-
             try
             {
-                //Return all records from table
-                return allCusCon;
+                //List of type CustomerContract which will store all the records and then return that list
+                List<CustomerContract> allCusContracts = new List<CustomerContract>();
+                //New SQL Connection which the query will use to perform the Select of tblCustomerContract
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the CustomerContracts
+                string SelectQuery = "SELECT * FROM tblCustomerConntract";
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    allCusContracts.Add(new CustomerContract(
+                        (int)sqlDataReader.GetValue(0), 
+                        (int)sqlDataReader.GetValue(1), 
+                        (int)sqlDataReader.GetValue(2), 
+                        (int)sqlDataReader.GetValue(3), 
+                        (string)sqlDataReader.GetValue(5), 
+                        (DateTime)sqlDataReader.GetValue(6), 
+                        (DateTime)sqlDataReader.GetValue(7),
+                        (int)sqlDataReader.GetValue(8)
+                        ));
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of CustomerContracts
+                return allCusContracts;
             }
             catch (SqlException SQLE)
             {
-                return allCusCon;
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
             }
         }
 
         //Method used to find one record within the table
         private int FindCustomerContract(CustomerContract objCusCon)
         {
-            //Get count of rows to see if object exists. Refer to TechnicianDH FindTechnician method
+            int RecordCount;
             try
             {
-
-                return 1;
+                //New SQL Connection which the query will use to perform the Select of tblCustomerContract
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the CustomerContract
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblCustomerContract WHERE BusinessID = '{0}' AND ClientID = '{1}' AND ContractID = '{2}' AND CustomerContractStatus = '{3}'", 
+                    objCusCon.BusinessID, 
+                    objCusCon.ClientID, 
+                    objCusCon.ContractID, 
+                    objCusCon.CustomerContractStatus
+                    );
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                RecordCount = (Int32)sqlCommand.ExecuteScalar();
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Technicians
+                return RecordCount;
             }
             catch (SqlException SQLE)
             {
-                return 0;
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                RecordCount = -1;
+                return RecordCount;
             }
         }
 
         //Method which will be called to check that neccessary fields exist in the other tables which have relationships
         private bool CheckAllTables(CustomerContract objCusCon)
         {
+            int ClientCount;
+            int ContractCount;
+            int BusinessCount;
             try
             {
-                //Check if it exists in tblClient first then if it does continue with checking tblBusiness.
-                //If it is not found in tblClient then return false. If it is found within tblBusiness start checking tblContract
-                //if found it tblcontract return true else return false
-                return true;
+                //New SQL Connection which the query will use to perform the Select of tblClient
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Clients
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblClient WHERE ClientID = '{0}'", objCusCon.ClientID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                ClientCount = (Int32)sqlCommand.ExecuteScalar();
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Clients
+                if (ClientCount == 1)
+                {
+                    //New SQL Connection which the query will use to perform the Select of tblBusiness
+                    sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                    //Select Query which will store the SQL qeury needed to return all the Business's
+                    SelectQuery = string.Format("SELECT COUNT(*) FROM tblBusinesss WHERE BusinessID = '{0}'", objCusCon.BusinessID);
+                    //New Command which will take in the sqlCon and UpdateQuery var
+                    sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                    //Open the connection to the database
+                    sqlCon.Open();
+                    //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                    BusinessCount = (Int32)sqlCommand.ExecuteScalar();
+                    //Close connection to database
+                    sqlCon.Close();
+                    //Return Count of Business's
+                    if (BusinessCount == 1)
+                    {
+                        //New SQL Connection which the query will use to perform the Select of tblContract
+                        sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                        //Select Query which will store the SQL qeury needed to return all the Contracts
+                        SelectQuery = string.Format("SELECT COUNT(*) FROM tblContract WHERE ContractID = '{0}'", objCusCon.ContractID);
+                        //New Command which will take in the sqlCon and UpdateQuery var
+                        sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                        //Open the connection to the database
+                        sqlCon.Open();
+                        //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                        ContractCount = (Int32)sqlCommand.ExecuteScalar();
+                        //Close connection to database
+                        sqlCon.Close();
+                        //Return Count of Contracts
+                        if (ContractCount == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Contract not found. Please Try again");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Business not found. Please Try again");
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Client not found. Please Try again");
+                    return false;
+                }
             }
             catch (SqlException SQLE)
             {
+                //Will catch any errors that occur and will display a error message. it will also return a false value
+                MessageBox.Show("Error has occured");
                 return false;
             }
         }
+
+        private CustomerContract GetCusCon(CustomerContract objCusCon)
+        {
+            Technician objRecord = new Technician();
+            try
+            {
+                //List of type Technician which will store all the records and then return that list
+                List<Technician> allTechnicians = new List<Technician>();
+                //New SQL Connection which the query will use to perform the Select of tblTechnician
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Technicains
+                string SelectQuery = string.Format("SELECT * FROM tblTechnician WHERE TechnicianID = '{0}'", objTech.TechnicianID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    objRecord.TechnicianID = (int)sqlDataReader.GetValue(0);
+                    objRecord.TechnicianLevel = (int)sqlDataReader.GetValue(1);
+                    objRecord.TechnicianStatus = (string)sqlDataReader.GetValue(2);
+                    objRecord.EmployeeID = (int)sqlDataReader.GetValue(3);
+                    objRecord.TechnicianState = (int)sqlDataReader.GetValue(4);
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Technicians
+                return objRecord;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+
+        }
+    }
     }
 }
