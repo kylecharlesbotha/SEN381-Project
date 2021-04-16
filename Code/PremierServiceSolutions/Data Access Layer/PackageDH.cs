@@ -75,18 +75,17 @@ namespace PremierServiceSolutions.Data_Access_Layer
         }
 
         //Method used to find one record within the table
-        private Package FindPackage(Package objPack)
+        private int FindPackage(Package objPack)
         {
-            //Object of type Package which will store single record of object to be returned to interface
-            Package objRecord = new Package();
+            //Get count of rows to see if object exists. Refer to TechnicianDH FindTechnician method
             try
             {
-                //Find record matching to obj and return it in objRecord
-                return objRecord;
+
+                return 1;
             }
             catch (SqlException SQLE)
             {
-                return objRecord;
+                return 0;
             }
         }
 

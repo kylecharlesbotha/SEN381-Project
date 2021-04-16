@@ -74,18 +74,17 @@ namespace PremierServiceSolutions.Data_Access_Layer
         }
 
         //Method used to find one record within the table
-        private Employee FindEmployee(Employee objEmp)
+        private int FindEmployee(Employee objEmp)
         {
-            //Object of type Employee which will store single record of object to be returned to interface
-            Employee objRecord = new Employee();
+            //Get count of rows to see if object exists. Refer to TechnicianDH FindTechnician method
             try
             {
-                //Find record matching to obj and return it in objRecord
-                return objRecord;
+
+                return 1;
             }
             catch (SqlException SQLE)
             {
-                return objRecord;
+                return 0;
             }
         }
 
