@@ -9,12 +9,12 @@ namespace PremierServiceSolutions.Business_Logic_Layer
     class Technician
     {
         private int technicianID;
-        private string technicianStatus;
         private int technicianLevel;
+        private string technicianStatus;
         private int technicianSate;
         private int employeeID;
 
-        public Technician(int technicianID, string technicianStatus, int technicianLevel,int employeeid,int technicianstate )
+        public Technician(int technicianID, int technicianLevel, string technicianStatus, int employeeid,int technicianstate )
         {
             this.technicianID = technicianID;
             this.technicianStatus = technicianStatus;
