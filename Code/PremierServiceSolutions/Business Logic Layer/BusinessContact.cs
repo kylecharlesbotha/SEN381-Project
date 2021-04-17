@@ -10,10 +10,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
     {
         private int contactBusinessID;
         private int contactClientID;
-        private int contactJobTitle;
+        private string contactJobTitle;
         private string contactState;
 
-        public BusinessContact(int contactBusinessID, int contactClientID, int contactJobTitle, string contactState)
+        public BusinessContact(int contactBusinessID, int contactClientID, string contactJobTitle, string contactState)
         {
             this.contactBusinessID = contactBusinessID;
             this.contactClientID = contactClientID;
@@ -27,7 +27,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         public int ContactBusinessID { get => contactBusinessID; set => contactBusinessID = value; }
         public int ContactClientID { get => contactClientID; set => contactClientID = value; }
-        public int ContactJobTitle { get => contactJobTitle; set => contactJobTitle = value; }
+        public string ContactJobTitle { get => contactJobTitle; set => contactJobTitle = value; }
         public string ContactState { get => contactState; set => contactState = value; }
 
         public void GetBusinessContact()

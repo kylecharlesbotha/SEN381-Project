@@ -24,7 +24,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 if (ConVal == 1)
                 {
                     //If it finds a Contract with same details return message saying Contract already exists
-                    MessageBox.Show("Business Already Exists");
+                    MessageBox.Show("Contract Already Exists");
                     return false;
                 }
                 else if (ConVal == 0)
