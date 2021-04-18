@@ -9,14 +9,16 @@ namespace PremierServiceSolutions.Business_Logic_Layer
     class Package
     {
         private int contractID;
-        private List<Service> services;
-        private List<ServiceLevelAgreement> slas;
+        private int services;
+        private int slas;
+        private int packagestate;
 
-        public Package(int contractID, List<Service> serviceID, List<ServiceLevelAgreement> slaID)
+        public Package(int contractID, int serviceID, int slaID, int packagestateID)
         {
             this.contractID = contractID;
             this.services = serviceID;
             this.slas = slaID;
+            this.packagestate = packagestateID;
         }
         public Package()
         {
@@ -24,8 +26,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         }
 
         public int ContractID { get => contractID; set => contractID = value; }
-        public List<Service> ServiceList { get => services; set => services = value; }
-        public List<ServiceLevelAgreement> SlaList { get => slas; set => slas = value; }
+        public int ServiceList { get => services; set => services = value; }
+        public int SlaList { get => slas; set => slas = value; }
+
+        public int PackageStateID { get => packagestate; set => packagestate = value; }
 
         public void GetServices()
         {
@@ -33,6 +37,11 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         }
 
         public void GetSlas()
+        {
+
+        }
+
+        public void GetPackageState()
         {
 
         }
