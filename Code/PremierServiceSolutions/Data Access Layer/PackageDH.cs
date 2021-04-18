@@ -141,10 +141,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 MessageBox.Show("Error has occured");
                 return null;
-               
+
             }
         }
-        
+
 
         //Method used to find one record within the table
         private int FindPackage(Package objPack)
@@ -167,7 +167,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlCon.Close();
                 //Return Count of Technicians
                 return RecordCount;
-               
+
             }
             catch (SqlException SQLE)
             {
@@ -238,9 +238,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 {
                     objRecord.ContractID = (int)sqlDataReader.GetValue(0);
                     objRecord.ServiceList = (int)sqlDataReader.GetValue(1);
-                    objRecord.SlaList=(int)sqlDataReader.GetValue(2);
+                    objRecord.SlaList = (int)sqlDataReader.GetValue(2);
                     objRecord.PackageStateID = (int)sqlDataReader.GetValue(3);
-                  
+
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -258,4 +258,5 @@ namespace PremierServiceSolutions.Data_Access_Layer
 
 
         }
+    }
     }
