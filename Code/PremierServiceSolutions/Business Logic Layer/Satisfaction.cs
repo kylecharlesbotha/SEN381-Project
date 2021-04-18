@@ -10,9 +10,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
     {
         private int satisfactionID;
         private string satisfactionStatus;
-        private Ticket ticketObject;
+        private int ticketObject;
 
-        public Satisfaction(int satisfactionID, string satisfactionStatus, Ticket ticketObject)
+        public Satisfaction(int satisfactionID, string satisfactionStatus, int ticketObject)
         {
             this.satisfactionID = satisfactionID;
             this.satisfactionStatus = satisfactionStatus;
@@ -25,7 +25,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         public int SatisfactionID { get => satisfactionID; set => satisfactionID = value; }
         public string SatisfactionStatus { get => satisfactionStatus; set => satisfactionStatus = value; }
-        public Ticket TicketObject { get => ticketObject; set => ticketObject = value; }
+        public int TicketObject { get => ticketObject; set => ticketObject = value; }
 
         public void GetClientDetails()
         {
