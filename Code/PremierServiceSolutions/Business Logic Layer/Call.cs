@@ -9,15 +9,18 @@ namespace PremierServiceSolutions.Business_Logic_Layer
     class Call
     {
         private int callID;
+        private int clientID;
         private Employee callEmployee;
+        private int employeeID; 
         private DateTime callStartTime;
         private DateTime callEndTime;
         private Ticket callTicket;
+        private int ticketID;
         private Client callClient;
         private string callRecording;
         private string callState;
 
-        public Call(int callID, Employee callEmployee, DateTime callStartTime, DateTime callEndTime, Ticket callTicket, Client callClient, string callRecording, string callState)
+        public Call(int callID,Employee callEmployee, DateTime callStartTime, DateTime callEndTime, Ticket callTicket, Client callClient, string callRecording, string callState)
         {
             this.callID = callID;
             this.callEmployee = callEmployee;
@@ -27,20 +30,36 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.callClient = callClient;
             this.callRecording = callRecording;
             this.callState = callState;
+            
+        }
+        public Call(int callID, int clientID, int employeeID, DateTime callStartTime, DateTime callEndTime, int ticketID, string callRecording, string callState)
+        {
+            this.callID = callID;
+            this.clientID = clientID;
+            this.employeeID = employeeID;
+            this.callStartTime = callStartTime;
+            this.callEndTime = callEndTime;
+            this.ticketID = ticketID;
+            this.callRecording = callRecording;
+            this.callState = callState;
+            
         }
         public Call()
         {
 
         }
         public int CallID { get => callID; set => callID = value; }
+        public int ClientID { get => clientID; set => clientID = value; }
         public Employee CallEmployee { get => callEmployee; set => callEmployee = value; }
+
         public DateTime CallStartTime { get => callStartTime; set => callStartTime = value; }
         public DateTime CallEndTime { get => callEndTime; set => callEndTime = value; }
         public Ticket CallTicket { get => callTicket; set => callTicket = value; }
         public Client CallClient { get => callClient; set => callClient = value; }
         public string CallRecording { get => callRecording; set => callRecording = value; }
         public string CallState { get => callState; set => callState = value; }
-
+        public int EmployeeID { get => employeeID; set => employeeID = value; }
+        public int TicketID { get => ticketID; set => ticketID = value; }
 
         public void AnswerCall()
         {

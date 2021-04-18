@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
@@ -18,10 +19,35 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             try
             {
-                //First Check if the record already exsists by calling  FindCall()
-                //If found return false and display a message that it already exists else continue with creating
-                //Then you will need to check if the Client Record Exists and also if the Employee Record Exists. Call CheckAllTables() as that will check all the tables it needs to
-                return true;
+                //Checking if the Call already exists
+                int CallVal = FindCall(objCall);
+                if (CallVal == 1)
+                {
+                    //If it finds a call with same details return message saying call already exists
+                    MessageBox.Show("Call Already Exists");
+                    return false;
+                }
+                else if (CallVal == 0)
+                {
+                    SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                    string InsertQuery = string.Format(@"INSERT INTO tblCall (CallID,ClientID,EmployeeID,CallStartTime,CallEndTime,CallStatus,TicketID,CallRecording,CallState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')",
+                        objCall.CallID,
+                        objCall.CallClient.PersonID,
+                        objCall.CallEmployee.PersonID,
+                        objCall.CallStartTime,
+                        objCall.CallEndTime,
+                        objCall.CallState,
+                        objCall.CallTicket.TicketID,
+                        objCall.CallRecording,
+                        objCall.CallState
+                        );
+                    SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
+                    sqlCon.Open();
+                    InsertCommand.ExecuteNonQuery();
+                    sqlCon.Close();
+                    return true;
+                }
+                return false;
             }
             catch (SqlException SQLE)
             {
@@ -35,11 +61,36 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             try
             {
-                //Update to new records where it matches the old CallID and EmployeeID
+                //New SQL Connection which the query will use to perform the update of tblCustomerContract
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Update Query which will store the SQL Query to be used when the connection is open
+                string UpdateQuery = string.Format(@"UPDATE tblCall SET CallID ='{0}',ClientID ='{1}',EmployeeID ='{2}',CallStartTime ='{3}',CallEndTime ='{4}',CallStatus ='{4}',CallState ='{6}' WHERE CallID ='{0}'",
+                       oldObjCall.CallID,
+                       newObjCall.CallClient.PersonID,
+                       newObjCall.CallEmployee.PersonID,
+                       newObjCall.CallStartTime,
+                       newObjCall.CallEndTime,
+                       newObjCall.CallState,
+                       newObjCall.CallTicket.TicketID,
+                       newObjCall.CallRecording,
+                       newObjCall.CallState
+
+                    );
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Perform the Update Query
+                UpdateCommand.ExecuteNonQuery();
+                //Close the connection to the database
+                sqlCon.Close();
+                //If it all works it will then return true to indicate update successful
                 return true;
             }
             catch (SqlException SQLE)
             {
+                //If any error has to occur during the try phase it will display a Error message and will return false to indicate it was unsuccessful
+                MessageBox.Show("Error has occured please try again");
                 return false;
             }
         }
@@ -49,11 +100,25 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             try
             {
-                //Dont delete the record instead change the state of the record to 0 now as that will be inactive records
+                //New SQL Connection which the query will use to perform the update of tbClient to change the state of the record to indicate that it is deleted but we still keep it
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Update Query which will store the SQL Query to be used when the connection is open
+                string UpdateQuery = string.Format(@"UPDATE tblCall SET CallState = 'Removed' WHERE CallID ='{0}'", objCall.CallID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Perform the Update Query
+                UpdateCommand.ExecuteNonQuery();
+                //Close the connection to the database
+                sqlCon.Close();
+                //If it all works it will then return true to indicate update successful
                 return true;
             }
             catch (SqlException SQLE)
             {
+                //If any error has to occur during the try phase it will display a Error message and will return false to indicate it was unsuccessful
+                MessageBox.Show("Error has occured please try again");
                 return false;
             }
         }
@@ -65,42 +130,74 @@ namespace PremierServiceSolutions.Data_Access_Layer
 
             try
             {
-                //Return all records from table
+                //List of type User which will store all the records and then return that list
+                
+                //New SQL Connection which the query will use to perform the Select of tblClients
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Clients
+                string SelectQuery = "SELECT * FROM tblCall";
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+
+                    allCall.Add(new Call(
+                                (int)sqlDataReader.GetValue(0),
+                                (int)sqlDataReader.GetValue(1),
+                                (int)sqlDataReader.GetValue(2),
+                                (DateTime)sqlDataReader.GetValue(3),
+                                (DateTime)sqlDataReader.GetValue(4),
+                                (int)sqlDataReader.GetValue(5),
+                                (string)sqlDataReader.GetValue(6),
+                                (string)sqlDataReader.GetValue(7)          
+                          ));
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Clients
                 return allCall;
             }
             catch (SqlException SQLE)
             {
-                return allCall;
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
             }
         }
 
         //Method used to find one record within the table
         private int FindCall(Call objCall)
         {
-            //Get count of rows to see if object exists. Refer to TechnicianDH FindTechnician method
+            int RecordCount;
             try
             {
-
-                return 1;
+                //New SQL Connection which the query will use to perform the Select of tblTicket
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Tickets
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblCall WHERE CallID = '{0}'", objCall.CallID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                RecordCount = (Int32)sqlCommand.ExecuteScalar();
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Tickets
+                return RecordCount;
             }
             catch (SqlException SQLE)
             {
-                return 0;
-            }
-        }
-
-        //Method which will be called to check that neccessary fields exist in the other tables which have relationships
-        private bool CheckAllTables(Call objCall)
-        {
-            try
-            {
-                //Check if it exists in tblClient first then if it does continue with checking tblEmployee.
-                //If it is not found in tblClient then return false. If it is found within tblEmployee return true else return false
-                return true;
-            }
-            catch (SqlException SQLE)
-            {
-                return false;
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                RecordCount = -1;
+                return RecordCount;
             }
         }
     }
