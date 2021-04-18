@@ -12,13 +12,15 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string serviceName;
         private string serviceDescription;
         private int serviceLevel;
+        private int serviceState;
 
-        public Service(int serviceID, string serviceName, string serviceDescription, int serviceLevel)
+        public Service(int serviceID, string serviceDescription, int serviceLevel, string serviceName, int serviceState)
         {
             this.serviceID = serviceID;
             this.serviceName = serviceName;
             this.serviceDescription = serviceDescription;
             this.serviceLevel = serviceLevel;
+            this.serviceState = serviceState;
         }
         public Service()
         {
@@ -29,6 +31,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string ServiceName { get => serviceName; set => serviceName = value; }
         public string ServiceDescription { get => serviceDescription; set => serviceDescription = value; }
         public int ServiceLevel { get => serviceLevel; set => serviceLevel = value; }
+        public int ServiceState { get => serviceState; set => serviceState = value; }
 
         public void EditService()
         {

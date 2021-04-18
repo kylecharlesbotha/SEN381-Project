@@ -12,17 +12,19 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private DateTime scheduleDate;
         private DateTime scheduleStartTime;
         private DateTime scheduleEndTime;
-        private Ticket ticketObject;
+        private int ticketID;
         private string scheduleStatus;
+        private int scheduleState;
 
-        public Schedule(int scheduleID, DateTime scheduleDate, DateTime scheduleStartTime, DateTime scheduleEndTime, Ticket ticketObject, string scheduleStatus)
+        public Schedule(int scheduleID, DateTime scheduleDate, DateTime scheduleStartTime, DateTime scheduleEndTime, string scheduleStatus, int ticketID, int scheduleState)
         {
             this.scheduleID = scheduleID;
             this.scheduleDate = scheduleDate;
             this.scheduleStartTime = scheduleStartTime;
             this.scheduleEndTime = scheduleEndTime;
-            this.ticketObject = ticketObject;
+            this.ticketID = ticketID;
             this.scheduleStatus = scheduleStatus;
+            this.scheduleState = scheduleState;
         }
         public Schedule()
         {
@@ -33,8 +35,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public DateTime ScheduleDate { get => scheduleDate; set => scheduleDate = value; }
         public DateTime ScheduleStartTime { get => scheduleStartTime; set => scheduleStartTime = value; }
         public DateTime ScheduleEndTime { get => scheduleEndTime; set => scheduleEndTime = value; }
-        public Ticket TicketObject { get => ticketObject; set => ticketObject = value; }
+        public int TicketID { get => ticketID; set => ticketID = value; }
         public string ScheduleStatus { get => scheduleStatus; set => scheduleStatus = value; }
+        public int ScheduleState { get => scheduleState; set => scheduleState = value; }
 
         public int CompareTo(Schedule other)
         {
