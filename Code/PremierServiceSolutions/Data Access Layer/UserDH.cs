@@ -30,8 +30,13 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (UserVal == 0)
                 {
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                    string InsertQuery = string.Format(@"INSERT INTO tblUser (UserID, EmployeeID, UserAccessLevel, UserAuthToken, UserName, UserPassword, UserState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
-                        objUser.UserID,objUser.EmployeeObject.PersonID, objUser.UserAccessLevel, objUser.UserAuthToken, objUser.UserName, objUser.UserPassword, objUser.UserState
+                    string InsertQuery = string.Format(@"INSERT INTO tblUser  EmployeeID, UserAccessLevel, UserAuthToken, UserName, UserPassword, UserState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",
+                        objUser.EmployeeObject.PersonID, 
+                        objUser.UserAccessLevel, 
+                        objUser.UserAuthToken, 
+                        objUser.UserName, 
+                        objUser.UserPassword, 
+                        objUser.UserState
 
                         );
                     SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
@@ -57,13 +62,14 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tblClient
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblUser SET EmployeeID ='{1}',UserAccessLevel ='{2}',UserAuthToken ='{3}',UserName ='{4}',UserPassword ='{5}',UserState ='{6}' WHERE ClientID ='{0}'",
+                string UpdateQuery = string.Format(@"UPDATE tblUser SET EmployeeID ='{1}',UserAccessLevel ='{2}',UserAuthToken ='{3}',UserName ='{4}',UserPassword ='{5}',UserState ='{6}' WHERE UserID ='{0}'",
                     oldObjUser.UserID,
+                    newObjUser.EmployeeID,
                     newObjUser.UserAccessLevel,
                     newObjUser.UserAuthToken,
                     newObjUser.UserName,
                     newObjUser.UserPassword,
-                    newObjUser.UserState);
+                    newObjUser.UserState) ;
                     
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
@@ -92,7 +98,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tbClient to change the state of the record to indicate that it is deleted but we still keep it
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblUser SET ClientState = 'Removed' WHERE ClientID ='{0}'", objUser.UserID);
+                string UpdateQuery = string.Format(@"UPDATE tblUser SET UserState = 'Removed' WHERE UserID ='{0}'", objUser.UserID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database
