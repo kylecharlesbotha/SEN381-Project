@@ -33,7 +33,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     if (CheckAllTables(objBusCon) == true)
                     {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                        string InsertQuery = string.Format(@"INSERT INTO tblBusinessContact (ContactJobTitle, ContactState) VALUES ('{0}','{1}')", objBusCon.ContactJobTitle, objBusCon.ContactState);
+                        string InsertQuery = string.Format(@"INSERT INTO tblBusinessContact (BusinessID, ClientID, ContactJobTitle, ContactState) VALUES ('{0}','{1}','{2}','{3}')", objBusCon.ContactBusinessID,objBusCon.ContactClientID, objBusCon.ContactJobTitle, objBusCon.ContactState);
                         SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
                         sqlCon.Open();
                         InsertCommand.ExecuteNonQuery();
@@ -151,7 +151,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblBusinessContact
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the BusinessContacts
-                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblBusinessContact WHERE ContactJobTitle = '{0}' AND ContactState = '{1}' ", objBusCon.ContactJobTitle, objBusCon.ContactState);
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblBusinessContact WHERE BusinessID = '{0}' AND ClientID = '{1}' ", objBusCon.ContactBusinessID, objBusCon.ContactClientID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //Open the connection to the database
@@ -175,30 +175,51 @@ namespace PremierServiceSolutions.Data_Access_Layer
         //Method which will be called to check that neccessary fields exist in the other tables which have relationships
         private bool CheckAllTables(BusinessContact objBusCon)
         {
-            int RecordCount;
+            int ClientCount;
+            int BusinessCount;
             try
             {
                 //New SQL Connection which the query will use to perform the Select of tblBusinessContact
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the BusinessContacts
-                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblBusinessContact WHERE BusinessID = '{0}' AND ClientID = '{1}'", objBusCon.ContactBusinessID, objBusCon.ContactClientID);
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblClient WHERE ClientID = '{0}'", objBusCon.ContactClientID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
-                //SQL Datareader which will be used to pull specific fields from the Select Return statement
-                SqlDataReader sqlDataReader;
                 //Open the connection to the database
                 sqlCon.Open();
                 //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
-                RecordCount = (Int32)sqlCommand.ExecuteScalar();
+                ClientCount = (Int32)sqlCommand.ExecuteScalar();
                 //Close connection to database
                 sqlCon.Close();
                 //Return Count of BusinessContacts
-                if (RecordCount == 1)
+                if (ClientCount == 1)
                 {
-                    return true;
+                    //New SQL Connection which the query will use to perform the Select of tblBusinessContact
+                     sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                    //Select Query which will store the SQL qeury needed to return all the BusinessContacts
+                     SelectQuery = string.Format("SELECT COUNT(*) FROM tblBusiness WHERE BusinessID = '{0}'", objBusCon.ContactBusinessID);
+                    //New Command which will take in the sqlCon and UpdateQuery var
+                     sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                    //Open the connection to the database
+                    sqlCon.Open();
+                    //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                    BusinessCount = (Int32)sqlCommand.ExecuteScalar();
+                    //Close connection to database
+                    sqlCon.Close();
+                    //Return Count of BusinessContacts
+                    if (BusinessCount == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Business not found!.Please try again");
+                        return false;
+                    }
                 }
                 else
                 {
+                    MessageBox.Show("Client not found!.Please try again");
                     return false;
                 }
             }

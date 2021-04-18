@@ -86,7 +86,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tblTicket to change the state of the record to indicate that it is deleted but we still keep it
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblTicket SET TicketState = 0 WHERE TicketID ='{0}'", objTic.TicketID);
+                string UpdateQuery = string.Format(@"UPDATE tblTicket SET TicketStatus = 'Closed' WHERE TicketID ='{0}'", objTic.TicketID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database

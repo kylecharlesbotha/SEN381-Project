@@ -30,8 +30,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (EmployeeVal == 0)
                 {
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                    string InsertQuery = string.Format(@"INSERT INTO tblEmployee (EmployeeID,EmployeeName,EmployeeSurname,EmployeeIDNumber,EmployeeCell,EmployeeGender,EmployeeRole,EmployeeStartDate,EmployeeStatus) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')",
-                        objEmp.EmployeeID,
+                    string InsertQuery = string.Format(@"INSERT INTO tblEmployee (EmployeeName,EmployeeSurname,EmployeeIDNumber,EmployeeCell,EmployeeGender,EmployeeRole,EmployeeStartDate,EmployeeStatus) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
                         objEmp.EmployeeName,
                         objEmp.EmployeeSurName,
                         objEmp.EmployeeIDNumber,
@@ -64,8 +63,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tblCustomerContract
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblEmployee SET EmployeeID ='{0}',EmployeeName ='{1}',EmployeeSurName ='{2}',EmployeeIDNumber ='{3}',EmployeeCell ='{4}',EmployeeGender ='{4}',EmployeeRole ='{6}',EmployeeStart='{7}',EmployeeStatus='{8}' WHERE EmployeeID ='{9}'",
-                    newObjEmp.EmployeeID,
+                string UpdateQuery = string.Format(@"UPDATE tblEmployee SET EmployeeName ='{0}',EmployeeSurName ='{1}',EmployeeIDNumber ='{2}',EmployeeCell ='{3}',EmployeeGender ='{4}',EmployeeRole ='{5}',EmployeeStart='{6}',EmployeeStatus='{7}' WHERE EmployeeID ='{8}'",
                     newObjEmp.EmployeeName,
                     newObjEmp.EmployeeSurName,
                     newObjEmp.EmployeeIDNumber,
@@ -104,7 +102,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tblCustomerContract to change the state of the record to indicate that it is deleted but we still keep it
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblEmployee SET EmployeeID = 0 WHERE EmployeeID ='{0}'", objEmp.EmployeeID);
+                string UpdateQuery = string.Format(@"UPDATE tblEmployee SET EmployeeStatus = 'Deleted' WHERE EmployeeID ='{0}'", objEmp.EmployeeID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database
