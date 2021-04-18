@@ -216,8 +216,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             Technician objRecord = new Technician();
             try
             {
-                //List of type Technician which will store all the records and then return that list
-                List<Technician> allTechnicians = new List<Technician>();
+
                 //New SQL Connection which the query will use to perform the Select of tblTechnician
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Technicains

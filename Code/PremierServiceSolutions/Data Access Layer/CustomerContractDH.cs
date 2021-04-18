@@ -19,10 +19,38 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             try
             {
-                //First Check if the record already exsists by calling  FindCustomerContract()
-                //If found return false and display a message that it already exists else continue with creating
-                //Then you will need to check if the Client Record Exists and also if the Business Record Exists and the Contract Record Exists. Call CheckAllTables() as that will check all the tables it needs to
-                return true;
+                //Checking if the CustomerContract already exists
+                int CusConVal = FindCustomerContract(objCusCon);
+                if (CusConVal == 1)
+                {
+                    //If it finds a CustomerContract with same details return message saying CustomerContract already exists
+                    MessageBox.Show("CustomerContract Already Exists");
+                    return false;
+                }
+                else if (CusConVal == 0)
+                {
+                    //If CustomerContract does not exist then check if the Employee Record exists
+                    if (CheckAllTables(objCusCon) == true)
+                    {
+                        SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                        string InsertQuery = string.Format(@"INSERT INTO tblCustomerContract (BusinessID, ClientID, ContractID, CustomerContractStatus, StartDate, EndDate, CustomerState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", 
+                            objCusCon.BusinessID, 
+                            objCusCon.ClientID, 
+                            objCusCon.ContractID, 
+                            objCusCon.CustomerContractStatus,
+                            objCusCon.StartDate,
+                            objCusCon.EndDate,
+                            objCusCon.CustomerState
+                            );
+                        SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
+                        sqlCon.Open();
+                        InsertCommand.ExecuteNonQuery();
+                        sqlCon.Close();
+                        return true;
+
+                    }
+                }
+                return false;
             }
             catch (SqlException SQLE)
             {
@@ -257,15 +285,13 @@ namespace PremierServiceSolutions.Data_Access_Layer
 
         private CustomerContract GetCusCon(CustomerContract objCusCon)
         {
-            Technician objRecord = new Technician();
+            CustomerContract objRecord = new CustomerContract();
             try
             {
-                //List of type Technician which will store all the records and then return that list
-                List<Technician> allTechnicians = new List<Technician>();
-                //New SQL Connection which the query will use to perform the Select of tblTechnician
+                //New SQL Connection which the query will use to perform the Select of tblCustomerContracct
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                //Select Query which will store the SQL qeury needed to return all the Technicains
-                string SelectQuery = string.Format("SELECT * FROM tblTechnician WHERE TechnicianID = '{0}'", objTech.TechnicianID);
+                //Select Query which will store the SQL qeury needed to return all the CustomerContract
+                string SelectQuery = string.Format("SELECT * FROM tblCustomerContract WHERE CustomerContractID = '{0}'", objCusCon.CustomerContractID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
@@ -276,11 +302,11 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    objRecord.TechnicianID = (int)sqlDataReader.GetValue(0);
-                    objRecord.TechnicianLevel = (int)sqlDataReader.GetValue(1);
-                    objRecord.TechnicianStatus = (string)sqlDataReader.GetValue(2);
-                    objRecord.EmployeeID = (int)sqlDataReader.GetValue(3);
-                    objRecord.TechnicianState = (int)sqlDataReader.GetValue(4);
+                    objRecord.CustomerContractID = (int)sqlDataReader.GetValue(0);
+                    objRecord.BusinessID = (int)sqlDataReader.GetValue(1);
+                    objRecord.ClientID = (int)sqlDataReader.GetValue(2);
+                    objRecord.ContractID = (int)sqlDataReader.GetValue(3);
+                    objRecord.CustomerContractStatus = (string)sqlDataReader.GetValue(4);
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -297,4 +323,4 @@ namespace PremierServiceSolutions.Data_Access_Layer
         }
     }
     }
-}
+

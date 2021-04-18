@@ -34,7 +34,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     if (CheckAllTables(objPack) == true)
                     {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                        string InsertQuery = string.Format(@"INSERT INTO tblPackage (ContractID, ServiceID, SLAID, PackageState) VALUES ('{0}','{1}','{2}','{3}')", objPack.ContractID, objPack.ServiceList, objPack.SlaList, objPack.PackageStateID);
+                        string InsertQuery = string.Format(@"INSERT INTO tblPackage (ContractID, ServiceID, SLAID, PackageState) VALUES ('{0}','{1}','{2}','{3}')", objPack.ContractID, objPack.ServiceID, objPack.SlaID, objPack.PackageStateID);
                         SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
                         sqlCon.Open();
                         InsertCommand.ExecuteNonQuery();
@@ -60,7 +60,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tblTechnician
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblPackage SET ContractID ='{0}',ServiceID ='{1}',SLAID ='{2}',PackageState ='{3}' WHERE ContractID ='{4}'", newObjPack.ContractID, newObjPack.ServiceList, newObjPack.SlaList, newObjPack.PackageStateID, newObjPack.ContractID);
+                string UpdateQuery = string.Format(@"UPDATE tblPackage SET ContractID ='{0}',ServiceID ='{1}',SLAID ='{2}',PackageState ='{3}' WHERE ContractID ='{4}'", newObjPack.ContractID, newObjPack.ServiceID, newObjPack.SlaID, newObjPack.PackageStateID, newObjPack.ContractID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database
@@ -87,7 +87,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tblTechnician to change the state of the record to indicate that it is deleted but we still keep it
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblPackage SET ContractID = 0 WHERE ContractID ='{0}'", objPack.ContractID);
+                string UpdateQuery = string.Format(@"UPDATE tblPackage SET PackageState = 0 WHERE ContractID ='{0}'", objPack.ContractID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database
@@ -156,7 +156,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblPackages
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Packages
-                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblPackages WHERE ContractID = '{0}' AND ServiceID = '{1}' AND SLAID = '{2}' AND PackageState = '{3}'", objPack.ContractID, objPack.ServiceList, objPack.SlaList, objPack.PackageStateID);
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblPackages WHERE ContractID = '{0}' AND ServiceID = '{1}' AND SLAID = '{2}' AND PackageState = '{3}'", objPack.ContractID, objPack.ServiceID, objPack.SlaID, objPack.PackageStateID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //Open the connection to the database
@@ -180,7 +180,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
         //Method which will be called to check that neccessary fields exist in the other tables which have relationships
         private bool CheckAllTables(Package objPack)
         {
-            int RecordCount;
+            int ContractCount;
+            int ServiceCount;
+            int SLACount;
             try
             {
                 //New SQL Connection which the query will use to perform the Select of tblPackages
@@ -189,21 +191,62 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 string SelectQuery = string.Format("SELECT COUNT(*) FROM tblContract WHERE ContractID = '{0}'", objPack.ContractID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
-                //SQL Datareader which will be used to pull specific fields from the Select Return statement
-                SqlDataReader sqlDataReader;
                 //Open the connection to the database
                 sqlCon.Open();
                 //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
-                RecordCount = (Int32)sqlCommand.ExecuteScalar();
+                ContractCount = (Int32)sqlCommand.ExecuteScalar();
                 //Close connection to database
                 sqlCon.Close();
                 //Return Count of Packages
-                if (RecordCount == 1)
+                if (ContractCount == 1)
                 {
-                    return true;
+                    //New SQL Connection which the query will use to perform the Select of tblPackages
+                     sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                    //Select Query which will store the SQL qeury needed to return all the Packages
+                     SelectQuery = string.Format("SELECT COUNT(*) FROM tblService WHERE ServiceID = '{0}'", objPack.ServiceID);
+                    //New Command which will take in the sqlCon and UpdateQuery var
+                     sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                    //Open the connection to the database
+                    sqlCon.Open();
+                    //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                    ServiceCount = (Int32)sqlCommand.ExecuteScalar();
+                    //Close connection to database
+                    sqlCon.Close();
+                    //Return Count of Packages
+                    if (ServiceCount == 1)
+                    {
+                        //New SQL Connection which the query will use to perform the Select of tblPackages
+                         sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                        //Select Query which will store the SQL qeury needed to return all the Packages
+                         SelectQuery = string.Format("SELECT COUNT(*) FROM tblServiceLevelAgreement WHERE SLAID = '{0}'", objPack.SlaID);
+                        //New Command which will take in the sqlCon and UpdateQuery var
+                         sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                        //Open the connection to the database
+                        sqlCon.Open();
+                        //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                        SLACount = (Int32)sqlCommand.ExecuteScalar();
+                        //Close connection to database
+                        sqlCon.Close();
+                        //Return Count of Packages
+                        if (SLACount == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Service Level Agreement Not Found");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Service not found!.Please try again");
+                        return false;
+                    }
                 }
                 else
                 {
+                    MessageBox.Show("Contract not found!. Please try again");
                     return false;
                 }
             }
@@ -237,8 +280,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 while (sqlDataReader.Read())
                 {
                     objRecord.ContractID = (int)sqlDataReader.GetValue(0);
-                    objRecord.ServiceList = (int)sqlDataReader.GetValue(1);
-                    objRecord.SlaList = (int)sqlDataReader.GetValue(2);
+                    objRecord.ServiceID = (int)sqlDataReader.GetValue(1);
+                    objRecord.SlaID = (int)sqlDataReader.GetValue(2);
                     objRecord.PackageStateID = (int)sqlDataReader.GetValue(3);
 
                 }
