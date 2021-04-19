@@ -11,7 +11,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
     class DBHandler
     {
         private bool IsOnline = false;
-        private readonly string Connection = @"Data Source =flystudio.co.za\FLYSTUDIOSERVER ; Initial Catalog= Premier_Service_Solutions; User ID=PremierServiceSolutions ;Password =BelgiumCampus";
+        private readonly string Connection = @"Data Source =flystudio.co.za\FLYSTUDIO ; Initial Catalog= Premier_Service_Solutions; User ID=PremierServiceSolutions ;Password =BelgiumCampus";
 
         public string ConnectionVal { get => Connection; }
 
