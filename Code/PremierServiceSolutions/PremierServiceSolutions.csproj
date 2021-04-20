@@ -74,6 +74,7 @@
     <Compile Include="Business Logic Layer\Call.cs" />
     <Compile Include="Business Logic Layer\Client.cs" />
     <Compile Include="Business Logic Layer\Contract.cs" />
+    <Compile Include="Business Logic Layer\ContractType.cs" />
     <Compile Include="Business Logic Layer\Package.cs" />
     <Compile Include="Business Logic Layer\Service.cs" />
     <Compile Include="Business Logic Layer\Technician.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Data Access Layer\CallDH.cs" />
     <Compile Include="Data Access Layer\ClientDH.cs" />
     <Compile Include="Data Access Layer\ContractDH.cs" />
+    <Compile Include="Data Access Layer\ContractTypeDH.cs" />
     <Compile Include="Data Access Layer\CustomerContractDH.cs" />
     <Compile Include="Data Access Layer\DBHandler.cs" />
     <Compile Include="Data Access Layer\EmployeeDH.cs" />

@@ -126,7 +126,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allCon.Add(new Contract((int)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3)));
+                    allCon.Add(new Contract((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3)));
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -192,7 +192,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    objRecord.ContractID = (int)sqlDataReader.GetValue(0);
+                    objRecord.ContractID = (string)sqlDataReader.GetValue(0);
                     objRecord.ContractDescription = (string)sqlDataReader.GetValue(1);
                     objRecord.ContractType = (string)sqlDataReader.GetValue(2);
                     objRecord.ContractState = (string)sqlDataReader.GetValue(3);
@@ -207,6 +207,37 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //Will catch any errors that occur and will display a error message. it will also return a empty list
                 MessageBox.Show("Error has occured");
                 return null;
+            }
+        }
+
+
+        //Method used to find one record within the table
+        public int GetByID(string ID)
+        {
+            int RecordCount;
+            try
+            {
+                //New SQL Connection which the query will use to perform the Select of tblContract
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Contract
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblContract WHERE ContractID = '{0}'", ID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                RecordCount = (Int32)sqlCommand.ExecuteScalar();
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Contract
+                return RecordCount;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                RecordCount = -1;
+                return RecordCount;
             }
         }
     }

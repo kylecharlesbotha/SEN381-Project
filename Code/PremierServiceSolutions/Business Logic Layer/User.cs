@@ -63,6 +63,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
 
         }
+        public void ValidateAuthToken(string Token)
+        {
+
+        }
 
         public override string ToString()
         {
