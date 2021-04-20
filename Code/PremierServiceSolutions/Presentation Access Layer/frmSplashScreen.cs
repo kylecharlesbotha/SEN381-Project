@@ -101,7 +101,7 @@ namespace PremierServiceSolutions
                         
                         //Cross-Threading to close this Form
                         this.Invoke(new MethodInvoker(this.Hide));
-                        //Cross-Threading to show Login Form
+                        
                         this.Invoke(new MethodInvoker(frmLogin.Show));
                         //End Thread
                         loadtrd.Abort();
@@ -142,8 +142,11 @@ namespace PremierServiceSolutions
                 Form frmLogin = new frmLoginScreen();
                 //Cross-Threading to close this form
                 this.Invoke(new MethodInvoker(this.Hide));
-                frmLogin.Show();
-                
+                //Cross-Threading to show Login Form
+                this.Invoke(new MethodInvoker(frmLogin.Show));
+                //End Thread
+                loadtrd.Abort();
+
             }
 
 

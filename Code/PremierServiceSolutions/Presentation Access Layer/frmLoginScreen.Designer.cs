@@ -125,6 +125,9 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblSignUp.Size = new System.Drawing.Size(56, 15);
             this.lblSignUp.TabIndex = 6;
             this.lblSignUp.Text = "Sign Up";
+            this.lblSignUp.Click += new System.EventHandler(this.lblSignUp_Click);
+            this.lblSignUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblSignUp_MouseDown);
+            this.lblSignUp.MouseEnter += new System.EventHandler(this.lblSignUp_MouseEnter);
             // 
             // lblDontHaveAccount
             // 
@@ -190,12 +193,13 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.pnlMain);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(400, 350);
             this.Name = "frmLoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Premier Service Solutions";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLoginScreen_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();

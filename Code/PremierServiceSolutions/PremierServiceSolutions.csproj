@@ -114,6 +114,18 @@
     <Compile Include="Data Access Layer\TestExampleDH.cs" />
     <Compile Include="Data Access Layer\TicketDH.cs" />
     <Compile Include="Data Access Layer\UserDH.cs" />
+    <Compile Include="Presentation Access Layer\frmCreateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Access Layer\frmCreateAccount.Designer.cs">
+      <DependentUpon>frmCreateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Access Layer\frmDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Access Layer\frmDashBoard.Designer.cs">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Access Layer\frmLoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +142,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepositoryBase.cs" />
     <Compile Include="Serialization\RememberMe.cs" />
+    <EmbeddedResource Include="Presentation Access Layer\frmCreateAccount.resx">
+      <DependentUpon>frmCreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Access Layer\frmDashBoard.resx">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation Access Layer\frmLoginScreen.resx">
       <DependentUpon>frmLoginScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +184,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PSSLogo.ico" />
+    <None Include="Resources\PSSLogo.png" />
+    <None Include="Resources\EmployeeBackground.png" />
     <Content Include="Resources\Generic\BackGround.png" />
     <Content Include="Resources\Generic\PSSLogo.png" />
     <None Include="Resources\PassBackground.png" />

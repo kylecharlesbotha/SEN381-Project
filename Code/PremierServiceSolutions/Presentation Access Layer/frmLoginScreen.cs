@@ -67,5 +67,21 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             }
         }
 
+        private void lblSignUp_Click(object sender, EventArgs e)
+        {
+            Form frmCreateAccount = new frmCreateAccount();
+            this.Hide();
+            frmCreateAccount.Show();
+        }
+
+        private void lblSignUp_MouseEnter(object sender, EventArgs e)
+        {
+            lblSignUp.ForeColor = Color.FromArgb(3, 3, 3);
+        }
+
+        private void lblSignUp_MouseDown(object sender, MouseEventArgs e)
+        {
+            lblSignUp.ForeColor = Color.FromArgb(218, 0, 0);
+        }
     }
 }
