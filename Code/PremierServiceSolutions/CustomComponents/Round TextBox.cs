@@ -25,7 +25,7 @@ namespace PremierServiceSolutions.CustomComponents
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 40, 60)); //play with these values till you are happy
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 10, 10)); //play with these values till you are happy
         }
     }
 }

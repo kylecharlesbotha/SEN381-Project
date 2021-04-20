@@ -119,6 +119,12 @@
     <Compile Include="Data Access Layer\TestExampleDH.cs" />
     <Compile Include="Data Access Layer\TicketDH.cs" />
     <Compile Include="Data Access Layer\UserDH.cs" />
+    <Compile Include="Pages\frmDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmDash.Designer.cs">
+      <DependentUpon>frmDash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Access Layer\frmCreateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepositoryBase.cs" />
     <Compile Include="Serialization\RememberMe.cs" />
+    <EmbeddedResource Include="Pages\frmDash.resx">
+      <DependentUpon>frmDash.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation Access Layer\frmCreateAccount.resx">
       <DependentUpon>frmCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +200,7 @@
     <Content Include="PSSLogo.ico" />
     <None Include="Resources\PSSLogo.png" />
     <None Include="Resources\EmployeeBackground.png" />
+    <None Include="Resources\Bellicon.png" />
     <Content Include="Resources\Generic\BackGround.png" />
     <Content Include="Resources\Generic\PSSLogo.png" />
     <None Include="Resources\PassBackground.png" />
