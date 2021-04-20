@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PremierServiceSolutions.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +18,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string clientGender;
         private string clientState;
         private DateTime clientCreationDate;
-        private string clientPriority;
+        private int clientPriority;
 
-        public Client(string clientEmail, string clientPhone, string clientTitle, string clientIdNumber, string clientAddress, string clientGender, string clientState, DateTime clientCreationDate, string clientPriority)
+        public Client(string clientEmail, string clientPhone, string clientTitle, string clientIdNumber, string clientAddress, string clientGender, string clientState, DateTime clientCreationDate, int clientPriority)
         {
 
             this.clientEmail = clientEmail;
@@ -45,7 +46,11 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string ClientGender { get => clientGender; set => clientGender = value; }
         public string ClientState { get => clientState; set => clientState = value; }
         public DateTime ClientCreationDate { get => clientCreationDate; set => clientCreationDate = value; }
-        public string ClientPriority { get => clientPriority; set => clientPriority = value; }
+        public int ClientPriority { get => clientPriority; set => clientPriority = value; }
+
+
+        ClientDH objClientDH = new ClientDH();
+      
 
         public int CompareTo(Client other)
         {
@@ -65,6 +70,42 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public string CreateClientID()
+        {
+            string Letter = null;
+            bool Valid = false;
+            while (Valid==false)
+            {
+                //Will get rnadom Char between A and E
+                Random rndchar = new Random();
+                char randomChar = (char)rndchar.Next('A', 'E');
+                Letter = Convert.ToString(randomChar);
+
+                //Will get random int value between 1 and 99999999
+                Random rnd = new Random();
+                int number = rnd.Next(1, 99999999);
+                string ClientNumber = Convert.ToString(number);
+
+                //Padding the number by 0 to the lenght of 8
+                ClientNumber = (ClientNumber.PadLeft(8, '0'));
+
+                //Joining Letter and ClientNumber
+                string ClientID = Letter + ClientNumber;
+
+                if(objClientDH.GetByID(ClientID)==0)
+                {
+                    Valid = true;
+                    return ClientID;
+                }
+
+
+
+            }
+            //Return String
+            return Letter;
+
         }
 
         public override string ToString()

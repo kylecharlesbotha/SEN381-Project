@@ -15,7 +15,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
         DBHandler objHandler = new DBHandler();
 
         //Method which will be used to create new record
-        private bool CreateClient(Client objClient)
+        public bool CreateClient(Client objClient)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
         }
 
         //Method which will be used to Update current record within Database
-        private bool UpdateClient(Client newObjClient, Client oldObjClient)
+        public bool UpdateClient(Client newObjClient, Client oldObjClient)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
         }
 
         //Method used to Delete a record from the database
-        private bool DeleteClient(Client objClient)
+        public bool DeleteClient(Client objClient)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
         //Method used to Get all the records from the table in the database
-        private List<Client> GetAllClient(Client objClient)
+        public List<Client> GetAllClient(Client objClient)
         {
             try
             {
@@ -154,7 +154,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                                 (string)sqlDataReader.GetValue(5),
                                 (string)sqlDataReader.GetValue(6), 
                                 (DateTime)sqlDataReader.GetValue(7), 
-                                (string)sqlDataReader.GetValue(8) 
+                                (int)sqlDataReader.GetValue(8) 
                                 ));
                 }
                 //Close connection to database
@@ -171,7 +171,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
         }
 
         //Method used to find one record within the table
-        private int FindClient(Client objClient)
+        public int FindClient(Client objClient)
         {
             int RecordCount;
             try
@@ -200,7 +200,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        private Client GetClient(Client objClient)
+        public Client GetClient(Client objClient)
         {
             Client objRecord = new Client();
             try
@@ -231,7 +231,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     objRecord.ClientCell = (string)sqlDataReader.GetValue(7);
                     objRecord.ClientCreationDate = (DateTime)sqlDataReader.GetValue(8);
                     objRecord.ClientEmail = (string)sqlDataReader.GetValue(9);
-                    objRecord.ClientPriority = (string)sqlDataReader.GetValue(10);
+                    objRecord.ClientPriority = (int)sqlDataReader.GetValue(10);
                     objRecord.ClientState = (string)sqlDataReader.GetValue(11);
 
                 }
@@ -245,6 +245,35 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //Will catch any errors that occur and will display a error message. it will also return a empty list
                 MessageBox.Show("Error has occured");
                 return null;
+            }
+        }
+
+        public int GetByID(string ID)
+        {
+            int RecordCount;
+            try
+            {
+                //New SQL Connection which the query will use to perform the Select of tblClient
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Clients
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblClient WHERE ClientID = '{0}'",ID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                RecordCount = (Int32)sqlCommand.ExecuteScalar();
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Clients
+                return RecordCount;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                RecordCount = -1;
+                return RecordCount;
             }
         }
 
