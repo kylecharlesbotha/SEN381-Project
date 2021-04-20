@@ -9,14 +9,18 @@ namespace PremierServiceSolutions.Business_Logic_Layer
     class Technician
     {
         private int technicianID;
+        private int technicianLevel;
         private string technicianStatus;
-        private string technicianLevel;
+        private int technicianState;
+        private int employeeID;
 
-        public Technician(int technicianID, string technicianStatus, string technicianLevel)
+        public Technician(int technicianID, int technicianLevel, string technicianStatus, int employeeid,int technicianstate )
         {
             this.technicianID = technicianID;
             this.technicianStatus = technicianStatus;
             this.technicianLevel = technicianLevel;
+            this.technicianState = technicianstate;
+            this.employeeID = employeeid;
         }
 
         public Technician()
@@ -25,7 +29,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         public int TechnicianID { get => technicianID; set => technicianID = value; }
         public string TechnicianStatus { get => technicianStatus; set => technicianStatus = value; }
-        public string TechnicianLevel { get => technicianLevel; set => technicianLevel = value; }
+        public int TechnicianLevel { get => technicianLevel; set => technicianLevel = value; }
+        public int TechnicianState { get => technicianState; set => technicianState = value; }
+        public int EmployeeID { get => employeeID; set => employeeID = value; }
 
         public override string ToString()
         {

@@ -11,11 +11,11 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int businessID;
         private string businessName;
         private string businessPhone;
-        private string businessRegistrationNumber;
+        private int businessRegistrationNumber;
         private string businessAddress;
         private string businessState;
 
-        public Business(int businessID, string businessName, string businessPhone, string businessRegistrationNumber, string businessAddress, string businessState)
+        public Business(int businessID, string businessAddress, string businessName, string businessPhone, int businessRegistrationNumber, string businessState)
         {
             this.businessID = businessID;
             this.businessName = businessName;
@@ -33,8 +33,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public int BusinessID { get => businessID; set => businessID = value; }
         public string BusinessName { get => businessName; set => businessName = value; }
         public string BusinessPhone { get => businessPhone; set => businessPhone = value; }
-        public string BusinessRegistrationNumber { get => businessRegistrationNumber; set => businessRegistrationNumber = value; }
+        public int BusinessRegistrationNumber { get => businessRegistrationNumber; set => businessRegistrationNumber = value; }
         public string BusinessState { get => businessState; set => businessState = value; }
+        public string BusinessAddress { get => businessAddress; set => businessAddress = value; }
 
         public void GetBusinessDetails()
         {

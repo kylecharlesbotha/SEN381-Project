@@ -17,13 +17,13 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private DateTime ticketLastUpdated;
         private DateTime ticketDueDate;
         private string ticketDescription;
-        private Technician ticketAssginedTechnician;
-        private Client ticketClientObject;
-        private Employee ticketEmployeeObject;
+        private int technicianID;
+        private int clientID;
+        private int employeeID;
 
 
 
-        public Ticket(int ticketID, string ticketTitle, string ticketIssueType, string ticketPriority, string ticketStatus, DateTime ticketLoggedTime, DateTime ticketLastUpdated, DateTime ticketDueDate, string ticketDescription, Technician ticketAssginedTechnician, Client ticketClientObject, Employee ticketEmployeeObject)
+        public Ticket(int ticketID, int technicianID, int clientID, string ticketDescription, DateTime ticketDueDate, int employeeID, string ticketIssueType, DateTime ticketLastUpdated, DateTime ticketLoggedTime, string ticketPriority, string ticketStatus, string ticketTitle)
         {
             this.ticketID = ticketID;
             this.ticketTitle = ticketTitle;
@@ -34,9 +34,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.ticketLastUpdated = ticketLastUpdated;
             this.ticketDueDate = ticketDueDate;
             this.ticketDescription = ticketDescription;
-            this.ticketAssginedTechnician = ticketAssginedTechnician;
-            this.ticketClientObject = ticketClientObject;
-            this.ticketEmployeeObject = ticketEmployeeObject;
+            this.technicianID = technicianID;
+            this.clientID = clientID;
+            this.employeeID = employeeID;
         }
 
         public Ticket()
@@ -53,10 +53,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public DateTime TicketLastUpdated { get => ticketLastUpdated; set => ticketLastUpdated = value; }
         public DateTime TicketDueDate { get => ticketDueDate; set => ticketDueDate = value; }
         public string TicketDescription { get => ticketDescription; set => ticketDescription = value; }
-        public Technician TicketAssginedTechnician { get => ticketAssginedTechnician; set => ticketAssginedTechnician = value; }
-        public Client TicketClientObject { get => ticketClientObject; set => ticketClientObject = value; }
-        internal Employee TicketEmployeeObject { get => ticketEmployeeObject; set => ticketEmployeeObject = value; }
-
+        public int TechnicianID { get => technicianID; set => technicianID = value; }
+        public int ClientID { get => clientID; set => clientID = value; }
+        public int EmployeeID { get => employeeID; set => employeeID = value; }
 
         public void CreateTicket()
         {

@@ -11,12 +11,14 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int contractID;
         private string contractType;
         private string contractDescription;
+        private string contractState;
 
-        public Contract(int contractID, string contractType, string contractDescription)
+        public Contract(int contractID, string contractDescription, string contractType, string contractState)
         {
             this.contractID = contractID;
-            this.contractType = contractType;
             this.contractDescription = contractDescription;
+            this.contractType = contractType;
+            this.contractState = contractState;
         }
         public Contract()
         {
@@ -24,8 +26,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         }
 
         public int ContractID { get => contractID; set => contractID = value; }
-        public string ContractType { get => contractType; set => contractType = value; }
         public string ContractDescription { get => contractDescription; set => contractDescription = value; }
+        public string ContractType { get => contractType; set => contractType = value; }
+        public string ContractState { get => contractState; set => contractState = value; }
 
         public override string ToString()
         {

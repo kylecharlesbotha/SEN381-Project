@@ -9,20 +9,34 @@ namespace PremierServiceSolutions.Business_Logic_Layer
     class Employee : Person, IComparable<Employee>
     {
 
+       
+
+        private int employeeID;
+        private string employeeName;
+        private string employeeSurName;
+        private string employeeIDNumber;
+
         private string employeeCell;
-        private string employeeStatus;
         private string employeeGender;
         private string employeeRole;
         private DateTime employeeStart;
+        private string employeeStatus;
+       
+        
+       
 
-        public Employee(string employeeCell, string employeeStatus, string employeeGender, string employeeRole, DateTime employeeStart)
+        public Employee(int employeeid, string employeename, string employeesurName, string employeeIDNumber, string employeecell, string employeegender, string employeerole, DateTime employeestart, string employeestatus)
         {
 
-            this.employeeCell = employeeCell;
-            this.employeeStatus = employeeStatus;
-            this.employeeGender = employeeGender;
-            this.employeeRole = employeeRole;
-            this.employeeStart = employeeStart;
+            this.employeeID = employeeid;
+            this.employeeName = employeename;
+            this.employeeSurName = employeesurName;
+            this.employeeIDNumber = employeeIDNumber;
+            this.employeeCell = employeecell;
+            this.EmployeeGender = employeegender;
+            this.employeeRole = employeerole;
+            this.employeeStart = employeestart;
+            this.employeeStatus = employeestatus;
         }
 
         public Employee()
@@ -38,6 +52,14 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
             throw new NotImplementedException();
         }
+
+        public int EmployeeID { get => employeeID; set => employeeID = value; }
+        public string EmployeeName { get => employeeName; set => employeeName = value; }
+        public string EmployeeSurName { get => employeeSurName; set => employeeSurName = value; }
+        public string EmployeeIDNumber { get => employeeIDNumber; set => employeeIDNumber = value; }
+     
+
+    
 
         public string EmployeeCell { get => employeeCell; set => employeeCell = value; }
         public string EmployeeStatus { get => employeeStatus; set => employeeStatus = value; }
