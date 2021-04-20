@@ -33,7 +33,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlMain = new System.Windows.Forms.Panel();
             this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnSignIn = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnCreateAccount = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.tbAdminCode = new System.Windows.Forms.TextBox();
             this.pBAdminCode = new System.Windows.Forms.PictureBox();
             this.tBConfirmPassword = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // 
             this.pnlMain.Controls.Add(this.btnReset);
             this.pnlMain.Controls.Add(this.pictureBox2);
-            this.pnlMain.Controls.Add(this.btnSignIn);
+            this.pnlMain.Controls.Add(this.btnCreateAccount);
             this.pnlMain.Controls.Add(this.tbAdminCode);
             this.pnlMain.Controls.Add(this.pBAdminCode);
             this.pnlMain.Controls.Add(this.tBConfirmPassword);
@@ -112,26 +112,27 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
             // 
-            // btnSignIn
+            // btnCreateAccount
             // 
-            this.btnSignIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnSignIn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnSignIn.FlatAppearance.BorderSize = 0;
-            this.btnSignIn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSignIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSignIn.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignIn.Location = new System.Drawing.Point(72, 430);
-            this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSignIn.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSignIn.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnSignIn.Size = new System.Drawing.Size(250, 40);
-            this.btnSignIn.TabIndex = 23;
-            this.btnSignIn.TabStop = false;
-            this.btnSignIn.Text = "Sign In";
-            this.btnSignIn.TextColor = System.Drawing.Color.White;
-            this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateAccount.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateAccount.FlatAppearance.BorderSize = 0;
+            this.btnCreateAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAccount.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateAccount.Location = new System.Drawing.Point(72, 430);
+            this.btnCreateAccount.Name = "btnCreateAccount";
+            this.btnCreateAccount.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateAccount.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateAccount.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCreateAccount.Size = new System.Drawing.Size(250, 40);
+            this.btnCreateAccount.TabIndex = 23;
+            this.btnCreateAccount.TabStop = false;
+            this.btnCreateAccount.Text = "Create Account";
+            this.btnCreateAccount.TextColor = System.Drawing.Color.White;
+            this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // tbAdminCode
             // 
@@ -344,7 +345,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.PictureBox pbEmployee;
         private System.Windows.Forms.Label lblCreateAccount;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private CustomComponents.ButtonRound btnSignIn;
+        private CustomComponents.ButtonRound btnCreateAccount;
         private CustomComponents.ButtonRound btnReset;
     }
 }

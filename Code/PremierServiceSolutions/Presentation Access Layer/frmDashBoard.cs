@@ -16,5 +16,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
             InitializeComponent();
         }
+
+        private void tbnTechnicians_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

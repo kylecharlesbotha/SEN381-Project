@@ -34,5 +34,12 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
             lblLogin.ForeColor = Color.FromArgb(218, 0, 0);
         }
+
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            Form frmdash = new frmDashBoard();
+            this.Hide();
+            frmdash.Show();
+        }
     }
 }

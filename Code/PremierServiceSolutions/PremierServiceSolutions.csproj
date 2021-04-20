@@ -96,6 +96,9 @@
     <Compile Include="CustomComponents\Round TextBox.Designer.cs">
       <DependentUpon>Round TextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomComponents\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Data Access Layer\BusinessContactDH.cs" />
     <Compile Include="Data Access Layer\BusinessDH.cs" />
     <Compile Include="Data Access Layer\CallDH.cs" />

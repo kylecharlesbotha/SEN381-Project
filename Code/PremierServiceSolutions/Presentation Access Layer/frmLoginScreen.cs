@@ -79,7 +79,14 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             lblSignUp.ForeColor = Color.FromArgb(3, 3, 3);
         }
 
-        private void lblSignUp_MouseDown(object sender, MouseEventArgs e)
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            Form frmdash = new frmDashBoard();
+            this.Hide();
+            frmdash.Show();
+        }
+
+        private void lblSignUp_MouseLeave(object sender, EventArgs e)
         {
             lblSignUp.ForeColor = Color.FromArgb(218, 0, 0);
         }
