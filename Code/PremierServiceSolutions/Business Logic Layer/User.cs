@@ -63,7 +63,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
 
         }
-        public void ValidateAuthToken()
+        public void ValidateAuthToken(string Token)
         {
 
         }
