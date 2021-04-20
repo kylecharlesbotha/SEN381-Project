@@ -106,7 +106,6 @@ namespace PremierServiceSolutions
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Premier Service Solutions";
             this.Load += new System.EventHandler(this.frmSplashScreen_Load);
-            this.Shown += new System.EventHandler(this.frmSplashScreen_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

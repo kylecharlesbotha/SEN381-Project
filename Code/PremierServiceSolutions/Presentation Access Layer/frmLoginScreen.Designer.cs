@@ -31,14 +31,14 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginScreen));
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.tBUsername = new System.Windows.Forms.TextBox();
+            this.tBPassword = new System.Windows.Forms.TextBox();
             this.pBPass = new System.Windows.Forms.PictureBox();
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.lblSignUp = new System.Windows.Forms.Label();
             this.lblDontHaveAccount = new System.Windows.Forms.Label();
             this.cBRemeberMe = new System.Windows.Forms.CheckBox();
             this.lblUserLogin = new System.Windows.Forms.Label();
-            this.tBUsername = new System.Windows.Forms.TextBox();
-            this.tBPassword = new System.Windows.Forms.TextBox();
             this.btnSignIn = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBPass)).BeginInit();
@@ -61,6 +61,40 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(400, 350);
             this.pnlMain.TabIndex = 0;
+            // 
+            // tBUsername
+            // 
+            this.tBUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tBUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBUsername.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBUsername.ForeColor = System.Drawing.Color.White;
+            this.tBUsername.HideSelection = false;
+            this.tBUsername.Location = new System.Drawing.Point(121, 98);
+            this.tBUsername.Name = "tBUsername";
+            this.tBUsername.Size = new System.Drawing.Size(193, 26);
+            this.tBUsername.TabIndex = 0;
+            this.tBUsername.TabStop = false;
+            this.tBUsername.Text = "Username";
+            this.tBUsername.Click += new System.EventHandler(this.tBUsername_Click);
+            this.tBUsername.TextChanged += new System.EventHandler(this.tBUsername_TextChanged);
+            this.tBUsername.Leave += new System.EventHandler(this.tBUsername_Leave);
+            // 
+            // tBPassword
+            // 
+            this.tBPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tBPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBPassword.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBPassword.ForeColor = System.Drawing.Color.White;
+            this.tBPassword.HideSelection = false;
+            this.tBPassword.Location = new System.Drawing.Point(90, 154);
+            this.tBPassword.Name = "tBPassword";
+            this.tBPassword.Size = new System.Drawing.Size(188, 26);
+            this.tBPassword.TabIndex = 1;
+            this.tBPassword.TabStop = false;
+            this.tBPassword.Text = "Password";
+            this.tBPassword.Click += new System.EventHandler(this.tBPassword_Click);
+            this.tBPassword.Enter += new System.EventHandler(this.tBPassword_Enter);
+            this.tBPassword.Leave += new System.EventHandler(this.tBPassword_Leave);
             // 
             // pBPass
             // 
@@ -126,40 +160,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblUserLogin.TabIndex = 1;
             this.lblUserLogin.Text = "USER LOGIN";
             this.lblUserLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tBUsername
-            // 
-            this.tBUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBUsername.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBUsername.ForeColor = System.Drawing.Color.White;
-            this.tBUsername.HideSelection = false;
-            this.tBUsername.Location = new System.Drawing.Point(121, 98);
-            this.tBUsername.Name = "tBUsername";
-            this.tBUsername.Size = new System.Drawing.Size(193, 26);
-            this.tBUsername.TabIndex = 0;
-            this.tBUsername.TabStop = false;
-            this.tBUsername.Text = "Username";
-            this.tBUsername.Click += new System.EventHandler(this.tBUsername_Click);
-            this.tBUsername.TextChanged += new System.EventHandler(this.tBUsername_TextChanged);
-            this.tBUsername.Leave += new System.EventHandler(this.tBUsername_Leave);
-            // 
-            // tBPassword
-            // 
-            this.tBPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBPassword.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBPassword.ForeColor = System.Drawing.Color.White;
-            this.tBPassword.HideSelection = false;
-            this.tBPassword.Location = new System.Drawing.Point(90, 154);
-            this.tBPassword.Name = "tBPassword";
-            this.tBPassword.Size = new System.Drawing.Size(188, 26);
-            this.tBPassword.TabIndex = 1;
-            this.tBPassword.TabStop = false;
-            this.tBPassword.Text = "Password";
-            this.tBPassword.Click += new System.EventHandler(this.tBPassword_Click);
-            this.tBPassword.Enter += new System.EventHandler(this.tBPassword_Enter);
-            this.tBPassword.Leave += new System.EventHandler(this.tBPassword_Leave);
             // 
             // btnSignIn
             // 
