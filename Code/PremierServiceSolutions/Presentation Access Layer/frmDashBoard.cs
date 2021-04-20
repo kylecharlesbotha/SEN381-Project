@@ -17,10 +17,12 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private Point _start_point = new Point(0, 0);
         private int Menuoption = 0;
         Form frmDash = new frmDash();
+        Form frmTick = new frmTickets();
         public frmDashBoard()
         {
             InitializeComponent();
             frmDash.TopLevel = false;
+            frmTick.TopLevel = false;
 
         }
 
@@ -83,8 +85,37 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnEmployees.ForeColor = Color.FromArgb(218, 0, 0);
             btnReports.ForeColor = Color.FromArgb(218, 0, 0);
 
+           
 
 
+        }
+
+        private void btnTickets_Click(object sender, EventArgs e)
+        {
+            ChangeMenuSelection();
+            HideForms();
+            btnTickets.ForeColor = Color.White;
+            btnTickets.BackColor = Color.FromArgb(218, 0, 0);
+
+            pnlMainPage.Controls.Add(frmTick);
+            frmTick.Show();
+
+        }
+        private void HideForms()
+        {
+            frmDash.Hide();
+            frmTick.Hide();
+        }
+
+        private void btnDashBoard_Click(object sender, EventArgs e)
+        {
+            ChangeMenuSelection();
+            HideForms();
+            btnDashBoard.ForeColor = Color.White;
+            btnDashBoard.BackColor = Color.FromArgb(218, 0, 0);
+
+            pnlMainPage.Controls.Add(frmDash);
+            frmDash.Show();
         }
     }
 }
