@@ -83,6 +83,16 @@ namespace PremierServiceSolutions.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EmployeeBackground {
+            get {
+                object obj = ResourceManager.GetObject("EmployeeBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PassBackground {
             get {
                 object obj = ResourceManager.GetObject("PassBackground", resourceCulture);
@@ -96,6 +106,16 @@ namespace PremierServiceSolutions.Properties {
         internal static System.Drawing.Bitmap PersonLogo {
             get {
                 object obj = ResourceManager.GetObject("PersonLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PSSLogo {
+            get {
+                object obj = ResourceManager.GetObject("PSSLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
