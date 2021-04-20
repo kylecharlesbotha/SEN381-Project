@@ -31,15 +31,15 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginScreen));
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.tBUsername = new System.Windows.Forms.TextBox();
+            this.tBPassword = new System.Windows.Forms.TextBox();
             this.pBPass = new System.Windows.Forms.PictureBox();
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.lblSignUp = new System.Windows.Forms.Label();
             this.lblDontHaveAccount = new System.Windows.Forms.Label();
             this.cBRemeberMe = new System.Windows.Forms.CheckBox();
-            this.lblUserLogin = new System.Windows.Forms.Label();
-            this.tBUsername = new System.Windows.Forms.TextBox();
-            this.tBPassword = new System.Windows.Forms.TextBox();
             this.btnSignIn = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.lblUserLogin = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
@@ -61,71 +61,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(400, 350);
             this.pnlMain.TabIndex = 0;
-            // 
-            // pBPass
-            // 
-            this.pBPass.BackColor = System.Drawing.Color.Transparent;
-            this.pBPass.Image = global::PremierServiceSolutions.Properties.Resources.PassBackground;
-            this.pBPass.Location = new System.Drawing.Point(0, 142);
-            this.pBPass.Name = "pBPass";
-            this.pBPass.Size = new System.Drawing.Size(400, 50);
-            this.pBPass.TabIndex = 11;
-            this.pBPass.TabStop = false;
-            // 
-            // pbUser
-            // 
-            this.pbUser.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.UserBackground;
-            this.pbUser.Location = new System.Drawing.Point(0, 86);
-            this.pbUser.Name = "pbUser";
-            this.pbUser.Size = new System.Drawing.Size(400, 50);
-            this.pbUser.TabIndex = 10;
-            this.pbUser.TabStop = false;
-            // 
-            // lblSignUp
-            // 
-            this.lblSignUp.AutoSize = true;
-            this.lblSignUp.Font = new System.Drawing.Font("SF Pro Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSignUp.Location = new System.Drawing.Point(249, 324);
-            this.lblSignUp.Name = "lblSignUp";
-            this.lblSignUp.Size = new System.Drawing.Size(56, 15);
-            this.lblSignUp.TabIndex = 6;
-            this.lblSignUp.Text = "Sign Up";
-            // 
-            // lblDontHaveAccount
-            // 
-            this.lblDontHaveAccount.AutoSize = true;
-            this.lblDontHaveAccount.Font = new System.Drawing.Font("SF Pro Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDontHaveAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.lblDontHaveAccount.Location = new System.Drawing.Point(99, 324);
-            this.lblDontHaveAccount.Name = "lblDontHaveAccount";
-            this.lblDontHaveAccount.Size = new System.Drawing.Size(153, 15);
-            this.lblDontHaveAccount.TabIndex = 8;
-            this.lblDontHaveAccount.Text = "Don\'t have an account?";
-            // 
-            // cBRemeberMe
-            // 
-            this.cBRemeberMe.Font = new System.Drawing.Font("SF Pro Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBRemeberMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cBRemeberMe.Location = new System.Drawing.Point(147, 248);
-            this.cBRemeberMe.Name = "cBRemeberMe";
-            this.cBRemeberMe.Size = new System.Drawing.Size(105, 21);
-            this.cBRemeberMe.TabIndex = 3;
-            this.cBRemeberMe.TabStop = false;
-            this.cBRemeberMe.Text = "Remeber Me";
-            this.cBRemeberMe.UseVisualStyleBackColor = true;
-            // 
-            // lblUserLogin
-            // 
-            this.lblUserLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUserLogin.Font = new System.Drawing.Font("SF Pro Text", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUserLogin.Location = new System.Drawing.Point(0, 33);
-            this.lblUserLogin.Name = "lblUserLogin";
-            this.lblUserLogin.Size = new System.Drawing.Size(400, 35);
-            this.lblUserLogin.TabIndex = 1;
-            this.lblUserLogin.Text = "USER LOGIN";
-            this.lblUserLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tBUsername
             // 
@@ -161,6 +96,62 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tBPassword.Enter += new System.EventHandler(this.tBPassword_Enter);
             this.tBPassword.Leave += new System.EventHandler(this.tBPassword_Leave);
             // 
+            // pBPass
+            // 
+            this.pBPass.BackColor = System.Drawing.Color.Transparent;
+            this.pBPass.Image = global::PremierServiceSolutions.Properties.Resources.PassBackground;
+            this.pBPass.Location = new System.Drawing.Point(0, 142);
+            this.pBPass.Name = "pBPass";
+            this.pBPass.Size = new System.Drawing.Size(400, 50);
+            this.pBPass.TabIndex = 11;
+            this.pBPass.TabStop = false;
+            // 
+            // pbUser
+            // 
+            this.pbUser.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.UserBackground;
+            this.pbUser.Location = new System.Drawing.Point(0, 86);
+            this.pbUser.Name = "pbUser";
+            this.pbUser.Size = new System.Drawing.Size(400, 50);
+            this.pbUser.TabIndex = 10;
+            this.pbUser.TabStop = false;
+            // 
+            // lblSignUp
+            // 
+            this.lblSignUp.AutoSize = true;
+            this.lblSignUp.Font = new System.Drawing.Font("SF Pro Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblSignUp.Location = new System.Drawing.Point(249, 324);
+            this.lblSignUp.Name = "lblSignUp";
+            this.lblSignUp.Size = new System.Drawing.Size(56, 15);
+            this.lblSignUp.TabIndex = 6;
+            this.lblSignUp.Text = "Sign Up";
+            this.lblSignUp.Click += new System.EventHandler(this.lblSignUp_Click);
+            this.lblSignUp.MouseEnter += new System.EventHandler(this.lblSignUp_MouseEnter);
+            this.lblSignUp.MouseLeave += new System.EventHandler(this.lblSignUp_MouseLeave);
+            // 
+            // lblDontHaveAccount
+            // 
+            this.lblDontHaveAccount.AutoSize = true;
+            this.lblDontHaveAccount.Font = new System.Drawing.Font("SF Pro Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDontHaveAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
+            this.lblDontHaveAccount.Location = new System.Drawing.Point(99, 324);
+            this.lblDontHaveAccount.Name = "lblDontHaveAccount";
+            this.lblDontHaveAccount.Size = new System.Drawing.Size(153, 15);
+            this.lblDontHaveAccount.TabIndex = 8;
+            this.lblDontHaveAccount.Text = "Don\'t have an account?";
+            // 
+            // cBRemeberMe
+            // 
+            this.cBRemeberMe.Font = new System.Drawing.Font("SF Pro Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBRemeberMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cBRemeberMe.Location = new System.Drawing.Point(147, 248);
+            this.cBRemeberMe.Name = "cBRemeberMe";
+            this.cBRemeberMe.Size = new System.Drawing.Size(105, 21);
+            this.cBRemeberMe.TabIndex = 3;
+            this.cBRemeberMe.TabStop = false;
+            this.cBRemeberMe.Text = "Remeber Me";
+            this.cBRemeberMe.UseVisualStyleBackColor = true;
+            // 
             // btnSignIn
             // 
             this.btnSignIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
@@ -181,6 +172,19 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnSignIn.Text = "Sign In";
             this.btnSignIn.TextColor = System.Drawing.Color.White;
             this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
+            // 
+            // lblUserLogin
+            // 
+            this.lblUserLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUserLogin.Font = new System.Drawing.Font("SF Pro Text", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUserLogin.Location = new System.Drawing.Point(0, 33);
+            this.lblUserLogin.Name = "lblUserLogin";
+            this.lblUserLogin.Size = new System.Drawing.Size(400, 35);
+            this.lblUserLogin.TabIndex = 1;
+            this.lblUserLogin.Text = "USER LOGIN";
+            this.lblUserLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmLoginScreen
             // 
@@ -190,12 +194,13 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.pnlMain);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(400, 350);
             this.Name = "frmLoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Premier Service Solutions";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLoginScreen_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
