@@ -1,10 +1,13 @@
-﻿using System;
+﻿using PremierServiceSolutions.Serialization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,7 +22,7 @@ namespace PremierServiceSolutions
         public frmSplashScreen()
         {
             InitializeComponent();
-            RememberMe objRemMe = new RemeberMe();
+           
         }
 
 
@@ -48,9 +51,16 @@ namespace PremierServiceSolutions
                 Directory.CreateDirectory(GetTemporaryDirectory());
             }
             string FullPath = GetTemporaryDirectory();
-            FullPath += @"\text.txt";
+            FullPath += @"\text.ser";
 
-            
+            RememberMe objRemMe = new RememberMe();
+            objRemMe.Remember = 1;
+            objRemMe.AuthToken = "2wdadwahnfjehf3427862173612";
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(FullPath, FileMode.Create, FileAccess.Write);
+            formatter.Serialize(stream, objRemMe);
+            stream.Close();
 
 
 
