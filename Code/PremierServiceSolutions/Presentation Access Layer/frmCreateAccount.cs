@@ -41,5 +41,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.Hide();
             frmdash.Show();
         }
+
+        private void tBEmployeeNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

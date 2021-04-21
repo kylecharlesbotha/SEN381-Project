@@ -48,6 +48,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblLogin = new System.Windows.Forms.Label();
             this.lblHaveAccount = new System.Windows.Forms.Label();
             this.lblPremierServiceSolutions = new System.Windows.Forms.Label();
+            this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
+            this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBAdminCode)).BeginInit();
@@ -55,6 +57,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             ((System.ComponentModel.ISupportInitialize)(this.pBPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBUsername)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -233,6 +237,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tBEmployeeNumber.TabIndex = 12;
             this.tBEmployeeNumber.TabStop = false;
             this.tBEmployeeNumber.Text = "EmployeeNumber";
+            this.tBEmployeeNumber.TextChanged += new System.EventHandler(this.tBEmployeeNumber_TextChanged);
             // 
             // pBUsername
             // 
@@ -301,6 +306,34 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblPremierServiceSolutions.TabIndex = 0;
             this.lblPremierServiceSolutions.Text = "Premier Service Solutions";
             // 
+            // iPBMinimize
+            // 
+            this.iPBMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.iPBMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iPBMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.iPBMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iPBMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iPBMinimize.IconSize = 29;
+            this.iPBMinimize.Location = new System.Drawing.Point(1141, 0);
+            this.iPBMinimize.Name = "iPBMinimize";
+            this.iPBMinimize.Size = new System.Drawing.Size(29, 29);
+            this.iPBMinimize.TabIndex = 21;
+            this.iPBMinimize.TabStop = false;
+            // 
+            // iPBExit
+            // 
+            this.iPBExit.BackColor = System.Drawing.Color.Transparent;
+            this.iPBExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iPBExit.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.iPBExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iPBExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iPBExit.IconSize = 29;
+            this.iPBExit.Location = new System.Drawing.Point(1171, 0);
+            this.iPBExit.Name = "iPBExit";
+            this.iPBExit.Size = new System.Drawing.Size(29, 29);
+            this.iPBExit.TabIndex = 20;
+            this.iPBExit.TabStop = false;
+            // 
             // frmCreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +341,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.BackGround;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 800);
+            this.Controls.Add(this.iPBMinimize);
+            this.Controls.Add(this.iPBExit);
             this.Controls.Add(this.pnlMain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -323,6 +358,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             ((System.ComponentModel.ISupportInitialize)(this.pBPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBUsername)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -347,5 +384,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.PictureBox pictureBox2;
         private CustomComponents.ButtonRound btnCreateAccount;
         private CustomComponents.ButtonRound btnReset;
+        private FontAwesome.Sharp.IconPictureBox iPBMinimize;
+        private FontAwesome.Sharp.IconPictureBox iPBExit;
     }
 }

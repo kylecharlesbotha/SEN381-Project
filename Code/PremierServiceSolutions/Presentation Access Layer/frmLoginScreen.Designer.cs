@@ -40,9 +40,13 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.cBRemeberMe = new System.Windows.Forms.CheckBox();
             this.btnSignIn = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.lblUserLogin = new System.Windows.Forms.Label();
+            this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
+            this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -186,6 +190,34 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblUserLogin.Text = "USER LOGIN";
             this.lblUserLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // iPBMinimize
+            // 
+            this.iPBMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.iPBMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iPBMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.iPBMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iPBMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iPBMinimize.IconSize = 29;
+            this.iPBMinimize.Location = new System.Drawing.Point(741, 0);
+            this.iPBMinimize.Name = "iPBMinimize";
+            this.iPBMinimize.Size = new System.Drawing.Size(29, 29);
+            this.iPBMinimize.TabIndex = 21;
+            this.iPBMinimize.TabStop = false;
+            // 
+            // iPBExit
+            // 
+            this.iPBExit.BackColor = System.Drawing.Color.Transparent;
+            this.iPBExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iPBExit.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.iPBExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.iPBExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iPBExit.IconSize = 29;
+            this.iPBExit.Location = new System.Drawing.Point(771, 0);
+            this.iPBExit.Name = "iPBExit";
+            this.iPBExit.Size = new System.Drawing.Size(29, 29);
+            this.iPBExit.TabIndex = 20;
+            this.iPBExit.TabStop = false;
+            // 
             // frmLoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,6 +225,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.BackGround;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.iPBMinimize);
+            this.Controls.Add(this.iPBExit);
             this.Controls.Add(this.pnlMain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -206,6 +240,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,5 +258,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.PictureBox pBPass;
         private System.Windows.Forms.TextBox tBUsername;
         private System.Windows.Forms.TextBox tBPassword;
+        private FontAwesome.Sharp.IconPictureBox iPBMinimize;
+        private FontAwesome.Sharp.IconPictureBox iPBExit;
     }
 }

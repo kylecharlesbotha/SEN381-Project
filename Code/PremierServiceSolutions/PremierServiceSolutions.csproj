@@ -54,8 +54,12 @@
     <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -119,6 +123,12 @@
     <Compile Include="Data Access Layer\TestExampleDH.cs" />
     <Compile Include="Data Access Layer\TicketDH.cs" />
     <Compile Include="Data Access Layer\UserDH.cs" />
+    <Compile Include="Pages\frmCentre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmCentre.Designer.cs">
+      <DependentUpon>frmCentre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\frmContracts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +210,9 @@
     </Compile>
     <Compile Include="Repository\IRepositoryBase.cs" />
     <Compile Include="Serialization\RememberMe.cs" />
+    <EmbeddedResource Include="Pages\frmCentre.resx">
+      <DependentUpon>frmCentre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\frmDash.resx">
       <DependentUpon>frmDash.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +236,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -242,6 +260,9 @@
     <Folder Include="Resources\LoginScreen\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="PSSLogo.ico" />
     <None Include="Resources\SFProDisplay-Bold.ttf" />
     <None Include="Resources\SFProDisplay-Regular.ttf" />
@@ -249,6 +270,8 @@
     <None Include="Resources\PSSLogo.png" />
     <None Include="Resources\EmployeeBackground.png" />
     <None Include="Resources\Bellicon.png" />
+    <None Include="Resources\DeclineCall.png" />
+    <None Include="Resources\AnswerCall.png" />
     <Content Include="Resources\Generic\BackGround.png" />
     <Content Include="Resources\Generic\PSSLogo.png" />
     <None Include="Resources\PassBackground.png" />
