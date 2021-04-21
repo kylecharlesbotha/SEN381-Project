@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,20 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//CheckTables, FindByID Not complete
+
+
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class ServiceDH
+    class ServiceDH : IRepositoryBase<Service>
     {
-        //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
         DBHandler objHandler = new DBHandler();
 
-        //Method which will be used to create new record
-        private bool CreateService(Service objSer)
+
+        public bool Create(Service objSer)
         {
             try
             {
                 //Checking if the Service already exists
-                int ServiceVal = FindService(objSer);
+                int ServiceVal = Find(objSer);
                 if (ServiceVal == 1)
                 {
                     //If it finds a Service with same details return message saying Service already exists
@@ -30,13 +34,13 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (ServiceVal == 0)
                 {
                     //Service does not exist
-                        SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                        string InsertQuery = string.Format(@"INSERT INTO tblService (ServiceDescription, ServiceLevel, ServiceName, ServiceState) VALUES ('{0}','{1}','{2}','{3}')", objSer.ServiceDescription, objSer.ServiceLevel, objSer.ServiceName, objSer.ServiceState);
-                        SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
-                        sqlCon.Open();
-                        InsertCommand.ExecuteNonQuery();
-                        sqlCon.Close();
-                        return true;
+                    SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                    string InsertQuery = string.Format(@"INSERT INTO tblService (ServiceDescription, ServiceLevel, ServiceName, ServiceState) VALUES ('{0}','{1}','{2}','{3}')", objSer.ServiceDescription, objSer.ServiceLevel, objSer.ServiceName, objSer.ServiceState);
+                    SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
+                    sqlCon.Open();
+                    InsertCommand.ExecuteNonQuery();
+                    sqlCon.Close();
+                    return true;
                 }
                 return false;
             }
@@ -44,11 +48,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateService(Service newObjSer, Service oldObjSer)
+        public bool Update(Service newObjSer, Service oldObjSer)
         {
             try
             {
@@ -75,8 +77,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteService(Service objSer)
+        public bool Delete(Service objSer)
         {
             try
             {
@@ -102,8 +103,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-        //Method used to Get all the records from the table in the database
-        private List<Service> GetAllService(Service objSer)
+
+        public ICollection<Service> GetAll()
         {
             try
             {
@@ -138,10 +139,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to find one record within the table
-        private int FindService(Service objSer)
+        public int Find(Service objSer)
         {
-            //Get count of rows to see if object exists. Refer to ServiceDH FindService method
             int RecordCount;
             try
             {
@@ -167,6 +166,16 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 RecordCount = -1;
                 return RecordCount;
             }
+        }
+
+        public bool CheckTables(Service entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Service GetByID(Service entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
