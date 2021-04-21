@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,28 +10,29 @@ using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class TechnicianDH
+    class TechnicianDH : IRepositoryBase<Technician>
     {
-        //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
+       
         DBHandler objHandler = new DBHandler();
 
-        //Method which will be used to create new record
-        private bool CreateTechnician(Technician objTech)
+        
+
+        public bool Create(Technician objTech)
         {
             try
             {
                 //Checking if the technician already exists
-                int TechVal = FindTechnician(objTech);
-                if(TechVal==1)
+                int TechVal = Find(objTech);
+                if (TechVal == 1)
                 {
                     //If it finds a technicain with same details return message saying Technicain already exists
                     MessageBox.Show("Technician Already Exists");
                     return false;
                 }
-                else if(TechVal==0)
+                else if (TechVal == 0)
                 {
                     //If Technician does not exist then check if the Employee Record exists
-                    if(CheckAllTables(objTech)== true)
+                    if (CheckTables(objTech) == true)
                     {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                         string InsertQuery = string.Format(@"INSERT INTO tblTechnician (TechnicianLevel, TechnicianStatus, EmployeeID, TechnicianState) VALUES ('{0}','{1}','{2}','{3}')", objTech.TechnicianLevel, objTech.TechnicianStatus, objTech.EmployeeID, objTech.TechnicianState);
@@ -39,7 +41,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                         InsertCommand.ExecuteNonQuery();
                         sqlCon.Close();
                         return true;
-                       
+
                     }
                 }
                 return false;
@@ -48,18 +50,16 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateTechnician(Technician newObjTech, Technician oldObjTech)
+        public bool Update(Technician newObjTech, Technician oldObjTech)
         {
             try
             {
                 //New SQL Connection which the query will use to perform the update of tblTechnician
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblTechnician SET TechnicianLevel ='{0}',TechnicianStatus ='{1}',EmployeeID ='{2}',TechnicianState ='{3}' WHERE TechnicianID ='{4}'", newObjTech.TechnicianLevel,newObjTech.TechnicianStatus,newObjTech.EmployeeID,newObjTech.TechnicianState, oldObjTech.TechnicianID);
+                string UpdateQuery = string.Format(@"UPDATE tblTechnician SET TechnicianLevel ='{0}',TechnicianStatus ='{1}',EmployeeID ='{2}',TechnicianState ='{3}' WHERE TechnicianID ='{4}'", newObjTech.TechnicianLevel, newObjTech.TechnicianStatus, newObjTech.EmployeeID, newObjTech.TechnicianState, oldObjTech.TechnicianID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database
@@ -77,11 +77,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured please try again");
                 return false;
             }
-
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteTechnician(Technician objTech)
+        public bool Delete(Technician objTech)
         {
             try
             {
@@ -107,9 +105,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-        //Method used to Get all the records from the table in the database
-        private List<Technician> GetAllTechnician(Technician objTech)
-        {        
+
+        public ICollection<Technician> GetAll()
+        {
             try
             {
                 //List of type Technician which will store all the records and then return that list
@@ -133,7 +131,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //Close connection to database
                 sqlCon.Close();
                 //Return List of Technicians
-                return allTechnicians;                
+                return allTechnicians;
             }
             catch (SqlException SQLE)
             {
@@ -143,8 +141,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to find one record within the tablea
-        private int FindTechnician(Technician objTech)
+        public int Find(Technician objTech)
         {
             int RecordCount;
             try
@@ -173,8 +170,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method which will be called to check that neccessary fields exist in the other tables which have relationships
-        private bool CheckAllTables(Technician objTech)
+        public bool CheckTables(Technician objTech)
         {
             int RecordCount;
             try
@@ -194,7 +190,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //Close connection to database
                 sqlCon.Close();
                 //Return Count of Technicians
-                if(RecordCount == 1)
+                if (RecordCount == 1)
                 {
                     return true;
                 }
@@ -211,7 +207,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        private Technician GetTechnician(Technician objTech)
+        public Technician GetByID(Technician objTech)
         {
             Technician objRecord = new Technician();
             try
@@ -220,7 +216,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblTechnician
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Technicains
-                string SelectQuery =string.Format("SELECT * FROM tblTechnician WHERE TechnicianID = '{0}'",objTech.TechnicianID);
+                string SelectQuery = string.Format("SELECT * FROM tblTechnician WHERE TechnicianID = '{0}'", objTech.TechnicianID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
@@ -248,7 +244,6 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return null;
             }
-
         }
     }
 }
