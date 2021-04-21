@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,18 +10,16 @@ using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class SatisfactionDH
+    class SatisfactionDH : IRepositoryBase<Satisfaction>
     {
-        //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
         DBHandler objHandler = new DBHandler();
-
-        //Method which will be used to create new record
-        private bool CreateSatisfaction(Satisfaction objSat)
+       
+        public bool Create(Satisfaction objSat)
         {
             try
             {
                 //Checking if the Satisfactions already exists
-                int SatVal = FindSatisfaction(objSat);
+                int SatVal = Find(objSat);
                 if (SatVal == 1)
                 {
                     //If it finds a Satisfactions with same details return message saying Satisfactions already exists
@@ -30,7 +29,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (SatVal == 0)
                 {
                     //If Satisfactions does not exist then check if the Employee Record exists
-                    if (CheckAllTables(objSat) == true)
+                    if (CheckTables(objSat) == true)
                     {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                         string InsertQuery = string.Format(@"INSERT INTO tblSatisfaction(SatisfactionID, SatisfactionStatus, TicketID) VALUES ('{0}','{1}','{2}')", objSat.SatisfactionID, objSat.SatisfactionStatus, objSat.TicketObject);
@@ -47,11 +46,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateSatisfaction(Satisfaction newObjSat, Satisfaction oldObjSat)
+        public bool Update(Satisfaction newObjSat, Satisfaction oldObjSat)
         {
             try
             {
@@ -78,8 +75,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteSatisfaction(Satisfaction objSat)
+        public bool Delete(Satisfaction objSat)
         {
             try
             {
@@ -105,10 +101,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-        //Method used to Get all the records from the table in the database
-        private List<Satisfaction> GetAllSatisfaction(Satisfaction objSat)
+
+        public ICollection<Satisfaction> GetAll()
         {
-            //List of type Satisfaction which will store all the records and then return that list
             List<Satisfaction> allSat = new List<Satisfaction>();
 
             try
@@ -144,8 +139,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to find one record within the table
-        private int FindSatisfaction(Satisfaction objSat)
+        public int Find(Satisfaction objSat)
         {
             int RecordCount;
             try
@@ -174,8 +168,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method which will be called to check that neccessary fields exist in the other tables which have relationships
-        private bool CheckAllTables(Satisfaction objSat)
+        public bool CheckTables(Satisfaction objSat)
         {
             int RecordCount;
             try
@@ -212,7 +205,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        private Satisfaction GetSatisfaction(Satisfaction objSat)
+        public Satisfaction GetByID(Satisfaction objSat)
         {
             Satisfaction objRecord = new Satisfaction();
             try
@@ -236,7 +229,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     objRecord.SatisfactionID = (int)sqlDataReader.GetValue(0);
                     objRecord.SatisfactionStatus = (string)sqlDataReader.GetValue(1);
                     objRecord.TicketObject = (int)sqlDataReader.GetValue(2);
-                    
+
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -249,8 +242,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return null;
             }
-
         }
-        }
+    }
 
 }
