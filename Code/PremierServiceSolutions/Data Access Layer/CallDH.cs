@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,18 +10,19 @@ using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class CallDH
+    class CallDH :  IRepositoryBase<Call>
     {
         //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
         DBHandler objHandler = new DBHandler();
 
         //Method which will be used to create new record
-        private bool CreateCall(Call objCall)
+       
+        public bool Create(Call objCall)
         {
             try
             {
                 //Checking if the Call already exists
-                int CallVal = FindCall(objCall);
+                int CallVal = Find(objCall);
                 if (CallVal == 1)
                 {
                     //If it finds a call with same details return message saying call already exists
@@ -53,11 +55,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
+            throw new NotImplementedException();
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateCall(Call newObjCall, Call oldObjCall)
+        public bool Update(Call newObjCall, Call oldObjCall)
         {
             try
             {
@@ -93,10 +94,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured please try again");
                 return false;
             }
+            throw new NotImplementedException();
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteCall(Call objCall)
+        public bool Delete(Call objCall)
         {
             try
             {
@@ -121,9 +122,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured please try again");
                 return false;
             }
+            throw new NotImplementedException();
         }
-        //Method used to Get all the records from the table in the database
-        private List<Call> GetAllCall(Call objCall)
+
+        public ICollection<Call> GetAll()
         {
             //List of type Call which will store all the records and then return that list
             List<Call> allCall = new List<Call>();
@@ -131,7 +133,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             try
             {
                 //List of type User which will store all the records and then return that list
-                
+
                 //New SQL Connection which the query will use to perform the Select of tblClients
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Clients
@@ -155,7 +157,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                                 (DateTime)sqlDataReader.GetValue(4),
                                 (int)sqlDataReader.GetValue(5),
                                 (string)sqlDataReader.GetValue(6),
-                                (string)sqlDataReader.GetValue(7)          
+                                (string)sqlDataReader.GetValue(7)
                           ));
                 }
                 //Close connection to database
@@ -169,10 +171,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return null;
             }
+            throw new NotImplementedException();
         }
 
-        //Method used to find one record within the table
-        private int FindCall(Call objCall)
+        public int Find(Call objCall)
         {
             int RecordCount;
             try
@@ -199,6 +201,17 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 RecordCount = -1;
                 return RecordCount;
             }
+            throw new NotImplementedException();
+        }
+
+        public bool CheckTables(Call entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Call GetByID(Call entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

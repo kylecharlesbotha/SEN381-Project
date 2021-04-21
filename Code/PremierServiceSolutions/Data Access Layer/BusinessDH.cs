@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,18 +10,19 @@ using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class BusinessDH
+    class BusinessDH : IRepositoryBase<Business>
     {
         //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
         DBHandler objHandler = new DBHandler();
 
-        //Method which will be used to create new record
-        private bool CreateBusiness(Business objBus)
+       
+
+        public bool Create(Business objBus)
         {
             try
             {
                 //Checking if the Business already exists
-                int BusVal = FindBusiness(objBus);
+                int BusVal = Find(objBus);
                 if (BusVal == 1)
                 {
                     //If it finds a Business with same details return message saying Business already exists
@@ -30,16 +32,16 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (BusVal == 0)
                 {
                     //If Business does not exist then insert
-                    
-                        SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                        string InsertQuery = string.Format(@"INSERT INTO tblBusiness (BusinessAddress, BusinessName, BusinessPhone, BusinessRegistrationNumber, BusinessState) VALUES ('{0}','{1}','{2}','{3}','{4}')", objBus.BusinessAddress, objBus.BusinessName, objBus.BusinessPhone, objBus.BusinessRegistrationNumber, objBus.BusinessState);
-                        SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
-                        sqlCon.Open();
-                        InsertCommand.ExecuteNonQuery();
-                        sqlCon.Close();
-                        return true;
 
-                    
+                    SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                    string InsertQuery = string.Format(@"INSERT INTO tblBusiness (BusinessAddress, BusinessName, BusinessPhone, BusinessRegistrationNumber, BusinessState) VALUES ('{0}','{1}','{2}','{3}','{4}')", objBus.BusinessAddress, objBus.BusinessName, objBus.BusinessPhone, objBus.BusinessRegistrationNumber, objBus.BusinessState);
+                    SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
+                    sqlCon.Open();
+                    InsertCommand.ExecuteNonQuery();
+                    sqlCon.Close();
+                    return true;
+
+
                 }
                 return false;
             }
@@ -47,18 +49,17 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
+            throw new NotImplementedException();
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateBusiness(Business newObjBus, Business oldObjBus)
+        public bool Update(Business oldObjBus, Business newObjBus)
         {
             try
             {
                 //New SQL Connection which the query will use to perform the update of tblBusiness
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblBusiness SET BusinessAddress ='{0}',BusinessName ='{1}',BusinessPhone ='{2}',BusinessRegistrationNumber ='{3}',BusinessState ='{4}' WHERE BusinessID ='{5}'", newObjBus.BusinessAddress, newObjBus.BusinessName, newObjBus.BusinessPhone, newObjBus.BusinessRegistrationNumber, newObjBus.BusinessState ,oldObjBus.BusinessID);
+                string UpdateQuery = string.Format(@"UPDATE tblBusiness SET BusinessAddress ='{0}',BusinessName ='{1}',BusinessPhone ='{2}',BusinessRegistrationNumber ='{3}',BusinessState ='{4}' WHERE BusinessID ='{5}'", newObjBus.BusinessAddress, newObjBus.BusinessName, newObjBus.BusinessPhone, newObjBus.BusinessRegistrationNumber, newObjBus.BusinessState, oldObjBus.BusinessID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database
@@ -76,10 +77,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured please try again");
                 return false;
             }
+            throw new NotImplementedException();
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteBusiness(Business objBus)
+        public bool Delete(Business objBus)
         {
             try
             {
@@ -104,9 +105,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured please try again");
                 return false;
             }
+            throw new NotImplementedException();
         }
-        //Method used to Get all the records from the table in the database
-        private List<Business> GetAllBusiness(Business objBus)
+
+        public ICollection<Business> GetAll()
         {
             try
             {
@@ -126,7 +128,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allBus.Add(new Business((int)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (int)sqlDataReader.GetValue(4),(string)sqlDataReader.GetValue(5)));
+                    allBus.Add(new Business((int)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (int)sqlDataReader.GetValue(4), (string)sqlDataReader.GetValue(5)));
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -139,10 +141,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return null;
             }
+            throw new NotImplementedException();
         }
 
-        //Method used to find one record within the table
-        private int FindBusiness(Business objBus)
+        public int Find(Business objBus)
         {
             int RecordCount;
             try
@@ -169,49 +171,58 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 RecordCount = -1;
                 return RecordCount;
             }
+            throw new NotImplementedException();
         }
 
-        private Business GetBusiness(Business objBus)
+        public bool CheckTables(Business objBus)
         {
-            Business objRecord = new Business();
-            try
-            {
-                //List of type Business which will store all the records and then return that list
-                List<Business> allBusiness = new List<Business>();
-                //New SQL Connection which the query will use to perform the Select of tblBusiness
-                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                //Select Query which will store the SQL qeury needed to return all the Business
-                string SelectQuery = string.Format("SELECT * FROM tblBusiness WHERE BusinessID = '{0}'", objBus.BusinessID);
-                //New Command which will take in the sqlCon and UpdateQuery var
-                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
-                //SQL Datareader which will be used to pull specific fields from the Select Return statement
-                SqlDataReader sqlDataReader;
-                //Open the connection to the database
-                sqlCon.Open();
-                //
-                sqlDataReader = sqlCommand.ExecuteReader();
-                while (sqlDataReader.Read())
-                {
-                    objRecord.BusinessID = (int)sqlDataReader.GetValue(0);
-                    objRecord.BusinessAddress = (string)sqlDataReader.GetValue(1);
-                    objRecord.BusinessName = (string)sqlDataReader.GetValue(2);
-                    objRecord.BusinessPhone = (string)sqlDataReader.GetValue(3);
-                    objRecord.BusinessRegistrationNumber = (int)sqlDataReader.GetValue(4);
-                    objRecord.BusinessState = (string)sqlDataReader.GetValue(5);
-                }
-                //Close connection to database
-                sqlCon.Close();
-                //Return List of Business
-                return objRecord;
-            }
-            catch (SqlException SQLE)
-            {
-                //Will catch any errors that occur and will display a error message. it will also return a empty list
-                MessageBox.Show("Error has occured");
-                return null;
-            }
+            
+            throw new NotImplementedException();
         }
 
+        public Business GetByID(Business entity)
+        {
+            throw new NotImplementedException();
+        }
 
+        //public Business GetByID(Business objBusCon)
+        //{
+        //    Business objRecord = new Business();
+        //    try
+        //    {
+        //        //List of type BusinessContact which will store all the records and then return that list
+        //        List<Business> allBusiness = new List<Business>();
+        //        //New SQL Connection which the query will use to perform the Select of tblBusinessContact
+        //        SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+        //        //Select Query which will store the SQL qeury needed to return all the BusinessContact
+        //        string SelectQuery = string.Format("SELECT * FROM tblBusiness WHERE BusinessID = '{0}'", objBusCon.BusinessID);
+        //        //New Command which will take in the sqlCon and UpdateQuery var
+        //        SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+        //        //SQL Datareader which will be used to pull specific fields from the Select Return statement
+        //        SqlDataReader sqlDataReader;
+        //        //Open the connection to the database
+        //        sqlCon.Open();
+        //        //
+        //        sqlDataReader = sqlCommand.ExecuteReader();
+        //        while (sqlDataReader.Read())
+        //        {
+        //            objRecord.BusinessID = (int)sqlDataReader.GetValue(0);
+        //            objRecord.BusinessAddress = (int)sqlDataReader.GetValue(1);
+        //            objRecord. = (string)sqlDataReader.GetValue(2);
+        //            objRecord.ContactState = (string)sqlDataReader.GetValue(3);
+        //        }
+        //        //Close connection to database
+        //        sqlCon.Close();
+        //        //Return List of BusinessContact
+        //        return objRecord;
+        //    }
+        //    catch (SqlException SQLE)
+        //    {
+        //        //Will catch any errors that occur and will display a error message. it will also return a empty list
+        //        MessageBox.Show("Error has occured");
+        //        return null;
+        //    }
+        //    throw new NotImplementedException();
+        //}
     }
 }
