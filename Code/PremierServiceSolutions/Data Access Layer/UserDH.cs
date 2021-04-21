@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,20 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//CheckTables and GetByID not implemented
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class UserDH
+    class UserDH : IRepositoryBase<User>
     {
-        //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
+       
         DBHandler objHandler = new DBHandler();
 
-        //Method which will be used to create new record
-        private bool CreateUser(User objUser)
+        public bool Create(User objUser)
         {
             try
             {
                 //Checking if the client already exists
-                int UserVal = FindUser(objUser);
+                int UserVal = Find(objUser);
                 if (UserVal == 1)
                 {
                     //If it finds a client with same details return message saying Client already exists
@@ -31,11 +33,11 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 {
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                     string InsertQuery = string.Format(@"INSERT INTO tblUser  EmployeeID, UserAccessLevel, UserAuthToken, UserName, UserPassword, UserState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",
-                        objUser.EmployeeObject.PersonID, 
-                        objUser.UserAccessLevel, 
-                        objUser.UserAuthToken, 
-                        objUser.UserName, 
-                        objUser.UserPassword, 
+                        objUser.EmployeeObject.PersonID,
+                        objUser.UserAccessLevel,
+                        objUser.UserAuthToken,
+                        objUser.UserName,
+                        objUser.UserPassword,
                         objUser.UserState
 
                         );
@@ -51,11 +53,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateUser(User newObjUser, User oldObjUser)
+        public bool Update(User newObjUser, User oldObjUser)
         {
             try
             {
@@ -69,8 +69,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     newObjUser.UserAuthToken,
                     newObjUser.UserName,
                     newObjUser.UserPassword,
-                    newObjUser.UserState) ;
-                    
+                    newObjUser.UserState);
+
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database
@@ -90,8 +90,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteUser(User objUser)
+        public bool Delete(User objUser)
         {
             try
             {
@@ -117,8 +116,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-        //Method used to Get all the records from the table in the database
-        private List<User> GetAllUser(User objUser)
+
+        public ICollection<User> GetAll()
         {
             try
             {
@@ -145,7 +144,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
                                 (string)sqlDataReader.GetValue(3),
                                 (string)sqlDataReader.GetValue(4),
                                 (string)sqlDataReader.GetValue(5),
-                                (string)sqlDataReader.GetValue(5)
+                                (string)sqlDataReader.GetValue(6),
+                                (string)sqlDataReader.GetValue(7)
+
                                 ));
                 }
                 //Close connection to database
@@ -161,8 +162,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to find one record within the table
-        private int FindUser(User objUser)
+        public int Find(User objUser)
         {
             int RecordCount;
             try
@@ -191,19 +191,14 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method which will be called to check that neccessary fields exist in the other tables which have relationships
-        private bool CheckAllTables(User objUser)
+        public bool CheckTables(User entity)
         {
-            try
-            {
-                //Check if it exists in tblEmployee first 
-                //If it is not found in tblEmployee then return false else return true
-                return true;
-            }
-            catch (SqlException SQLE)
-            {
-                return false;
-            }
+            throw new NotImplementedException();
+        }
+
+        public User GetByID(User entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
