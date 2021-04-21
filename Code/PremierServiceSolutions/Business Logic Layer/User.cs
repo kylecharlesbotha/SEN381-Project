@@ -17,6 +17,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string userAccessLevel;
         private string userState;
         private string userAuthToken;
+        private string userSalt;
 
 
 
@@ -30,7 +31,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.userState = userState;
             this.userAuthToken = userAuthToken;
         }
-        public User(int userID, int employeeID, string userName, string userPassword, string userAccessLevel, string userState, string userAuthToken)
+        public User(int userID, int employeeID, string userName, string userPassword, string userAccessLevel, string userState, string userAuthToken,string userSalt)
         {
             this.userID = userID;
             this.employeeID = employeeID;
@@ -39,6 +40,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.userAccessLevel = userAccessLevel;
             this.userState = userState;
             this.userAuthToken = userAuthToken;
+            this.userSalt = userSalt;
         }
 
         public User()
@@ -53,6 +55,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string UserState { get => userState; set => userState = value; }
         public string UserAuthToken { get => userAuthToken; set => userAuthToken = value; }
         public int EmployeeID { get => employeeID; set => employeeID = value; }
+        public string UserSalt { get => userSalt; set => userSalt = value; }
 
         public int CompareTo(User other)
         {
