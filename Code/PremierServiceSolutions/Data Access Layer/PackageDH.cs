@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,19 +10,16 @@ using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class PackageDH
-    {
-        //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
+    class PackageDH : IRepositoryBase<Package>
+    { 
         DBHandler objHandler = new DBHandler();
 
-        //Method which will be used to create new record
-        private bool CreatePackage(Package objPack)
+        public bool Create(Package objPack)
         {
             try
             {
-
                 //Checking if the Package already exists
-                int PackVal = FindPackage(objPack);
+                int PackVal = Find(objPack);
                 if (PackVal == 1)
                 {
                     //If it finds a Package with same details return message saying Package already exists
@@ -31,7 +29,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (PackVal == 0)
                 {
                     //If Technician does not exist then check if the Employee Record exists
-                    if (CheckAllTables(objPack) == true)
+                    if (CheckTables(objPack) == true)
                     {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                         string InsertQuery = string.Format(@"INSERT INTO tblPackage (ContractID, ServiceID, SLAID, PackageState) VALUES ('{0}','{1}','{2}','{3}')", objPack.ContractID, objPack.ServiceID, objPack.SlaID, objPack.PackageStateID);
@@ -49,11 +47,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdatePackage(Package newObjPack, Package oldObjPack)
+        public bool Update(Package newObjPack, Package oldObjPack)
         {
             try
             {
@@ -79,8 +75,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to Delete a record from the database
-        private bool DeletePackage(Package objPack)
+        public bool Delete(Package objPack)
         {
             try
             {
@@ -106,10 +101,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-        //Method used to Get all the records from the table in the database
-        private List<Package> GetAllPackage(Package objPack)
+
+        public ICollection<Package> GetAll()
         {
-            //List of type Package which will store all the records and then return that list
             List<Package> allPack = new List<Package>();
 
             try
@@ -145,11 +139,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-
-        //Method used to find one record within the table
-        private int FindPackage(Package objPack)
+        public int Find(Package objPack)
         {
-            //Get count of rows to see if object exists. Refer to TechnicianDH FindTechnician method
             int RecordCount;
             try
             {
@@ -177,8 +168,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method which will be called to check that neccessary fields exist in the other tables which have relationships
-        private bool CheckAllTables(Package objPack)
+        public bool CheckTables(Package objPack)
         {
             int ContractCount;
             int ServiceCount;
@@ -201,11 +191,11 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 if (ContractCount == 1)
                 {
                     //New SQL Connection which the query will use to perform the Select of tblPackages
-                     sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                    sqlCon = new SqlConnection(objHandler.ConnectionVal);
                     //Select Query which will store the SQL qeury needed to return all the Packages
-                     SelectQuery = string.Format("SELECT COUNT(*) FROM tblService WHERE ServiceID = '{0}'", objPack.ServiceID);
+                    SelectQuery = string.Format("SELECT COUNT(*) FROM tblService WHERE ServiceID = '{0}'", objPack.ServiceID);
                     //New Command which will take in the sqlCon and UpdateQuery var
-                     sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                    sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                     //Open the connection to the database
                     sqlCon.Open();
                     //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
@@ -216,11 +206,11 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     if (ServiceCount == 1)
                     {
                         //New SQL Connection which the query will use to perform the Select of tblPackages
-                         sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                        sqlCon = new SqlConnection(objHandler.ConnectionVal);
                         //Select Query which will store the SQL qeury needed to return all the Packages
-                         SelectQuery = string.Format("SELECT COUNT(*) FROM tblServiceLevelAgreement WHERE SLAID = '{0}'", objPack.SlaID);
+                        SelectQuery = string.Format("SELECT COUNT(*) FROM tblServiceLevelAgreement WHERE SLAID = '{0}'", objPack.SlaID);
                         //New Command which will take in the sqlCon and UpdateQuery var
-                         sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                        sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                         //Open the connection to the database
                         sqlCon.Open();
                         //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
@@ -258,7 +248,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        private Package GetPackage(Package objPack)
+        public Package GetByID(Package objPack)
         {
             Package objRecord = new Package();
             try
@@ -296,10 +286,6 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return null;
             }
-
-
-
-
         }
     }
     }
