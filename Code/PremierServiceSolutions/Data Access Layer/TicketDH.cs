@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,21 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//GetByID Not implemented
+
+
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class TicketDH
+    class TicketDH : IRepositoryBase<Ticket>
     {
         //Object of DBHandler which will store the connection string. We do this so that 
         //we dont have to repeat code in multiple classes but instead just one
         DBHandler objHandler = new DBHandler();
 
-        //Method which will be used to create new record
-        private bool CreateTicket(Ticket objTic)
+      
+
+        public bool Create(Ticket objTic)
         {
             try
             {
                 //First Check if the record already exsists by calling  FindTicket()
-                int TicketVal = FindTicket(objTic);
+                int TicketVal = Find(objTic);
                 if (TicketVal == 1)
                 {
                     //If found return false and display a message that it already exists else continue with creating
@@ -47,11 +52,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateTicket(Ticket newObjTic, Ticket oldObjTic)
+        public bool Update(Ticket newObjTic, Ticket oldObjTic)
         {
             try
             {
@@ -78,8 +81,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteTicket(Ticket objTic)
+        public bool Delete(Ticket objTic)
         {
             try
             {
@@ -105,10 +107,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-        //Method used to Get all the records from the table in the database
-        private List<Ticket> GetAllTicket(Ticket objTic)
+
+        public ICollection<Ticket> GetAll()
         {
-            
             try
             {
                 //List of type Ticket which will store all the records and then return that list
@@ -142,10 +143,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to find one record within the table
-        private int FindTicket(Ticket objTic)
+        public int Find(Ticket objTic)
         {
-            //Object of type Ticket which will store single record of object to be returned to interface
             int RecordCount;
             try
             {
@@ -173,8 +172,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method which will be called to check that neccessary fields exist in the other tables which have relationships
-        private bool CheckAllTables(Ticket objTic)
+        public bool CheckTables(Ticket objTic)
         {
             int EmployeeCount;
             int TechnicianCount;
@@ -255,6 +253,11 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return false;
             }
+        }
+
+        public Ticket GetByID(Ticket entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
