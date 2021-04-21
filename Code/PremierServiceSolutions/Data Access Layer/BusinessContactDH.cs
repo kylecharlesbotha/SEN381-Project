@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,18 +10,18 @@ using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class BusinessContactDH
+    class BusinessContactDH : IRepositoryBase<BusinessContact>
     {
         //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
         DBHandler objHandler = new DBHandler();
+        
 
-        //Method which will be used to create new record
-        private bool CreateBusinessContact(BusinessContact objBusCon)
+        public bool Create(BusinessContact objBusCon)
         {
             try
             {
                 //Checking if the BusinessContact already exists
-                int BusConVal = FindBusinessContact(objBusCon);
+                int BusConVal = Find(objBusCon);
                 if (BusConVal == 1)
                 {
                     //If it finds a BusinessContact with same details return message saying BusinessContact already exists
@@ -30,10 +31,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (BusConVal == 0)
                 {
                     //If Business does not exist then check if the Client Record exists
-                    if (CheckAllTables(objBusCon) == true)
+                    if (CheckTables(objBusCon) == true)
                     {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                        string InsertQuery = string.Format(@"INSERT INTO tblBusinessContact (BusinessID, ClientID, ContactJobTitle, ContactState) VALUES ('{0}','{1}','{2}','{3}')", objBusCon.ContactBusinessID,objBusCon.ContactClientID, objBusCon.ContactJobTitle, objBusCon.ContactState);
+                        string InsertQuery = string.Format(@"INSERT INTO tblBusinessContact (BusinessID, ClientID, ContactJobTitle, ContactState) VALUES ('{0}','{1}','{2}','{3}')", objBusCon.ContactBusinessID, objBusCon.ContactClientID, objBusCon.ContactJobTitle, objBusCon.ContactState);
                         SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
                         sqlCon.Open();
                         InsertCommand.ExecuteNonQuery();
@@ -48,11 +49,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
+            throw new NotImplementedException();
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateBusinessContact(BusinessContact newObjBusCon, BusinessContact oldObjBusCon)
+        public bool Update(BusinessContact oldObjBusCon, BusinessContact newObjBusCon)
         {
             try
             {
@@ -77,10 +77,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured please try again");
                 return false;
             }
+            throw new NotImplementedException();
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteBusinessContact(BusinessContact objBusCon)
+        public bool Delete(BusinessContact objBusCon)
         {
             try
             {
@@ -105,9 +105,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured please try again");
                 return false;
             }
+            throw new NotImplementedException();
         }
-        //Method used to Get all the records from the table in the database
-        private List<BusinessContact> GetAllBusinessContact(BusinessContact objBusCon)
+
+        public ICollection<BusinessContact> GetAll()
         {
             try
             {
@@ -140,10 +141,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return null;
             }
+            throw new NotImplementedException();
         }
 
-        //Method used to find one record within the table
-        private int FindBusinessContact(BusinessContact objBusCon)
+        public int Find(BusinessContact objBusCon)
         {
             int RecordCount;
             try
@@ -170,10 +171,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 RecordCount = -1;
                 return RecordCount;
             }
+            throw new NotImplementedException();
         }
 
-        //Method which will be called to check that neccessary fields exist in the other tables which have relationships
-        private bool CheckAllTables(BusinessContact objBusCon)
+        public bool CheckTables(BusinessContact objBusCon)
         {
             int ClientCount;
             int BusinessCount;
@@ -195,11 +196,11 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 if (ClientCount == 1)
                 {
                     //New SQL Connection which the query will use to perform the Select of tblBusinessContact
-                     sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                    sqlCon = new SqlConnection(objHandler.ConnectionVal);
                     //Select Query which will store the SQL qeury needed to return all the BusinessContacts
-                     SelectQuery = string.Format("SELECT COUNT(*) FROM tblBusiness WHERE BusinessID = '{0}'", objBusCon.ContactBusinessID);
+                    SelectQuery = string.Format("SELECT COUNT(*) FROM tblBusiness WHERE BusinessID = '{0}'", objBusCon.ContactBusinessID);
                     //New Command which will take in the sqlCon and UpdateQuery var
-                     sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                    sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                     //Open the connection to the database
                     sqlCon.Open();
                     //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
@@ -229,9 +230,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return false;
             }
+            throw new NotImplementedException();
         }
 
-        private BusinessContact GetBusinessContact(BusinessContact objBusCon)
+        public BusinessContact GetByID(BusinessContact objBusCon)
         {
             BusinessContact objRecord = new BusinessContact();
             try
@@ -268,7 +270,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return null;
             }
-
+            throw new NotImplementedException();
         }
     }
 }
