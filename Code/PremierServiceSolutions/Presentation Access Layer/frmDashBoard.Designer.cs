@@ -98,6 +98,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCallCentre.TabIndex = 12;
             this.btnCallCentre.Text = "Call Centre";
             this.btnCallCentre.UseVisualStyleBackColor = true;
+            this.btnCallCentre.Click += new System.EventHandler(this.btnCallCentre_Click);
             // 
             // btnEmployees
             // 
@@ -183,6 +184,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnSchedules.TabIndex = 6;
             this.btnSchedules.Text = "Schedules";
             this.btnSchedules.UseVisualStyleBackColor = true;
+            this.btnSchedules.Click += new System.EventHandler(this.btnSchedules_Click);
             // 
             // btnDashBoard
             // 

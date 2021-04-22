@@ -18,11 +18,17 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private int Menuoption = 0;
         Form frmDash = new frmDash();
         Form frmTick = new frmTickets();
+        Form frmSched = new frmSchedule();
+        Form frmCentre = new frmCentre();
+        Form frmCustomers = new frmCustomers();
         public frmDashBoard()
         {
             InitializeComponent();
             frmDash.TopLevel = false;
             frmTick.TopLevel = false;
+            frmSched.TopLevel = false;
+            frmCentre.TopLevel = false;
+            frmCustomers.TopLevel = false;
 
         }
 
@@ -105,6 +111,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
             frmDash.Hide();
             frmTick.Hide();
+            frmCentre.Hide();
+            frmSched.Hide();
+            frmCustomers.Hide();
+           
         }
 
         private void btnDashBoard_Click(object sender, EventArgs e)
@@ -116,6 +126,27 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
             pnlMainPage.Controls.Add(frmDash);
             frmDash.Show();
+        }
+
+        private void btnSchedules_Click(object sender, EventArgs e)
+        {
+            ChangeMenuSelection();
+            HideForms();
+            btnSchedules.ForeColor = Color.White;
+            btnSchedules.BackColor = Color.FromArgb(218, 0, 0);
+            pnlMainPage.Controls.Add(frmSched);
+            frmSched.Show();
+        }
+
+        private void btnCallCentre_Click(object sender, EventArgs e)
+        {
+            ChangeMenuSelection();
+            HideForms();
+            btnCallCentre.ForeColor = Color.White;
+            btnCallCentre.BackColor = Color.FromArgb(218, 0, 0);
+
+            pnlMainPage.Controls.Add(frmCentre);
+            frmCentre.Show();
         }
     }
 }
