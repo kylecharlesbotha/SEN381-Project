@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PremierServiceSolutions.Business_Logic_Layer;
 
 namespace PremierServiceSolutions.Presentation_Access_Layer
 {
     public partial class frmLoginScreen : Form
     {
+        string UserN;
+        
         public frmLoginScreen()
         {
             InitializeComponent();
@@ -81,9 +84,16 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            Form frmdash = new frmDashBoard();
-            this.Hide();
-            frmdash.Show();
+            try
+            {
+                string userName = tBUsername.Text;
+                string userPassword = tBPassword.Text;
+                User use = new User(userName, userPassword);
+            }
+            catch
+            {
+
+            }
         }
 
         private void lblSignUp_MouseLeave(object sender, EventArgs e)

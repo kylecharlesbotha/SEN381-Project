@@ -200,5 +200,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             throw new NotImplementedException();
         }
+        public User GetByUserName(string entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
