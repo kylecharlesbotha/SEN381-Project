@@ -30,27 +30,39 @@ namespace PremierServiceSolutions.Pages
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSchedule));
-            this.scheduleControl1 = new Syncfusion.Windows.Forms.Schedule.ScheduleControl();
+            this.schedContCal = new Syncfusion.Windows.Forms.Schedule.ScheduleControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // scheduleControl1
+            // schedContCal
             // 
-            this.scheduleControl1.Appearance.VisualStyle = Syncfusion.Windows.Forms.GridVisualStyles.Metro;
-            this.scheduleControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(201)))), ((int)(((byte)(219)))));
-            this.scheduleControl1.Culture = new System.Globalization.CultureInfo("");
-            this.scheduleControl1.DataSource = null;
-            this.scheduleControl1.ISO8601CalenderFormat = false;
-            this.scheduleControl1.Location = new System.Drawing.Point(4, 3);
-            this.scheduleControl1.Name = "scheduleControl1";
-            this.scheduleControl1.Size = new System.Drawing.Size(892, 733);
-            this.scheduleControl1.TabIndex = 0;
+            this.schedContCal.Appearance.VisualStyle = Syncfusion.Windows.Forms.GridVisualStyles.Metro;
+            this.schedContCal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(201)))), ((int)(((byte)(219)))));
+            this.schedContCal.Culture = new System.Globalization.CultureInfo("");
+            this.schedContCal.DataSource = null;
+            this.schedContCal.ISO8601CalenderFormat = false;
+            this.schedContCal.Location = new System.Drawing.Point(4, 3);
+            this.schedContCal.Name = "schedContCal";
+            this.schedContCal.Size = new System.Drawing.Size(892, 733);
+            this.schedContCal.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(119, 380);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 740);
-            this.Controls.Add(this.scheduleControl1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.schedContCal);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -63,6 +75,7 @@ namespace PremierServiceSolutions.Pages
 
         #endregion
 
-        private Syncfusion.Windows.Forms.Schedule.ScheduleControl scheduleControl1;
+        private Syncfusion.Windows.Forms.Schedule.ScheduleControl schedContCal;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -24,6 +25,32 @@ namespace PremierServiceSolutions.CustomComponents
 	/// </remarks>
 	public class SimpleScheduleDataProvider : ScheduleDataProvider
 	{
+		ListObjectList markerList;
+		/// <summary>
+		/// Get the markers for appointments
+		/// </summary>
+		/// <returns></returns>
+		public override ILookUpObjectList GetMarkers()
+		{
+			return MarkerLists();
+		}
+
+		/// <summary>
+		/// Set the marker color for appointments.
+		/// </summary>
+		/// <returns></returns>
+		private ListObjectList MarkerLists()
+		{
+			markerList = new ListObjectList();
+			markerList.Add(new ListObject(0, "Unassigned", Color.FromArgb(50, Color.Yellow))); ////same as noMarkColor
+			markerList.Add(new ListObject(1, "Assigned", Color.Green));
+			markerList.Add(new ListObject(2, "New Ticket", Color.Violet));
+			markerList.Add(new ListObject(3, "Esculation", Color.Tomato));
+			markerList.Add(new ListObject(5, "In Progress", Color.Tomato));
+			markerList.Add(new ListObject(6, "Completed", Color.Tomato));
+			return markerList;
+
+		}
 		/// <summary>
 		/// Default constructor.
 		/// </summary>

@@ -2,6 +2,7 @@
 
 using PremierServiceSolutions.CustomComponents;
 using PremierServiceSolutions.Data_Access_Layer;
+using Syncfusion.Schedule;
 using Syncfusion.Windows.Forms.Schedule;
 using System;
 using System.Collections.Generic;
@@ -27,10 +28,10 @@ namespace PremierServiceSolutions.Pages
         public frmSchedule()
         {
             InitializeComponent();
-            ScheduleControl scheduleControl1 = new ScheduleControl();
-            scheduleControl1.Location = new Point(82, 12);
-            scheduleControl1.Size = new Size(350, 360);
-            this.Controls.Add(scheduleControl1);
+            ScheduleControl scheduleControlMain = new ScheduleControl();
+            scheduleControlMain.Location = new Point(82, 12);
+            scheduleControlMain.Size = new Size(350, 360);
+            this.Controls.Add(scheduleControlMain);
             FullPath = GetTemporaryDirectory();
             FullPath += @"\default.schedule";
         }
@@ -41,11 +42,33 @@ namespace PremierServiceSolutions.Pages
             return tempDirectory;
         }
 
+        private void DisplayData()
+        {
+           
+            if (data != null)
+            {
+                for (int i = 0; i < data.MasterList.Count; i++)
+                {
+                    IScheduleAppointment appointment = data.MasterList[i];
+                    MessageBox.Show("Appointment Date is " + appointment.StartTime.ToLongDateString() +
+                    "\n" + "Start Time is " + appointment.StartTime.ToLongTimeString() +
+                    "\n" + "End Time is " + appointment.EndTime.ToLongTimeString() +
+                    "\n" + "Subject is " + appointment.Subject.ToString() +
+                    "\n" + "Location is " + appointment.LocationValue.ToString() +
+                    "\n" + "Status is" + appointment.MarkerValue.ToString());
 
-       
+                }
+            }
+        }
 
 
-    
+
+
+
+
+
+
+
         private void frmSchedule_Load(object sender, EventArgs e)
         {
 
@@ -80,9 +103,39 @@ namespace PremierServiceSolutions.Pages
             data = SimpleScheduleDataProvider.LoadBinary(FullPath);
             data.FileName = FullPath;
 
-            this.scheduleControl1.ScheduleType = ScheduleViewType.Month;
-            this.scheduleControl1.DataSource = data;
+            this.schedContCal.ScheduleType = ScheduleViewType.Month;
+            this.schedContCal.DataSource = data;
         }
+
+        #region Uploading Schedule File
+        private void UpdateCalendar()
+        {
+
+        }
+        struct FtpSetting
+        {
+            public string Server { get; set; }
+            public string Username { get; set; }
+            public string Password { get; set; }
+            public string FileName { get; set; }
+            public string FullName { get; set; }
+
+        }
+
+        FtpSetting _inputParameter;
+
+        public void UploadFile()
+        {
+            _inputParameter.Username = "FlyStudio";
+            _inputParameter.Password = "Fr35h5t@rt2021!";
+            _inputParameter.Server = "ftp://flystudio.co.za";
+            _inputParameter.FullName = FullPath;
+            _inputParameter.FileName = "default.schedule";
+
+
+        }
+        #endregion
+
 
         private void UpdateFileStream()
         {
@@ -133,6 +186,11 @@ namespace PremierServiceSolutions.Pages
         private void button1_Click(object sender, EventArgs e)
         {
             data.CommitChanges();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DisplayData();
         }
     }
 }
