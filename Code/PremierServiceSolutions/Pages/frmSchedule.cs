@@ -29,6 +29,7 @@ namespace PremierServiceSolutions.Pages
         {
             InitializeComponent();
             ScheduleControl scheduleControlMain = new ScheduleControl();
+            this.schedContCal.ItemChanged += ScheduleControl_AutoSave;
             scheduleControlMain.Location = new Point(82, 12);
             scheduleControlMain.Size = new Size(350, 360);
             this.Controls.Add(scheduleControlMain);
@@ -42,9 +43,33 @@ namespace PremierServiceSolutions.Pages
             return tempDirectory;
         }
 
+        private void ScheduleControl_AutoSave(object sender, ScheduleAppointmentEventArgs e)
+        {
+            if (e.Action == ItemAction.Edit)
+            {
+                MessageBox.Show("Edit option");
+            }
+            else if (e.Action == ItemAction.Delete)
+            {
+                MessageBox.Show("Delete option");
+            }
+            else if (e.Action == ItemAction.Add)
+            {
+                MessageBox.Show("Add option");
+            }
+            else if (e.Action == ItemAction.ItemDrag)
+            {
+                MessageBox.Show("Drag option");
+            }
+            else if (e.Action == ItemAction.TimeDrag)
+            {
+                MessageBox.Show("Time option");
+            }
+        }
+
         private void DisplayData()
         {
-           
+
             if (data != null)
             {
                 for (int i = 0; i < data.MasterList.Count; i++)
@@ -62,17 +87,50 @@ namespace PremierServiceSolutions.Pages
         }
 
 
+        private void CustomizeDesign()
+        {
+            pnlAssignedSub.Visible = false;
+            pnlProgressSub.Visible = false;
+            pnlUnassignedSub.Visible = false;
+        }
 
 
 
+        private void hideSubMenu()
+        {
+            if(pnlUnassignedSub.Visible==true)
+            {
+                pnlUnassignedSub.Visible = false;
+            }
+            if (pnlProgressSub.Visible == true)
+            {
+                pnlProgressSub.Visible = false;
+            }
+            if (pnlAssignedSub.Visible == true)
+            {
+                pnlAssignedSub.Visible = false;
+            }
+        }
 
-
+        private void showSubMenu(Panel submenu)
+        {
+            if(submenu.Visible == false)
+            {
+               //hideSubMenu();
+                submenu.Visible = true;
+            }
+            else
+            {
+                submenu.Visible = false;
+            }
+        }
 
 
         private void frmSchedule_Load(object sender, EventArgs e)
         {
 
             LoadCalendar();
+            CustomizeDesign();
         }
 
 
@@ -191,6 +249,21 @@ namespace PremierServiceSolutions.Pages
         private void button1_Click_1(object sender, EventArgs e)
         {
             DisplayData();
+        }
+
+        private void btnAssigned_Click(object sender, EventArgs e)
+        {
+            showSubMenu(pnlAssignedSub);
+        }
+
+        private void btnUnassigned_Click(object sender, EventArgs e)
+        {
+            showSubMenu(pnlUnassignedSub);
+        }
+
+        private void btnProgressTickets_Click(object sender, EventArgs e)
+        {
+            showSubMenu(pnlProgressSub);
         }
     }
 }

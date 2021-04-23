@@ -310,6 +310,8 @@
     <None Include="Resources\Bellicon.png" />
     <None Include="Resources\DeclineCall.png" />
     <None Include="Resources\AnswerCall.png" />
+    <None Include="Resources\AnswerActiveCall.png" />
+    <None Include="Resources\DeclineActiveCall.png" />
     <Content Include="Resources\Generic\BackGround.png" />
     <Content Include="Resources\Generic\PSSLogo.png" />
     <None Include="Resources\PassBackground.png" />
