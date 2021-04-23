@@ -140,7 +140,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     allUsers.Add(new User(
                                 (int)sqlDataReader.GetValue(0),
                                 (int)sqlDataReader.GetValue(1),
-                                (string)sqlDataReader.GetValue(2),
+                                (int)sqlDataReader.GetValue(2),
                                 (string)sqlDataReader.GetValue(3),
                                 (string)sqlDataReader.GetValue(4),
                                 (string)sqlDataReader.GetValue(5),

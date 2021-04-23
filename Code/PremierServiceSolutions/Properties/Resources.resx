@@ -154,4 +154,10 @@
   <data name="DeclineActiveCall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeclineActiveCall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="checkmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\checkmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeleteMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteMark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

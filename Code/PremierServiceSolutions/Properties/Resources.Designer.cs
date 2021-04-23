@@ -113,6 +113,16 @@ namespace PremierServiceSolutions.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checkmark {
+            get {
+                object obj = ResourceManager.GetObject("checkmark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DeclineActiveCall {
             get {
                 object obj = ResourceManager.GetObject("DeclineActiveCall", resourceCulture);
@@ -126,6 +136,16 @@ namespace PremierServiceSolutions.Properties {
         internal static System.Drawing.Bitmap DeclineCall {
             get {
                 object obj = ResourceManager.GetObject("DeclineCall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DeleteMark {
+            get {
+                object obj = ResourceManager.GetObject("DeleteMark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

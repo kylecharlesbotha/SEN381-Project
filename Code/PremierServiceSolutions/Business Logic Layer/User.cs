@@ -13,6 +13,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 {
     class User : IComparable<User>
     {
+        UserDH objUserDH = new UserDH();
         DBHandler objHandler = new DBHandler();
 
         private int userID;
@@ -20,14 +21,14 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int employeeID;
         private string userName;
         private string userPassword;
-        private string userAccessLevel;
+        private int userAccessLevel;
         private string userState;
         private string userAuthToken;
         private string userSalt;
 
 
 
-        public User(int userID, Employee employeeObject, string userName, string userPassword, string userAccessLevel, string userState, string userAuthToken)
+        public User(int userID, Employee employeeObject, string userName, string userPassword, int userAccessLevel, string userState, string userAuthToken)
         {
             this.userID = userID;
             this.employeeObject = employeeObject;
@@ -37,7 +38,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.userState = userState;
             this.userAuthToken = userAuthToken;
         }
-        public User(int userID, int employeeID, string userAccessLevel, string userAuthToken, string userName, string userPassword, string userState, string userSalt)
+        public User(int userID, int employeeID, int userAccessLevel, string userAuthToken, string userName, string userPassword, string userState, string userSalt)
         {
             this.userID = userID;
             this.employeeID = employeeID;
@@ -57,7 +58,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         internal Employee EmployeeObject { get => employeeObject; set => employeeObject = value; }
         public string UserName { get => userName; set => userName = value; }
         public string UserPassword { get => userPassword; set => userPassword = value; }
-        public string UserAccessLevel { get => userAccessLevel; set => userAccessLevel = value; }
+        public int UserAccessLevel { get => userAccessLevel; set => userAccessLevel = value; }
         public string UserState { get => userState; set => userState = value; }
         public string UserAuthToken { get => userAuthToken; set => userAuthToken = value; }
         public int EmployeeID { get => employeeID; set => employeeID = value; }
@@ -125,6 +126,14 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             }
         }
 
+        private String CreateSalt(int size)
+        {
+            var rng = new RNGCryptoServiceProvider();
+            var buff = new byte[size];
+            rng.GetBytes(buff);
+            return Convert.ToBase64String(buff);
+        }
+
         public String CreateSHA256Hash(string input, string salt)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
@@ -147,7 +156,6 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public bool attemptLogin(string username, string password)
         {
             User objUser = new User();
-            UserDH objUserDH = new UserDH();
             try
             {
                 objUser = objUserDH.GetByUserName(username);
@@ -191,6 +199,22 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public void ValidateAuthToken(string Token)
         {
 
+        }
+
+        public List<User> GetAllUsers()
+        {
+            try
+            {
+                List<User> AllUsers = new List<User>();
+                AllUsers = objUserDH.GetAll().ToList();
+                return AllUsers;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+            
         }
 
         public override string ToString()

@@ -70,12 +70,12 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // 
             this.tBUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.tBUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBUsername.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBUsername.ForeColor = System.Drawing.Color.White;
             this.tBUsername.HideSelection = false;
             this.tBUsername.Location = new System.Drawing.Point(121, 98);
             this.tBUsername.Name = "tBUsername";
-            this.tBUsername.Size = new System.Drawing.Size(193, 26);
+            this.tBUsername.Size = new System.Drawing.Size(193, 24);
             this.tBUsername.TabIndex = 0;
             this.tBUsername.TabStop = false;
             this.tBUsername.Text = "Username";
@@ -87,12 +87,12 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // 
             this.tBPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.tBPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBPassword.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBPassword.ForeColor = System.Drawing.Color.White;
             this.tBPassword.HideSelection = false;
             this.tBPassword.Location = new System.Drawing.Point(90, 154);
             this.tBPassword.Name = "tBPassword";
-            this.tBPassword.Size = new System.Drawing.Size(188, 26);
+            this.tBPassword.Size = new System.Drawing.Size(188, 24);
             this.tBPassword.TabIndex = 1;
             this.tBPassword.TabStop = false;
             this.tBPassword.Text = "Password";
@@ -122,11 +122,11 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // lblSignUp
             // 
             this.lblSignUp.AutoSize = true;
-            this.lblSignUp.Font = new System.Drawing.Font("SF Pro Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblSignUp.Location = new System.Drawing.Point(249, 324);
             this.lblSignUp.Name = "lblSignUp";
-            this.lblSignUp.Size = new System.Drawing.Size(56, 15);
+            this.lblSignUp.Size = new System.Drawing.Size(56, 16);
             this.lblSignUp.TabIndex = 6;
             this.lblSignUp.Text = "Sign Up";
             this.lblSignUp.Click += new System.EventHandler(this.lblSignUp_Click);
@@ -136,24 +136,24 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // lblDontHaveAccount
             // 
             this.lblDontHaveAccount.AutoSize = true;
-            this.lblDontHaveAccount.Font = new System.Drawing.Font("SF Pro Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDontHaveAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDontHaveAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.lblDontHaveAccount.Location = new System.Drawing.Point(99, 324);
             this.lblDontHaveAccount.Name = "lblDontHaveAccount";
-            this.lblDontHaveAccount.Size = new System.Drawing.Size(153, 15);
+            this.lblDontHaveAccount.Size = new System.Drawing.Size(147, 16);
             this.lblDontHaveAccount.TabIndex = 8;
             this.lblDontHaveAccount.Text = "Don\'t have an account?";
             // 
             // cBRemeberMe
             // 
-            this.cBRemeberMe.Font = new System.Drawing.Font("SF Pro Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBRemeberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cBRemeberMe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cBRemeberMe.Location = new System.Drawing.Point(147, 248);
             this.cBRemeberMe.Name = "cBRemeberMe";
             this.cBRemeberMe.Size = new System.Drawing.Size(105, 21);
             this.cBRemeberMe.TabIndex = 3;
             this.cBRemeberMe.TabStop = false;
-            this.cBRemeberMe.Text = "Remeber Me";
+            this.cBRemeberMe.Text = "Remember Me";
             this.cBRemeberMe.UseVisualStyleBackColor = true;
             // 
             // btnSignIn
@@ -164,7 +164,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnSignIn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSignIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSignIn.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignIn.Location = new System.Drawing.Point(74, 202);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -181,7 +181,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // lblUserLogin
             // 
             this.lblUserLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUserLogin.Font = new System.Drawing.Font("SF Pro Text", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblUserLogin.Location = new System.Drawing.Point(0, 33);
             this.lblUserLogin.Name = "lblUserLogin";

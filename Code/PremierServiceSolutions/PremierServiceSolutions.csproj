@@ -312,6 +312,8 @@
     <None Include="Resources\AnswerCall.png" />
     <None Include="Resources\AnswerActiveCall.png" />
     <None Include="Resources\DeclineActiveCall.png" />
+    <None Include="Resources\checkmark.png" />
+    <None Include="Resources\DeleteMark.png" />
     <Content Include="Resources\Generic\BackGround.png" />
     <Content Include="Resources\Generic\PSSLogo.png" />
     <None Include="Resources\PassBackground.png" />

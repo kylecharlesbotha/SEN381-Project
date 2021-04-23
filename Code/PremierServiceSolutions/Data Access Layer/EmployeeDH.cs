@@ -204,7 +204,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //Close connection to database
                 sqlCon.Close();
                 //Return List of CustomerContracts
-                return allEmp;
+                return allEmp.ToList();
             }
             catch (SqlException SQLE)
             {

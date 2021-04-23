@@ -29,11 +29,15 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateAccount));
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.pbEmpNumCheck = new System.Windows.Forms.PictureBox();
+            this.lblCheckPassMatch = new System.Windows.Forms.Label();
+            this.lblCheckAdminCode = new System.Windows.Forms.Label();
+            this.lblCheckUsername = new System.Windows.Forms.Label();
+            this.lblCheckEmpNum = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnCreateAccount = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.tbAdminCode = new System.Windows.Forms.TextBox();
             this.pBAdminCode = new System.Windows.Forms.PictureBox();
             this.tBConfirmPassword = new System.Windows.Forms.TextBox();
@@ -50,7 +54,15 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblPremierServiceSolutions = new System.Windows.Forms.Label();
             this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
+            this.tTCreateAccount = new System.Windows.Forms.ToolTip(this.components);
+            this.pbUsernameCheck = new System.Windows.Forms.PictureBox();
+            this.pbPasswordCheck = new System.Windows.Forms.PictureBox();
+            this.pbConPassCheck = new System.Windows.Forms.PictureBox();
+            this.pbAdminCodeCheck = new System.Windows.Forms.PictureBox();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnCreateAccount = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEmpNumCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBAdminCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbConPassword)).BeginInit();
@@ -59,10 +71,23 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsernameCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConPassCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdminCodeCheck)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.pbAdminCodeCheck);
+            this.pnlMain.Controls.Add(this.pbConPassCheck);
+            this.pnlMain.Controls.Add(this.pbPasswordCheck);
+            this.pnlMain.Controls.Add(this.pbUsernameCheck);
+            this.pnlMain.Controls.Add(this.pbEmpNumCheck);
+            this.pnlMain.Controls.Add(this.lblCheckPassMatch);
+            this.pnlMain.Controls.Add(this.lblCheckAdminCode);
+            this.pnlMain.Controls.Add(this.lblCheckUsername);
+            this.pnlMain.Controls.Add(this.lblCheckEmpNum);
             this.pnlMain.Controls.Add(this.btnReset);
             this.pnlMain.Controls.Add(this.pictureBox2);
             this.pnlMain.Controls.Add(this.btnCreateAccount);
@@ -85,26 +110,59 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlMain.Size = new System.Drawing.Size(850, 500);
             this.pnlMain.TabIndex = 0;
             // 
-            // btnReset
+            // pbEmpNumCheck
             // 
-            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(507, 430);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnReset.Size = new System.Drawing.Size(250, 40);
-            this.btnReset.TabIndex = 25;
-            this.btnReset.TabStop = false;
-            this.btnReset.Text = "Reset";
-            this.btnReset.TextColor = System.Drawing.Color.White;
-            this.btnReset.UseVisualStyleBackColor = true;
+            this.pbEmpNumCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbEmpNumCheck.Image")));
+            this.pbEmpNumCheck.Location = new System.Drawing.Point(338, 124);
+            this.pbEmpNumCheck.Name = "pbEmpNumCheck";
+            this.pbEmpNumCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbEmpNumCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbEmpNumCheck.TabIndex = 30;
+            this.pbEmpNumCheck.TabStop = false;
+            // 
+            // lblCheckPassMatch
+            // 
+            this.lblCheckPassMatch.AutoSize = true;
+            this.lblCheckPassMatch.BackColor = System.Drawing.Color.Transparent;
+            this.lblCheckPassMatch.ForeColor = System.Drawing.Color.Red;
+            this.lblCheckPassMatch.Location = new System.Drawing.Point(120, 274);
+            this.lblCheckPassMatch.Name = "lblCheckPassMatch";
+            this.lblCheckPassMatch.Size = new System.Drawing.Size(101, 13);
+            this.lblCheckPassMatch.TabIndex = 29;
+            this.lblCheckPassMatch.Text = "lblCheckPassMatch";
+            // 
+            // lblCheckAdminCode
+            // 
+            this.lblCheckAdminCode.AutoSize = true;
+            this.lblCheckAdminCode.BackColor = System.Drawing.Color.Transparent;
+            this.lblCheckAdminCode.ForeColor = System.Drawing.Color.Red;
+            this.lblCheckAdminCode.Location = new System.Drawing.Point(130, 331);
+            this.lblCheckAdminCode.Name = "lblCheckAdminCode";
+            this.lblCheckAdminCode.Size = new System.Drawing.Size(102, 13);
+            this.lblCheckAdminCode.TabIndex = 28;
+            this.lblCheckAdminCode.Text = "lblCheckAdminCode";
+            // 
+            // lblCheckUsername
+            // 
+            this.lblCheckUsername.AutoSize = true;
+            this.lblCheckUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblCheckUsername.ForeColor = System.Drawing.Color.Red;
+            this.lblCheckUsername.Location = new System.Drawing.Point(113, 163);
+            this.lblCheckUsername.Name = "lblCheckUsername";
+            this.lblCheckUsername.Size = new System.Drawing.Size(96, 13);
+            this.lblCheckUsername.TabIndex = 27;
+            this.lblCheckUsername.Text = "lblCheckUsername";
+            // 
+            // lblCheckEmpNum
+            // 
+            this.lblCheckEmpNum.AutoSize = true;
+            this.lblCheckEmpNum.BackColor = System.Drawing.Color.Transparent;
+            this.lblCheckEmpNum.ForeColor = System.Drawing.Color.Red;
+            this.lblCheckEmpNum.Location = new System.Drawing.Point(130, 105);
+            this.lblCheckEmpNum.Name = "lblCheckEmpNum";
+            this.lblCheckEmpNum.Size = new System.Drawing.Size(91, 13);
+            this.lblCheckEmpNum.TabIndex = 26;
+            this.lblCheckEmpNum.Text = "lblCheckEmpNum";
             // 
             // pictureBox2
             // 
@@ -116,41 +174,22 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
             // 
-            // btnCreateAccount
-            // 
-            this.btnCreateAccount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateAccount.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateAccount.FlatAppearance.BorderSize = 0;
-            this.btnCreateAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateAccount.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateAccount.Location = new System.Drawing.Point(72, 430);
-            this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateAccount.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateAccount.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCreateAccount.Size = new System.Drawing.Size(250, 40);
-            this.btnCreateAccount.TabIndex = 23;
-            this.btnCreateAccount.TabStop = false;
-            this.btnCreateAccount.Text = "Create Account";
-            this.btnCreateAccount.TextColor = System.Drawing.Color.White;
-            this.btnCreateAccount.UseVisualStyleBackColor = true;
-            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
-            // 
             // tbAdminCode
             // 
             this.tbAdminCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.tbAdminCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbAdminCode.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAdminCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAdminCode.ForeColor = System.Drawing.Color.White;
             this.tbAdminCode.HideSelection = false;
             this.tbAdminCode.Location = new System.Drawing.Point(82, 349);
             this.tbAdminCode.Name = "tbAdminCode";
-            this.tbAdminCode.Size = new System.Drawing.Size(204, 26);
+            this.tbAdminCode.Size = new System.Drawing.Size(204, 24);
             this.tbAdminCode.TabIndex = 22;
             this.tbAdminCode.TabStop = false;
             this.tbAdminCode.Text = "Administrator Code";
+            this.tbAdminCode.TextChanged += new System.EventHandler(this.tbAdminCode_TextChanged);
+            this.tbAdminCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAdminCode_KeyPress);
+            this.tbAdminCode.Leave += new System.EventHandler(this.tbAdminCode_Leave);
             // 
             // pBAdminCode
             // 
@@ -166,43 +205,52 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // 
             this.tBConfirmPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.tBConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBConfirmPassword.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBConfirmPassword.ForeColor = System.Drawing.Color.White;
             this.tBConfirmPassword.HideSelection = false;
             this.tBConfirmPassword.Location = new System.Drawing.Point(82, 293);
             this.tBConfirmPassword.Name = "tBConfirmPassword";
-            this.tBConfirmPassword.Size = new System.Drawing.Size(188, 26);
+            this.tBConfirmPassword.Size = new System.Drawing.Size(188, 24);
             this.tBConfirmPassword.TabIndex = 20;
             this.tBConfirmPassword.TabStop = false;
             this.tBConfirmPassword.Text = "Confirm Password";
+            this.tBConfirmPassword.TextChanged += new System.EventHandler(this.tBConfirmPassword_TextChanged);
+            this.tBConfirmPassword.Enter += new System.EventHandler(this.tBConfirmPassword_Enter);
+            this.tBConfirmPassword.Leave += new System.EventHandler(this.tBConfirmPassword_Leave);
             // 
             // tBPassword
             // 
             this.tBPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.tBPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBPassword.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBPassword.ForeColor = System.Drawing.Color.White;
             this.tBPassword.HideSelection = false;
             this.tBPassword.Location = new System.Drawing.Point(82, 237);
             this.tBPassword.Name = "tBPassword";
-            this.tBPassword.Size = new System.Drawing.Size(188, 26);
+            this.tBPassword.Size = new System.Drawing.Size(188, 24);
             this.tBPassword.TabIndex = 13;
             this.tBPassword.TabStop = false;
             this.tBPassword.Text = "Password";
+            this.tBPassword.TextChanged += new System.EventHandler(this.tBPassword_TextChanged);
+            this.tBPassword.Enter += new System.EventHandler(this.tBPassword_Enter);
+            this.tBPassword.Leave += new System.EventHandler(this.tBPassword_Leave);
             // 
             // tbUsername
             // 
             this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbUsername.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.ForeColor = System.Drawing.Color.White;
             this.tbUsername.HideSelection = false;
             this.tbUsername.Location = new System.Drawing.Point(120, 181);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(193, 26);
+            this.tbUsername.Size = new System.Drawing.Size(193, 24);
             this.tbUsername.TabIndex = 19;
             this.tbUsername.TabStop = false;
             this.tbUsername.Text = "Username";
+            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
+            this.tbUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUsername_KeyPress);
+            this.tbUsername.Leave += new System.EventHandler(this.tbUsername_Leave);
             // 
             // pbConPassword
             // 
@@ -228,16 +276,19 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // 
             this.tBEmployeeNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.tBEmployeeNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBEmployeeNumber.Font = new System.Drawing.Font("SF Pro Text", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBEmployeeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBEmployeeNumber.ForeColor = System.Drawing.Color.White;
             this.tBEmployeeNumber.HideSelection = false;
             this.tBEmployeeNumber.Location = new System.Drawing.Point(120, 124);
             this.tBEmployeeNumber.Name = "tBEmployeeNumber";
-            this.tBEmployeeNumber.Size = new System.Drawing.Size(193, 26);
+            this.tBEmployeeNumber.Size = new System.Drawing.Size(193, 24);
             this.tBEmployeeNumber.TabIndex = 12;
             this.tBEmployeeNumber.TabStop = false;
             this.tBEmployeeNumber.Text = "EmployeeNumber";
+            this.tTCreateAccount.SetToolTip(this.tBEmployeeNumber, "Enter Employee Number(May only contain numeric characters)");
             this.tBEmployeeNumber.TextChanged += new System.EventHandler(this.tBEmployeeNumber_TextChanged);
+            this.tBEmployeeNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBEmployeeNumber_KeyPress);
+            this.tBEmployeeNumber.Leave += new System.EventHandler(this.tBEmployeeNumber_Leave);
             // 
             // pBUsername
             // 
@@ -261,7 +312,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // lblCreateAccount
             // 
             this.lblCreateAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCreateAccount.Font = new System.Drawing.Font("SF Pro Text", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblCreateAccount.Location = new System.Drawing.Point(0, 42);
             this.lblCreateAccount.Name = "lblCreateAccount";
@@ -273,11 +324,11 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("SF Pro Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblLogin.Location = new System.Drawing.Point(784, 16);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(48, 18);
+            this.lblLogin.Size = new System.Drawing.Size(44, 18);
             this.lblLogin.TabIndex = 9;
             this.lblLogin.Text = "Login";
             this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
@@ -287,22 +338,22 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // lblHaveAccount
             // 
             this.lblHaveAccount.AutoSize = true;
-            this.lblHaveAccount.Font = new System.Drawing.Font("SF Pro Text", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHaveAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHaveAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.lblHaveAccount.Location = new System.Drawing.Point(598, 16);
             this.lblHaveAccount.Name = "lblHaveAccount";
-            this.lblHaveAccount.Size = new System.Drawing.Size(189, 18);
+            this.lblHaveAccount.Size = new System.Drawing.Size(176, 18);
             this.lblHaveAccount.TabIndex = 10;
             this.lblHaveAccount.Text = "Already have an account?";
             // 
             // lblPremierServiceSolutions
             // 
             this.lblPremierServiceSolutions.AutoSize = true;
-            this.lblPremierServiceSolutions.Font = new System.Drawing.Font("SF Pro Text", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPremierServiceSolutions.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPremierServiceSolutions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPremierServiceSolutions.Location = new System.Drawing.Point(15, 10);
             this.lblPremierServiceSolutions.Name = "lblPremierServiceSolutions";
-            this.lblPremierServiceSolutions.Size = new System.Drawing.Size(255, 23);
+            this.lblPremierServiceSolutions.Size = new System.Drawing.Size(251, 24);
             this.lblPremierServiceSolutions.TabIndex = 0;
             this.lblPremierServiceSolutions.Text = "Premier Service Solutions";
             // 
@@ -334,13 +385,98 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBExit.TabIndex = 20;
             this.iPBExit.TabStop = false;
             // 
+            // pbUsernameCheck
+            // 
+            this.pbUsernameCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbUsernameCheck.Image")));
+            this.pbUsernameCheck.Location = new System.Drawing.Point(338, 181);
+            this.pbUsernameCheck.Name = "pbUsernameCheck";
+            this.pbUsernameCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbUsernameCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUsernameCheck.TabIndex = 31;
+            this.pbUsernameCheck.TabStop = false;
+            // 
+            // pbPasswordCheck
+            // 
+            this.pbPasswordCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbPasswordCheck.Image")));
+            this.pbPasswordCheck.Location = new System.Drawing.Point(338, 237);
+            this.pbPasswordCheck.Name = "pbPasswordCheck";
+            this.pbPasswordCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbPasswordCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPasswordCheck.TabIndex = 32;
+            this.pbPasswordCheck.TabStop = false;
+            // 
+            // pbConPassCheck
+            // 
+            this.pbConPassCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbConPassCheck.Image")));
+            this.pbConPassCheck.Location = new System.Drawing.Point(338, 293);
+            this.pbConPassCheck.Name = "pbConPassCheck";
+            this.pbConPassCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbConPassCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbConPassCheck.TabIndex = 33;
+            this.pbConPassCheck.TabStop = false;
+            // 
+            // pbAdminCodeCheck
+            // 
+            this.pbAdminCodeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbAdminCodeCheck.Image")));
+            this.pbAdminCodeCheck.Location = new System.Drawing.Point(338, 349);
+            this.pbAdminCodeCheck.Name = "pbAdminCodeCheck";
+            this.pbAdminCodeCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbAdminCodeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAdminCodeCheck.TabIndex = 34;
+            this.pbAdminCodeCheck.TabStop = false;
+            // 
+            // btnReset
+            // 
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReset.Location = new System.Drawing.Point(507, 430);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReset.Size = new System.Drawing.Size(250, 40);
+            this.btnReset.TabIndex = 25;
+            this.btnReset.TabStop = false;
+            this.btnReset.Text = "Reset";
+            this.btnReset.TextColor = System.Drawing.Color.White;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnCreateAccount
+            // 
+            this.btnCreateAccount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateAccount.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateAccount.FlatAppearance.BorderSize = 0;
+            this.btnCreateAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateAccount.Location = new System.Drawing.Point(72, 430);
+            this.btnCreateAccount.Name = "btnCreateAccount";
+            this.btnCreateAccount.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateAccount.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateAccount.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCreateAccount.Size = new System.Drawing.Size(250, 40);
+            this.btnCreateAccount.TabIndex = 23;
+            this.btnCreateAccount.TabStop = false;
+            this.btnCreateAccount.Text = "Create Account";
+            this.btnCreateAccount.TextColor = System.Drawing.Color.White;
+            this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
+            // 
             // frmCreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.BackGround;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1200, 800);
+            this.ClientSize = new System.Drawing.Size(1200, 788);
             this.Controls.Add(this.iPBMinimize);
             this.Controls.Add(this.iPBExit);
             this.Controls.Add(this.pnlMain);
@@ -350,8 +486,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.Name = "frmCreateAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Account";
+            this.Load += new System.EventHandler(this.frmCreateAccount_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEmpNumCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBAdminCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbConPassword)).EndInit();
@@ -360,6 +498,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsernameCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConPassCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdminCodeCheck)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,5 +528,15 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private CustomComponents.ButtonRound btnReset;
         private FontAwesome.Sharp.IconPictureBox iPBMinimize;
         private FontAwesome.Sharp.IconPictureBox iPBExit;
+        private System.Windows.Forms.ToolTip tTCreateAccount;
+        private System.Windows.Forms.Label lblCheckEmpNum;
+        private System.Windows.Forms.Label lblCheckUsername;
+        private System.Windows.Forms.Label lblCheckAdminCode;
+        private System.Windows.Forms.Label lblCheckPassMatch;
+        private System.Windows.Forms.PictureBox pbEmpNumCheck;
+        private System.Windows.Forms.PictureBox pbAdminCodeCheck;
+        private System.Windows.Forms.PictureBox pbConPassCheck;
+        private System.Windows.Forms.PictureBox pbPasswordCheck;
+        private System.Windows.Forms.PictureBox pbUsernameCheck;
     }
 }

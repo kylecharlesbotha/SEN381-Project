@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PremierServiceSolutions.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,8 @@ namespace PremierServiceSolutions.Business_Logic_Layer
     class Employee : Person, IComparable<Employee>
     {
 
-       
+        EmployeeDH objEmpDH = new EmployeeDH();
+
 
         private int employeeID;
         private string employeeName;
@@ -21,9 +23,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string employeeRole;
         private DateTime employeeStart;
         private string employeeStatus;
-       
-        
-       
+
+
+
 
         public Employee(int employeeid, string employeename, string employeesurName, string employeeIDNumber, string employeecell, string employeegender, string employeerole, DateTime employeestart, string employeestatus)
         {
@@ -57,9 +59,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string EmployeeName { get => employeeName; set => employeeName = value; }
         public string EmployeeSurName { get => employeeSurName; set => employeeSurName = value; }
         public string EmployeeIDNumber { get => employeeIDNumber; set => employeeIDNumber = value; }
-     
 
-    
+
+
 
         public string EmployeeCell { get => employeeCell; set => employeeCell = value; }
         public string EmployeeStatus { get => employeeStatus; set => employeeStatus = value; }
@@ -82,5 +84,20 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
             return base.GetHashCode();
         }
+
+        public List<Employee> GetEmployees()
+        {
+            List<Employee> curEmployees = new List<Employee>();
+            try
+            {
+                curEmployees = objEmpDH.GetAll().ToList();
+                return curEmployees;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
+        
 }
