@@ -152,7 +152,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //Close connection to database
                 sqlCon.Close();
                 //Return List of Clients
-                return allUsers;
+                return allUsers.ToList();
             }
             catch (SqlException SQLE)
             {

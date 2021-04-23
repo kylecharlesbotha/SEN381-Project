@@ -13,6 +13,17 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 {
     public partial class frmCreateAccount : Form
     {
+        //HARDCODE for Administrator Code = 1234
+        int AdminCode = 1234;
+
+        //Bool Functions to check if respective information are filled in.
+        bool CheckEmpNum=false;
+        bool CheckUsername = false;
+        bool CheckPassword = false;
+        bool CheckConfirmPassword = false;
+        bool CheckAdminCode = false;
+
+        //Create Objects of Employee and User for use in this class
         User objUser = new User();
         Employee objEmp = new Employee();
         public frmCreateAccount()
@@ -54,6 +65,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             {
                 tBEmployeeNumber.Text = "EmployeeNumber";
                 pbEmpNumCheck.Image = Properties.Resources.DeleteMark;
+                pbEmpNumCheck.Hide();
             }
         }
 
@@ -110,7 +122,11 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         private void frmCreateAccount_Load(object sender, EventArgs e)
         {
-            
+            pbEmpNumCheck.Hide();
+            pbUsernameCheck.Hide();
+            pbPasswordCheck.Hide();
+            pbConPassCheck.Hide();
+            pbAdminCodeCheck.Hide();
             lblCheckEmpNum.Text = "";
             lblCheckUsername.Text = "";
             lblCheckAdminCode.Text = "";
@@ -158,55 +174,66 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             {
                 tbUsername.Text = "Username";
                 pbUsernameCheck.Image = Properties.Resources.DeleteMark;
+                pbUsernameCheck.Hide();
             }
         }
 
         private void tBEmployeeNumber_TextChanged(object sender, EventArgs e)
         {
+            List<Employee> listEmployees = new List<Employee>();
+            listEmployees = objEmp.GetEmployees();
+
+            List<User> listUsers= new List<User>();
+            listUsers = objUser.GetAllUsers();
+            //obj of emp and users
             try
             {
                 int EmployeeNum=0;
-            if (!String.IsNullOrEmpty(tBEmployeeNumber.Text))
-                {
-                    pbEmpNumCheck.Image = Properties.Resources.checkmark;
-                    EmployeeNum = Convert.ToInt32(tBEmployeeNumber);
+
+                if (!String.IsNullOrEmpty(tBEmployeeNumber.Text))
+                    {
+                        EmployeeNum = Convert.ToInt32(tBEmployeeNumber.Text);
+                    pbEmpNumCheck.Show();
+
+                    foreach (var userval in listUsers)
+                    {
+                        //MessageBox.Show(userval.EmployeeID.ToString());
+                        if (EmployeeNum == userval.EmployeeID)
+                        {
+                            pbEmpNumCheck.Image = Properties.Resources.DeleteMark;
+                            CheckEmpNum = false;
+                            break;
+                        }
+                        else 
+                        {
+                            if ((EmployeeNum<= listEmployees.Count) && (EmployeeNum >=1))
+                            {
+                                pbEmpNumCheck.Image = Properties.Resources.checkmark;
+                                CheckEmpNum = true;
+                            }
+                            else
+                            {
+                                pbEmpNumCheck.Image = Properties.Resources.DeleteMark;
+                                CheckEmpNum = false;
+                            }
+                           
+                            
+                        }
+                        
+                    }
                 }
                 else
-                {
+                    {
                     pbEmpNumCheck.Image = Properties.Resources.DeleteMark;
-                }
-
-                List<Employee> listEmployees = new List<Employee>();
-                listEmployees = objEmp.GetEmployees();
-
-                foreach (var EmpValue in listEmployees)
-                {
-                    if (EmpValue.EmployeeID == EmployeeNum)
-                    {
-
-                    }
-                    else
-                    {
-
-                    }
-                }
+                    CheckEmpNum = false;
+                    pbEmpNumCheck.Hide();
+                }  
 
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
-            //runthrough foreach
-            //foreach ()
-            //{
-            //
-            //}
-            //Call foreach method
-            //IF enter else load wrong picturebox(else green arrow);
-            //Call method(Get list of employees(Employeenumber //GetEmployee BusinessAccessLayer //call function in data access layer))
-            //Check if employee already exists
-            //Get list of employees, run through and check if already exists
-            //
         }
 
         private void tbAdminCode_KeyPress(object sender, KeyPressEventArgs e)
@@ -253,24 +280,29 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
             List<User> listUsers = new List<User>();
             listUsers = objUser.GetAllUsers();//check now now
+
             if (!String.IsNullOrEmpty(tbUsername.Text))
             {
+                pbUsernameCheck.Show();
                 string username = tbUsername.Text.ToLower();
                 foreach (var uservalue in listUsers)
                 {
                     if (uservalue.UserName.ToLower() == username)
                     {
                         pbUsernameCheck.Image = Properties.Resources.DeleteMark;
+                        CheckUsername = false;
                     }
                     else
                     {
                         pbUsernameCheck.Image = Properties.Resources.checkmark;
+                        CheckUsername = true;
                     }
                 }
             }
             else
             {
                 pbUsernameCheck.Image = Properties.Resources.DeleteMark;
+                CheckUsername = false;
             }
             
             
@@ -300,6 +332,22 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             {
                 pbPasswordCheck.Image = Properties.Resources.DeleteMark;
             }
+        }
+
+        private void tBEmployeeNumber_Click(object sender, EventArgs e)
+        {
+            tBEmployeeNumber.Clear();
+        }
+
+        private void tbUsername_Click(object sender, EventArgs e)
+        {
+            tbUsername.Clear();
+            pbUsernameCheck.Hide();
+        }
+
+        private void tbAdminCode_Click(object sender, EventArgs e)
+        {
+            tbAdminCode.Clear();
         }
 
 

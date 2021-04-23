@@ -29,7 +29,6 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         public Employee(int employeeid, string employeename, string employeesurName, string employeeIDNumber, string employeecell, string employeegender, string employeerole, DateTime employeestart, string employeestatus)
         {
-
             this.employeeID = employeeid;
             this.employeeName = employeename;
             this.employeeSurName = employeesurName;
@@ -68,7 +67,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string EmployeeGender { get => employeeGender; set => employeeGender = value; }
         public string EmployeeRole { get => employeeRole; set => employeeRole = value; }
         public DateTime EmployeeStart { get => employeeStart; set => employeeStart = value; }
-
+        public string EmployeeStatus1 { get => employeeStatus; set => employeeStatus = value; }
 
         public void GetEmployeeDuration()
         {

@@ -52,7 +52,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 }
                 //Close connection to database
                 sqlCon.Close();
-                //Return List of Technicians
+                //Return List of Employees
                 return objRecord;
             }
             catch (SqlException SQLE)
@@ -192,13 +192,11 @@ namespace PremierServiceSolutions.Data_Access_Layer
                         (string)sqlDataReader.GetValue(1),
                         (string)sqlDataReader.GetValue(2),
                         (string)sqlDataReader.GetValue(3),
+                        (string)sqlDataReader.GetValue(4),
                         (string)sqlDataReader.GetValue(5),
                         (string)sqlDataReader.GetValue(6),
-                        (string)sqlDataReader.GetValue(7),
-                        (DateTime)sqlDataReader.GetValue(8),
-                        (string)sqlDataReader.GetValue(9)
-
-
+                        (DateTime)sqlDataReader.GetValue(7),
+                        (string)sqlDataReader.GetValue(8)
                         ));
                 }
                 //Close connection to database
