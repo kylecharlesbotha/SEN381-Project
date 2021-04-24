@@ -172,6 +172,44 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
+        public int FindTicket(Ticket objTic)
+        {
+            int RecordCount = 0 ;
+            try
+            {
+                
+
+
+                //New SQL Connection which the query will use to perform the Select of tblTicket
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Tickets
+                string SelectQuery = string.Format("SELECT COUNT * FROM tblTicket WHERE TicketPriority = '{0}' AND TicketStatus = '{1}' AND EmployeeID = '{2}' AND ClientID = '{3}' AND TicketLoggedTime = '{4}'", objTic.TicketPriority, objTic.TicketStatus, objTic.EmployeeID, objTic.ClientID,objTic.TicketLoggedTime);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    RecordCount = (int)sqlDataReader.GetValue(0);
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Tickets
+                return RecordCount;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                RecordCount = -1;
+                return RecordCount;
+            }
+        }
+
         public bool CheckTables(Ticket objTic)
         {
             int EmployeeCount;

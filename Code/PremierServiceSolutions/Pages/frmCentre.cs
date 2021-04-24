@@ -17,14 +17,29 @@ namespace PremierServiceSolutions.Pages
             InitializeComponent();
             TestList.Add("Darren");
             TestList.Add("Darlien");
+            TestList.Add("Darwdwlien");
+            TestList.Add("Darlwdwien");
             TestList.Add("Kyle");
+            TestList.Add("Kyldwe");
+            TestList.Add("Kysdasle");
             TestList.Add("Klazam");
+            TestList.Add("Claude");
+            TestList.Add("Cladawdude");
             TestList.Add("Claude");
             TestList.Add("Cris");
             TestList.Add("Brent");
+            TestList.Add("Brwdent");
+            TestList.Add("Brdent");
+            TestList.Add("Bresdsant");
             TestList.Add("Zane");
             TestList.Add("Zack");
+            TestList.Add("Zdwdack");
+            TestList.Add("Zacwdk");
             flpSearchResults.Left = 9;
+
+            flpSearchResults.BringToFront();
+
+
         }
 
 
@@ -66,11 +81,22 @@ namespace PremierServiceSolutions.Pages
             lID.Size = new Size(p.Width/2 - 20, 30);
             p.Controls.Add(lID);
             lID.Top = 10;
-            lID.TextAlign = ContentAlignment.MiddleCenter;
+            lID.TextAlign = ContentAlignment.MiddleLeft;
             lID.Left = 10;
+            lID.Font = new Font("Arial", 16, FontStyle.Bold);
             lID.ForeColor = Color.White;
             lID.BackColor = Color.FromArgb(218, 0, 0);
-            lID.Click += new EventHandler(lblTicketIDClick);
+            if (flpSearchResults.Controls.Count % 2 == 0)
+            {
+                lID.BackColor = Color.FromArgb(209,209,209);
+            }
+            else
+            {
+                lID.BackColor = Color.FromArgb(179, 179, 179);
+            }
+            lID.Click += new EventHandler(lblSearchClicked);
+            lID.MouseEnter += new EventHandler(lblMouseEnter);
+            lID.MouseLeave += new EventHandler(lblMouseLeave);
 
 
 
@@ -84,9 +110,19 @@ namespace PremierServiceSolutions.Pages
             lCus.Top = 10;
             lCus.TextAlign = ContentAlignment.MiddleCenter;
             lCus.Left = p.Width/2;
+            lCus.Font = new Font("Arial", 16, FontStyle.Bold);
             lCus.ForeColor = Color.White;
-            lCus.BackColor = Color.FromArgb(218, 0, 0);
-            lCus.Click += new EventHandler(lblTicketIDClick);
+            if (flpSearchResults.Controls.Count % 2 == 0)
+            {
+                lCus.BackColor = Color.FromArgb(209, 209, 209);
+            }
+            else
+            {
+                lCus.BackColor = Color.FromArgb(179, 179, 179);
+            }
+            lCus.Click += new EventHandler(lblSearchClicked);
+            lCus.MouseEnter += new EventHandler(lblMouseEnter);
+            lCus.MouseLeave += new EventHandler(lblMouseLeave);
 
             //Updating the Panel and forcing it to refresh its self
             flpSearchResults.Height = flpSearchResults.Controls.Count* p.Height + (8 * flpSearchResults.Controls.Count);
@@ -139,62 +175,106 @@ namespace PremierServiceSolutions.Pages
             flpSearchResults.Invalidate();
         }
 
-        protected void lblTicketIDClick(object sender, EventArgs e)
+        protected void lblSearchClicked(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
             MessageBox.Show(lbl.Name);
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        protected void lblMouseLeave(object sender, EventArgs e)
         {
-            flpSearchResults.Visible = true;
-            CreateEntry("Test","1212");
+            Label lbl = sender as Label;
+            lbl.ForeColor = Color.White;
+        }
+        protected void lblMouseEnter(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            lbl.ForeColor = Color.FromArgb(210,4,45);
         }
 
-        private void tBSearchClient_TextChanged(object sender, EventArgs e)
+        private void tBSearch_TextChanged(object sender, EventArgs e)
         {
-            bool found = false;
-            if (String.IsNullOrWhiteSpace(tBSearchClient.Text))
+            if (tBSearch.Text == "Start Typing Client or Business Name")
             {
-                for (int i = flpSearchResults.Controls.Count-1; i >= 0 ; i--)
-                {
-                    flpSearchResults.Controls[i].Dispose();
-                }
-                flpSearchResults.Visible = false;
+
             }
             else
             {
-                
-                for (int i = flpSearchResults.Controls.Count - 1; i >= 0; i--)
+                bool found = false;
+                if (String.IsNullOrWhiteSpace(tBSearch.Text))
                 {
-                    flpSearchResults.Controls[i].Dispose();
-                }
-                string Text = tBSearchClient.Text.ToLower();
-
-                for (int i = 0; i < TestList.Count-1; i++)
-                {
-                    if(TestList[i].ToLower().StartsWith(Text))
+                    for (int i = flpSearchResults.Controls.Count - 1; i >= 0; i--)
                     {
-                        CreateEntry(TestList[i], "Test");
-                        found = true;
+                        flpSearchResults.Controls[i].Dispose();
                     }
-
+                    flpSearchResults.Visible = false;
                 }
-                if(found==false)
+                else
                 {
-                    CreateNullEntry("CLIENT NOT FOUND! Please clear search and try again.");
+
+                    for (int i = flpSearchResults.Controls.Count - 1; i >= 0; i--)
+                    {
+                        flpSearchResults.Controls[i].Dispose();
+                    }
+                    string Text = tBSearch.Text.ToLower();
+
+                    for (int i = 0; i < TestList.Count - 1; i++)
+                    {
+                        if (TestList[i].ToLower().StartsWith(Text))
+                        {
+                            CreateEntry(TestList[i], "Test");
+                            found = true;
+                        }
+
+                    }
+                    if (found == false)
+                    {
+                        CreateNullEntry("CLIENT NOT FOUND! Please clear search and try again.");
+                    }
+                    flpSearchResults.Visible = true;
+
+
+                    //flpSearchResults.Visible = true;
+                    //int value = Convert.ToInt32(tBSearchClient.Text);
+                    //value = flpSearchResults.Controls.Count - value;
+                    //flpSearchResults.Controls[value].Dispose();
                 }
-                flpSearchResults.Visible = true;
+            }
+        }
 
 
 
+        private void lblContract_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void tBSearch_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                if(tBSearch.Text == "Start Typing Client or Business Name")
+                {
+                    tBSearch.Clear();
+                }
+            }
+            catch
+            {
 
-                //flpSearchResults.Visible = true;
-                //int value = Convert.ToInt32(tBSearchClient.Text);
-                //value = flpSearchResults.Controls.Count - value;
-                //flpSearchResults.Controls[value].Dispose();
+            }
+        }
+
+        private void tBSearch_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if(string.IsNullOrWhiteSpace(tBSearch.Text))
+                {
+                    tBSearch.Text = "Start Typing Client or Business Name";
+                }
+            }
+            catch
+            {
+
             }
         }
     }

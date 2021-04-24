@@ -34,12 +34,12 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                     string InsertQuery = string.Format(@"INSERT INTO tblCall (CallID,ClientID,EmployeeID,CallStartTime,CallEndTime,CallStatus,TicketID,CallRecording,CallState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')",
                         objCall.CallID,
-                        objCall.CallClient.PersonID,
-                        objCall.CallEmployee.PersonID,
+                        objCall.ClientID,
+                        objCall.EmployeeID,
                         objCall.CallStartTime,
                         objCall.CallEndTime,
                         objCall.CallState,
-                        objCall.CallTicket.TicketID,
+                        objCall.TicketID,
                         objCall.CallRecording,
                         objCall.CallState
                         );
@@ -65,14 +65,14 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tblCustomerContract
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblCall SET CallID ='{0}',ClientID ='{1}',EmployeeID ='{2}',CallStartTime ='{3}',CallEndTime ='{4}',CallStatus ='{4}',CallState ='{6}' WHERE CallID ='{0}'",
+                string UpdateQuery = string.Format(@"UPDATE tblCall SET ClientID ='{1}',EmployeeID ='{2}',CallStartTime ='{3}',CallEndTime ='{4}',CallStatus ='{4}',CallState ='{6}' WHERE CallID ='{0}'",
                        oldObjCall.CallID,
-                       newObjCall.CallClient.PersonID,
-                       newObjCall.CallEmployee.PersonID,
+                       newObjCall.ClientID,
+                       newObjCall.EmployeeID,
                        newObjCall.CallStartTime,
                        newObjCall.CallEndTime,
                        newObjCall.CallState,
-                       newObjCall.CallTicket.TicketID,
+                       newObjCall.TicketID,
                        newObjCall.CallRecording,
                        newObjCall.CallState
 
@@ -189,6 +189,42 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlCon.Open();
                 //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
                 RecordCount = (Int32)sqlCommand.ExecuteScalar();
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Tickets
+                return RecordCount;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                RecordCount = -1;
+                return RecordCount;
+            }
+            throw new NotImplementedException();
+        }
+
+        public int FindCurrent(int Emp, DateTime StartTime)
+        {
+            int RecordCount = 0;
+            try
+            {
+                //New SQL Connection which the query will use to perform the Select of tblTicket
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Tickets
+                string SelectQuery = string.Format("SELECT * FROM tblCall WHERE EmployeeID = '{0}' AND CallStartTime = '{1}'", Emp, StartTime);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    RecordCount = (int)sqlDataReader.GetValue(0);
+                }
                 //Close connection to database
                 sqlCon.Close();
                 //Return Count of Tickets
