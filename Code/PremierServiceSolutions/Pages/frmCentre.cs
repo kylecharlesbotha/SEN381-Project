@@ -18,6 +18,8 @@ namespace PremierServiceSolutions.Pages
         List<Client> lsAllClients = new List<Client>();
         List<Client> lsClientSearch = new List<Client>();
         Client objClient = new Client();
+        private Thread ThreadTime;
+        bool CallProgress=false;
         public frmCentre()
         {
             InitializeComponent();
@@ -206,6 +208,7 @@ namespace PremierServiceSolutions.Pages
             flpSearchResults.Visible = false;
 
             tBSearch.Text = "Start Typing Client or Client ID";
+            pnlTicket.Enabled = true;
             tbTicketTitle.Focus();
 
 
@@ -314,14 +317,37 @@ namespace PremierServiceSolutions.Pages
 
         private void pBAnswerCall_Click(object sender, EventArgs e)
         {
-            lblTimeStarted.Text = lblTimeStarted.Text + " " + DateTime.Now.ToString("h:mm:ss tt");
+            CallProgress = true;
+            lblTimeStarted.Text = "Time Started :" + " " + DateTime.Now.ToString("h:mm:ss tt");
             Random r = new Random();
             int rInt = r.Next(0, 9);
-            lblCellNumber.Text = lblCellNumber.Text + " " + PhoneNumbers[rInt];
-
-            System.Threading.Timer t = new System.Threading.Timer(TimerCallback, null, 0, 1000);
+            lblCellNumber.Text = "Phone Number :" + " " + PhoneNumbers[rInt];
             startTime = DateTime.Now;
+           
+            ThreadTime = new Thread(new ThreadStart(this.BackThread));
+            ThreadTime.IsBackground = true;           
+          
+            ThreadTime.Start();
+            pnlClientDetials.Enabled = true;
 
+        }
+
+        private void BackThread()
+        {
+            while (CallProgress == true)
+            {
+                TimeSpan ts = DateTime.Now.Subtract(startTime);
+                
+                
+                string b = ts.ToString(@"hh\:mm\:ss");
+                if (this.lblTime.InvokeRequired)
+                {
+                    this.lblTime.BeginInvoke((MethodInvoker)delegate ()  { this.lblTime.Text = "Call Duration : " + b; ; });
+                }
+
+                Thread.Sleep(1000);
+            }
+           
         }
 
         private void ChooseNum()
@@ -346,6 +372,9 @@ namespace PremierServiceSolutions.Pages
         {
             ChooseNum();
             lsAllClients = objClient.GetAll();
+            PopulateCbb();
+            pnlTicket.Enabled = false;
+            pnlClientDetials.Enabled = false;
 
         }
 
@@ -376,5 +405,49 @@ namespace PremierServiceSolutions.Pages
             }
             flpSearchResults.Visible = false;
         }
+
+        private void PopulateCbb()
+        {
+            Issue objissue = new Issue();
+            List<Issue> lstIssue = objissue.GetAllIssues();
+            
+
+            cbIssueType.DataSource = lstIssue;
+
+            Priority objPriority = new Priority();
+            List<Priority> lstPriority = objPriority.GetAllPriority();
+            cbPriority.DataSource = lstPriority;
+
+            Technician objTechnician = new Technician();
+            List<Technician> lstTechnician = objTechnician.GetTechNames();
+            cbTechnician.DataSource = lstTechnician;
+
+            cbIssueType.DisplayMember = "IssueName";
+
+            cbPriority.DisplayMember = "Priorityname";
+
+            cbTechnician.DisplayMember = "TechName";
+
+            
+
+
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        public void Reset()
+        {
+            tbTicketTitle.Text = "";
+            cbIssueType.TextBox.Clear();
+            cbPriority.TextBox.Clear();
+            cbTechnician.TextBox.Clear();
+            
+            rtbTicketDes.Text = "";
+            tbTicketTitle.Focus();
+        }
+
     }
 }

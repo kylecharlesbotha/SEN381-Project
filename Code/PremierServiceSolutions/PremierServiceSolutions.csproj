@@ -121,7 +121,9 @@
     <Compile Include="Business Logic Layer\Client.cs" />
     <Compile Include="Business Logic Layer\Contract.cs" />
     <Compile Include="Business Logic Layer\ContractType.cs" />
+    <Compile Include="Business Logic Layer\Issue.cs" />
     <Compile Include="Business Logic Layer\Package.cs" />
+    <Compile Include="Business Logic Layer\Priority.cs" />
     <Compile Include="Business Logic Layer\Service.cs" />
     <Compile Include="Business Logic Layer\Technician.cs" />
     <Compile Include="Business Logic Layer\Ticket.cs" />
@@ -156,7 +158,9 @@
     <Compile Include="Data Access Layer\CustomerContractDH.cs" />
     <Compile Include="Data Access Layer\DBHandler.cs" />
     <Compile Include="Data Access Layer\EmployeeDH.cs" />
+    <Compile Include="Data Access Layer\IssueDH.cs" />
     <Compile Include="Data Access Layer\PackageDH.cs" />
+    <Compile Include="Data Access Layer\PriorityDH.cs" />
     <Compile Include="Data Access Layer\SatisfactionDH.cs" />
     <Compile Include="Data Access Layer\ScheduleDH.cs" />
     <Compile Include="Data Access Layer\ServiceDH.cs" />

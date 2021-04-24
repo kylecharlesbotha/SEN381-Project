@@ -571,9 +571,10 @@ namespace PremierServiceSolutions.Pages
             this.btnReset.Size = new System.Drawing.Size(155, 36);
             this.btnReset.TabIndex = 50;
             this.btnReset.TabStop = false;
-            this.btnReset.Text = "Reset";
+            this.btnReset.Text = "Reset Ticket";
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnCreateTicket
             // 
