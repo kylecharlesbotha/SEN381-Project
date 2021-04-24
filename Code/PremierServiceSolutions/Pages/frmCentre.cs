@@ -6,12 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using PremierServiceSolutions.Business_Logic_Layer;
 
 namespace PremierServiceSolutions.Pages
 {
     public partial class frmCentre : Form
     {
+        DateTime startTime = new DateTime();
+        List<Client> lsAllClients = new List<Client>();
+        List<Client> lsClientSearch = new List<Client>();
+        Client objClient = new Client();
         public frmCentre()
         {
             InitializeComponent();
@@ -37,6 +43,9 @@ namespace PremierServiceSolutions.Pages
             TestList.Add("Zacwdk");
             flpSearchResults.Left = 9;
 
+
+
+
             flpSearchResults.BringToFront();
 
 
@@ -44,6 +53,7 @@ namespace PremierServiceSolutions.Pages
 
 
         List<string> TestList = new List<string>();
+        List<string> PhoneNumbers = new List<string>();
 
 
         private void CreateEntry(string CusName, string CusID)
@@ -63,7 +73,7 @@ namespace PremierServiceSolutions.Pages
             }
 
             //Setting the Size of Panel and adding it to the main panel
-            p.Size = new Size(flpSearchResults.ClientSize.Width-6, 50);
+            p.Size = new Size(flpSearchResults.ClientSize.Width - 6, 50);
             flpSearchResults.Controls.Add(p);
 
             //Setting new panel to insert at the top and move rest down
@@ -78,7 +88,7 @@ namespace PremierServiceSolutions.Pages
             lID.Name = "lblCusName" + flpSearchResults.Controls.Count;
             lID.Text = CusName;
             lID.AutoSize = false;
-            lID.Size = new Size(p.Width/2 - 20, 30);
+            lID.Size = new Size(p.Width / 2 - 20, 30);
             p.Controls.Add(lID);
             lID.Top = 10;
             lID.TextAlign = ContentAlignment.MiddleLeft;
@@ -88,7 +98,7 @@ namespace PremierServiceSolutions.Pages
             lID.BackColor = Color.FromArgb(218, 0, 0);
             if (flpSearchResults.Controls.Count % 2 == 0)
             {
-                lID.BackColor = Color.FromArgb(209,209,209);
+                lID.BackColor = Color.FromArgb(209, 209, 209);
             }
             else
             {
@@ -105,11 +115,11 @@ namespace PremierServiceSolutions.Pages
             lCus.Name = "lblCustomerID" + flpSearchResults.Controls.Count;
             lCus.Text = CusID;
             lCus.AutoSize = false;
-            lCus.Size = new Size(p.Width/2 - 10, 30);
+            lCus.Size = new Size(p.Width / 2 - 10, 30);
             p.Controls.Add(lCus);
             lCus.Top = 10;
             lCus.TextAlign = ContentAlignment.MiddleCenter;
-            lCus.Left = p.Width/2;
+            lCus.Left = p.Width / 2;
             lCus.Font = new Font("Arial", 16, FontStyle.Bold);
             lCus.ForeColor = Color.White;
             if (flpSearchResults.Controls.Count % 2 == 0)
@@ -125,7 +135,7 @@ namespace PremierServiceSolutions.Pages
             lCus.MouseLeave += new EventHandler(lblMouseLeave);
 
             //Updating the Panel and forcing it to refresh its self
-            flpSearchResults.Height = flpSearchResults.Controls.Count* p.Height + (8 * flpSearchResults.Controls.Count);
+            flpSearchResults.Height = flpSearchResults.Controls.Count * p.Height + (8 * flpSearchResults.Controls.Count);
             flpSearchResults.Invalidate();
         }
 
@@ -161,17 +171,17 @@ namespace PremierServiceSolutions.Pages
             lID.Name = "lblCusName" + flpSearchResults.Controls.Count;
             lID.Text = CusName;
             lID.AutoSize = false;
-            lID.Size = new Size(p.Width-5, 30);
+            lID.Size = new Size(p.Width - 5, 30);
             p.Controls.Add(lID);
             lID.Top = 10;
             lID.TextAlign = ContentAlignment.MiddleCenter;
             lID.Left = 15;
-            lID.Font =new Font("Arial", 12, FontStyle.Bold);
+            lID.Font = new Font("Arial", 12, FontStyle.Bold);
             lID.ForeColor = Color.White;
-            lID.BackColor = Color.FromArgb(179,179,179);
+            lID.BackColor = Color.FromArgb(179, 179, 179);
 
             //Updating the Panel and forcing it to refresh its self
-            flpSearchResults.Height = (flpSearchResults.Controls.Count ) * p.Height + 8;
+            flpSearchResults.Height = (flpSearchResults.Controls.Count) * p.Height + 8;
             flpSearchResults.Invalidate();
         }
 
@@ -179,6 +189,26 @@ namespace PremierServiceSolutions.Pages
         {
             Label lbl = sender as Label;
             MessageBox.Show(lbl.Name);
+
+            //find int from name
+
+            string name = lbl.Name;
+            string id = name.Substring(name.Length - 1);
+            int clientPosition = Convert.ToInt32(id);
+
+            clientPosition--;
+            //MessageBox.Show(Convert.ToString(clientPosition));
+            //MessageBox.Show(Convert.ToString(lsClientSearch.Count));
+            //MessageBox.Show(lsClientSearch[clientPosition].ClientIDNumber);
+
+            Client objSelect = lsClientSearch[clientPosition];
+            PopulateClient(objSelect);
+            flpSearchResults.Visible = false;
+
+            tBSearch.Text = "Start Typing Client or Client ID";
+            tbTicketTitle.Focus();
+
+
         }
         protected void lblMouseLeave(object sender, EventArgs e)
         {
@@ -188,12 +218,12 @@ namespace PremierServiceSolutions.Pages
         protected void lblMouseEnter(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            lbl.ForeColor = Color.FromArgb(210,4,45);
+            lbl.ForeColor = Color.FromArgb(210, 4, 45);
         }
 
         private void tBSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tBSearch.Text == "Start Typing Client or Business Name")
+            if (tBSearch.Text == "Start Typing Client or Client ID")
             {
 
             }
@@ -202,29 +232,26 @@ namespace PremierServiceSolutions.Pages
                 bool found = false;
                 if (String.IsNullOrWhiteSpace(tBSearch.Text))
                 {
-                    for (int i = flpSearchResults.Controls.Count - 1; i >= 0; i--)
-                    {
-                        flpSearchResults.Controls[i].Dispose();
-                    }
-                    flpSearchResults.Visible = false;
+                    ResetSearch();
                 }
                 else
                 {
 
-                    for (int i = flpSearchResults.Controls.Count - 1; i >= 0; i--)
-                    {
-                        flpSearchResults.Controls[i].Dispose();
-                    }
+                    ResetSearch();
+                    flpSearchResults.Visible = true;
                     string Text = tBSearch.Text.ToLower();
 
-                    for (int i = 0; i < TestList.Count - 1; i++)
+                 
+
+                    foreach (Client item in lsAllClients)
                     {
-                        if (TestList[i].ToLower().StartsWith(Text))
+                        if ((item.ClientIDNumber.ToLower().StartsWith(Text)) || (item.PersonName.ToLower().StartsWith(Text)))
                         {
-                            CreateEntry(TestList[i], "Test");
+                            CreateEntry(item.PersonName, item.ClientIDNumber) ;
+                            lsClientSearch.Add(item);
+
                             found = true;
                         }
-
                     }
                     if (found == false)
                     {
@@ -252,7 +279,7 @@ namespace PremierServiceSolutions.Pages
         {
             try
             {
-                if(tBSearch.Text == "Start Typing Client or Business Name")
+                if (tBSearch.Text == "Start Typing Client or Client ID")
                 {
                     tBSearch.Clear();
                 }
@@ -267,9 +294,9 @@ namespace PremierServiceSolutions.Pages
         {
             try
             {
-                if(string.IsNullOrWhiteSpace(tBSearch.Text))
+                if (string.IsNullOrWhiteSpace(tBSearch.Text))
                 {
-                    tBSearch.Text = "Start Typing Client or Business Name";
+                    tBSearch.Text = "Start Typing Client or Client ID";
                 }
             }
             catch
@@ -277,6 +304,77 @@ namespace PremierServiceSolutions.Pages
 
             }
         }
-    }
 
+        private void btnStartCall_Click(object sender, EventArgs e)
+        {
+            pBAnswerCall.Image = Properties.Resources.AnswerActiveCall;
+            pbDeclineCall.Image = Properties.Resources.DeclineActiveCall;
+
+        }
+
+        private void pBAnswerCall_Click(object sender, EventArgs e)
+        {
+            lblTimeStarted.Text = lblTimeStarted.Text + " " + DateTime.Now.ToString("h:mm:ss tt");
+            Random r = new Random();
+            int rInt = r.Next(0, 9);
+            lblCellNumber.Text = lblCellNumber.Text + " " + PhoneNumbers[rInt];
+
+            System.Threading.Timer t = new System.Threading.Timer(TimerCallback, null, 0, 1000);
+            startTime = DateTime.Now;
+
+        }
+
+        private void ChooseNum()
+        {
+            PhoneNumbers.Add("0763400572");
+            PhoneNumbers.Add("0119028045");
+            PhoneNumbers.Add("0234562134");
+            PhoneNumbers.Add("0714212455"); 
+            PhoneNumbers.Add("0963632512");
+            PhoneNumbers.Add("0521312312");
+            PhoneNumbers.Add("0742323144");
+            PhoneNumbers.Add("0832412144");
+            PhoneNumbers.Add("0772272321");
+            PhoneNumbers.Add("0783823218");
+
+
+
+
+        }
+
+        private void frmCentre_Load(object sender, EventArgs e)
+        {
+            ChooseNum();
+            lsAllClients = objClient.GetAll();
+
+        }
+
+        private void TimerCallback(Object o)
+        {
+            TimeSpan ts = DateTime.Now.Subtract(startTime);
+            string a = ts.Hours +":"+ ts.Minutes + ":" + ts.Seconds;
+           
+            
+            lblTime.Invoke(new MethodInvoker(delegate { lblTime.Text = "Call Duration" + " " +a; }));
+        }
+
+        private void PopulateClient(Client ce)
+        {
+            tbClientBusName.Text = ce.PersonName;
+            tbContact.Text = ce.ClientCell;
+            rtbAddress.Text = ce.ClientAddress;
+                
+                
+        }
+
+        private void ResetSearch()
+        {
+            for (int i = flpSearchResults.Controls.Count - 1; i >= 0; i--)
+            {
+                flpSearchResults.Controls[i].Dispose();
+                lsClientSearch.Clear();
+            }
+            flpSearchResults.Visible = false;
+        }
+    }
 }

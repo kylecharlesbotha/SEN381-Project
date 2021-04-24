@@ -38,8 +38,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    objRecord.ClientIdNumber = (string)sqlDataReader.GetValue(0);
-                    objRecord.PersonID = (int)sqlDataReader.GetValue(1);
+                    objRecord.ClientIDNumber = (string)sqlDataReader.GetValue(0);
+                    objRecord.ClientID = (string)sqlDataReader.GetValue(1);
                     objRecord.PersonName = (string)sqlDataReader.GetValue(2);
                     objRecord.PersonSurname = (string)sqlDataReader.GetValue(3);
                     objRecord.ClientTitle = (string)sqlDataReader.GetValue(4);
@@ -49,7 +49,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     objRecord.ClientCreationDate = (DateTime)sqlDataReader.GetValue(8);
                     objRecord.ClientEmail = (string)sqlDataReader.GetValue(9);
                     objRecord.ClientPriority = (int)sqlDataReader.GetValue(10);
-                    objRecord.ClientState = (string)sqlDataReader.GetValue(11);
+                    objRecord.ClientState = (int)sqlDataReader.GetValue(11);
 
                 }
                 //Close connection to database
@@ -109,8 +109,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (ClientVal == 0)
                 {
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                    string InsertQuery = string.Format(@"INSERT INTO tblClient (ClientIDNumber, ClientName, ClientSurname, ClientTitle, ClientGender, ClientAddress, ClientCell, ClientCreationDate, ClientEmail, ClientPriority, ClientState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')",
-                        objClient.ClientIdNumber,
+                    string InsertQuery = string.Format(@"INSERT INTO tblClient (ClientIDNumber,ClientID, ClientName, ClientSurname, ClientTitle, ClientGender, ClientAddress, ClientCell, ClientCreationDate, ClientEmail, ClientPriority, ClientState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",
+                        objClient.ClientIDNumber,
+                        objClient.ClientID,
                         objClient.PersonName,
                         objClient.PersonSurname,
                         objClient.ClientTitle,
@@ -146,7 +147,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
                 string UpdateQuery = string.Format(@"UPDATE tblClient SET ClientIDNumber ='{0}',ClientName ='{1}',ClientSurname ='{2}',ClientTitle ='{3}',ClientTitle ='{4}',ClientGender ='{5}',ClientAddress ='{6}',ClientCell ='{7}',ClientEmail ='{8}',ClientPriority ='{9}' WHERE ClientID ='{10}'",
-                    newObjClient.ClientIdNumber,
+                    newObjClient.ClientIDNumber,
                     newObjClient.PersonName,
                     newObjClient.PersonSurname,
                     newObjClient.ClientTitle,
@@ -232,14 +233,17 @@ namespace PremierServiceSolutions.Data_Access_Layer
                                 (string)sqlDataReader.GetValue(4),
                                 (string)sqlDataReader.GetValue(5),
                                 (string)sqlDataReader.GetValue(6),
-                                (DateTime)sqlDataReader.GetValue(7),
-                                (int)sqlDataReader.GetValue(8)
+                                (string)sqlDataReader.GetValue(7),
+                                (DateTime)sqlDataReader.GetValue(8),
+                                (string)sqlDataReader.GetValue(9),
+                                (int)sqlDataReader.GetValue(10),
+                                (int)sqlDataReader.GetValue(11)
                                 ));
                 }
                 //Close connection to database
                 sqlCon.Close();
                 //Return List of Clients
-                return allClients;
+                return allClients.ToList();
             }
             catch (SqlException SQLE)
             {
@@ -258,7 +262,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblClient
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Clients
-                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblClient WHERE ClientIDNumber = '{0}' AND ClientName = '{1}' AND ClientSurname = '{2}''", objClient.ClientIdNumber, objClient.PersonName, objClient.PersonSurname);
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblClient WHERE ClientIDNumber = '{0}' AND ClientName = '{1}' AND ClientSurname = '{2}''", objClient.ClientIDNumber, objClient.PersonName, objClient.PersonSurname);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //Open the connection to the database

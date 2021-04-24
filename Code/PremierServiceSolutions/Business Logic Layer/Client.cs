@@ -9,28 +9,30 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 {
     class Client : Person, IComparable<Client>
     {
-
+        private string clientID;
         private string clientEmail;
         private string clientCell;
         private string clientTitle;
         private string clientIDNumber;
         private string clientAddress;
         private string clientGender;
-        private string clientState;
+        private int clientState;
         private DateTime clientCreationDate;
         private int clientPriority;
 
-        public Client(string clientEmail, string clientPhone, string clientTitle, string clientIdNumber, string clientAddress, string clientGender, string clientState, DateTime clientCreationDate, int clientPriority)
+        public Client(string clientIdNumber, string clientiD, string clientname, string clientsurname, string clienttitle, string clientgender,string clientaddress, string clientcell, DateTime clientCreationdate,string clientemail, int clientPriority,int clientstate)
         {
-
-            this.clientEmail = clientEmail;
-            this.clientCell = clientPhone;
-            this.clientTitle = clientTitle;
+            this.PersonName = clientname;
+            this.PersonSurname = clientsurname;
+            this.clientID = clientiD;
+            this.clientEmail = clientemail;
+            this.clientCell = clientcell;
+            this.clientTitle = clienttitle;
             this.clientIDNumber = clientIdNumber;
-            this.clientAddress = clientAddress;
-            this.clientGender = clientGender;
-            this.clientState = clientState;
-            this.clientCreationDate = clientCreationDate;
+            this.clientAddress = clientaddress;
+            this.clientGender = clientgender;
+            this.clientState = clientstate;
+            this.clientCreationDate = clientCreationdate;
             this.clientPriority = clientPriority;
         }
         public Client()
@@ -38,19 +40,21 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         }
 
-        public string ClientEmail { get => clientEmail; set => clientEmail = value; }
-        public string ClientCell { get => clientCell; set => clientCell = value; }
-        public string ClientTitle { get => clientTitle; set => clientTitle = value; }
-        public string ClientIdNumber { get => clientIDNumber; set => clientIDNumber = value; }
-        public string ClientAddress { get => clientAddress; set => clientAddress = value; }
-        public string ClientGender { get => clientGender; set => clientGender = value; }
-        public string ClientState { get => clientState; set => clientState = value; }
-        public DateTime ClientCreationDate { get => clientCreationDate; set => clientCreationDate = value; }
-        public int ClientPriority { get => clientPriority; set => clientPriority = value; }
+        
 
 
         ClientDH objClientDH = new ClientDH();
-      
+
+        public string ClientID { get => clientID; set => clientID = value; }
+        public string ClientEmail { get => clientEmail; set => clientEmail = value; }
+        public string ClientCell { get => clientCell; set => clientCell = value; }
+        public string ClientTitle { get => clientTitle; set => clientTitle = value; }
+        public string ClientIDNumber { get => clientIDNumber; set => clientIDNumber = value; }
+        public string ClientAddress { get => clientAddress; set => clientAddress = value; }
+        public string ClientGender { get => clientGender; set => clientGender = value; }
+        public int ClientState { get => clientState; set => clientState = value; }
+        public DateTime ClientCreationDate { get => clientCreationDate; set => clientCreationDate = value; }
+        public int ClientPriority { get => clientPriority; set => clientPriority = value; }
 
         public int CompareTo(Client other)
         {
@@ -111,6 +115,23 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public override string ToString()
         {
             return base.ToString();
+        }
+
+        public List<Client> GetAll()
+        {
+            try
+            {
+                ClientDH objCon = new ClientDH();
+                List<Client> lsAll = new List<Client>();
+                lsAll = objCon.GetAll().ToList();
+                return lsAll;
+            }
+            catch (Exception e)
+            {
+                return null;
+
+            }
+            
         }
     }
 }
