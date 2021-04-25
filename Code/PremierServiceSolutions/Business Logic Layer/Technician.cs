@@ -47,6 +47,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public int TechnicianState { get => technicianState; set => technicianState = value; }
         public int EmployeeID { get => employeeID; set => employeeID = value; }
         public string TechName { get => objTech.GetTechName(this); set => techName = value; }
+        public string TechNameList { get => techName; set => techName = value; }
 
         public override string ToString()
         {
@@ -70,5 +71,6 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             return lstTech;
             
         }
+
     }
 }

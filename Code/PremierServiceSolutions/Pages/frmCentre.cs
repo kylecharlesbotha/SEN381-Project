@@ -433,7 +433,7 @@ namespace PremierServiceSolutions.Pages
 
             cbPriority.DisplayMember = "Priorityname";
 
-            cbTechnician.DisplayMember = "TechName";
+            cbTechnician.DisplayMember = "TechNameList";
 
             
 
@@ -473,7 +473,7 @@ namespace PremierServiceSolutions.Pages
 
             foreach (Technician item in lstTechnician)
             {
-                if (item.TechName==cbTechnician.Text)
+                if (item.TechNameList==cbTechnician.Text)
                 {
                      TechID= item.TechnicianID;
                 }
@@ -510,7 +510,6 @@ namespace PremierServiceSolutions.Pages
            
 
         }
-
 
     }
 }
