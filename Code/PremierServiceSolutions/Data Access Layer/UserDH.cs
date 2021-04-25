@@ -144,7 +144,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                                 (string)sqlDataReader.GetValue(3),
                                 (string)sqlDataReader.GetValue(4),
                                 (string)sqlDataReader.GetValue(5),
-                                (string)sqlDataReader.GetValue(6),
+                                (int)sqlDataReader.GetValue(6),
                                 (string)sqlDataReader.GetValue(7)
 
                                 ));

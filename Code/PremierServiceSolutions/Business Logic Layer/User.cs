@@ -22,13 +22,13 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string userName;
         private string userPassword;
         private int userAccessLevel;
-        private string userState;
+        private int userState;
         private string userAuthToken;
         private string userSalt;
 
 
 
-        public User(int userID, Employee employeeObject, string userName, string userPassword, int userAccessLevel, string userState, string userAuthToken)
+        public User(int userID, Employee employeeObject, string userName, string userPassword, int userAccessLevel, int userState, string userAuthToken)
         {
             this.userID = userID;
             this.employeeObject = employeeObject;
@@ -38,7 +38,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.userState = userState;
             this.userAuthToken = userAuthToken;
         }
-        public User(int userID, int employeeID, int userAccessLevel, string userAuthToken, string userName, string userPassword, string userState, string userSalt)
+        public User(int userID, int employeeID, int userAccessLevel, string userAuthToken, string userName, string userPassword, int userState, string userSalt)
         {
             this.userID = userID;
             this.employeeID = employeeID;
@@ -59,7 +59,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string UserName { get => userName; set => userName = value; }
         public string UserPassword { get => userPassword; set => userPassword = value; }
         public int UserAccessLevel { get => userAccessLevel; set => userAccessLevel = value; }
-        public string UserState { get => userState; set => userState = value; }
+        public int UserState { get => userState; set => userState = value; }
         public string UserAuthToken { get => userAuthToken; set => userAuthToken = value; }
         public int EmployeeID { get => employeeID; set => employeeID = value; }
         public string UserSalt { get => userSalt; set => userSalt = value; }
@@ -126,7 +126,20 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             }
         }
 
-        private String CreateSalt(int size)
+        public void CreateUser(User objUser)
+        {
+            try
+            {
+                objUserDH.Create(objUser);
+            }
+            catch
+            {
+
+            }
+           
+        }
+
+        public String CreateSalt(int size)
         {
             var rng = new RNGCryptoServiceProvider();
             var buff = new byte[size];

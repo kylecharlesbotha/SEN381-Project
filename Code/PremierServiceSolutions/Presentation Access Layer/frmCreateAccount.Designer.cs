@@ -61,6 +61,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
             this.tTCreateAccount = new System.Windows.Forms.ToolTip(this.components);
+            this.pbUserTypeCheck = new System.Windows.Forms.PictureBox();
+            this.lblUserType = new System.Windows.Forms.Label();
+            this.pBUserType = new System.Windows.Forms.PictureBox();
+            this.cbbUserType = new System.Windows.Forms.ComboBox();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdminCodeCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbConPassCheck)).BeginInit();
@@ -75,10 +79,16 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBUserType)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.cbbUserType);
+            this.pnlMain.Controls.Add(this.pbUserTypeCheck);
+            this.pnlMain.Controls.Add(this.lblUserType);
+            this.pnlMain.Controls.Add(this.pBUserType);
             this.pnlMain.Controls.Add(this.pbAdminCodeCheck);
             this.pnlMain.Controls.Add(this.pbConPassCheck);
             this.pnlMain.Controls.Add(this.pbPasswordCheck);
@@ -113,7 +123,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // pbAdminCodeCheck
             // 
             this.pbAdminCodeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbAdminCodeCheck.Image")));
-            this.pbAdminCodeCheck.Location = new System.Drawing.Point(338, 349);
+            this.pbAdminCodeCheck.Location = new System.Drawing.Point(338, 323);
             this.pbAdminCodeCheck.Name = "pbAdminCodeCheck";
             this.pbAdminCodeCheck.Size = new System.Drawing.Size(30, 30);
             this.pbAdminCodeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -123,7 +133,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // pbConPassCheck
             // 
             this.pbConPassCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbConPassCheck.Image")));
-            this.pbConPassCheck.Location = new System.Drawing.Point(338, 293);
+            this.pbConPassCheck.Location = new System.Drawing.Point(338, 267);
             this.pbConPassCheck.Name = "pbConPassCheck";
             this.pbConPassCheck.Size = new System.Drawing.Size(30, 30);
             this.pbConPassCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -133,7 +143,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // pbPasswordCheck
             // 
             this.pbPasswordCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbPasswordCheck.Image")));
-            this.pbPasswordCheck.Location = new System.Drawing.Point(338, 237);
+            this.pbPasswordCheck.Location = new System.Drawing.Point(338, 211);
             this.pbPasswordCheck.Name = "pbPasswordCheck";
             this.pbPasswordCheck.Size = new System.Drawing.Size(30, 30);
             this.pbPasswordCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -143,7 +153,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // pbUsernameCheck
             // 
             this.pbUsernameCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbUsernameCheck.Image")));
-            this.pbUsernameCheck.Location = new System.Drawing.Point(338, 181);
+            this.pbUsernameCheck.Location = new System.Drawing.Point(338, 155);
             this.pbUsernameCheck.Name = "pbUsernameCheck";
             this.pbUsernameCheck.Size = new System.Drawing.Size(30, 30);
             this.pbUsernameCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -153,7 +163,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // pbEmpNumCheck
             // 
             this.pbEmpNumCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbEmpNumCheck.Image")));
-            this.pbEmpNumCheck.Location = new System.Drawing.Point(338, 124);
+            this.pbEmpNumCheck.Location = new System.Drawing.Point(338, 98);
             this.pbEmpNumCheck.Name = "pbEmpNumCheck";
             this.pbEmpNumCheck.Size = new System.Drawing.Size(30, 30);
             this.pbEmpNumCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -165,7 +175,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblCheckPassMatch.AutoSize = true;
             this.lblCheckPassMatch.BackColor = System.Drawing.Color.Transparent;
             this.lblCheckPassMatch.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckPassMatch.Location = new System.Drawing.Point(120, 274);
+            this.lblCheckPassMatch.Location = new System.Drawing.Point(120, 248);
             this.lblCheckPassMatch.Name = "lblCheckPassMatch";
             this.lblCheckPassMatch.Size = new System.Drawing.Size(101, 13);
             this.lblCheckPassMatch.TabIndex = 29;
@@ -176,7 +186,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblCheckAdminCode.AutoSize = true;
             this.lblCheckAdminCode.BackColor = System.Drawing.Color.Transparent;
             this.lblCheckAdminCode.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckAdminCode.Location = new System.Drawing.Point(130, 331);
+            this.lblCheckAdminCode.Location = new System.Drawing.Point(130, 305);
             this.lblCheckAdminCode.Name = "lblCheckAdminCode";
             this.lblCheckAdminCode.Size = new System.Drawing.Size(102, 13);
             this.lblCheckAdminCode.TabIndex = 28;
@@ -187,7 +197,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblCheckUsername.AutoSize = true;
             this.lblCheckUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblCheckUsername.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckUsername.Location = new System.Drawing.Point(113, 163);
+            this.lblCheckUsername.Location = new System.Drawing.Point(113, 137);
             this.lblCheckUsername.Name = "lblCheckUsername";
             this.lblCheckUsername.Size = new System.Drawing.Size(96, 13);
             this.lblCheckUsername.TabIndex = 27;
@@ -198,7 +208,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblCheckEmpNum.AutoSize = true;
             this.lblCheckEmpNum.BackColor = System.Drawing.Color.Transparent;
             this.lblCheckEmpNum.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckEmpNum.Location = new System.Drawing.Point(130, 105);
+            this.lblCheckEmpNum.Location = new System.Drawing.Point(130, 79);
             this.lblCheckEmpNum.Name = "lblCheckEmpNum";
             this.lblCheckEmpNum.Size = new System.Drawing.Size(91, 13);
             this.lblCheckEmpNum.TabIndex = 26;
@@ -266,7 +276,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tbAdminCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAdminCode.ForeColor = System.Drawing.Color.White;
             this.tbAdminCode.HideSelection = false;
-            this.tbAdminCode.Location = new System.Drawing.Point(82, 349);
+            this.tbAdminCode.Location = new System.Drawing.Point(82, 323);
             this.tbAdminCode.Name = "tbAdminCode";
             this.tbAdminCode.Size = new System.Drawing.Size(204, 24);
             this.tbAdminCode.TabIndex = 22;
@@ -281,7 +291,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // 
             this.pBAdminCode.BackColor = System.Drawing.Color.Transparent;
             this.pBAdminCode.Image = global::PremierServiceSolutions.Properties.Resources.PassBackground;
-            this.pBAdminCode.Location = new System.Drawing.Point(0, 337);
+            this.pBAdminCode.Location = new System.Drawing.Point(0, 311);
             this.pBAdminCode.Name = "pBAdminCode";
             this.pBAdminCode.Size = new System.Drawing.Size(400, 50);
             this.pBAdminCode.TabIndex = 21;
@@ -294,7 +304,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tBConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBConfirmPassword.ForeColor = System.Drawing.Color.White;
             this.tBConfirmPassword.HideSelection = false;
-            this.tBConfirmPassword.Location = new System.Drawing.Point(82, 293);
+            this.tBConfirmPassword.Location = new System.Drawing.Point(82, 267);
             this.tBConfirmPassword.Name = "tBConfirmPassword";
             this.tBConfirmPassword.Size = new System.Drawing.Size(180, 24);
             this.tBConfirmPassword.TabIndex = 20;
@@ -311,7 +321,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tBPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBPassword.ForeColor = System.Drawing.Color.White;
             this.tBPassword.HideSelection = false;
-            this.tBPassword.Location = new System.Drawing.Point(82, 237);
+            this.tBPassword.Location = new System.Drawing.Point(82, 211);
             this.tBPassword.Name = "tBPassword";
             this.tBPassword.Size = new System.Drawing.Size(180, 24);
             this.tBPassword.TabIndex = 13;
@@ -328,7 +338,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.ForeColor = System.Drawing.Color.White;
             this.tbUsername.HideSelection = false;
-            this.tbUsername.Location = new System.Drawing.Point(120, 181);
+            this.tbUsername.Location = new System.Drawing.Point(120, 155);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(193, 24);
             this.tbUsername.TabIndex = 19;
@@ -343,7 +353,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // 
             this.pbConPassword.BackColor = System.Drawing.Color.Transparent;
             this.pbConPassword.Image = global::PremierServiceSolutions.Properties.Resources.PassBackground;
-            this.pbConPassword.Location = new System.Drawing.Point(0, 281);
+            this.pbConPassword.Location = new System.Drawing.Point(0, 255);
             this.pbConPassword.Name = "pbConPassword";
             this.pbConPassword.Size = new System.Drawing.Size(400, 50);
             this.pbConPassword.TabIndex = 18;
@@ -353,7 +363,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // 
             this.pBPassword.BackColor = System.Drawing.Color.Transparent;
             this.pBPassword.Image = global::PremierServiceSolutions.Properties.Resources.PassBackground;
-            this.pBPassword.Location = new System.Drawing.Point(0, 225);
+            this.pBPassword.Location = new System.Drawing.Point(0, 199);
             this.pBPassword.Name = "pBPassword";
             this.pBPassword.Size = new System.Drawing.Size(400, 50);
             this.pBPassword.TabIndex = 17;
@@ -366,7 +376,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tBEmployeeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBEmployeeNumber.ForeColor = System.Drawing.Color.White;
             this.tBEmployeeNumber.HideSelection = false;
-            this.tBEmployeeNumber.Location = new System.Drawing.Point(120, 124);
+            this.tBEmployeeNumber.Location = new System.Drawing.Point(120, 98);
             this.tBEmployeeNumber.Name = "tBEmployeeNumber";
             this.tBEmployeeNumber.Size = new System.Drawing.Size(193, 24);
             this.tBEmployeeNumber.TabIndex = 12;
@@ -382,7 +392,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // 
             this.pBUsername.BackColor = System.Drawing.Color.Transparent;
             this.pBUsername.Image = global::PremierServiceSolutions.Properties.Resources.UserBackground;
-            this.pBUsername.Location = new System.Drawing.Point(0, 169);
+            this.pBUsername.Location = new System.Drawing.Point(0, 143);
             this.pBUsername.Name = "pBUsername";
             this.pBUsername.Size = new System.Drawing.Size(400, 50);
             this.pBUsername.TabIndex = 16;
@@ -391,7 +401,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // pbEmployee
             // 
             this.pbEmployee.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.EmployeeBackground;
-            this.pbEmployee.Location = new System.Drawing.Point(0, 113);
+            this.pbEmployee.Location = new System.Drawing.Point(0, 87);
             this.pbEmployee.Name = "pbEmployee";
             this.pbEmployee.Size = new System.Drawing.Size(400, 50);
             this.pbEmployee.TabIndex = 15;
@@ -473,6 +483,50 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBExit.TabIndex = 20;
             this.iPBExit.TabStop = false;
             // 
+            // pbUserTypeCheck
+            // 
+            this.pbUserTypeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbUserTypeCheck.Image")));
+            this.pbUserTypeCheck.Location = new System.Drawing.Point(338, 378);
+            this.pbUserTypeCheck.Name = "pbUserTypeCheck";
+            this.pbUserTypeCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbUserTypeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUserTypeCheck.TabIndex = 38;
+            this.pbUserTypeCheck.TabStop = false;
+            // 
+            // lblUserType
+            // 
+            this.lblUserType.AutoSize = true;
+            this.lblUserType.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserType.ForeColor = System.Drawing.Color.Red;
+            this.lblUserType.Location = new System.Drawing.Point(130, 359);
+            this.lblUserType.Name = "lblUserType";
+            this.lblUserType.Size = new System.Drawing.Size(63, 13);
+            this.lblUserType.TabIndex = 37;
+            this.lblUserType.Text = "lblUserType";
+            // 
+            // pBUserType
+            // 
+            this.pBUserType.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.EmployeeBackground;
+            this.pBUserType.Location = new System.Drawing.Point(0, 367);
+            this.pBUserType.Name = "pBUserType";
+            this.pBUserType.Size = new System.Drawing.Size(400, 50);
+            this.pBUserType.TabIndex = 36;
+            this.pBUserType.TabStop = false;
+            // 
+            // cbbUserType
+            // 
+            this.cbbUserType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbbUserType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbUserType.FormattingEnabled = true;
+            this.cbbUserType.Items.AddRange(new object[] {
+            "Standard",
+            "Administrator"});
+            this.cbbUserType.Location = new System.Drawing.Point(116, 378);
+            this.cbbUserType.Name = "cbbUserType";
+            this.cbbUserType.Size = new System.Drawing.Size(190, 26);
+            this.cbbUserType.TabIndex = 39;
+            // 
             // frmCreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,6 +559,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBUserType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -541,5 +597,9 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.PictureBox pbConPassCheck;
         private System.Windows.Forms.PictureBox pbPasswordCheck;
         private System.Windows.Forms.PictureBox pbUsernameCheck;
+        private System.Windows.Forms.PictureBox pbUserTypeCheck;
+        private System.Windows.Forms.Label lblUserType;
+        private System.Windows.Forms.PictureBox pBUserType;
+        private System.Windows.Forms.ComboBox cbbUserType;
     }
 }

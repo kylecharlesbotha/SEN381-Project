@@ -20,12 +20,14 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         //HARDCODE for Administrator Code = 1234
         int AdminCode = 1234;
 
+
         //Bool Functions to check if respective information are filled in (Live validation).
         bool CheckEmpNum = false;
         bool CheckUsername = false;
         bool CheckPassword = false;
         bool CheckConfirmPassword = false;
         bool CheckAdminCode = false;
+        bool UserType = false;
 
         //Create Objects of Employee and User for use in this class
         User objUser = new User();
@@ -37,7 +39,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
             InitializeComponent();
         }
-
+        
         ////////////////////FORM LOAD/////////////////////////
         private void frmCreateAccount_Load(object sender, EventArgs e)
         {
@@ -440,11 +442,24 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             {
                 MessageBox.Show("Please fill in all required information above correctly.");
             }
-            else
+            else //If all information are gathered, capture it into variables which will be sent for the relevant CRUD operations
             {
                 EmployeeNumber = Convert.ToInt32(tBEmployeeNumber.Text);
                 UserName = tbUsername.Text;
                 UserPassword = tBPassword.Text;
+
+                string Salt = objUser.CreateSalt(6);
+                string HashPass = objUser.CreateSHA256Hash(UserPassword, Salt);
+                User objUserRecord = new User();
+                objUserRecord.EmployeeID = EmployeeNumber;
+                objUserRecord.UserName = UserName;
+                objUserRecord.UserPassword = HashPass;
+                objUserRecord.UserSalt = Salt;
+                objUserRecord.UserAccessLevel = cbbUserType.SelectedIndex;
+                objUserRecord.UserAuthToken = "auth";
+                objUserRecord.UserState = 1;
+                objUser.CreateUser(objUserRecord);
+
 
                 this.Hide();
                 frmLogin.Show();
