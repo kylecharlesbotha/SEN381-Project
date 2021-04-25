@@ -18,10 +18,16 @@ namespace PremierServiceSolutions.Pages
         List<Client> lsAllClients = new List<Client>();
         List<Client> lsClientSearch = new List<Client>();
         Client objClient = new Client();
+        Ticket objTicket = new Ticket();
+        Technician objTechnician = new Technician();
+        List<Technician> lstTechnician;
+        Call objCall = new Call();
+        Call objCall2 = new Call();
         private Thread ThreadTime;
         bool CallProgress=false;
         public frmCentre()
         {
+            lstTechnician= objTechnician.GetTechNames();
             InitializeComponent();
             TestList.Add("Darren");
             TestList.Add("Darlien");
@@ -329,6 +335,7 @@ namespace PremierServiceSolutions.Pages
           
             ThreadTime.Start();
             pnlClientDetials.Enabled = true;
+            AddCallLog();
 
         }
 
@@ -418,8 +425,8 @@ namespace PremierServiceSolutions.Pages
             List<Priority> lstPriority = objPriority.GetAllPriority();
             cbPriority.DataSource = lstPriority;
 
-            Technician objTechnician = new Technician();
-            List<Technician> lstTechnician = objTechnician.GetTechNames();
+            
+           
             cbTechnician.DataSource = lstTechnician;
 
             cbIssueType.DisplayMember = "IssueName";
@@ -448,6 +455,62 @@ namespace PremierServiceSolutions.Pages
             rtbTicketDes.Text = "";
             tbTicketTitle.Focus();
         }
+
+        private void btnCreateTicket_Click(object sender, EventArgs e)
+        {
+            AddTicket();
+        }
+
+        public void AddTicket()
+        {
+            int TechID = 0 ;
+            objTicket.ClientID = "A00967764";
+            objTicket.EmployeeID = 1;
+            objTicket.TicketTitle = tbTicketTitle.Text;
+            objTicket.TicketIssueType = cbIssueType.Text;
+            objTicket.TicketPriority = cbPriority.Text;
+          
+
+            foreach (Technician item in lstTechnician)
+            {
+                if (item.TechName==cbTechnician.Text)
+                {
+                     TechID= item.TechnicianID;
+                }
+            }
+
+            objTicket.TechnicianID = TechID;
+            DateTime dateAndTime = dtpDueDate.Value;
+           
+            //fix date
+            objTicket.TicketDueDate =dateAndTime.ToShortDateString();
+            objTicket.TicketDescription = rtbTicketDes.Text;
+
+            
+
+
+
+        }
+
+        public void AddCallLog()
+        {
+            DateTime time = DateTime.Now;
+            time.ToString("HH:mm:ss");
+
+            objCall2.CallStartTime = time;
+            objCall2.CallState = 1;
+            objCall2.Callstatus = "In-Progress";
+
+            
+
+            objCall2.EmployeeID = 1;
+
+            objCall.InsertCall(objCall2);
+           // objCall.ReturnCall(1, time);
+           
+
+        }
+
 
     }
 }

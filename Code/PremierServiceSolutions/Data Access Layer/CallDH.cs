@@ -32,13 +32,13 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (CallVal == 0)
                 {
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                    string InsertQuery = string.Format(@"INSERT INTO tblCall (CallID,ClientID,EmployeeID,CallStartTime,CallEndTime,CallStatus,TicketID,CallRecording,CallState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')",
-                        objCall.CallID,
+                    string InsertQuery = string.Format(@"INSERT INTO tblCall (ClientID,EmployeeID,CallStartTime,CallEndTime,CallStatus,TicketID,CallRecording,CallState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                        
                         objCall.ClientID,
                         objCall.EmployeeID,
                         objCall.CallStartTime,
                         objCall.CallEndTime,
-                        objCall.CallState,
+                        objCall.Callstatus,
                         objCall.TicketID,
                         objCall.CallRecording,
                         objCall.CallState
@@ -53,6 +53,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
             catch (SqlException SQLE)
             {
+                MessageBox.Show(SQLE.Message);
                 return false;
             }
             throw new NotImplementedException();
@@ -151,13 +152,14 @@ namespace PremierServiceSolutions.Data_Access_Layer
 
                     allCall.Add(new Call(
                                 (int)sqlDataReader.GetValue(0),
-                                (int)sqlDataReader.GetValue(1),
+                                (string)sqlDataReader.GetValue(1),
                                 (int)sqlDataReader.GetValue(2),
                                 (DateTime)sqlDataReader.GetValue(3),
                                 (DateTime)sqlDataReader.GetValue(4),
-                                (int)sqlDataReader.GetValue(5),
-                                (string)sqlDataReader.GetValue(6),
-                                (string)sqlDataReader.GetValue(7)
+                                (string)sqlDataReader.GetValue(5),
+                                (int)sqlDataReader.GetValue(6),
+                                (string)sqlDataReader.GetValue(7),
+                                (int)sqlDataReader.GetValue(8)
                           ));
                 }
                 //Close connection to database

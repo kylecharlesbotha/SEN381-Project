@@ -45,17 +45,21 @@ namespace PremierServiceSolutions.Pages
             this.pnlClientDetials = new System.Windows.Forms.Panel();
             this.lblCell = new System.Windows.Forms.Label();
             this.tbContact = new System.Windows.Forms.TextBox();
+            this.btnViewContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
             this.lblContract = new System.Windows.Forms.Label();
             this.tbContract = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblClient = new System.Windows.Forms.Label();
             this.tbClientBusName = new System.Windows.Forms.TextBox();
+            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
             this.flpSearchResults = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlTicket = new System.Windows.Forms.Panel();
             this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.lblDueDate = new System.Windows.Forms.Label();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnCreateTicket = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.cbTechnician = new Syncfusion.WinForms.ListView.SfComboBox();
             this.cbPriority = new Syncfusion.WinForms.ListView.SfComboBox();
             this.cbIssueType = new Syncfusion.WinForms.ListView.SfComboBox();
@@ -66,10 +70,6 @@ namespace PremierServiceSolutions.Pages
             this.lblIssueType = new System.Windows.Forms.Label();
             this.blTicketTitle = new System.Windows.Forms.Label();
             this.tbTicketTitle = new System.Windows.Forms.TextBox();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCreateTicket = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnViewContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.pnlPhone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
@@ -295,6 +295,27 @@ namespace PremierServiceSolutions.Pages
             this.tbContact.Size = new System.Drawing.Size(289, 30);
             this.tbContact.TabIndex = 33;
             // 
+            // btnViewContract
+            // 
+            this.btnViewContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnViewContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnViewContract.FlatAppearance.BorderSize = 0;
+            this.btnViewContract.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnViewContract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnViewContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewContract.Location = new System.Drawing.Point(274, 180);
+            this.btnViewContract.Name = "btnViewContract";
+            this.btnViewContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnViewContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnViewContract.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnViewContract.Size = new System.Drawing.Size(155, 32);
+            this.btnViewContract.TabIndex = 32;
+            this.btnViewContract.TabStop = false;
+            this.btnViewContract.Text = "View Contract";
+            this.btnViewContract.TextColor = System.Drawing.Color.White;
+            this.btnViewContract.UseVisualStyleBackColor = true;
+            // 
             // rtbAddress
             // 
             this.rtbAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
@@ -369,6 +390,23 @@ namespace PremierServiceSolutions.Pages
             this.tbClientBusName.Size = new System.Drawing.Size(289, 30);
             this.tbClientBusName.TabIndex = 25;
             // 
+            // tBSearch
+            // 
+            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tBSearch.Location = new System.Drawing.Point(59, 9);
+            this.tBSearch.Multiline = true;
+            this.tBSearch.Name = "tBSearch";
+            this.tBSearch.Size = new System.Drawing.Size(380, 31);
+            this.tBSearch.TabIndex = 23;
+            this.tBSearch.Text = "Start Typing Client or Client ID";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
+            // 
             // iPBSearch
             // 
             this.iPBSearch.BackColor = System.Drawing.Color.White;
@@ -432,6 +470,50 @@ namespace PremierServiceSolutions.Pages
             this.lblDueDate.Size = new System.Drawing.Size(114, 25);
             this.lblDueDate.TabIndex = 52;
             this.lblDueDate.Text = "Due Date :";
+            // 
+            // btnReset
+            // 
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(16, 207);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnReset.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.Size = new System.Drawing.Size(155, 36);
+            this.btnReset.TabIndex = 50;
+            this.btnReset.TabStop = false;
+            this.btnReset.Text = "Reset Ticket";
+            this.btnReset.TextColor = System.Drawing.Color.White;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnCreateTicket
+            // 
+            this.btnCreateTicket.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateTicket.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateTicket.FlatAppearance.BorderSize = 0;
+            this.btnCreateTicket.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateTicket.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateTicket.Location = new System.Drawing.Point(711, 207);
+            this.btnCreateTicket.Name = "btnCreateTicket";
+            this.btnCreateTicket.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateTicket.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateTicket.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCreateTicket.Size = new System.Drawing.Size(155, 36);
+            this.btnCreateTicket.TabIndex = 49;
+            this.btnCreateTicket.TabStop = false;
+            this.btnCreateTicket.Text = "Create Ticket";
+            this.btnCreateTicket.TextColor = System.Drawing.Color.White;
+            this.btnCreateTicket.UseVisualStyleBackColor = true;
+            this.btnCreateTicket.Click += new System.EventHandler(this.btnCreateTicket_Click);
             // 
             // cbTechnician
             // 
@@ -553,87 +635,6 @@ namespace PremierServiceSolutions.Pages
             this.tbTicketTitle.Name = "tbTicketTitle";
             this.tbTicketTitle.Size = new System.Drawing.Size(289, 30);
             this.tbTicketTitle.TabIndex = 35;
-            // 
-            // btnReset
-            // 
-            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(16, 207);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnReset.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.Size = new System.Drawing.Size(155, 36);
-            this.btnReset.TabIndex = 50;
-            this.btnReset.TabStop = false;
-            this.btnReset.Text = "Reset Ticket";
-            this.btnReset.TextColor = System.Drawing.Color.White;
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnCreateTicket
-            // 
-            this.btnCreateTicket.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateTicket.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateTicket.FlatAppearance.BorderSize = 0;
-            this.btnCreateTicket.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateTicket.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateTicket.Location = new System.Drawing.Point(711, 207);
-            this.btnCreateTicket.Name = "btnCreateTicket";
-            this.btnCreateTicket.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateTicket.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateTicket.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCreateTicket.Size = new System.Drawing.Size(155, 36);
-            this.btnCreateTicket.TabIndex = 49;
-            this.btnCreateTicket.TabStop = false;
-            this.btnCreateTicket.Text = "Create Ticket";
-            this.btnCreateTicket.TextColor = System.Drawing.Color.White;
-            this.btnCreateTicket.UseVisualStyleBackColor = true;
-            // 
-            // btnViewContract
-            // 
-            this.btnViewContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnViewContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnViewContract.FlatAppearance.BorderSize = 0;
-            this.btnViewContract.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnViewContract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnViewContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewContract.Location = new System.Drawing.Point(274, 180);
-            this.btnViewContract.Name = "btnViewContract";
-            this.btnViewContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnViewContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnViewContract.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnViewContract.Size = new System.Drawing.Size(155, 32);
-            this.btnViewContract.TabIndex = 32;
-            this.btnViewContract.TabStop = false;
-            this.btnViewContract.Text = "View Contract";
-            this.btnViewContract.TextColor = System.Drawing.Color.White;
-            this.btnViewContract.UseVisualStyleBackColor = true;
-            // 
-            // tBSearch
-            // 
-            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tBSearch.Location = new System.Drawing.Point(59, 9);
-            this.tBSearch.Multiline = true;
-            this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(380, 31);
-            this.tBSearch.TabIndex = 23;
-            this.tBSearch.Text = "Start Typing Client or Client ID";
-            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
-            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
-            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
             // 
             // frmCentre
             // 
