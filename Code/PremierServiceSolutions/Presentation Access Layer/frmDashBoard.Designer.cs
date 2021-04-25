@@ -306,7 +306,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // pbProfilePicture
             // 
             this.pbProfilePicture.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pbProfilePicture.Image = global::PremierServiceSolutions.Properties.Resources.PersonLogo;
+            this.pbProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("pbProfilePicture.Image")));
             this.pbProfilePicture.Location = new System.Drawing.Point(611, 2);
             this.pbProfilePicture.Name = "pbProfilePicture";
             this.pbProfilePicture.Size = new System.Drawing.Size(55, 55);

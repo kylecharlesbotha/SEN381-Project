@@ -26,12 +26,14 @@ namespace PremierServiceSolutions.Pages
         public string FullPath;
         SimpleScheduleDataProvider data;
         private ContextMenuStrip strip;
+        DateTime SelectedDate;
 
         public frmSchedule()
         {
             InitializeComponent();
             ScheduleControl scheduleControlMain = new ScheduleControl();
             this.schedContCal.ItemChanged += ScheduleControl_AutoSave;
+            this.schedContCal.Calendar.CalenderGrid.QueryCellInfo += CalendarGrid_Query;
             scheduleControlMain.Location = new Point(82, 12);
             scheduleControlMain.Size = new Size(350, 360);
             this.Controls.Add(scheduleControlMain);
@@ -216,6 +218,7 @@ namespace PremierServiceSolutions.Pages
             {
                 lID.BackColor = Color.FromArgb(179, 179, 179);
             }
+            
 
             //Creating Label for Appointment Date
             Label lCus = new Label();
@@ -237,6 +240,7 @@ namespace PremierServiceSolutions.Pages
             {
                 lCus.BackColor = Color.FromArgb(179, 179, 179);
             }
+            lCus.Click += new EventHandler(lblTreeClicked);
 
             //Updating the Panel and forcing it to refresh its self
             flp.Height = flp.Controls.Count * p.Height + (8 * flp.Controls.Count);
@@ -289,7 +293,25 @@ namespace PremierServiceSolutions.Pages
             flp.Invalidate();
         }
 
-        private void ResetSearch(FlowLayoutPanel flp)
+        protected void lblTreeClicked(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            string date = lbl.Text;
+            for (int i = 0; i < data.MasterList.Count; i++)
+            {
+                IScheduleAppointment appointment = data.MasterList[i];
+
+                if(date == appointment.StartTime.ToString())
+                {
+                    SelectedDate = appointment.StartTime;
+                    UpdateMonthFocus();
+
+                }
+            }
+
+        }
+
+            private void ResetSearch(FlowLayoutPanel flp)
         {
             for (int i = flp.Controls.Count - 1; i >= 0; i--)
             {
@@ -550,6 +572,37 @@ namespace PremierServiceSolutions.Pages
         }
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            UpdateMonthFocus();
+        }
+
+        private void UpdateMonthFocus()
+        {
+            SelectedDate = DateTime.Now;
+            int monthDiff = SelectedDate.Month - this.schedContCal.Calendar.DateValue.Month;
+            this.schedContCal.Calendar.AdjustSelectionsByMonth(monthDiff > 0 ? monthDiff - 1 : monthDiff + 1);
+            this.schedContCal.ResetProvider(this.schedContCal.ScheduleType);
+            var method = this.schedContCal.GetScheduleHost().GetType().GetMethod("SetCurrentCellInView", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            if (method != null)
+            {
+                this.schedContCal.GetScheduleHost().Model.ResetCurrentCellInfo();
+                method.Invoke(this.schedContCal.GetScheduleHost(), new object[] { SelectedDate });
+            }
+        }
+
+        private void CalendarGrid_Query(object sender, Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs e)
+        {
+            DateTime Day = SelectedDate;
+            DateTime isDate;
+            if(!string.IsNullOrEmpty(e.Style.CellValue.ToString()) && DateTime.TryParse(e.Style.CellValue.ToString(),out isDate)&& isDate == Day)
+            {
+                e.Style.BackColor = this.schedContCal.Appearance.NavigationCalendarTodayBackColor;
+                e.Style.TextColor = this.schedContCal.Appearance.NavigationCalendarTodayTextColor;
+            }
+        }
 
     }
 }
