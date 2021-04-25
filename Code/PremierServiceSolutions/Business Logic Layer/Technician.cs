@@ -15,7 +15,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int technicianState;
         private int employeeID;
         private string techName;
-
+        TechnicianDH objTech = new TechnicianDH();
         public Technician(int technicianID, int technicianLevel, string technicianStatus, int employeeid,int technicianstate )
         {
             this.technicianID = technicianID;
@@ -29,9 +29,11 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
             this.technicianID = techid;
             this.techName = techname;
-            
         }
-
+        public Technician(int techid)
+        {
+            this.technicianID = techid;
+        }
         public Technician()
         {
 
@@ -44,7 +46,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public int TechnicianLevel { get => technicianLevel; set => technicianLevel = value; }
         public int TechnicianState { get => technicianState; set => technicianState = value; }
         public int EmployeeID { get => employeeID; set => employeeID = value; }
-        public string TechName { get => techName; set => techName = value; }
+        public string TechName { get => objTech.GetTechName(this); set => techName = value; }
 
         public override string ToString()
         {
@@ -60,10 +62,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
             return base.GetHashCode();
         }
-
+        
         public List<Technician> GetTechNames()
         {
-            TechnicianDH objTech = new TechnicianDH();
+            
             List<Technician> lstTech = objTech.GetTechnicianName().ToList();
             return lstTech;
             

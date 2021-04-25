@@ -20,7 +20,8 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int technicianID;
         private int clientID;
         private int employeeID;
-
+        private DateTime ticketDate;
+        private int countOnDate; 
 
 
         public Ticket(int ticketID, int technicianID, int clientID, string ticketDescription, DateTime ticketDueDate, int employeeID, string ticketIssueType, DateTime ticketLastUpdated, DateTime ticketLoggedTime, string ticketPriority, string ticketStatus, string ticketTitle)
@@ -38,7 +39,12 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.clientID = clientID;
             this.employeeID = employeeID;
         }
-
+        //Constructor for getting date of tickets and number of tickets on that date
+        public Ticket(DateTime date, int count)
+        {
+            this.TicketDate = date;
+            this.CountOnDate = count; 
+        }
         public Ticket()
         {
 
@@ -56,6 +62,8 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public int TechnicianID { get => technicianID; set => technicianID = value; }
         public int ClientID { get => clientID; set => clientID = value; }
         public int EmployeeID { get => employeeID; set => employeeID = value; }
+        public DateTime TicketDate { get => ticketDate; set => ticketDate = value; }
+        public int CountOnDate { get => countOnDate; set => countOnDate = value; }
 
         public void CreateTicket()
         {

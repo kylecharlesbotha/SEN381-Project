@@ -175,7 +175,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return null;
             }
         }
-
+       
         public int Find(Technician objTech)
         {
             int RecordCount;
@@ -241,7 +241,41 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-
+        public string GetTechName(Technician objTech)
+        {
+            string techName = null; 
+            try
+            {
+                //New SQL Connection which the query will use to perform the Select of tblTechnician
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Technicains
+                string SelectQuery = string.Format("SELECT EMP.EmployeeName FROM  tblTechnician AS TEC INNER JOIN tblEmployee AS EMP ON  EMP.EmployeeID = TEC.EmployeeID WHERE technicianID = {0}", objTech.TechnicianID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                var reader = sqlCommand.ExecuteReader();
+                int techNameInt = reader.GetOrdinal("EmployeeName");
+                if (!reader.Read())
+                    throw new InvalidOperationException("No records were returned.");
+                techName = reader.GetString(techNameInt);
+                if (reader.Read())
+                    throw new InvalidOperationException("Multiple records were returned.");
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Technicians
+                return techName;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                 
+                return techName;
+            }
+            return ""; 
+        }
         public Technician GetByID(Technician objTech)
         {
             Technician objRecord = new Technician();
@@ -280,5 +314,6 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return null;
             }
         }
+        
     }
 }

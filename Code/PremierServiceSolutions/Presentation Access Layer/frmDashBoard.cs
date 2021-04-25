@@ -1,4 +1,7 @@
-﻿using PremierServiceSolutions.Pages;
+﻿using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
+using PremierServiceSolutions.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +19,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
         private int Menuoption = 0;
+        
+       
         Form frmDash = new frmDash();
         Form frmTick = new frmTickets();
         Form frmSched = new frmSchedule();
@@ -29,9 +34,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmSched.TopLevel = false;
             frmCentre.TopLevel = false;
             frmCustomers.TopLevel = false;
-
+            
+            
         }
-
+       
         private void tbnTechnicians_Click(object sender, EventArgs e)
         {
 
@@ -147,6 +153,21 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
             pnlMainPage.Controls.Add(frmCentre);
             frmCentre.Show();
+        }
+
+        private void pnlDailyTicketChart_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cartesianChart1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
+
+        }
+
+        private void pnlDashboardBottom_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
