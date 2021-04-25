@@ -141,7 +141,7 @@ namespace PremierServiceSolutions.Pages
         }
         public void SetIssueTypePieChart()
         {
-            //pieChartIssueType.InnerRadius = 40;
+            pieChartIssueType.InnerRadius = 20;
             pieChartIssueType.LegendLocation = LegendLocation.Right;
             pieChartIssueType.Series = new SeriesCollection
             {
