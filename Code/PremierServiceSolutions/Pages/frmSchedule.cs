@@ -33,7 +33,7 @@ namespace PremierServiceSolutions.Pages
             InitializeComponent();
             ScheduleControl scheduleControlMain = new ScheduleControl();
             this.schedContCal.ItemChanged += ScheduleControl_AutoSave;
-            this.schedContCal.Calendar.CalenderGrid.QueryCellInfo += CalendarGrid_Query;
+           this.schedContCal.Calendar.CalenderGrid.QueryCellInfo += CalendarGrid_Query;
             scheduleControlMain.Location = new Point(82, 12);
             scheduleControlMain.Size = new Size(350, 360);
             this.Controls.Add(scheduleControlMain);
@@ -510,22 +510,54 @@ namespace PremierServiceSolutions.Pages
         #region TreeView Click Events
         private void btnAssigned_Click(object sender, EventArgs e)
         {
+            ResetButton(btnAssigned);
             showSubMenu(flpAssigned);
+            
         }
 
         private void btnUnassigned_Click(object sender, EventArgs e)
         {
+            ResetButton(btnUnassigned);
             showSubMenu(flpUnassigned);
         }
 
         private void btnProgressTickets_Click(object sender, EventArgs e)
         {
+            ResetButton(btnProgressTickets);
             showSubMenu(flpProgress);
         }
 
         private void btnNewTickets_Click(object sender, EventArgs e)
         {
+            ResetButton(btnNewTickets);
             showSubMenu(flpNewTickets);
+        }
+
+        private void ResetButton(Button btn)
+        {
+            
+            if (btn.ForeColor == Color.White)
+            {
+                btn.ForeColor = Color.FromArgb(124, 204, 196);
+                btn.BackColor = Color.White;
+                
+            }
+            else
+            {
+                btnAssigned.BackColor = Color.White;
+                btnNewTickets.BackColor = Color.White;
+                btnProgressTickets.BackColor = Color.White;
+                btnUnassigned.BackColor = Color.White;
+
+                btnAssigned.ForeColor = Color.FromArgb(124, 204, 196);
+                btnNewTickets.ForeColor = Color.FromArgb(124, 204, 196);
+                btnProgressTickets.ForeColor = Color.FromArgb(124, 204, 196);
+                btnUnassigned.ForeColor = Color.FromArgb(124, 204, 196);
+
+                btn.ForeColor = Color.White;
+                btn.BackColor = Color.FromArgb(124, 204, 196);
+            }
+           
         }
 
         #endregion
@@ -573,17 +605,27 @@ namespace PremierServiceSolutions.Pages
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            UpdateMonthFocus();
-        }
-
         private void UpdateMonthFocus()
         {
-            SelectedDate = DateTime.Now;
-            int monthDiff = SelectedDate.Month - this.schedContCal.Calendar.DateValue.Month;
-            this.schedContCal.Calendar.AdjustSelectionsByMonth(monthDiff > 0 ? monthDiff - 1 : monthDiff + 1);
+            
+            
+            int monthDiff = ((SelectedDate.Year - this.schedContCal.Calendar.DateValue.Year) * 12) + SelectedDate.Month - this.schedContCal.Calendar.DateValue.Month;
+            MessageBox.Show(Convert.ToString(monthDiff));
+            if (monthDiff == 0)
+            {
+                this.schedContCal.Calendar.AdjustSelectionsByMonth(0);
+                schedContCal.Calendar.DateValue = SelectedDate;
+            }
+            else if(monthDiff > 0)
+            {
+                this.schedContCal.Calendar.AdjustSelectionsByMonth(monthDiff );
+                schedContCal.Calendar.DateValue = SelectedDate;
+            }
+            else if(monthDiff<0)
+            {
+                this.schedContCal.Calendar.AdjustSelectionsByMonth(monthDiff);
+                schedContCal.Calendar.DateValue = SelectedDate;
+            }
             this.schedContCal.ResetProvider(this.schedContCal.ScheduleType);
             var method = this.schedContCal.GetScheduleHost().GetType().GetMethod("SetCurrentCellInView", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
             if (method != null)
@@ -595,6 +637,7 @@ namespace PremierServiceSolutions.Pages
 
         private void CalendarGrid_Query(object sender, Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs e)
         {
+
             DateTime Day = SelectedDate;
             DateTime isDate;
             if(!string.IsNullOrEmpty(e.Style.CellValue.ToString()) && DateTime.TryParse(e.Style.CellValue.ToString(),out isDate)&& isDate == Day)
@@ -603,6 +646,7 @@ namespace PremierServiceSolutions.Pages
                 e.Style.TextColor = this.schedContCal.Appearance.NavigationCalendarTodayTextColor;
             }
         }
+
 
     }
 }

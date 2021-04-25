@@ -205,5 +205,37 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
 
         }
+
+        private void iPBMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void frmDashBoard_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                NotifyIcon.Visible = true;
+                NotifyIcon.ShowBalloonTip(500);
+            }
+        }
+
+        private void openWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            NotifyIcon.Visible = false;
+        }
+
+        private void minimizeToTaskBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
