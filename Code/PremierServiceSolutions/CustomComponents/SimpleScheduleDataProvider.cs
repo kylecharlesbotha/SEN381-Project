@@ -42,12 +42,12 @@ namespace PremierServiceSolutions.CustomComponents
 		private ListObjectList MarkerLists()
 		{
 			markerList = new ListObjectList();
-			markerList.Add(new ListObject(0, "Unassigned", Color.FromArgb(50, Color.Yellow))); ////same as noMarkColor
+			markerList.Add(new ListObject(0, "Unassigned", Color.Orange)); ////same as noMarkColor
 			markerList.Add(new ListObject(1, "Assigned", Color.Green));
-			markerList.Add(new ListObject(2, "New Ticket", Color.Violet));
-			markerList.Add(new ListObject(3, "Esculation", Color.Tomato));
-			markerList.Add(new ListObject(5, "In Progress", Color.Tomato));
-			markerList.Add(new ListObject(6, "Completed", Color.Tomato));
+			markerList.Add(new ListObject(2, "New Ticket", Color.Blue));
+			markerList.Add(new ListObject(3, "Esculation", Color.Red));
+			markerList.Add(new ListObject(5, "In Progress", Color.Yellow));
+			markerList.Add(new ListObject(6, "Completed", Color.Black));
 			return markerList;
 
 		}
