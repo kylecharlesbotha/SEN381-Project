@@ -41,22 +41,18 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
             this.btnTickets = new System.Windows.Forms.Button();
-            this.btnNewTicket = new BrbVideoManager.Controls.RoundedButton();
             this.pBLogo = new System.Windows.Forms.PictureBox();
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
-            this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
             this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
-            this.bnNotifications = new BrbVideoManager.Controls.RoundedButton();
             this.pbbell = new System.Windows.Forms.PictureBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pbProfilePicture = new System.Windows.Forms.PictureBox();
             this.pnlMainPage = new System.Windows.Forms.Panel();
+            this.bnNotifications = new BrbVideoManager.Controls.RoundedButton();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).BeginInit();
             this.pnlTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbbell)).BeginInit();
@@ -78,12 +74,12 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlSideMenu.Controls.Add(this.btnDashBoard);
             this.pnlSideMenu.Controls.Add(this.btnCustomers);
             this.pnlSideMenu.Controls.Add(this.btnTickets);
-            this.pnlSideMenu.Controls.Add(this.btnNewTicket);
             this.pnlSideMenu.Controls.Add(this.pBLogo);
             this.pnlSideMenu.Location = new System.Drawing.Point(-1, 0);
             this.pnlSideMenu.Name = "pnlSideMenu";
             this.pnlSideMenu.Size = new System.Drawing.Size(300, 800);
             this.pnlSideMenu.TabIndex = 0;
+            this.pnlSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlSideMenu_MouseDown);
             // 
             // btnCallCentre
             // 
@@ -92,7 +88,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCallCentre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCallCentre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCallCentre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCallCentre.Location = new System.Drawing.Point(0, 255);
+            this.btnCallCentre.Location = new System.Drawing.Point(0, 204);
             this.btnCallCentre.Name = "btnCallCentre";
             this.btnCallCentre.Size = new System.Drawing.Size(300, 45);
             this.btnCallCentre.TabIndex = 12;
@@ -107,7 +103,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployees.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnEmployees.Location = new System.Drawing.Point(0, 663);
+            this.btnEmployees.Location = new System.Drawing.Point(0, 612);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(300, 45);
             this.btnEmployees.TabIndex = 11;
@@ -121,7 +117,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCustomerSupport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustomerSupport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustomerSupport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCustomerSupport.Location = new System.Drawing.Point(0, 459);
+            this.btnCustomerSupport.Location = new System.Drawing.Point(0, 408);
             this.btnCustomerSupport.Name = "btnCustomerSupport";
             this.btnCustomerSupport.Size = new System.Drawing.Size(300, 45);
             this.btnCustomerSupport.TabIndex = 10;
@@ -135,7 +131,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReports.Location = new System.Drawing.Point(0, 612);
+            this.btnReports.Location = new System.Drawing.Point(0, 561);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(300, 45);
             this.btnReports.TabIndex = 9;
@@ -149,7 +145,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnContracts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContracts.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContracts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnContracts.Location = new System.Drawing.Point(0, 510);
+            this.btnContracts.Location = new System.Drawing.Point(0, 459);
             this.btnContracts.Name = "btnContracts";
             this.btnContracts.Size = new System.Drawing.Size(300, 45);
             this.btnContracts.TabIndex = 8;
@@ -163,7 +159,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnTechnicians.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTechnicians.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTechnicians.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnTechnicians.Location = new System.Drawing.Point(0, 561);
+            this.btnTechnicians.Location = new System.Drawing.Point(0, 510);
             this.btnTechnicians.Name = "btnTechnicians";
             this.btnTechnicians.Size = new System.Drawing.Size(300, 45);
             this.btnTechnicians.TabIndex = 7;
@@ -178,7 +174,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnSchedules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSchedules.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSchedules.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSchedules.Location = new System.Drawing.Point(0, 357);
+            this.btnSchedules.Location = new System.Drawing.Point(0, 306);
             this.btnSchedules.Name = "btnSchedules";
             this.btnSchedules.Size = new System.Drawing.Size(300, 45);
             this.btnSchedules.TabIndex = 6;
@@ -193,7 +189,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashBoard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnDashBoard.Location = new System.Drawing.Point(0, 204);
+            this.btnDashBoard.Location = new System.Drawing.Point(0, 153);
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.Size = new System.Drawing.Size(300, 45);
             this.btnDashBoard.TabIndex = 5;
@@ -208,7 +204,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustomers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCustomers.Location = new System.Drawing.Point(0, 408);
+            this.btnCustomers.Location = new System.Drawing.Point(0, 357);
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(300, 45);
             this.btnCustomers.TabIndex = 4;
@@ -222,33 +218,13 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnTickets.Location = new System.Drawing.Point(0, 306);
+            this.btnTickets.Location = new System.Drawing.Point(0, 255);
             this.btnTickets.Name = "btnTickets";
             this.btnTickets.Size = new System.Drawing.Size(300, 45);
             this.btnTickets.TabIndex = 3;
             this.btnTickets.Text = "Tickets";
             this.btnTickets.UseVisualStyleBackColor = true;
             this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
-            // 
-            // btnNewTicket
-            // 
-            this.btnNewTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnNewTicket.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnNewTicket.BorderDownColor = System.Drawing.Color.Empty;
-            this.btnNewTicket.BorderDownWidth = 0F;
-            this.btnNewTicket.BorderOverColor = System.Drawing.Color.Empty;
-            this.btnNewTicket.BorderOverWidth = 0F;
-            this.btnNewTicket.BorderRadius = 25;
-            this.btnNewTicket.BorderWidth = 1.75F;
-            this.btnNewTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewTicket.ForeColor = System.Drawing.Color.White;
-            this.btnNewTicket.Location = new System.Drawing.Point(12, 137);
-            this.btnNewTicket.Name = "btnNewTicket";
-            this.btnNewTicket.Size = new System.Drawing.Size(268, 42);
-            this.btnNewTicket.TabIndex = 2;
-            this.btnNewTicket.Text = "NEW TICKET +";
-            this.btnNewTicket.UseVisualStyleBackColor = false;
             // 
             // pBLogo
             // 
@@ -265,8 +241,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTop.BackColor = System.Drawing.Color.White;
-            this.pnlTop.Controls.Add(this.tBSearch);
-            this.pnlTop.Controls.Add(this.iPBSearch);
             this.pnlTop.Controls.Add(this.iPBMinimize);
             this.pnlTop.Controls.Add(this.iPBExit);
             this.pnlTop.Controls.Add(this.bnNotifications);
@@ -277,33 +251,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(900, 60);
             this.pnlTop.TabIndex = 1;
-            // 
-            // tBSearch
-            // 
-            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tBSearch.Location = new System.Drawing.Point(40, 14);
-            this.tBSearch.Multiline = true;
-            this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(336, 31);
-            this.tBSearch.TabIndex = 0;
-            this.tBSearch.Text = "Search";
-            // 
-            // iPBSearch
-            // 
-            this.iPBSearch.BackColor = System.Drawing.Color.White;
-            this.iPBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
-            this.iPBSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iPBSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
-            this.iPBSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iPBSearch.Location = new System.Drawing.Point(12, 14);
-            this.iPBSearch.Name = "iPBSearch";
-            this.iPBSearch.Size = new System.Drawing.Size(32, 40);
-            this.iPBSearch.TabIndex = 22;
-            this.iPBSearch.TabStop = false;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             // 
             // iPBMinimize
             // 
@@ -332,27 +280,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBExit.Size = new System.Drawing.Size(29, 29);
             this.iPBExit.TabIndex = 20;
             this.iPBExit.TabStop = false;
-            // 
-            // bnNotifications
-            // 
-            this.bnNotifications.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.bnNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bnNotifications.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bnNotifications.BorderDownColor = System.Drawing.Color.Empty;
-            this.bnNotifications.BorderDownWidth = 0F;
-            this.bnNotifications.BorderOverColor = System.Drawing.Color.Empty;
-            this.bnNotifications.BorderOverWidth = 0F;
-            this.bnNotifications.BorderRadius = 50;
-            this.bnNotifications.BorderWidth = 1F;
-            this.bnNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnNotifications.ForeColor = System.Drawing.Color.White;
-            this.bnNotifications.Location = new System.Drawing.Point(566, 38);
-            this.bnNotifications.Name = "bnNotifications";
-            this.bnNotifications.Size = new System.Drawing.Size(34, 20);
-            this.bnNotifications.TabIndex = 2;
-            this.bnNotifications.Text = "999";
-            this.bnNotifications.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bnNotifications.UseVisualStyleBackColor = false;
             // 
             // pbbell
             // 
@@ -398,6 +325,27 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlMainPage.Size = new System.Drawing.Size(900, 740);
             this.pnlMainPage.TabIndex = 2;
             // 
+            // bnNotifications
+            // 
+            this.bnNotifications.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.bnNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bnNotifications.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bnNotifications.BorderDownColor = System.Drawing.Color.Empty;
+            this.bnNotifications.BorderDownWidth = 0F;
+            this.bnNotifications.BorderOverColor = System.Drawing.Color.Empty;
+            this.bnNotifications.BorderOverWidth = 0F;
+            this.bnNotifications.BorderRadius = 50;
+            this.bnNotifications.BorderWidth = 1F;
+            this.bnNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnNotifications.ForeColor = System.Drawing.Color.White;
+            this.bnNotifications.Location = new System.Drawing.Point(566, 38);
+            this.bnNotifications.Name = "bnNotifications";
+            this.bnNotifications.Size = new System.Drawing.Size(34, 20);
+            this.bnNotifications.TabIndex = 2;
+            this.bnNotifications.Text = "999";
+            this.bnNotifications.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bnNotifications.UseVisualStyleBackColor = false;
+            // 
             // frmDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,8 +370,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlSideMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).EndInit();
             this.pnlTop.ResumeLayout(false);
-            this.pnlTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbbell)).EndInit();
@@ -436,7 +382,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         private System.Windows.Forms.Panel pnlSideMenu;
         private System.Windows.Forms.PictureBox pBLogo;
-        private BrbVideoManager.Controls.RoundedButton btnNewTicket;
         private System.Windows.Forms.Button btnCallCentre;
         private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.Button btnCustomerSupport;
@@ -448,7 +393,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Button btnTickets;
         private System.Windows.Forms.Panel pnlTop;
-        private CustomComponents.Round_TextBox tBSearch;
         private BrbVideoManager.Controls.RoundedButton bnNotifications;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.PictureBox pbProfilePicture;
@@ -456,6 +400,5 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.Panel pnlMainPage;
         private FontAwesome.Sharp.IconPictureBox iPBMinimize;
         private FontAwesome.Sharp.IconPictureBox iPBExit;
-        private FontAwesome.Sharp.IconPictureBox iPBSearch;
     }
 }

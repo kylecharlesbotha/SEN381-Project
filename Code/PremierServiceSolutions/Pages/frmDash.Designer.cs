@@ -40,6 +40,9 @@ namespace PremierServiceSolutions.Pages
             this.lblTechnicianTickets = new System.Windows.Forms.Label();
             this.pnlYourTic = new System.Windows.Forms.Panel();
             this.pieChartTechnicianStats = new LiveCharts.WinForms.PieChart();
+            this.lblStatusPieChart = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlHelpDesk.SuspendLayout();
             this.pnlTicketReports.SuspendLayout();
             this.pnlYourTic.SuspendLayout();
@@ -48,6 +51,9 @@ namespace PremierServiceSolutions.Pages
             // pnlHelpDesk
             // 
             this.pnlHelpDesk.BackColor = System.Drawing.Color.White;
+            this.pnlHelpDesk.Controls.Add(this.label2);
+            this.pnlHelpDesk.Controls.Add(this.label1);
+            this.pnlHelpDesk.Controls.Add(this.lblStatusPieChart);
             this.pnlHelpDesk.Controls.Add(this.pieChartPriority);
             this.pnlHelpDesk.Controls.Add(this.pieChartIssueType);
             this.pnlHelpDesk.Controls.Add(this.pieChartStatus);
@@ -60,25 +66,25 @@ namespace PremierServiceSolutions.Pages
             // 
             // pieChartPriority
             // 
-            this.pieChartPriority.Location = new System.Drawing.Point(577, 51);
+            this.pieChartPriority.Location = new System.Drawing.Point(574, 83);
             this.pieChartPriority.Name = "pieChartPriority";
-            this.pieChartPriority.Size = new System.Drawing.Size(225, 281);
+            this.pieChartPriority.Size = new System.Drawing.Size(225, 282);
             this.pieChartPriority.TabIndex = 3;
             this.pieChartPriority.Text = "pieChart1";
             // 
             // pieChartIssueType
             // 
-            this.pieChartIssueType.Location = new System.Drawing.Point(287, 51);
+            this.pieChartIssueType.Location = new System.Drawing.Point(284, 83);
             this.pieChartIssueType.Name = "pieChartIssueType";
-            this.pieChartIssueType.Size = new System.Drawing.Size(225, 281);
+            this.pieChartIssueType.Size = new System.Drawing.Size(225, 282);
             this.pieChartIssueType.TabIndex = 2;
             this.pieChartIssueType.Text = "pieChart1";
             // 
             // pieChartStatus
             // 
-            this.pieChartStatus.Location = new System.Drawing.Point(3, 51);
+            this.pieChartStatus.Location = new System.Drawing.Point(0, 83);
             this.pieChartStatus.Name = "pieChartStatus";
-            this.pieChartStatus.Size = new System.Drawing.Size(225, 281);
+            this.pieChartStatus.Size = new System.Drawing.Size(225, 282);
             this.pieChartStatus.TabIndex = 1;
             this.pieChartStatus.Text = "pieChart1";
             // 
@@ -150,6 +156,36 @@ namespace PremierServiceSolutions.Pages
             this.pieChartTechnicianStats.Size = new System.Drawing.Size(386, 266);
             this.pieChartTechnicianStats.TabIndex = 2;
             // 
+            // lblStatusPieChart
+            // 
+            this.lblStatusPieChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusPieChart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblStatusPieChart.Location = new System.Drawing.Point(12, 42);
+            this.lblStatusPieChart.Name = "lblStatusPieChart";
+            this.lblStatusPieChart.Size = new System.Drawing.Size(213, 38);
+            this.lblStatusPieChart.TabIndex = 4;
+            this.lblStatusPieChart.Text = "Tickets Status";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(263, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(284, 38);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Tickets Issue Types";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(586, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(213, 38);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Tickets Priority";
+            // 
             // frmDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,5 +221,8 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Label lblTechnicianTickets;
         private System.Windows.Forms.Panel pnlYourTic;
         private LiveCharts.WinForms.PieChart pieChartTechnicianStats;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStatusPieChart;
     }
 }

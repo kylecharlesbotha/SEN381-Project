@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 {
     public partial class frmDashBoard : Form
     {
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
         private int Menuoption = 0;
@@ -166,6 +171,37 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         }
 
         private void pnlDashboardBottom_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void pnlSideMenu_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void tBSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewTicket_Click(object sender, EventArgs e)
         {
 
         }

@@ -116,7 +116,7 @@ namespace PremierServiceSolutions.Pages
         public void SetStatusPieChart()
         {
             pieChartStatus.InnerRadius = 40;
-            pieChartStatus.LegendLocation = LegendLocation.Right;
+            pieChartStatus.LegendLocation = LegendLocation.Bottom;
             pieChartStatus.Series = new SeriesCollection
             {
                 new PieSeries
@@ -142,7 +142,7 @@ namespace PremierServiceSolutions.Pages
         public void SetIssueTypePieChart()
         {
             //pieChartIssueType.InnerRadius = 40;
-            pieChartIssueType.LegendLocation = LegendLocation.Right;
+            pieChartIssueType.LegendLocation = LegendLocation.Bottom;
             pieChartIssueType.Series = new SeriesCollection
             {
                 new PieSeries
@@ -186,7 +186,7 @@ namespace PremierServiceSolutions.Pages
         public void SetPriorityPieChart()
         {
             pieChartPriority.InnerRadius = 40;
-            pieChartPriority.LegendLocation = LegendLocation.Right;
+            pieChartPriority.LegendLocation = LegendLocation.Bottom;
             pieChartPriority.Series = new SeriesCollection
             {
                 new PieSeries
