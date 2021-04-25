@@ -128,7 +128,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allTic.Add(new Ticket((int)sqlDataReader.GetValue(0), (int)sqlDataReader.GetValue(1), (int)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (DateTime)sqlDataReader.GetValue(4), (int)sqlDataReader.GetValue(5), (string)sqlDataReader.GetValue(6), (DateTime)sqlDataReader.GetValue(7), (DateTime)sqlDataReader.GetValue(8), (string)sqlDataReader.GetValue(9), (string)sqlDataReader.GetValue(10), (string)sqlDataReader.GetValue(11)));
+                    allTic.Add(new Ticket((int)sqlDataReader.GetValue(0), (int)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (string)sqlDataReader.GetValue(4), (int)sqlDataReader.GetValue(5), (string)sqlDataReader.GetValue(6), (DateTime)sqlDataReader.GetValue(7), (DateTime)sqlDataReader.GetValue(8), (string)sqlDataReader.GetValue(9), (string)sqlDataReader.GetValue(10), (string)sqlDataReader.GetValue(11)));
                 }
                 //Close connection to database
                 sqlCon.Close();

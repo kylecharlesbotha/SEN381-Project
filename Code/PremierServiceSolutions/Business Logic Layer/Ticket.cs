@@ -15,15 +15,15 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string ticketStatus;
         private DateTime ticketLoggedTime;
         private DateTime ticketLastUpdated;
-        private DateTime ticketDueDate;
+        private string ticketDueDate;
         private string ticketDescription;
         private int technicianID;
-        private int clientID;
+        private string clientID;
         private int employeeID;
 
 
 
-        public Ticket(int ticketID, int technicianID, int clientID, string ticketDescription, DateTime ticketDueDate, int employeeID, string ticketIssueType, DateTime ticketLastUpdated, DateTime ticketLoggedTime, string ticketPriority, string ticketStatus, string ticketTitle)
+        public Ticket(int ticketID, int technicianID, string clientID, string ticketDescription, string ticketDueDate, int employeeID, string ticketIssueType, DateTime ticketLastUpdated, DateTime ticketLoggedTime, string ticketPriority, string ticketStatus, string ticketTitle)
         {
             this.ticketID = ticketID;
             this.ticketTitle = ticketTitle;
@@ -51,10 +51,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string TicketStatus { get => ticketStatus; set => ticketStatus = value; }
         public DateTime TicketLoggedTime { get => ticketLoggedTime; set => ticketLoggedTime = value; }
         public DateTime TicketLastUpdated { get => ticketLastUpdated; set => ticketLastUpdated = value; }
-        public DateTime TicketDueDate { get => ticketDueDate; set => ticketDueDate = value; }
+        public string TicketDueDate { get => ticketDueDate; set => ticketDueDate = value; }
         public string TicketDescription { get => ticketDescription; set => ticketDescription = value; }
         public int TechnicianID { get => technicianID; set => technicianID = value; }
-        public int ClientID { get => clientID; set => clientID = value; }
+        public string ClientID { get => clientID; set => clientID = value; }
         public int EmployeeID { get => employeeID; set => employeeID = value; }
 
         public void CreateTicket()
