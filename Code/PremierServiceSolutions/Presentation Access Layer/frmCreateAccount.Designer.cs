@@ -272,8 +272,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tbAdminCode.TabIndex = 22;
             this.tbAdminCode.TabStop = false;
             this.tbAdminCode.Text = "Administrator Code";
-            this.tbAdminCode.Click += new System.EventHandler(this.tbAdminCode_Click);
             this.tbAdminCode.TextChanged += new System.EventHandler(this.tbAdminCode_TextChanged);
+            this.tbAdminCode.Enter += new System.EventHandler(this.tbAdminCode_Enter);
             this.tbAdminCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAdminCode_KeyPress);
             this.tbAdminCode.Leave += new System.EventHandler(this.tbAdminCode_Leave);
             // 
@@ -334,8 +334,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tbUsername.TabIndex = 19;
             this.tbUsername.TabStop = false;
             this.tbUsername.Text = "Username";
-            this.tbUsername.Click += new System.EventHandler(this.tbUsername_Click);
             this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
+            this.tbUsername.Enter += new System.EventHandler(this.tbUsername_Enter);
             this.tbUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUsername_KeyPress);
             this.tbUsername.Leave += new System.EventHandler(this.tbUsername_Leave);
             // 
@@ -373,8 +373,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tBEmployeeNumber.TabStop = false;
             this.tBEmployeeNumber.Text = "EmployeeNumber";
             this.tTCreateAccount.SetToolTip(this.tBEmployeeNumber, "Enter Employee Number(May only contain numeric characters)");
-            this.tBEmployeeNumber.Click += new System.EventHandler(this.tBEmployeeNumber_Click);
             this.tBEmployeeNumber.TextChanged += new System.EventHandler(this.tBEmployeeNumber_TextChanged);
+            this.tBEmployeeNumber.Enter += new System.EventHandler(this.tBEmployeeNumber_Enter);
             this.tBEmployeeNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBEmployeeNumber_KeyPress);
             this.tBEmployeeNumber.Leave += new System.EventHandler(this.tBEmployeeNumber_Leave);
             // 
