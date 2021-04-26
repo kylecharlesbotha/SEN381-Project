@@ -32,6 +32,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginScreen));
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lblCheckLogin = new System.Windows.Forms.Label();
             this.tBUsername = new System.Windows.Forms.TextBox();
             this.tBPassword = new System.Windows.Forms.TextBox();
             this.pBPass = new System.Windows.Forms.PictureBox();
@@ -63,6 +64,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.Color.White;
+            this.pnlMain.Controls.Add(this.lblCheckLogin);
             this.pnlMain.Controls.Add(this.tBUsername);
             this.pnlMain.Controls.Add(this.tBPassword);
             this.pnlMain.Controls.Add(this.pBPass);
@@ -77,6 +79,17 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlMain.Size = new System.Drawing.Size(400, 350);
             this.pnlMain.TabIndex = 0;
             // 
+            // lblCheckLogin
+            // 
+            this.lblCheckLogin.AutoSize = true;
+            this.lblCheckLogin.BackColor = System.Drawing.Color.Transparent;
+            this.lblCheckLogin.ForeColor = System.Drawing.Color.Red;
+            this.lblCheckLogin.Location = new System.Drawing.Point(108, 75);
+            this.lblCheckLogin.Name = "lblCheckLogin";
+            this.lblCheckLogin.Size = new System.Drawing.Size(74, 13);
+            this.lblCheckLogin.TabIndex = 27;
+            this.lblCheckLogin.Text = "lblCheckLogin";
+            // 
             // tBUsername
             // 
             this.tBUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
@@ -90,8 +103,9 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tBUsername.TabIndex = 0;
             this.tBUsername.TabStop = false;
             this.tBUsername.Text = "Username";
-            this.tBUsername.Click += new System.EventHandler(this.tBUsername_Click);
             this.tBUsername.TextChanged += new System.EventHandler(this.tBUsername_TextChanged);
+            this.tBUsername.Enter += new System.EventHandler(this.tBUsername_Enter);
+            this.tBUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBUsername_KeyPress);
             this.tBUsername.Leave += new System.EventHandler(this.tBUsername_Leave);
             // 
             // tBPassword
@@ -107,7 +121,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.tBPassword.TabIndex = 1;
             this.tBPassword.TabStop = false;
             this.tBPassword.Text = "Password";
-            this.tBPassword.Click += new System.EventHandler(this.tBPassword_Click);
             this.tBPassword.Enter += new System.EventHandler(this.tBPassword_Enter);
             this.tBPassword.Leave += new System.EventHandler(this.tBPassword_Leave);
             // 
@@ -374,5 +387,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.ToolStripMenuItem aboutUpdateToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Label lblCheckLogin;
     }
 }

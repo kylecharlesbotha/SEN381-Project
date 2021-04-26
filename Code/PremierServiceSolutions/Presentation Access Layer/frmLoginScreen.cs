@@ -13,6 +13,13 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 {
     public partial class frmLoginScreen : Form
     {
+        public frmLoginScreen()
+        {
+            InitializeComponent();
+            tBPassword.SelectionLength = 0;
+        }
+
+        #region Variables and Objects Creation
         User objUser;
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
@@ -20,61 +27,73 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         internal User ObjUser { get => objUser; set => objUser = value; }
         public int userauthenticated;
         frmDashBoard FDB = new frmDashBoard();
-        public frmLoginScreen()
+        #endregion
+
+        #region Form Load
+        private void frmLoginScreen_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
-            tBPassword.SelectionLength = 0;
-
+            tBUsername.Text = "Username";
+            tBPassword.Text = "Password";
+            this.tBPassword.SelectionStart = this.tBPassword.Text.Length;
+            this.tBPassword.DeselectAll();
+            lblCheckLogin.Text = "";
         }
+        #endregion
 
-        private void tBUsername_TextChanged(object sender, EventArgs e)
-        {
-            tBPassword.TabStop = true;
-        }
-
-        private void tBUsername_Click(object sender, EventArgs e)
+        #region Username Methods
+        private void tBUsername_Enter(object sender, EventArgs e) //On being active form control, clear textbox for user to enter required
         {
             tBUsername.Clear();
         }
 
-        private void tBPassword_Click(object sender, EventArgs e)
+        private void tBUsername_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
         {
-            tBPassword.Clear();
-        }
-
-        private void frmLoginScreen_Load(object sender, EventArgs e)
-        {
-            this.tBPassword.SelectionStart = this.tBPassword.Text.Length;
-            this.tBPassword.DeselectAll();
-        }
-
-        private void tBPassword_Enter(object sender, EventArgs e)
-        {
-            tBPassword.Clear();
-            tBPassword.PasswordChar = '*';
-        }
-
-        private void tBUsername_Leave(object sender, EventArgs e)
-        {
-            if(tBUsername.TextLength == 0)
+            if (String.IsNullOrEmpty(tBUsername.Text))
             {
                 tBUsername.Text = "Username";
             }
+            lblCheckLogin.Text = "";
+        }
+
+        private void tBUsername_TextChanged(object sender, EventArgs e) // textchange
+        {
+            tBPassword.TabStop = true;//the input focus is set to the next control in the tab order
+        }
+
+        private void tBUsername_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Alphabetic characters only
+        {
+            if (!char.IsLetter(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblCheckLogin.Text = "Please enter only Alphabetical characters.";
+                e.Handled = true;
+            }
             else
             {
-                
+                lblCheckLogin.Text = "";
+                e.Handled = false;
             }
+
+        }
+        #endregion
+
+        #region Password Methods
+        private void tBPassword_Enter(object sender, EventArgs e) //On being active form control, clear textbox for user to enter required
+        {
+            tBPassword.Clear();
+            tBPassword.PasswordChar = '*'; //Activate passwordchar to secure user inserting password to the eyes of someone else
         }
 
-        private void tBPassword_Leave(object sender, EventArgs e)
+        private void tBPassword_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
         {
-            if (tBPassword.TextLength == 0)
+            if (String.IsNullOrEmpty(tBPassword.Text))
             {
                 tBPassword.Text = "Password";
-                tBPassword.PasswordChar = '\0';
+                tBPassword.PasswordChar = '\0'; //Deactivate passwordchar and display password as text for user experience
             }
         }
+        #endregion
 
+        #region Label Sign Up Methods
         private void lblSignUp_Click(object sender, EventArgs e)
         {
             Form frmCreateAccount = new frmCreateAccount();
@@ -87,11 +106,18 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             lblSignUp.ForeColor = Color.FromArgb(3, 3, 3);
         }
 
+        private void lblSignUp_MouseLeave(object sender, EventArgs e)
+        {
+            lblSignUp.ForeColor = Color.FromArgb(218, 0, 0);
+        }
+        #endregion
+
+        #region Button Sign In Methods
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (checkFieldsEmpty() == true)
+                if ((!String.IsNullOrEmpty(tBUsername.Text)) && (!String.IsNullOrEmpty(tBPassword.Text)) && (tBUsername.Text!="Username") && (tBPassword.Text != "Password"))
                 {
                     string userName = tBUsername.Text;
                     string userPassword = tBPassword.Text;
@@ -102,54 +128,24 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
                         this.Hide();
                         FDB.Show();
                     }
-                }
-                
-            }
-            catch
-            {
-
-            }
-
-            
-        }
-
-        public bool checkFieldsEmpty()
-        {
-            try
-            {
-                
-                
-                if (String.IsNullOrEmpty(tBUsername.Text))
-                {
-                    MessageBox.Show("Please do not leave the username field blank.");
-                    return false;
-                }
-                else if (String.IsNullOrEmpty(tBPassword.Text))
-                {
-                    MessageBox.Show("Please do not leave the password field blank.");
-                    return false;
-                }
-                if(tBUsername.Text.All(Char.IsLetter))
-                {
-                    return true;
+                    else
+                    {
+                        lblCheckLogin.Text= "Incorrect Username or Password";
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Username may only contain letters");
-                    return false;
-                }
+                    lblCheckLogin.Text = "Please fill in required information";
+                }   
             }
             catch
             {
-                return false;
+
             }
         }
+        #endregion
 
-        private void lblSignUp_MouseLeave(object sender, EventArgs e)
-        {
-            lblSignUp.ForeColor = Color.FromArgb(218, 0, 0);
-        }
-
+        #region Form Exit/ResizeOptions/ToolStripOptions Methods
         private void frmLoginScreen_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
@@ -221,5 +217,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
             iPBExit.ForeColor = Color.FromArgb(218, 0, 0);
         }
+
+        #endregion
     }
 }
