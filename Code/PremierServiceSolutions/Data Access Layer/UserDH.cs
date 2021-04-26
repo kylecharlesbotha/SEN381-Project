@@ -21,24 +21,15 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             try
             {
-                //Checking if the client already exists
-                int UserVal = Find(objUser);
-                if (UserVal == 1)
-                {
-                    //If it finds a client with same details return message saying Client already exists
-                    MessageBox.Show("Client Already Exists");
-                    return false;
-                }
-                else if (UserVal == 0)
-                {
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                    string InsertQuery = string.Format(@"INSERT INTO tblUser  EmployeeID, UserAccessLevel, UserAuthToken, UserName, UserPassword, UserState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",
-                        objUser.EmployeeObject.PersonID,
+                    string InsertQuery = string.Format(@"INSERT INTO tblUser (EmployeeID, UserAccessLevel, UserAuthToken, UserName, UserPassword, UserState, UserSalt) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                        objUser.EmployeeID,
                         objUser.UserAccessLevel,
                         objUser.UserAuthToken,
                         objUser.UserName,
                         objUser.UserPassword,
-                        objUser.UserState
+                        objUser.UserState,
+                        objUser.UserSalt
 
                         );
                     SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
@@ -46,11 +37,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     InsertCommand.ExecuteNonQuery();
                     sqlCon.Close();
                     return true;
-                }
-                return false;
             }
             catch (SqlException SQLE)
             {
+                MessageBox.Show(SQLE.Message);
                 return false;
             }
         }
@@ -144,7 +134,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                                 (string)sqlDataReader.GetValue(3),
                                 (string)sqlDataReader.GetValue(4),
                                 (string)sqlDataReader.GetValue(5),
-                                (int)sqlDataReader.GetValue(6),
+                                (string)sqlDataReader.GetValue(6),
                                 (string)sqlDataReader.GetValue(7)
 
                                 ));

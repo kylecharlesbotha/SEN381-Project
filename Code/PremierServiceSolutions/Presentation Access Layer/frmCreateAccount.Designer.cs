@@ -32,6 +32,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateAccount));
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.cbbUserType = new System.Windows.Forms.ComboBox();
+            this.pbUserTypeCheck = new System.Windows.Forms.PictureBox();
+            this.lblUserType = new System.Windows.Forms.Label();
+            this.pBUserType = new System.Windows.Forms.PictureBox();
             this.pbAdminCodeCheck = new System.Windows.Forms.PictureBox();
             this.pbConPassCheck = new System.Windows.Forms.PictureBox();
             this.pbPasswordCheck = new System.Windows.Forms.PictureBox();
@@ -41,9 +45,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblCheckAdminCode = new System.Windows.Forms.Label();
             this.lblCheckUsername = new System.Windows.Forms.Label();
             this.lblCheckEmpNum = new System.Windows.Forms.Label();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnCreateAccount = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.tbAdminCode = new System.Windows.Forms.TextBox();
             this.pBAdminCode = new System.Windows.Forms.PictureBox();
             this.tBConfirmPassword = new System.Windows.Forms.TextBox();
@@ -61,11 +63,11 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
             this.tTCreateAccount = new System.Windows.Forms.ToolTip(this.components);
-            this.pbUserTypeCheck = new System.Windows.Forms.PictureBox();
-            this.lblUserType = new System.Windows.Forms.Label();
-            this.pBUserType = new System.Windows.Forms.PictureBox();
-            this.cbbUserType = new System.Windows.Forms.ComboBox();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnCreateAccount = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBUserType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdminCodeCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbConPassCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).BeginInit();
@@ -79,8 +81,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBUserType)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -119,6 +119,54 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(850, 500);
             this.pnlMain.TabIndex = 0;
+            // 
+            // cbbUserType
+            // 
+            this.cbbUserType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbbUserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbUserType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbUserType.FormattingEnabled = true;
+            this.cbbUserType.Items.AddRange(new object[] {
+            "Standard",
+            "Administrator"});
+            this.cbbUserType.Location = new System.Drawing.Point(116, 378);
+            this.cbbUserType.Name = "cbbUserType";
+            this.cbbUserType.Size = new System.Drawing.Size(190, 26);
+            this.cbbUserType.TabIndex = 39;
+            this.cbbUserType.TabStop = false;
+            this.cbbUserType.SelectedIndexChanged += new System.EventHandler(this.cbbUserType_SelectedIndexChanged);
+            this.cbbUserType.Leave += new System.EventHandler(this.cbbUserType_Leave);
+            // 
+            // pbUserTypeCheck
+            // 
+            this.pbUserTypeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbUserTypeCheck.Image")));
+            this.pbUserTypeCheck.Location = new System.Drawing.Point(338, 378);
+            this.pbUserTypeCheck.Name = "pbUserTypeCheck";
+            this.pbUserTypeCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbUserTypeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUserTypeCheck.TabIndex = 38;
+            this.pbUserTypeCheck.TabStop = false;
+            // 
+            // lblUserType
+            // 
+            this.lblUserType.AutoSize = true;
+            this.lblUserType.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserType.ForeColor = System.Drawing.Color.Red;
+            this.lblUserType.Location = new System.Drawing.Point(130, 359);
+            this.lblUserType.Name = "lblUserType";
+            this.lblUserType.Size = new System.Drawing.Size(63, 13);
+            this.lblUserType.TabIndex = 37;
+            this.lblUserType.Text = "lblUserType";
+            // 
+            // pBUserType
+            // 
+            this.pBUserType.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.EmployeeBackground;
+            this.pBUserType.Location = new System.Drawing.Point(0, 367);
+            this.pBUserType.Name = "pBUserType";
+            this.pBUserType.Size = new System.Drawing.Size(400, 50);
+            this.pBUserType.TabIndex = 36;
+            this.pBUserType.TabStop = false;
             // 
             // pbAdminCodeCheck
             // 
@@ -214,29 +262,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblCheckEmpNum.TabIndex = 26;
             this.lblCheckEmpNum.Text = "lblCheckEmpNum";
             // 
-            // btnReset
-            // 
-            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnReset.Location = new System.Drawing.Point(507, 430);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnReset.Size = new System.Drawing.Size(250, 40);
-            this.btnReset.TabIndex = 25;
-            this.btnReset.TabStop = false;
-            this.btnReset.Text = "Reset";
-            this.btnReset.TextColor = System.Drawing.Color.White;
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.PSSLogo;
@@ -246,28 +271,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pictureBox2.Size = new System.Drawing.Size(296, 214);
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
-            // 
-            // btnCreateAccount
-            // 
-            this.btnCreateAccount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateAccount.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateAccount.FlatAppearance.BorderSize = 0;
-            this.btnCreateAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateAccount.Location = new System.Drawing.Point(72, 430);
-            this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateAccount.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateAccount.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCreateAccount.Size = new System.Drawing.Size(250, 40);
-            this.btnCreateAccount.TabIndex = 23;
-            this.btnCreateAccount.TabStop = false;
-            this.btnCreateAccount.Text = "Create Account";
-            this.btnCreateAccount.TextColor = System.Drawing.Color.White;
-            this.btnCreateAccount.UseVisualStyleBackColor = true;
-            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // tbAdminCode
             // 
@@ -483,49 +486,50 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBExit.TabIndex = 20;
             this.iPBExit.TabStop = false;
             // 
-            // pbUserTypeCheck
+            // btnReset
             // 
-            this.pbUserTypeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbUserTypeCheck.Image")));
-            this.pbUserTypeCheck.Location = new System.Drawing.Point(338, 378);
-            this.pbUserTypeCheck.Name = "pbUserTypeCheck";
-            this.pbUserTypeCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbUserTypeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbUserTypeCheck.TabIndex = 38;
-            this.pbUserTypeCheck.TabStop = false;
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnReset.Location = new System.Drawing.Point(507, 430);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReset.Size = new System.Drawing.Size(250, 40);
+            this.btnReset.TabIndex = 25;
+            this.btnReset.TabStop = false;
+            this.btnReset.Text = "Reset";
+            this.btnReset.TextColor = System.Drawing.Color.White;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // lblUserType
+            // btnCreateAccount
             // 
-            this.lblUserType.AutoSize = true;
-            this.lblUserType.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserType.ForeColor = System.Drawing.Color.Red;
-            this.lblUserType.Location = new System.Drawing.Point(130, 359);
-            this.lblUserType.Name = "lblUserType";
-            this.lblUserType.Size = new System.Drawing.Size(63, 13);
-            this.lblUserType.TabIndex = 37;
-            this.lblUserType.Text = "lblUserType";
-            // 
-            // pBUserType
-            // 
-            this.pBUserType.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.EmployeeBackground;
-            this.pBUserType.Location = new System.Drawing.Point(0, 367);
-            this.pBUserType.Name = "pBUserType";
-            this.pBUserType.Size = new System.Drawing.Size(400, 50);
-            this.pBUserType.TabIndex = 36;
-            this.pBUserType.TabStop = false;
-            // 
-            // cbbUserType
-            // 
-            this.cbbUserType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbbUserType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbUserType.FormattingEnabled = true;
-            this.cbbUserType.Items.AddRange(new object[] {
-            "Standard",
-            "Administrator"});
-            this.cbbUserType.Location = new System.Drawing.Point(116, 378);
-            this.cbbUserType.Name = "cbbUserType";
-            this.cbbUserType.Size = new System.Drawing.Size(190, 26);
-            this.cbbUserType.TabIndex = 39;
+            this.btnCreateAccount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateAccount.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateAccount.FlatAppearance.BorderSize = 0;
+            this.btnCreateAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateAccount.Location = new System.Drawing.Point(72, 430);
+            this.btnCreateAccount.Name = "btnCreateAccount";
+            this.btnCreateAccount.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateAccount.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateAccount.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCreateAccount.Size = new System.Drawing.Size(250, 40);
+            this.btnCreateAccount.TabIndex = 23;
+            this.btnCreateAccount.TabStop = false;
+            this.btnCreateAccount.Text = "Create Account";
+            this.btnCreateAccount.TextColor = System.Drawing.Color.White;
+            this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // frmCreateAccount
             // 
@@ -546,6 +550,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.Load += new System.EventHandler(this.frmCreateAccount_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBUserType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdminCodeCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbConPassCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).EndInit();
@@ -559,8 +565,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pBUserType)).EndInit();
             this.ResumeLayout(false);
 
         }
