@@ -1,6 +1,7 @@
 ﻿using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+using PremierServiceSolutions.Business_Logic_Layer;
 using PremierServiceSolutions.Pages;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-
+        private string loggeduser;
+        private string userrole;
 
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
@@ -43,6 +45,11 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             
         }
 
+        public void SetUserOBJ(string username, int userid)
+        {
+            loggeduser = username;
+            lblUserName.Text = username;
+        }
        
         private void tbnTechnicians_Click(object sender, EventArgs e)
         {
@@ -237,6 +244,13 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            frmLoginScreen frmlog = new frmLoginScreen();
+            frmlog.Show();
+            this.Hide();
         }
     }
 }

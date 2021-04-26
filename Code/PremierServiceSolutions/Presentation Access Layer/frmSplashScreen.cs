@@ -81,7 +81,6 @@ namespace PremierServiceSolutions
                 //Deserializing the file in temp folders to read the values
                 objUserInfo = ReadObject();
                 Thread.Sleep(500);
-                MessageBox.Show(objUserInfo.AuthToken + " " + Convert.ToString(objUserInfo.Remember));
 
                 //If the authtoken that is read from the file is not equal to auth it will match
                 if (objUserInfo.AuthToken != "auth")
@@ -98,6 +97,7 @@ namespace PremierServiceSolutions
                     {
                         if(HashToken == item.UserAuthToken)
                         {
+                            objUser = item;
                             objLogin.ObjUser = item;
                             AuthValue = true;
                             UpdateLabel("User Found");
@@ -121,7 +121,7 @@ namespace PremierServiceSolutions
                         Thread.Sleep(500);
                         //Cross-Threading to close this Form
                         this.Invoke(new MethodInvoker(this.Hide));
-
+                        objDash.SetUserOBJ(objUser.UserName, objUser.UserID);
                         this.Invoke(new MethodInvoker(frmLogin.Show));
                         Thread.Sleep(500);
                         this.Invoke(new MethodInvoker(frmLogin.Hide));

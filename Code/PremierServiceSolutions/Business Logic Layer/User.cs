@@ -83,7 +83,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             }
         }
 
-        public bool attemptLogin(string username, string password)
+        public (bool,User) attemptLogin(string username, string password)
         {
             User objUser = new User();
             try
@@ -101,12 +101,12 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
                 if (hashpass == UrPass) //log user in
                 {
-                    return true;
+                    return (true,objUser);
                 }
                 else //display error msg
                 {
                     MessageBox.Show("An Error has Occured");
-                    return false;
+                    return (false,objUser);
                     
                 }
 
@@ -117,7 +117,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             {
                 //Will catch any errors that occur and will display a error message. it will also return a empty list
                 MessageBox.Show("Error has occured");
-                return false;
+                return (false, objUser);
             }
            
         }
@@ -165,9 +165,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         
 
-        public void GenerateAuthToken()
+        public void GenerateAuthToken(User objuser)
         {
-
+            
+            objUserDH.Update(objuser, objuser);
         }
         public void ValidateAuthToken(string Token)
         {

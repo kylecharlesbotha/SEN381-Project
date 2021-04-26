@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Serialization;
 
 namespace PremierServiceSolutions.Presentation_Access_Layer
 {
@@ -20,6 +24,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         }
 
         #region Variables and Objects Creation
+
+        private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
+        private readonly string AuthSalt = "bp1cHcfg";
+        public string FullPath;
         User objUser;
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
@@ -27,6 +35,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         internal User ObjUser { get => objUser; set => objUser = value; }
         public int userauthenticated;
         frmDashBoard FDB = new frmDashBoard();
+        RememberMe objRemMe = new RememberMe();
         #endregion
 
         #region Form Load
@@ -36,6 +45,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             tBPassword.Text = "Password";
             this.tBPassword.SelectionStart = this.tBPassword.Text.Length;
             this.tBPassword.DeselectAll();
+            FullPath = GetTemporaryDirectory();
+            FullPath += @"\489296awbduyg0298lfg.ser";
             lblCheckLogin.Text = "";
         }
         #endregion
@@ -119,12 +130,25 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             {
                 if ((!String.IsNullOrEmpty(tBUsername.Text)) && (!String.IsNullOrEmpty(tBPassword.Text)) && (tBUsername.Text!="Username") && (tBPassword.Text != "Password"))
                 {
+                    if(cBRemeberMe.Checked==true)
+                    {
+                        objRemMe.Remember = 1;
+                    }
+                    else
+                    {
+                        objRemMe.Remember = 0;
+                    }
                     string userName = tBUsername.Text;
                     string userPassword = tBPassword.Text;
                     User userRecord = new User();
-                    bool value = userRecord.attemptLogin(userName, userPassword);
+                    var values = userRecord.attemptLogin(userName, userPassword);
+                    bool value = values.Item1;
+                    userRecord = values.Item2;
+                    objUser = userRecord;
                     if(value==true)
                     {
+                        FDB.SetUserOBJ(userRecord.UserName,userRecord.UserID);
+                        CreateAuthToken();
                         this.Hide();
                         FDB.Show();
                     }
@@ -142,6 +166,38 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             {
 
             }
+        }
+        #endregion
+
+        #region Authentication
+        public void SetLoginUser()
+        {
+            FDB.SetUserOBJ(objUser.UserName, objUser.UserID);
+        }
+
+        private void CreateAuthToken()
+        {
+            User newUser = new User();
+            string baseauth = newUser.CreateSalt(12);
+            string AuthT = newUser.CreateSHA256Hash(baseauth, AuthSalt);
+            objUser.UserAuthToken = AuthT;
+            objRemMe.AuthToken = baseauth;
+            InsertObject();
+            newUser.GenerateAuthToken(ObjUser);
+        }
+        private string GetTemporaryDirectory()
+        {
+            string tempDirectory = Path.Combine(Path.GetTempPath(), DirectoryPath);
+            return tempDirectory;
+        }
+
+        private void InsertObject()
+        {
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(FullPath, FileMode.Create, FileAccess.Write);
+            formatter.Serialize(stream, objRemMe);
+            stream.Close();
         }
         #endregion
 
