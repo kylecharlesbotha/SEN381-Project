@@ -38,7 +38,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     //Then you will need to check if the Records Exist
                     {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                        string InsertQuery = string.Format(@"INSERT INTO tblTicket (TechnicianID, ClientID, TicketDescription, TicketDueDate, EmployeeID, TicketIssueType, TicketLastUpdated, TicketLoggedTime, TicketPrority, TicketStatus, TicketTitle) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", objTic.TechnicianID, objTic.TicketDescription, objTic.TicketDueDate, objTic.EmployeeID, objTic.TicketIssueType, objTic.TicketLastUpdated, objTic.TicketLoggedTime, objTic.TicketPriority, objTic.TicketStatus, objTic.TicketTitle);
+                        string InsertQuery = string.Format(@"INSERT INTO tblTicket (TechnicianID, ClientID, TicketDescription, TicketDueDate, EmployeeID, TicketIssueType, TicketDateCreated, TicketLoggedTime, TicketPriority, TicketStatus, TicketTitle) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", objTic.TechnicianID,objTic.ClientID, objTic.TicketDescription, objTic.TicketDueDate, objTic.EmployeeID, objTic.TicketIssueType, objTic.TicketDate, objTic.TicketLoggedTime, objTic.TicketPriority, objTic.TicketStatus, objTic.TicketTitle);
                         SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
                         sqlCon.Open();
                         InsertCommand.ExecuteNonQuery();
@@ -50,6 +50,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
             catch (SqlException SQLE)
             {
+                MessageBox.Show(SQLE.Message);
                 return false;
             }
         }
@@ -128,7 +129,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allTic.Add(new Ticket((int)sqlDataReader.GetValue(0), (int)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (string)sqlDataReader.GetValue(4), (int)sqlDataReader.GetValue(5), (string)sqlDataReader.GetValue(6), (DateTime)sqlDataReader.GetValue(7), (DateTime)sqlDataReader.GetValue(8), (string)sqlDataReader.GetValue(9), (string)sqlDataReader.GetValue(10), (string)sqlDataReader.GetValue(11)));
+                    allTic.Add(new Ticket((int)sqlDataReader.GetValue(0), (int)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (DateTime)sqlDataReader.GetValue(4), (int)sqlDataReader.GetValue(5), (string)sqlDataReader.GetValue(6), (DateTime)sqlDataReader.GetValue(7), (DateTime)sqlDataReader.GetValue(8), (string)sqlDataReader.GetValue(9), (string)sqlDataReader.GetValue(10), (string)sqlDataReader.GetValue(11)));
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -502,6 +503,41 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //Will catch any errors that occur and will display a error message. it will also return a empty list
                 MessageBox.Show("Error has occured");
                 return null;
+            }
+        }
+
+        public int GetTicketCreated(Ticket objTicket)
+        {
+            int RecordID = 0;
+            try
+            {
+                //New SQL Connection which the query will use to perform the Select of tblTicket
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Tickets
+                string SelectQuery = string.Format("SELECT T.TicketID FROM tblTicket AS T WHERE T.ClientID = '{0}' AND T.TicketDateCreated = '{1}' AND T.TicketLoggedTime = '{2}' AND  T.EmployeeID = '{3}'",objTicket.ClientID,objTicket.TicketDate,objTicket.TicketLoggedTime,objTicket.EmployeeID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    RecordID = (int)sqlDataReader.GetValue(0);
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Tickets
+                return RecordID;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show(SQLE.Message);
+                
+                return RecordID;
             }
         }
     }

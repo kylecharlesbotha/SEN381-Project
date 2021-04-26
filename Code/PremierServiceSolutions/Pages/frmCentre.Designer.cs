@@ -29,10 +29,10 @@ namespace PremierServiceSolutions.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings3 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
-            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings3 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
+            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
+            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCentre));
-            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings3 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
+            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
             this.pnlPhone = new System.Windows.Forms.Panel();
             this.lblCellNumber = new System.Windows.Forms.Label();
             this.lblTimeStarted = new System.Windows.Forms.Label();
@@ -47,6 +47,10 @@ namespace PremierServiceSolutions.Pages
             this.pBAnswerCall = new System.Windows.Forms.PictureBox();
             this.pbDeclineCall = new System.Windows.Forms.PictureBox();
             this.pnlClientDetials = new System.Windows.Forms.Panel();
+            this.lblConStatus = new System.Windows.Forms.Label();
+            this.tbConStatus = new System.Windows.Forms.TextBox();
+            this.lblConType = new System.Windows.Forms.Label();
+            this.tbConType = new System.Windows.Forms.TextBox();
             this.lblCell = new System.Windows.Forms.Label();
             this.tbContact = new System.Windows.Forms.TextBox();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
@@ -70,16 +74,12 @@ namespace PremierServiceSolutions.Pages
             this.lblIssueType = new System.Windows.Forms.Label();
             this.blTicketTitle = new System.Windows.Forms.Label();
             this.tbTicketTitle = new System.Windows.Forms.TextBox();
-            this.lblConType = new System.Windows.Forms.Label();
-            this.tbConType = new System.Windows.Forms.TextBox();
-            this.lblConStatus = new System.Windows.Forms.Label();
-            this.tbConStatus = new System.Windows.Forms.TextBox();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCreateTicket = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnViewContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.pdfContract = new Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView();
             this.btnCloseContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnCreateTicket = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
+            this.btnViewContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlPhone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
@@ -244,6 +244,7 @@ namespace PremierServiceSolutions.Pages
             // 
             // pBAnswerCall
             // 
+            this.pBAnswerCall.Enabled = false;
             this.pBAnswerCall.Image = global::PremierServiceSolutions.Properties.Resources.AnswerCall;
             this.pBAnswerCall.Location = new System.Drawing.Point(48, 20);
             this.pBAnswerCall.Name = "pBAnswerCall";
@@ -254,12 +255,14 @@ namespace PremierServiceSolutions.Pages
             // 
             // pbDeclineCall
             // 
+            this.pbDeclineCall.Enabled = false;
             this.pbDeclineCall.Image = global::PremierServiceSolutions.Properties.Resources.DeclineCall;
             this.pbDeclineCall.Location = new System.Drawing.Point(669, 20);
             this.pbDeclineCall.Name = "pbDeclineCall";
             this.pbDeclineCall.Size = new System.Drawing.Size(170, 170);
             this.pbDeclineCall.TabIndex = 0;
             this.pbDeclineCall.TabStop = false;
+            this.pbDeclineCall.Click += new System.EventHandler(this.pbDeclineCall_Click);
             // 
             // pnlClientDetials
             // 
@@ -284,6 +287,54 @@ namespace PremierServiceSolutions.Pages
             this.pnlClientDetials.Name = "pnlClientDetials";
             this.pnlClientDetials.Size = new System.Drawing.Size(879, 254);
             this.pnlClientDetials.TabIndex = 2;
+            // 
+            // lblConStatus
+            // 
+            this.lblConStatus.AutoSize = true;
+            this.lblConStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblConStatus.Location = new System.Drawing.Point(442, 163);
+            this.lblConStatus.Name = "lblConStatus";
+            this.lblConStatus.Size = new System.Drawing.Size(172, 25);
+            this.lblConStatus.TabIndex = 38;
+            this.lblConStatus.Text = "Contract Status :";
+            // 
+            // tbConStatus
+            // 
+            this.tbConStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbConStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbConStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbConStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbConStatus.Location = new System.Drawing.Point(620, 163);
+            this.tbConStatus.Multiline = true;
+            this.tbConStatus.Name = "tbConStatus";
+            this.tbConStatus.ReadOnly = true;
+            this.tbConStatus.Size = new System.Drawing.Size(246, 30);
+            this.tbConStatus.TabIndex = 37;
+            // 
+            // lblConType
+            // 
+            this.lblConType.AutoSize = true;
+            this.lblConType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblConType.Location = new System.Drawing.Point(455, 121);
+            this.lblConType.Name = "lblConType";
+            this.lblConType.Size = new System.Drawing.Size(159, 25);
+            this.lblConType.TabIndex = 36;
+            this.lblConType.Text = "Contract Type :";
+            // 
+            // tbConType
+            // 
+            this.tbConType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbConType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbConType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbConType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbConType.Location = new System.Drawing.Point(620, 121);
+            this.tbConType.Multiline = true;
+            this.tbConType.Name = "tbConType";
+            this.tbConType.ReadOnly = true;
+            this.tbConType.Size = new System.Drawing.Size(246, 30);
+            this.tbConType.TabIndex = 35;
             // 
             // lblCell
             // 
@@ -569,53 +620,65 @@ namespace PremierServiceSolutions.Pages
             this.tbTicketTitle.Size = new System.Drawing.Size(289, 30);
             this.tbTicketTitle.TabIndex = 35;
             // 
-            // lblConType
+            // pdfContract
             // 
-            this.lblConType.AutoSize = true;
-            this.lblConType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblConType.Location = new System.Drawing.Point(455, 121);
-            this.lblConType.Name = "lblConType";
-            this.lblConType.Size = new System.Drawing.Size(159, 25);
-            this.lblConType.TabIndex = 36;
-            this.lblConType.Text = "Contract Type :";
+            this.pdfContract.AutoScroll = true;
+            this.pdfContract.BackColor = System.Drawing.Color.White;
+            this.pdfContract.CursorMode = Syncfusion.Windows.Forms.PdfViewer.PdfViewerCursorMode.SelectTool;
+            this.pdfContract.EnableContextMenu = true;
+            this.pdfContract.HorizontalScrollOffset = 0;
+            this.pdfContract.IsTextSearchEnabled = true;
+            this.pdfContract.IsTextSelectionEnabled = true;
+            this.pdfContract.Location = new System.Drawing.Point(0, 0);
+            messageBoxSettings1.EnableNotification = true;
+            this.pdfContract.MessageBoxSettings = messageBoxSettings1;
+            this.pdfContract.MinimumZoomPercentage = 50;
+            this.pdfContract.Name = "pdfContract";
+            this.pdfContract.PageBorderThickness = 1;
+            pdfViewerPrinterSettings1.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings1.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings1.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings1.PrintLocation")));
+            pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
+            this.pdfContract.PrinterSettings = pdfViewerPrinterSettings1;
+            this.pdfContract.ReferencePath = null;
+            this.pdfContract.ScrollDisplacementValue = 0;
+            this.pdfContract.ShowHorizontalScrollBar = true;
+            this.pdfContract.ShowVerticalScrollBar = true;
+            this.pdfContract.Size = new System.Drawing.Size(902, 685);
+            this.pdfContract.SpaceBetweenPages = 8;
+            this.pdfContract.TabIndex = 4;
+            textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
+            textSearchSettings1.HighlightAllInstance = true;
+            textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.pdfContract.TextSearchSettings = textSearchSettings1;
+            this.pdfContract.ThemeName = "Default";
+            this.pdfContract.VerticalScrollOffset = 0;
+            this.pdfContract.Visible = false;
+            this.pdfContract.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Default;
+            this.pdfContract.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
             // 
-            // tbConType
+            // btnCloseContract
             // 
-            this.tbConType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbConType.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbConType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbConType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbConType.Location = new System.Drawing.Point(620, 121);
-            this.tbConType.Multiline = true;
-            this.tbConType.Name = "tbConType";
-            this.tbConType.ReadOnly = true;
-            this.tbConType.Size = new System.Drawing.Size(246, 30);
-            this.tbConType.TabIndex = 35;
-            // 
-            // lblConStatus
-            // 
-            this.lblConStatus.AutoSize = true;
-            this.lblConStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblConStatus.Location = new System.Drawing.Point(442, 163);
-            this.lblConStatus.Name = "lblConStatus";
-            this.lblConStatus.Size = new System.Drawing.Size(172, 25);
-            this.lblConStatus.TabIndex = 38;
-            this.lblConStatus.Text = "Contract Status :";
-            // 
-            // tbConStatus
-            // 
-            this.tbConStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbConStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbConStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbConStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbConStatus.Location = new System.Drawing.Point(620, 163);
-            this.tbConStatus.Multiline = true;
-            this.tbConStatus.Name = "tbConStatus";
-            this.tbConStatus.ReadOnly = true;
-            this.tbConStatus.Size = new System.Drawing.Size(246, 30);
-            this.tbConStatus.TabIndex = 37;
+            this.btnCloseContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCloseContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCloseContract.FlatAppearance.BorderSize = 0;
+            this.btnCloseContract.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCloseContract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCloseContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseContract.Location = new System.Drawing.Point(370, 207);
+            this.btnCloseContract.Name = "btnCloseContract";
+            this.btnCloseContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnCloseContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnCloseContract.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCloseContract.Size = new System.Drawing.Size(155, 36);
+            this.btnCloseContract.TabIndex = 54;
+            this.btnCloseContract.TabStop = false;
+            this.btnCloseContract.Text = "Close Contract";
+            this.btnCloseContract.TextColor = System.Drawing.Color.White;
+            this.btnCloseContract.UseVisualStyleBackColor = true;
+            this.btnCloseContract.Visible = false;
+            this.btnCloseContract.Click += new System.EventHandler(this.btnCloseContract_Click);
             // 
             // btnReset
             // 
@@ -661,6 +724,23 @@ namespace PremierServiceSolutions.Pages
             this.btnCreateTicket.UseVisualStyleBackColor = true;
             this.btnCreateTicket.Click += new System.EventHandler(this.btnCreateTicket_Click);
             // 
+            // tBSearch
+            // 
+            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tBSearch.Location = new System.Drawing.Point(63, 14);
+            this.tBSearch.Multiline = true;
+            this.tBSearch.Name = "tBSearch";
+            this.tBSearch.Size = new System.Drawing.Size(380, 31);
+            this.tBSearch.TabIndex = 23;
+            this.tBSearch.Text = "Start Typing Client or Client ID";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
+            // 
             // btnViewContract
             // 
             this.btnViewContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
@@ -682,83 +762,6 @@ namespace PremierServiceSolutions.Pages
             this.btnViewContract.TextColor = System.Drawing.Color.White;
             this.btnViewContract.UseVisualStyleBackColor = true;
             this.btnViewContract.Click += new System.EventHandler(this.btnViewContract_Click);
-            // 
-            // tBSearch
-            // 
-            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tBSearch.Location = new System.Drawing.Point(63, 14);
-            this.tBSearch.Multiline = true;
-            this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(380, 31);
-            this.tBSearch.TabIndex = 23;
-            this.tBSearch.Text = "Start Typing Client or Client ID";
-            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
-            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
-            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
-            // 
-            // pdfContract
-            // 
-            this.pdfContract.AutoScroll = true;
-            this.pdfContract.BackColor = System.Drawing.Color.White;
-            this.pdfContract.CursorMode = Syncfusion.Windows.Forms.PdfViewer.PdfViewerCursorMode.SelectTool;
-            this.pdfContract.EnableContextMenu = true;
-            this.pdfContract.HorizontalScrollOffset = 0;
-            this.pdfContract.IsTextSearchEnabled = true;
-            this.pdfContract.IsTextSelectionEnabled = true;
-            this.pdfContract.Location = new System.Drawing.Point(0, 0);
-            messageBoxSettings3.EnableNotification = true;
-            this.pdfContract.MessageBoxSettings = messageBoxSettings3;
-            this.pdfContract.MinimumZoomPercentage = 50;
-            this.pdfContract.Name = "pdfContract";
-            this.pdfContract.PageBorderThickness = 1;
-            pdfViewerPrinterSettings3.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings3.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings3.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings3.PrintLocation")));
-            pdfViewerPrinterSettings3.ShowPrintStatusDialog = true;
-            this.pdfContract.PrinterSettings = pdfViewerPrinterSettings3;
-            this.pdfContract.ReferencePath = null;
-            this.pdfContract.ScrollDisplacementValue = 0;
-            this.pdfContract.ShowHorizontalScrollBar = true;
-            this.pdfContract.ShowVerticalScrollBar = true;
-            this.pdfContract.Size = new System.Drawing.Size(902, 685);
-            this.pdfContract.SpaceBetweenPages = 8;
-            this.pdfContract.TabIndex = 4;
-            textSearchSettings3.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
-            textSearchSettings3.HighlightAllInstance = true;
-            textSearchSettings3.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.pdfContract.TextSearchSettings = textSearchSettings3;
-            this.pdfContract.ThemeName = "Default";
-            this.pdfContract.VerticalScrollOffset = 0;
-            this.pdfContract.Visible = false;
-            this.pdfContract.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Default;
-            this.pdfContract.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
-            // 
-            // btnCloseContract
-            // 
-            this.btnCloseContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCloseContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCloseContract.FlatAppearance.BorderSize = 0;
-            this.btnCloseContract.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCloseContract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCloseContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseContract.Location = new System.Drawing.Point(370, 207);
-            this.btnCloseContract.Name = "btnCloseContract";
-            this.btnCloseContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnCloseContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnCloseContract.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCloseContract.Size = new System.Drawing.Size(155, 36);
-            this.btnCloseContract.TabIndex = 54;
-            this.btnCloseContract.TabStop = false;
-            this.btnCloseContract.Text = "Close Contract";
-            this.btnCloseContract.TextColor = System.Drawing.Color.White;
-            this.btnCloseContract.UseVisualStyleBackColor = true;
-            this.btnCloseContract.Visible = false;
-            this.btnCloseContract.Click += new System.EventHandler(this.btnCloseContract_Click);
             // 
             // frmCentre
             // 

@@ -141,6 +141,12 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         }
 
+        public void UpdateCall(Call New,Call Old)
+        {
+            objClientDH.Update(New, Old);
+
+        }
+
 
     }
 }
