@@ -29,7 +29,6 @@ namespace PremierServiceSolutions.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCentre));
             this.pnlPhone = new System.Windows.Forms.Panel();
             this.lblCellNumber = new System.Windows.Forms.Label();
             this.lblTimeStarted = new System.Windows.Forms.Label();
@@ -75,7 +74,6 @@ namespace PremierServiceSolutions.Pages
             this.btnCreateTicket = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnViewContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
-            this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
             this.pnlPhone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
@@ -91,13 +89,11 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.cbTechnician)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbIssueType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPhone
             // 
             this.pnlPhone.BackColor = System.Drawing.Color.White;
-            this.pnlPhone.Controls.Add(this.axAcroPDF1);
             this.pnlPhone.Controls.Add(this.lblCellNumber);
             this.pnlPhone.Controls.Add(this.lblTimeStarted);
             this.pnlPhone.Controls.Add(this.lblTime);
@@ -697,16 +693,6 @@ namespace PremierServiceSolutions.Pages
             this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
             this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
             // 
-            // axAcroPDF1
-            // 
-            this.axAcroPDF1.Enabled = true;
-            this.axAcroPDF1.Location = new System.Drawing.Point(-16, -13);
-            this.axAcroPDF1.Name = "axAcroPDF1";
-            this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(795, 535);
-            this.axAcroPDF1.TabIndex = 4;
-            this.axAcroPDF1.Visible = false;
-            // 
             // frmCentre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,7 +728,6 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.cbTechnician)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbIssueType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -794,6 +779,5 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.TextBox tbConStatus;
         private System.Windows.Forms.Label lblConType;
         private System.Windows.Forms.TextBox tbConType;
-        private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
     }
 }

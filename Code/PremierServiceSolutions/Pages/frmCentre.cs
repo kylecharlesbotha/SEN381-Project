@@ -574,8 +574,7 @@ namespace PremierServiceSolutions.Pages
         private void btnViewContract_Click(object sender, EventArgs e)
         {
             File.WriteAllBytes(FullPath, ContractPath);
-            axAcroPDF1.src = FullPath;
-            axAcroPDF1.Visible = true;
+
         }
     }
 }
