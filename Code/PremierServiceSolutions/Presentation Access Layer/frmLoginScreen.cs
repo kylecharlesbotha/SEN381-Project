@@ -13,9 +13,13 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 {
     public partial class frmLoginScreen : Form
     {
-        string UserN;
+        User objUser;
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
+
+        internal User ObjUser { get => objUser; set => objUser = value; }
+        public int userauthenticated;
+
         public frmLoginScreen()
         {
             InitializeComponent();
