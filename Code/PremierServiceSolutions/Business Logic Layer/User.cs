@@ -105,7 +105,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
                 }
                 else //display error msg
                 {
-                    MessageBox.Show("An Error has Occured");
+                    MessageBox.Show("Username/Password Incorrect!Try Again");
                     return (false,objUser);
                     
                 }
@@ -116,7 +116,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             catch (SqlException SQLE)
             {
                 //Will catch any errors that occur and will display a error message. it will also return a empty list
-                MessageBox.Show("Error has occured");
+                MessageBox.Show("Username/Password Incorrect!Try Again");
                 return (false, objUser);
             }
            
