@@ -351,52 +351,78 @@ namespace PremierServiceSolutions.Pages
 
         private void btnStartCall_Click(object sender, EventArgs e)
         {
-            pBAnswerCall.Enabled = true;
-            pbDeclineCall.Enabled = true;
-            pBAnswerCall.Image = Properties.Resources.AnswerActiveCall;
-            pbDeclineCall.Image = Properties.Resources.DeclineActiveCall;
-            Random r = new Random();
-            int rInt = r.Next(0, 9);
-            lblCellNumber.Text = "Phone Number :" + " " + PhoneNumbers[rInt];
+            try
+            {
+                pBAnswerCall.Enabled = true;
+                pbDeclineCall.Enabled = true;
+                pBAnswerCall.Image = Properties.Resources.AnswerActiveCall;
+                pbDeclineCall.Image = Properties.Resources.DeclineActiveCall;
+                Random r = new Random();
+                int rInt = r.Next(0, 9);
+                lblCellNumber.Text = "Phone Number :" + " " + PhoneNumbers[rInt];
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+                
+            }
+            
         }
 
         private void pBAnswerCall_Click(object sender, EventArgs e)
         {
-            
-            if (Answer==false)
+            try
             {
-                CallProgress = true;
-                lblTimeStarted.Text = "Time Started :" + " " + DateTime.Now.ToString("h:mm:ss tt");
-               
-                startTime = DateTime.Now;
+                if (Answer == false)
+                {
+                    CallProgress = true;
+                    lblTimeStarted.Text = "Time Started :" + " " + DateTime.Now.ToString("h:mm:ss tt");
 
-                ThreadTime = new Thread(new ThreadStart(this.BackThread));
-                ThreadTime.IsBackground = true;
+                    startTime = DateTime.Now;
 
-                ThreadTime.Start();
-                pnlClientDetials.Enabled = true;
-                AddCallLog();
-                Answer = true;
+                    ThreadTime = new Thread(new ThreadStart(this.BackThread));
+                    ThreadTime.IsBackground = true;
+
+                    ThreadTime.Start();
+                    pnlClientDetials.Enabled = true;
+                    AddCallLog();
+                    Answer = true;
+                }
             }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+
+            }
+           
             
 
         }
 
         private void BackThread()
         {
-            while (CallProgress == true)
+            try
             {
-                TimeSpan ts = DateTime.Now.Subtract(startTime);
-                
-                
-                string b = ts.ToString(@"hh\:mm\:ss");
-                if (this.lblTime.InvokeRequired)
+                while (CallProgress == true)
                 {
-                    this.lblTime.BeginInvoke((MethodInvoker)delegate ()  { this.lblTime.Text = "Call Duration : " + b; ; });
-                }
+                    TimeSpan ts = DateTime.Now.Subtract(startTime);
 
-                Thread.Sleep(1000);
+
+                    string b = ts.ToString(@"hh\:mm\:ss");
+                    if (this.lblTime.InvokeRequired)
+                    {
+                        this.lblTime.BeginInvoke((MethodInvoker)delegate () { this.lblTime.Text = "Call Duration : " + b; ; });
+                    }
+
+                    Thread.Sleep(1000);
+                }
             }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+
+            }
+           
            
         }
 
@@ -416,53 +442,58 @@ namespace PremierServiceSolutions.Pages
 
         private void frmCentre_Load(object sender, EventArgs e)
         {
-            ChooseNum();
-            lsAllClients = objClient.GetAll();
-            PopulateCbb();
-            pnlTicket.Enabled = false;
-            pnlClientDetials.Enabled = false;
+            try
+            {
+                ChooseNum();
+                lsAllClients = objClient.GetAll();
+                PopulateCbb();
+                pnlTicket.Enabled = false;
+                pnlClientDetials.Enabled = false;
+            }
+            catch (Exception ee)
+            {
+
+                MessageBox.Show(ee.Message);
+            }
+            
 
         }
 
         private void TimerCallback(Object o)
         {
-            TimeSpan ts = DateTime.Now.Subtract(startTime);
-            string a = ts.Hours +":"+ ts.Minutes + ":" + ts.Seconds;
-           
+            try
+            {
+                TimeSpan ts = DateTime.Now.Subtract(startTime);
+                string a = ts.Hours + ":" + ts.Minutes + ":" + ts.Seconds;
+                lblTime.Invoke(new MethodInvoker(delegate { lblTime.Text = "Call Duration" + " " + a; }));
+            }
+            catch (Exception ee)
+            {
+
+                MessageBox.Show(ee.Message);
+            }
             
-            lblTime.Invoke(new MethodInvoker(delegate { lblTime.Text = "Call Duration" + " " +a; }));
         }
 
         private void PopulateClient(Client ce)
         {
-            bool foundcon = false;
-            bool foundvalid = false;
-            tbClientBusName.Text = ce.PersonName;
-            tbContact.Text = ce.ClientCell;
-            rtbAddress.Text = ce.ClientAddress;
-
-            objCall2.ClientID = ce.ClientID;
-            setUpdate(objCall2, objCall2);
-
-            foreach (CallCentreContract callitem in lstCenContracts)
+            try
             {
-                if(callitem.ClientID == ce.ClientID && callitem.ContractStatus == "In Progress")
-                {
-                    tbConStatus.Text = callitem.ContractStatus;
-                    tbConType.Text = callitem.ContractType;
-                    tbContract.Text = callitem.ContractID;
-                    foundcon = true;
-                    btnViewContract.Enabled = true;
-                    foundvalid = true;
-                    ContractPath = callitem.ContractPath;
-                }
-            }
-            if(foundvalid==false)
-            {
+
+
+
+                bool foundcon = false;
+                bool foundvalid = false;
+                tbClientBusName.Text = ce.PersonName;
+                tbContact.Text = ce.ClientCell;
+                rtbAddress.Text = ce.ClientAddress;
+
+                objCall2.ClientID = ce.ClientID;
+                setUpdate(objCall2, objCall2);
+
                 foreach (CallCentreContract callitem in lstCenContracts)
                 {
-
-                    if (callitem.ClientID == ce.ClientID && callitem.ContractStatus == "Expired")
+                    if (callitem.ClientID == ce.ClientID && callitem.ContractStatus == "In Progress")
                     {
                         tbConStatus.Text = callitem.ContractStatus;
                         tbConType.Text = callitem.ContractType;
@@ -471,44 +502,76 @@ namespace PremierServiceSolutions.Pages
                         btnViewContract.Enabled = true;
                         foundvalid = true;
                         ContractPath = callitem.ContractPath;
-                        break;
                     }
                 }
+                if (foundvalid == false)
+                {
+                    foreach (CallCentreContract callitem in lstCenContracts)
+                    {
+
+                        if (callitem.ClientID == ce.ClientID && callitem.ContractStatus == "Expired")
+                        {
+                            tbConStatus.Text = callitem.ContractStatus;
+                            tbConType.Text = callitem.ContractType;
+                            tbContract.Text = callitem.ContractID;
+                            foundcon = true;
+                            btnViewContract.Enabled = true;
+                            foundvalid = true;
+                            ContractPath = callitem.ContractPath;
+                            break;
+                        }
+                    }
+                }
+
+                if (foundcon == false)
+                {
+                    btnViewContract.Enabled = false;
+                    tbConStatus.Text = "None";
+                    tbConType.Text = "None";
+                    tbContract.Text = "No Conctract found for Customer";
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+
             }
 
-            if(foundcon==false)
-            {
-                btnViewContract.Enabled = false;
-                tbConStatus.Text = "None";
-                tbConType.Text = "None";
-                tbContract.Text = "No Conctract found for Customer";
-            }
-                
         }
 
        
 
         private void PopulateCbb()
         {
-            Issue objissue = new Issue();
-            List<Issue> lstIssue = objissue.GetAllIssues();
+
+            try
+            {
+                Issue objissue = new Issue();
+                List<Issue> lstIssue = objissue.GetAllIssues();
+
+
+                cbIssueType.DataSource = lstIssue;
+
+                Priority objPriority = new Priority();
+                List<Priority> lstPriority = objPriority.GetAllPriority();
+                cbPriority.DataSource = lstPriority;
+
+
+
+                cbTechnician.DataSource = lstTechnician;
+
+                cbIssueType.DisplayMember = "IssueName";
+
+                cbPriority.DisplayMember = "Priorityname";
+
+                cbTechnician.DisplayMember = "TechNameList";
+            }
+            catch (Exception ee)
+            {
+
+                MessageBox.Show(ee.Message);
+            }
             
-
-            cbIssueType.DataSource = lstIssue;
-
-            Priority objPriority = new Priority();
-            List<Priority> lstPriority = objPriority.GetAllPriority();
-            cbPriority.DataSource = lstPriority;
-
-            
-           
-            cbTechnician.DataSource = lstTechnician;
-
-            cbIssueType.DisplayMember = "IssueName";
-
-            cbPriority.DisplayMember = "Priorityname";
-
-            cbTechnician.DisplayMember = "TechNameList";
 
             
 
@@ -522,13 +585,22 @@ namespace PremierServiceSolutions.Pages
 
         public void Reset()
         {
-            tbTicketTitle.Text = "";
-            cbIssueType.TextBox.Clear();
-            cbPriority.TextBox.Clear();
-            cbTechnician.TextBox.Clear();
-            
-            rtbTicketDes.Text = "";
-            tbTicketTitle.Focus();
+            try
+            {
+                tbTicketTitle.Text = "";
+                cbIssueType.TextBox.Clear();
+                cbPriority.TextBox.Clear();
+                cbTechnician.TextBox.Clear();
+
+                rtbTicketDes.Text = "";
+                tbTicketTitle.Focus();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+               
+            }
+           
         }
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
@@ -538,73 +610,90 @@ namespace PremierServiceSolutions.Pages
 
         public void AddTicket()
         {
-            int TechID = 0 ;
-            objTicket.ClientID = objCall2.ClientID;
-            objTicket.EmployeeID = objCall2.EmployeeID;
-            objTicket.TicketTitle = tbTicketTitle.Text;
-            objTicket.TicketStatus = "New";
-            objTicket.TicketIssueType = cbIssueType.Text;
-            objTicket.TicketPriority = cbPriority.Text;
-            objTicket.TicketDescription = rtbTicketDes.Text;
-
-            foreach (Technician item in lstTechnician)
+            try
             {
-                if (item.TechNameList==cbTechnician.Text)
+
+
+                int TechID = 0;
+                objTicket.ClientID = objCall2.ClientID;
+                objTicket.EmployeeID = objCall2.EmployeeID;
+                objTicket.TicketTitle = tbTicketTitle.Text;
+                objTicket.TicketStatus = "New";
+                objTicket.TicketIssueType = cbIssueType.Text;
+                objTicket.TicketPriority = cbPriority.Text;
+                objTicket.TicketDescription = rtbTicketDes.Text;
+
+                foreach (Technician item in lstTechnician)
                 {
-                     TechID= item.TechnicianID;
-                    
+                    if (item.TechNameList == cbTechnician.Text)
+                    {
+                        TechID = item.TechnicianID;
+
+                    }
                 }
+
+                MessageBox.Show(Convert.ToString(TechID));
+                objTicket.TechnicianID = TechID;
+                DateTime dateAndTime = dtpDueDate.Value;
+                dateAndTime.ToString("yyyy-MM-dd HH:mm:ss");
+                dateAndTime.ToString("yyyy-MM-dd");
+
+
+
+                objTicket.TicketDueDate = dateAndTime;
+
+                DateTime date = DateTime.Now;
+                DateTime time = DateTime.Now;
+
+                date.ToString("yyyy-MM-dd HH:mm:ss");
+                date.ToString("yyyy-MM-dd");
+
+                time.ToString("yyyy-MM-dd HH:mm:ss");
+                time.ToString("HH:mm:ss");
+
+                objTicket.TicketDate = date;
+                objTicket.TicketLoggedTime = time;
+
+                objTicket.CreateTicket(objTicket);
+
+
+                objCall2.TicketID = objTicket.TicketCreated(objTicket);
+                setUpdate(objCall2, objCall2);
+            
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message );
             }
 
-            MessageBox.Show(Convert.ToString(TechID));
-            objTicket.TechnicianID = TechID;
-            DateTime dateAndTime = dtpDueDate.Value;
-            dateAndTime.ToString("yyyy-MM-dd HH:mm:ss");
-            dateAndTime.ToString("yyyy-MM-dd");
 
 
-           
-            objTicket.TicketDueDate =dateAndTime;
-
-            DateTime date = DateTime.Now;
-            DateTime time = DateTime.Now;
-
-            date.ToString("yyyy-MM-dd HH:mm:ss");
-            date.ToString("yyyy-MM-dd");
-
-            time.ToString("yyyy-MM-dd HH:mm:ss");
-            time.ToString("HH:mm:ss");
-
-            objTicket.TicketDate = date;
-            objTicket.TicketLoggedTime = time;
-
-            objTicket.CreateTicket(objTicket);
-
-
-            objCall2.TicketID = objTicket.TicketCreated(objTicket);
-            setUpdate(objCall2,objCall2);
-
-
-
-
-        }
+}
 
         public void AddCallLog()
         {
-            DateTime time = DateTime.Now;
+            try
+            {
+                DateTime time = DateTime.Now;
 
-            objCall2.ClientID = "null";
-            objCall2.CallStartTime = time;
-            objCall2.CallEndTime = time;
-            objCall2.CallState = 1;
-            objCall2.Callstatus = "In-Progress";
+                objCall2.ClientID = "null";
+                objCall2.CallStartTime = time;
+                objCall2.CallEndTime = time;
+                objCall2.CallState = 1;
+                objCall2.Callstatus = "In-Progress";
 
-            
 
-            objCall2.EmployeeID = 1;
 
-            objCall.InsertCall(objCall2);
-            objCall2.CallID=objCall.ReturnCall(1, time);
+                objCall2.EmployeeID = 1;
+
+                objCall.InsertCall(objCall2);
+                objCall2.CallID = objCall.ReturnCall(1, time);
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+           
            
             
 
@@ -641,17 +730,25 @@ namespace PremierServiceSolutions.Pages
 
         private void pbDeclineCall_Click(object sender, EventArgs e)
         {
-            CallProgress = false;
-            Answer = false;
-            objCall2.CallEndTime = DateTime.Now;
-            objCall2.CallRecording = objCall2.ClientID + " " + Convert.ToString(objCall2.CallStartTime);
-            setUpdate(objCall2, objCall2);
-            pBAnswerCall.Enabled = false;
-            pbDeclineCall.Enabled = false;
-            pBAnswerCall.Image = Properties.Resources.AnswerCall;
-            pbDeclineCall.Image = Properties.Resources.DeclineCall;
-            pBAnswerCall.Enabled = false;
-            pbDeclineCall.Enabled = false;
+            try
+            {
+                CallProgress = false;
+                Answer = false;
+                objCall2.CallEndTime = DateTime.Now;
+                objCall2.CallRecording = objCall2.ClientID + " " + Convert.ToString(objCall2.CallStartTime);
+                setUpdate(objCall2, objCall2);
+                pBAnswerCall.Enabled = false;
+                pbDeclineCall.Enabled = false;
+                pBAnswerCall.Image = Properties.Resources.AnswerCall;
+                pbDeclineCall.Image = Properties.Resources.DeclineCall;
+                pBAnswerCall.Enabled = false;
+                pbDeclineCall.Enabled = false;
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+           
 
         }
     }
