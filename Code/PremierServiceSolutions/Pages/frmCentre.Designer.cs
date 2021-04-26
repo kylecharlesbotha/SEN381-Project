@@ -70,6 +70,10 @@ namespace PremierServiceSolutions.Pages
             this.lblIssueType = new System.Windows.Forms.Label();
             this.blTicketTitle = new System.Windows.Forms.Label();
             this.tbTicketTitle = new System.Windows.Forms.TextBox();
+            this.lblConType = new System.Windows.Forms.Label();
+            this.tbConType = new System.Windows.Forms.TextBox();
+            this.lblConStatus = new System.Windows.Forms.Label();
+            this.tbConStatus = new System.Windows.Forms.TextBox();
             this.pnlPhone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
@@ -104,7 +108,7 @@ namespace PremierServiceSolutions.Pages
             this.pnlPhone.Controls.Add(this.pbDeclineCall);
             this.pnlPhone.Location = new System.Drawing.Point(9, 8);
             this.pnlPhone.Name = "pnlPhone";
-            this.pnlPhone.Size = new System.Drawing.Size(879, 250);
+            this.pnlPhone.Size = new System.Drawing.Size(879, 211);
             this.pnlPhone.TabIndex = 0;
             // 
             // lblCellNumber
@@ -140,11 +144,11 @@ namespace PremierServiceSolutions.Pages
             // btnStartCall
             // 
             this.btnStartCall.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStartCall.Location = new System.Drawing.Point(728, 204);
+            this.btnStartCall.Location = new System.Drawing.Point(845, 20);
             this.btnStartCall.Name = "btnStartCall";
-            this.btnStartCall.Size = new System.Drawing.Size(123, 40);
+            this.btnStartCall.Size = new System.Drawing.Size(21, 173);
             this.btnStartCall.TabIndex = 8;
-            this.btnStartCall.Text = "Start Call";
+            this.btnStartCall.Text = "Start  Call";
             this.btnStartCall.UseVisualStyleBackColor = true;
             this.btnStartCall.Click += new System.EventHandler(this.btnStartCall_Click);
             // 
@@ -255,6 +259,10 @@ namespace PremierServiceSolutions.Pages
             // 
             this.pnlClientDetials.AutoScroll = true;
             this.pnlClientDetials.BackColor = System.Drawing.Color.White;
+            this.pnlClientDetials.Controls.Add(this.lblConStatus);
+            this.pnlClientDetials.Controls.Add(this.tbConStatus);
+            this.pnlClientDetials.Controls.Add(this.lblConType);
+            this.pnlClientDetials.Controls.Add(this.tbConType);
             this.pnlClientDetials.Controls.Add(this.lblCell);
             this.pnlClientDetials.Controls.Add(this.tbContact);
             this.pnlClientDetials.Controls.Add(this.btnViewContract);
@@ -266,9 +274,9 @@ namespace PremierServiceSolutions.Pages
             this.pnlClientDetials.Controls.Add(this.tbClientBusName);
             this.pnlClientDetials.Controls.Add(this.tBSearch);
             this.pnlClientDetials.Controls.Add(this.iPBSearch);
-            this.pnlClientDetials.Location = new System.Drawing.Point(9, 264);
+            this.pnlClientDetials.Location = new System.Drawing.Point(9, 225);
             this.pnlClientDetials.Name = "pnlClientDetials";
-            this.pnlClientDetials.Size = new System.Drawing.Size(879, 215);
+            this.pnlClientDetials.Size = new System.Drawing.Size(879, 254);
             this.pnlClientDetials.TabIndex = 2;
             // 
             // lblCell
@@ -276,7 +284,7 @@ namespace PremierServiceSolutions.Pages
             this.lblCell.AutoSize = true;
             this.lblCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCell.Location = new System.Drawing.Point(36, 102);
+            this.lblCell.Location = new System.Drawing.Point(24, 113);
             this.lblCell.Name = "lblCell";
             this.lblCell.Size = new System.Drawing.Size(98, 25);
             this.lblCell.TabIndex = 34;
@@ -288,7 +296,7 @@ namespace PremierServiceSolutions.Pages
             this.tbContact.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbContact.Location = new System.Drawing.Point(140, 102);
+            this.tbContact.Location = new System.Drawing.Point(128, 113);
             this.tbContact.Multiline = true;
             this.tbContact.Name = "tbContact";
             this.tbContact.ReadOnly = true;
@@ -304,7 +312,7 @@ namespace PremierServiceSolutions.Pages
             this.btnViewContract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnViewContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewContract.Location = new System.Drawing.Point(274, 180);
+            this.btnViewContract.Location = new System.Drawing.Point(25, 205);
             this.btnViewContract.Name = "btnViewContract";
             this.btnViewContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnViewContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -322,7 +330,7 @@ namespace PremierServiceSolutions.Pages
             this.rtbAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.rtbAddress.Location = new System.Drawing.Point(605, 56);
+            this.rtbAddress.Location = new System.Drawing.Point(620, 20);
             this.rtbAddress.Name = "rtbAddress";
             this.rtbAddress.ReadOnly = true;
             this.rtbAddress.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
@@ -335,7 +343,7 @@ namespace PremierServiceSolutions.Pages
             this.lblContract.AutoSize = true;
             this.lblContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContract.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblContract.Location = new System.Drawing.Point(30, 144);
+            this.lblContract.Location = new System.Drawing.Point(18, 155);
             this.lblContract.Name = "lblContract";
             this.lblContract.Size = new System.Drawing.Size(105, 25);
             this.lblContract.TabIndex = 30;
@@ -348,7 +356,7 @@ namespace PremierServiceSolutions.Pages
             this.tbContract.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbContract.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbContract.Location = new System.Drawing.Point(139, 144);
+            this.tbContract.Location = new System.Drawing.Point(127, 155);
             this.tbContract.Multiline = true;
             this.tbContract.Name = "tbContract";
             this.tbContract.ReadOnly = true;
@@ -360,7 +368,7 @@ namespace PremierServiceSolutions.Pages
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAddress.Location = new System.Drawing.Point(478, 56);
+            this.lblAddress.Location = new System.Drawing.Point(511, 20);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(103, 25);
             this.lblAddress.TabIndex = 28;
@@ -371,7 +379,7 @@ namespace PremierServiceSolutions.Pages
             this.lblClient.AutoSize = true;
             this.lblClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblClient.Location = new System.Drawing.Point(55, 56);
+            this.lblClient.Location = new System.Drawing.Point(43, 67);
             this.lblClient.Name = "lblClient";
             this.lblClient.Size = new System.Drawing.Size(79, 25);
             this.lblClient.TabIndex = 26;
@@ -383,7 +391,7 @@ namespace PremierServiceSolutions.Pages
             this.tbClientBusName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbClientBusName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbClientBusName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbClientBusName.Location = new System.Drawing.Point(140, 55);
+            this.tbClientBusName.Location = new System.Drawing.Point(128, 66);
             this.tbClientBusName.Multiline = true;
             this.tbClientBusName.Name = "tbClientBusName";
             this.tbClientBusName.ReadOnly = true;
@@ -397,7 +405,7 @@ namespace PremierServiceSolutions.Pages
             this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tBSearch.Location = new System.Drawing.Point(59, 9);
+            this.tBSearch.Location = new System.Drawing.Point(63, 14);
             this.tBSearch.Multiline = true;
             this.tBSearch.Name = "tBSearch";
             this.tBSearch.Size = new System.Drawing.Size(380, 31);
@@ -636,6 +644,54 @@ namespace PremierServiceSolutions.Pages
             this.tbTicketTitle.Size = new System.Drawing.Size(289, 30);
             this.tbTicketTitle.TabIndex = 35;
             // 
+            // lblConType
+            // 
+            this.lblConType.AutoSize = true;
+            this.lblConType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblConType.Location = new System.Drawing.Point(455, 121);
+            this.lblConType.Name = "lblConType";
+            this.lblConType.Size = new System.Drawing.Size(159, 25);
+            this.lblConType.TabIndex = 36;
+            this.lblConType.Text = "Contract Type :";
+            // 
+            // tbConType
+            // 
+            this.tbConType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbConType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbConType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbConType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbConType.Location = new System.Drawing.Point(620, 121);
+            this.tbConType.Multiline = true;
+            this.tbConType.Name = "tbConType";
+            this.tbConType.ReadOnly = true;
+            this.tbConType.Size = new System.Drawing.Size(246, 30);
+            this.tbConType.TabIndex = 35;
+            // 
+            // lblConStatus
+            // 
+            this.lblConStatus.AutoSize = true;
+            this.lblConStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblConStatus.Location = new System.Drawing.Point(442, 163);
+            this.lblConStatus.Name = "lblConStatus";
+            this.lblConStatus.Size = new System.Drawing.Size(172, 25);
+            this.lblConStatus.TabIndex = 38;
+            this.lblConStatus.Text = "Contract Status :";
+            // 
+            // tbConStatus
+            // 
+            this.tbConStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbConStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbConStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbConStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbConStatus.Location = new System.Drawing.Point(620, 163);
+            this.tbConStatus.Multiline = true;
+            this.tbConStatus.Name = "tbConStatus";
+            this.tbConStatus.ReadOnly = true;
+            this.tbConStatus.Size = new System.Drawing.Size(246, 30);
+            this.tbConStatus.TabIndex = 37;
+            // 
             // frmCentre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -718,5 +774,9 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Label lblTimeStarted;
         private System.Windows.Forms.DateTimePicker dtpDueDate;
         private System.Windows.Forms.Label lblDueDate;
+        private System.Windows.Forms.Label lblConStatus;
+        private System.Windows.Forms.TextBox tbConStatus;
+        private System.Windows.Forms.Label lblConType;
+        private System.Windows.Forms.TextBox tbConType;
     }
 }

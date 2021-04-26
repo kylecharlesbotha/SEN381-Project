@@ -20,7 +20,9 @@ namespace PremierServiceSolutions.Pages
         Client objClient = new Client();
         Ticket objTicket = new Ticket();
         Technician objTechnician = new Technician();
+        CallCentreContract objCallCenCon = new CallCentreContract();
         List<Technician> lstTechnician;
+        List<CallCentreContract> lstCenContracts;
         Call objCall = new Call();
         Call objCall2 = new Call();
         private Thread ThreadTime;
@@ -28,6 +30,7 @@ namespace PremierServiceSolutions.Pages
         public frmCentre()
         {
             lstTechnician= objTechnician.GetTechNames();
+            lstCenContracts = objCallCenCon.GetCallContract();
             InitializeComponent();
             TestList.Add("Darren");
             TestList.Add("Darlien");
@@ -63,7 +66,7 @@ namespace PremierServiceSolutions.Pages
         List<string> TestList = new List<string>();
         List<string> PhoneNumbers = new List<string>();
 
-
+        #region Search Entry Creation
         private void CreateEntry(string CusName, string CusID)
         {
             //Create Panel Dynamically for each Client Record
@@ -196,7 +199,7 @@ namespace PremierServiceSolutions.Pages
         protected void lblSearchClicked(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            MessageBox.Show(lbl.Name);
+            //MessageBox.Show(lbl.Name);
 
             //find int from name
 
@@ -219,6 +222,7 @@ namespace PremierServiceSolutions.Pages
 
 
         }
+
         protected void lblMouseLeave(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
@@ -230,6 +234,10 @@ namespace PremierServiceSolutions.Pages
             lbl.ForeColor = Color.FromArgb(210, 4, 45);
         }
 
+        #endregion
+
+
+        #region SearchBar Methods
         private void tBSearch_TextChanged(object sender, EventArgs e)
         {
             if (tBSearch.Text == "Start Typing Client or Client ID")
@@ -277,13 +285,6 @@ namespace PremierServiceSolutions.Pages
             }
         }
 
-
-
-        private void lblContract_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tBSearch_Enter(object sender, EventArgs e)
         {
             try
@@ -313,6 +314,25 @@ namespace PremierServiceSolutions.Pages
 
             }
         }
+
+        private void ResetSearch()
+        {
+            for (int i = flpSearchResults.Controls.Count - 1; i >= 0; i--)
+            {
+                flpSearchResults.Controls[i].Dispose();
+                lsClientSearch.Clear();
+            }
+            flpSearchResults.Visible = false;
+        }
+        #endregion
+
+
+        private void lblContract_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
 
         private void btnStartCall_Click(object sender, EventArgs e)
         {
@@ -369,10 +389,6 @@ namespace PremierServiceSolutions.Pages
             PhoneNumbers.Add("0832412144");
             PhoneNumbers.Add("0772272321");
             PhoneNumbers.Add("0783823218");
-
-
-
-
         }
 
         private void frmCentre_Load(object sender, EventArgs e)
@@ -399,19 +415,20 @@ namespace PremierServiceSolutions.Pages
             tbClientBusName.Text = ce.PersonName;
             tbContact.Text = ce.ClientCell;
             rtbAddress.Text = ce.ClientAddress;
-                
+
+            foreach (CallCentreContract callitem in lstCenContracts)
+            {
+                if(callitem.ClientID == ce.ClientID)
+                {
+                    tbConStatus.Text = callitem.ContractStatus;
+                    tbConType.Text = callitem.ContractType;
+                    tbContract.Text = callitem.ContractID;
+                }
+            }
                 
         }
 
-        private void ResetSearch()
-        {
-            for (int i = flpSearchResults.Controls.Count - 1; i >= 0; i--)
-            {
-                flpSearchResults.Controls[i].Dispose();
-                lsClientSearch.Clear();
-            }
-            flpSearchResults.Visible = false;
-        }
+       
 
         private void PopulateCbb()
         {

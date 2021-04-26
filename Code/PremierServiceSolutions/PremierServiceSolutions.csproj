@@ -132,6 +132,7 @@
   <ItemGroup>
     <Compile Include="Business Logic Layer\BusinessContact.cs" />
     <Compile Include="Business Logic Layer\Call.cs" />
+    <Compile Include="Business Logic Layer\CallCentreContract.cs" />
     <Compile Include="Business Logic Layer\Client.cs" />
     <Compile Include="Business Logic Layer\Contract.cs" />
     <Compile Include="Business Logic Layer\ContractType.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="CustomComponents\SimpleScheduleDataProvider.cs" />
     <Compile Include="Data Access Layer\BusinessContactDH.cs" />
     <Compile Include="Data Access Layer\BusinessDH.cs" />
+    <Compile Include="Data Access Layer\CallCentreContractDH.cs" />
     <Compile Include="Data Access Layer\CallDH.cs" />
     <Compile Include="Data Access Layer\ClientDH.cs" />
     <Compile Include="Data Access Layer\ContractDH.cs" />
