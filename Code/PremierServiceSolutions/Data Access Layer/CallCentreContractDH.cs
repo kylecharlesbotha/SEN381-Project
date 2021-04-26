@@ -22,7 +22,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblBusiness
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Business
-                string SelectQuery = "SELECT CC.ClientID,C.ContractID,  CC.CustomerContractStatus,CT.ContractType, CF.FilePath FROM tblCustomerContract AS CC INNER JOIN tblContract AS C ON CC.ContractID = C.ContractID INNER JOIN tblContractFiles AS CF ON C.ContractID = CF.ContractID INNER JOIN tblContractType AS CT ON C.ContractType = CT.ContractChar";
+                string SelectQuery = "SELECT CC.ClientID,C.ContractID,  CC.CustomerContractStatus,CT.ContractType, CF.FilePath, CC.EndDate FROM tblCustomerContract AS CC INNER JOIN tblContract AS C ON CC.ContractID = C.ContractID INNER JOIN tblContractFiles AS CF ON C.ContractID = CF.ContractID INNER JOIN tblContractType AS CT ON C.ContractType = CT.ContractChar";
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
@@ -33,7 +33,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allCentreCon.Add(new CallCentreContract((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (byte[])sqlDataReader.GetValue(4)));
+                    allCentreCon.Add(new CallCentreContract((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (byte[])sqlDataReader.GetValue(4),(DateTime)sqlDataReader.GetValue(5)));
                 }
                 //Close connection to database
                 sqlCon.Close();

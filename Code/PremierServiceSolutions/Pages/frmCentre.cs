@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using PremierServiceSolutions.Business_Logic_Layer;
+using System.IO;
 
 namespace PremierServiceSolutions.Pages
 {
@@ -27,10 +28,14 @@ namespace PremierServiceSolutions.Pages
         Call objCall2 = new Call();
         private Thread ThreadTime;
         bool CallProgress=false;
+        byte[] ContractPath;
+        private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
+        private string FullPath;
         public frmCentre()
         {
             lstTechnician= objTechnician.GetTechNames();
             lstCenContracts = objCallCenCon.GetCallContract();
+            lstCenContracts.Sort();
             InitializeComponent();
             TestList.Add("Darren");
             TestList.Add("Darlien");
@@ -55,11 +60,17 @@ namespace PremierServiceSolutions.Pages
             flpSearchResults.Left = 9;
 
 
-
+            FullPath = GetTemporaryDirectory();
+            FullPath += @"\Temp.pdf";
 
             flpSearchResults.BringToFront();
 
 
+        }
+        private string GetTemporaryDirectory()
+        {
+            string tempDirectory = Path.Combine(Path.GetTempPath(), DirectoryPath);
+            return tempDirectory;
         }
 
 
@@ -412,18 +423,50 @@ namespace PremierServiceSolutions.Pages
 
         private void PopulateClient(Client ce)
         {
+            bool foundcon = false;
+            bool foundvalid = false;
             tbClientBusName.Text = ce.PersonName;
             tbContact.Text = ce.ClientCell;
             rtbAddress.Text = ce.ClientAddress;
 
             foreach (CallCentreContract callitem in lstCenContracts)
             {
-                if(callitem.ClientID == ce.ClientID)
+                if(callitem.ClientID == ce.ClientID && callitem.ContractStatus == "In Progress")
                 {
                     tbConStatus.Text = callitem.ContractStatus;
                     tbConType.Text = callitem.ContractType;
                     tbContract.Text = callitem.ContractID;
+                    foundcon = true;
+                    btnViewContract.Enabled = true;
+                    foundvalid = true;
+                    ContractPath = callitem.ContractPath;
                 }
+            }
+            if(foundvalid==false)
+            {
+                foreach (CallCentreContract callitem in lstCenContracts)
+                {
+
+                    if (callitem.ClientID == ce.ClientID && callitem.ContractStatus == "Expired")
+                    {
+                        tbConStatus.Text = callitem.ContractStatus;
+                        tbConType.Text = callitem.ContractType;
+                        tbContract.Text = callitem.ContractID;
+                        foundcon = true;
+                        btnViewContract.Enabled = true;
+                        foundvalid = true;
+                        ContractPath = callitem.ContractPath;
+                        break;
+                    }
+                }
+            }
+
+            if(foundcon==false)
+            {
+                btnViewContract.Enabled = false;
+                tbConStatus.Text = "None";
+                tbConType.Text = "None";
+                tbContract.Text = "No Conctract found for Customer";
             }
                 
         }
@@ -528,5 +571,11 @@ namespace PremierServiceSolutions.Pages
 
         }
 
+        private void btnViewContract_Click(object sender, EventArgs e)
+        {
+            File.WriteAllBytes(FullPath, ContractPath);
+            axAcroPDF1.src = FullPath;
+            axAcroPDF1.Visible = true;
+        }
     }
 }
