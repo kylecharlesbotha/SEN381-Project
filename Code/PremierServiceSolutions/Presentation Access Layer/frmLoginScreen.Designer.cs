@@ -29,6 +29,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginScreen));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.tBUsername = new System.Windows.Forms.TextBox();
@@ -38,15 +39,25 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.lblSignUp = new System.Windows.Forms.Label();
             this.lblDontHaveAccount = new System.Windows.Forms.Label();
             this.cBRemeberMe = new System.Windows.Forms.CheckBox();
-            this.btnSignIn = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.lblUserLogin = new System.Windows.Forms.Label();
             this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
+            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ContextMenuNotify = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.PSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.openWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeToTaskBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSignIn = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).BeginInit();
+            this.ContextMenuNotify.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -156,28 +167,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.cBRemeberMe.Text = "Remember Me";
             this.cBRemeberMe.UseVisualStyleBackColor = true;
             // 
-            // btnSignIn
-            // 
-            this.btnSignIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnSignIn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnSignIn.FlatAppearance.BorderSize = 0;
-            this.btnSignIn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSignIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignIn.Location = new System.Drawing.Point(74, 202);
-            this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSignIn.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSignIn.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnSignIn.Size = new System.Drawing.Size(250, 40);
-            this.btnSignIn.TabIndex = 2;
-            this.btnSignIn.TabStop = false;
-            this.btnSignIn.Text = "Sign In";
-            this.btnSignIn.TextColor = System.Drawing.Color.White;
-            this.btnSignIn.UseVisualStyleBackColor = true;
-            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
-            // 
             // lblUserLogin
             // 
             this.lblUserLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -203,6 +192,9 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBMinimize.Size = new System.Drawing.Size(29, 29);
             this.iPBMinimize.TabIndex = 21;
             this.iPBMinimize.TabStop = false;
+            this.iPBMinimize.Click += new System.EventHandler(this.iPBMinimize_Click);
+            this.iPBMinimize.MouseEnter += new System.EventHandler(this.iPBMinimize_MouseEnter);
+            this.iPBMinimize.MouseLeave += new System.EventHandler(this.iPBMinimize_MouseLeave);
             // 
             // iPBExit
             // 
@@ -217,6 +209,114 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBExit.Size = new System.Drawing.Size(29, 29);
             this.iPBExit.TabIndex = 20;
             this.iPBExit.TabStop = false;
+            this.iPBExit.Click += new System.EventHandler(this.iPBExit_Click);
+            this.iPBExit.MouseEnter += new System.EventHandler(this.iPBExit_MouseEnter);
+            this.iPBExit.MouseLeave += new System.EventHandler(this.iPBExit_MouseLeave);
+            // 
+            // NotifyIcon
+            // 
+            this.NotifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.NotifyIcon.BalloonTipText = "Don\'t worry the application is still running in system tray. Double click icon to" +
+    " reopen!";
+            this.NotifyIcon.BalloonTipTitle = "PSS Minimized";
+            this.NotifyIcon.ContextMenuStrip = this.ContextMenuNotify;
+            this.NotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon.Icon")));
+            this.NotifyIcon.Text = "Primier Service Solutions";
+            // 
+            // ContextMenuNotify
+            // 
+            this.ContextMenuNotify.BackColor = System.Drawing.Color.White;
+            this.ContextMenuNotify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ContextMenuNotify.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PSSToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.openWindowToolStripMenuItem,
+            this.minimizeToTaskBarToolStripMenuItem,
+            this.aboutUpdateToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.exitToolStripMenuItem});
+            this.ContextMenuNotify.Name = "ContextMenuNotify";
+            this.ContextMenuNotify.ShowImageMargin = false;
+            this.ContextMenuNotify.ShowItemToolTips = false;
+            this.ContextMenuNotify.Size = new System.Drawing.Size(183, 124);
+            // 
+            // PSSToolStripMenuItem
+            // 
+            this.PSSToolStripMenuItem.Enabled = false;
+            this.PSSToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PSSToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.PSSToolStripMenuItem.Name = "PSSToolStripMenuItem";
+            this.PSSToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PSSToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.PSSToolStripMenuItem.Text = "Premier Service Solutions";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(179, 6);
+            // 
+            // openWindowToolStripMenuItem
+            // 
+            this.openWindowToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.openWindowToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openWindowToolStripMenuItem.Image")));
+            this.openWindowToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.openWindowToolStripMenuItem.Name = "openWindowToolStripMenuItem";
+            this.openWindowToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0);
+            this.openWindowToolStripMenuItem.Size = new System.Drawing.Size(182, 20);
+            this.openWindowToolStripMenuItem.Text = "Open Window";
+            this.openWindowToolStripMenuItem.Click += new System.EventHandler(this.openWindowToolStripMenuItem_Click);
+            // 
+            // minimizeToTaskBarToolStripMenuItem
+            // 
+            this.minimizeToTaskBarToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.minimizeToTaskBarToolStripMenuItem.Name = "minimizeToTaskBarToolStripMenuItem";
+            this.minimizeToTaskBarToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.minimizeToTaskBarToolStripMenuItem.Text = "Minimize to TaskBar";
+            // 
+            // aboutUpdateToolStripMenuItem
+            // 
+            this.aboutUpdateToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.aboutUpdateToolStripMenuItem.Name = "aboutUpdateToolStripMenuItem";
+            this.aboutUpdateToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.aboutUpdateToolStripMenuItem.Text = "About/Update";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(179, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // btnSignIn
+            // 
+            this.btnSignIn.BackColor = System.Drawing.Color.Transparent;
+            this.btnSignIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSignIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnSignIn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnSignIn.FlatAppearance.BorderSize = 0;
+            this.btnSignIn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSignIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignIn.Location = new System.Drawing.Point(74, 202);
+            this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSignIn.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSignIn.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSignIn.Size = new System.Drawing.Size(250, 40);
+            this.btnSignIn.TabIndex = 2;
+            this.btnSignIn.TabStop = false;
+            this.btnSignIn.Text = "Sign In";
+            this.btnSignIn.TextColor = System.Drawing.Color.White;
+            this.btnSignIn.UseVisualStyleBackColor = false;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
             // frmLoginScreen
             // 
@@ -236,12 +336,17 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLoginScreen_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmLoginScreen_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmLoginScreen_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmLoginScreen_MouseUp);
+            this.Resize += new System.EventHandler(this.frmLoginScreen_Resize);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).EndInit();
+            this.ContextMenuNotify.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -260,5 +365,14 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.TextBox tBPassword;
         private FontAwesome.Sharp.IconPictureBox iPBMinimize;
         private FontAwesome.Sharp.IconPictureBox iPBExit;
+        private System.Windows.Forms.NotifyIcon NotifyIcon;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuNotify;
+        private System.Windows.Forms.ToolStripMenuItem PSSToolStripMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem openWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minimizeToTaskBarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutUpdateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

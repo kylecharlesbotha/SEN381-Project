@@ -69,34 +69,13 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             throw new NotImplementedException();
         }
 
-        public User(string userName, string userPassword)
-        {
-            try
-            {
-                this.userName = userName;
-                this.userPassword = userPassword;
-                if (UserName.All(Char.IsLetter))
-                {
-                    login(userName, userPassword);
-                }
-                else
-                {
-                    MessageBox.Show("Username may only contain letters");
-                }
-            }catch
-            {
-
-            }
-        }
+        #region Logging into Account
 
         public void login(string username, string password)
         {
             try
             {
-                if (!checkFieldsEmpty())
-                {
                     attemptLogin(username, password);
-                }
             }
             catch
             {
@@ -104,27 +83,45 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             }
         }
 
-        public bool checkFieldsEmpty()
+        public bool attemptLogin(string username, string password)
         {
+            User objUser = new User();
             try
             {
-                if (String.IsNullOrEmpty(this.userName))
+                objUser = objUserDH.GetByUserName(username);
+                string UrName = objUser.UserName;
+                string UrPass = objUser.UserPassword;
+                string Ursalt = objUser.UserSalt;
+
+                //pass username and ursalt into createsha256hash method
+
+                string hashpass = CreateSHA256Hash(password, Ursalt);
+
+                //check return string equals urpass if it matches log user in else display error msg
+
+                if (hashpass == UrPass) //log user in
                 {
-                    MessageBox.Show("Please do not leave the username field blank.");
                     return true;
                 }
-                else if (String.IsNullOrEmpty(this.userPassword))
+                else //display error msg
                 {
-                    MessageBox.Show("Please do not leave the password field blank.");
-                    return true;
+                    MessageBox.Show("An Error has Occured");
+                    return false;
+                    
                 }
-                return false;
+
+
+
             }
-            catch
+            catch (SqlException SQLE)
             {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
                 return false;
             }
+           
         }
+        #endregion
 
         public void CreateUser(User objUser)
         {
@@ -166,44 +163,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             return hex.ToString();
         }
 
-        public bool attemptLogin(string username, string password)
-        {
-            User objUser = new User();
-            try
-            {
-                objUser = objUserDH.GetByUserName(username);
-                string UrName = objUser.UserName;
-                string UrPass = objUser.UserPassword;
-                string Ursalt = objUser.UserSalt;
-
-                //pass username and ursalt into createsha256hash method
-
-                string hashpass = CreateSHA256Hash(password, Ursalt);
-
-                //check return string equals urpass if it matches log user in else display error msg
-
-                if(hashpass == UrPass) //log user in
-                {
-                    frmLoginScreen FLS = new frmLoginScreen();
-                    FLS.Hide();
-                    frmDashBoard FDB = new frmDashBoard();
-                    FDB.Show();
-                }
-                else //display error msg
-                {
-                    MessageBox.Show("An Error has Occured");
-                }
-
-                
-
-            }
-            catch (SqlException SQLE)
-            {
-                //Will catch any errors that occur and will display a error message. it will also return a empty list
-                MessageBox.Show("Error has occured");
-            }
-            return true;
-        }
+        
 
         public void GenerateAuthToken()
         {

@@ -190,9 +190,48 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             throw new NotImplementedException();
         }
-        public User GetByUserName(string entity)
+        public User GetByUserName(string value)
         {
-            throw new NotImplementedException();
+            try
+            {
+                //List of type User which will store all the records and then return that list
+                User ObjUserRecord = new User();
+                //New SQL Connection which the query will use to perform the Select of tblClients
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Clients
+                string SelectQuery = string.Format("SELECT * FROM tblUser WHERE UserName = '{0}'", value);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    ObjUserRecord.UserID = (int)sqlDataReader.GetValue(0);
+                    ObjUserRecord.EmployeeID = (int)sqlDataReader.GetValue(1);
+                    ObjUserRecord.UserAccessLevel = (int)sqlDataReader.GetValue(2);
+                    ObjUserRecord.UserAuthToken = (string)sqlDataReader.GetValue(3);
+                    ObjUserRecord.UserName = (string)sqlDataReader.GetValue(4);
+                    ObjUserRecord.UserPassword = (string)sqlDataReader.GetValue(5);
+                    ObjUserRecord.UserState = (string)sqlDataReader.GetValue(6);
+                    ObjUserRecord.UserSalt = (string)sqlDataReader.GetValue(7);
+
+
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Clients
+                return ObjUserRecord;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
         }
     }
 }

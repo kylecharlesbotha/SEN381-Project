@@ -574,7 +574,22 @@ namespace PremierServiceSolutions.Pages
         private void btnViewContract_Click(object sender, EventArgs e)
         {
             File.WriteAllBytes(FullPath, ContractPath);
+            btnCloseContract.Visible = true;
+            btnReset.Visible = false;
+            btnCreateTicket.Visible = false;
+            pdfContract.BringToFront();
+            pdfContract.Load(FullPath);
+            pdfContract.Visible = true;
+            
 
+        }
+
+        private void btnCloseContract_Click(object sender, EventArgs e)
+        {
+            btnReset.Visible = true;
+            btnCreateTicket.Visible = true;
+            pdfContract.Visible = false;
+            btnCloseContract.Visible = false;
         }
     }
 }
