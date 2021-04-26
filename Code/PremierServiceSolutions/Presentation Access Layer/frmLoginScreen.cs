@@ -19,7 +19,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         internal User ObjUser { get => objUser; set => objUser = value; }
         public int userauthenticated;
-
+        frmDashBoard FDB = new frmDashBoard();
         public frmLoginScreen()
         {
             InitializeComponent();
@@ -99,9 +99,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
                     bool value = userRecord.attemptLogin(userName, userPassword);
                     if(value==true)
                     {
-                        frmLoginScreen FLS = new frmLoginScreen();
-                        FLS.Hide();
-                        frmDashBoard FDB = new frmDashBoard();
+                        this.Hide();
                         FDB.Show();
                     }
                 }
