@@ -32,6 +32,7 @@ namespace PremierServiceSolutions.Pages
         byte[] ContractPath;
         private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
         private string FullPath;
+        private int currentEmployee;
         public frmCentre()
         {
             lstTechnician= objTechnician.GetTechNames();
@@ -77,6 +78,8 @@ namespace PremierServiceSolutions.Pages
 
         List<string> TestList = new List<string>();
         List<string> PhoneNumbers = new List<string>();
+
+        public int CurrentEmployee { get => currentEmployee; set => currentEmployee = value; }
 
         #region Search Entry Creation
         private void CreateEntry(string CusName, string CusID)
@@ -479,9 +482,6 @@ namespace PremierServiceSolutions.Pages
         {
             try
             {
-
-
-
                 bool foundcon = false;
                 bool foundvalid = false;
                 tbClientBusName.Text = ce.PersonName;
@@ -549,13 +549,11 @@ namespace PremierServiceSolutions.Pages
                 Issue objissue = new Issue();
                 List<Issue> lstIssue = objissue.GetAllIssues();
 
-
                 cbIssueType.DataSource = lstIssue;
 
                 Priority objPriority = new Priority();
                 List<Priority> lstPriority = objPriority.GetAllPriority();
                 cbPriority.DataSource = lstPriority;
-
 
 
                 cbTechnician.DataSource = lstTechnician;
@@ -570,11 +568,7 @@ namespace PremierServiceSolutions.Pages
             {
 
                 MessageBox.Show(ee.Message);
-            }
-            
-
-            
-
+            }        
 
         }
 
@@ -613,7 +607,6 @@ namespace PremierServiceSolutions.Pages
             try
             {
 
-
                 int TechID = 0;
                 objTicket.ClientID = objCall2.ClientID;
                 objTicket.EmployeeID = objCall2.EmployeeID;
@@ -632,7 +625,6 @@ namespace PremierServiceSolutions.Pages
                     }
                 }
 
-                MessageBox.Show(Convert.ToString(TechID));
                 objTicket.TechnicianID = TechID;
                 DateTime dateAndTime = dtpDueDate.Value;
                 dateAndTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -659,6 +651,7 @@ namespace PremierServiceSolutions.Pages
 
                 objCall2.TicketID = objTicket.TicketCreated(objTicket);
                 setUpdate(objCall2, objCall2);
+                pnlTicket.Enabled = false;
             
             }
             catch (Exception ee)
@@ -683,21 +676,15 @@ namespace PremierServiceSolutions.Pages
                 objCall2.Callstatus = "In-Progress";
 
 
-
-                objCall2.EmployeeID = 1;
+                objCall2.EmployeeID = currentEmployee;
 
                 objCall.InsertCall(objCall2);
-                objCall2.CallID = objCall.ReturnCall(1, time);
+                objCall2.CallID = objCall.ReturnCall(currentEmployee, time);
             }
             catch (Exception ee)
             {
                 MessageBox.Show(ee.Message);
-            }
-           
-           
-            
-
-
+            }         
 
         }
 
@@ -734,8 +721,10 @@ namespace PremierServiceSolutions.Pages
             {
                 CallProgress = false;
                 Answer = false;
+                objCall2.CallState = 1;
                 objCall2.CallEndTime = DateTime.Now;
                 objCall2.CallRecording = objCall2.ClientID + " " + Convert.ToString(objCall2.CallStartTime);
+                objCall2.Callstatus = "Finished";
                 setUpdate(objCall2, objCall2);
                 pBAnswerCall.Enabled = false;
                 pbDeclineCall.Enabled = false;

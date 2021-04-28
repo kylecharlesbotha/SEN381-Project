@@ -31,7 +31,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         Form frmDash = new frmDash();
         Form frmTick = new frmTickets();
         Form frmSched = new frmSchedule();
-        Form frmCentre = new frmCentre();
+        frmCentre frmCentre = new frmCentre();
         Form frmCustomers = new frmCustomers();
         public frmDashBoard()
         {
@@ -49,6 +49,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
             loggeduser = username;
             lblUserName.Text = username;
+            frmCentre.CurrentEmployee = userid;
         }
        
         private void tbnTechnicians_Click(object sender, EventArgs e)

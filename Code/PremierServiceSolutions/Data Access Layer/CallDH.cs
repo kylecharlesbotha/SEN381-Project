@@ -66,7 +66,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the update of tblCustomerContract
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Update Query which will store the SQL Query to be used when the connection is open
-                string UpdateQuery = string.Format(@"UPDATE tblCall SET ClientID ='{1}',EmployeeID ='{2}',CallStartTime ='{3}',CallEndTime ='{4}',CallStatus ='{5}',CallState ='{6}' WHERE CallID ='{0}'",
+                string UpdateQuery = string.Format(@"UPDATE tblCall SET ClientID ='{1}',EmployeeID ='{2}',CallStartTime ='{3}',CallEndTime ='{4}',CallStatus ='{5}',TicketID ='{6}',CallRecording ='{7}',CallState ='{8}' WHERE CallID ='{0}'",
                        oldObjCall.CallID,
                        newObjCall.ClientID,
                        newObjCall.EmployeeID,
