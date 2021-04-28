@@ -61,6 +61,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.aboutUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAsset = new System.Windows.Forms.Button();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -76,6 +77,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlSideMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlSideMenu.BackColor = System.Drawing.Color.White;
+            this.pnlSideMenu.Controls.Add(this.btnAsset);
             this.pnlSideMenu.Controls.Add(this.btnLogout);
             this.pnlSideMenu.Controls.Add(this.btnCallCentre);
             this.pnlSideMenu.Controls.Add(this.btnEmployees);
@@ -138,7 +140,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployees.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnEmployees.Location = new System.Drawing.Point(0, 612);
+            this.btnEmployees.Location = new System.Drawing.Point(0, 663);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(300, 45);
             this.btnEmployees.TabIndex = 11;
@@ -166,7 +168,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReports.Location = new System.Drawing.Point(0, 561);
+            this.btnReports.Location = new System.Drawing.Point(0, 612);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(300, 45);
             this.btnReports.TabIndex = 9;
@@ -180,7 +182,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnContracts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContracts.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContracts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnContracts.Location = new System.Drawing.Point(0, 459);
+            this.btnContracts.Location = new System.Drawing.Point(3, 510);
             this.btnContracts.Name = "btnContracts";
             this.btnContracts.Size = new System.Drawing.Size(300, 45);
             this.btnContracts.TabIndex = 8;
@@ -194,7 +196,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnTechnicians.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTechnicians.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTechnicians.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnTechnicians.Location = new System.Drawing.Point(0, 510);
+            this.btnTechnicians.Location = new System.Drawing.Point(0, 561);
             this.btnTechnicians.Name = "btnTechnicians";
             this.btnTechnicians.Size = new System.Drawing.Size(300, 45);
             this.btnTechnicians.TabIndex = 7;
@@ -469,6 +471,21 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // btnAsset
+            // 
+            this.btnAsset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAsset.FlatAppearance.BorderSize = 0;
+            this.btnAsset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAsset.Location = new System.Drawing.Point(0, 459);
+            this.btnAsset.Name = "btnAsset";
+            this.btnAsset.Size = new System.Drawing.Size(300, 45);
+            this.btnAsset.TabIndex = 14;
+            this.btnAsset.Text = "Assets";
+            this.btnAsset.UseVisualStyleBackColor = true;
+            this.btnAsset.Click += new System.EventHandler(this.btnAsset_Click);
+            // 
             // frmDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,5 +552,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private CustomComponents.ButtonRound btnLogout;
+        private System.Windows.Forms.Button btnAsset;
     }
 }

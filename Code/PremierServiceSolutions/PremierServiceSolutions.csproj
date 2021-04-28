@@ -196,6 +196,12 @@
     <Compile Include="Data Access Layer\TestExampleDH.cs" />
     <Compile Include="Data Access Layer\TicketDH.cs" />
     <Compile Include="Data Access Layer\UserDH.cs" />
+    <Compile Include="Pages\frmAssets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmAssets.Designer.cs">
+      <DependentUpon>frmAssets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\frmCentre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </Compile>
     <Compile Include="Repository\IRepositoryBase.cs" />
     <Compile Include="Serialization\RememberMe.cs" />
+    <EmbeddedResource Include="Pages\frmAssets.resx">
+      <DependentUpon>frmAssets.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\frmCentre.resx">
       <DependentUpon>frmCentre.cs</DependentUpon>
     </EmbeddedResource>

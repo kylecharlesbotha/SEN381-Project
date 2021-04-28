@@ -48,6 +48,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         Form frmSched = new frmSchedule();
         frmCentre frmCentre = new frmCentre();
         frmCustomers frmCustomers = new frmCustomers();
+        frmAssets frmAssets = new frmAssets();
 
         #endregion
         public frmDashBoard()
@@ -58,6 +59,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmSched.TopLevel = false;
             frmCentre.TopLevel = false;
             frmCustomers.TopLevel = false;
+            frmAssets.TopLevel = false;
             FullPath = GetTemporaryDirectory();
             FullPath += @"\489296awbduyg0298lfg.ser";
             frmCustomers.PopulateClients();
@@ -140,6 +142,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnTechnicians.BackColor = Color.White;
             btnEmployees.BackColor = Color.White;
             btnReports.BackColor = Color.White;
+            btnAsset.BackColor = Color.White;
 
             btnDashBoard.ForeColor = Color.FromArgb(218,0,0);
             btnCallCentre.ForeColor = Color.FromArgb(218, 0, 0);
@@ -151,6 +154,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnTechnicians.ForeColor = Color.FromArgb(218, 0, 0);
             btnEmployees.ForeColor = Color.FromArgb(218, 0, 0);
             btnReports.ForeColor = Color.FromArgb(218, 0, 0);
+            btnAsset.ForeColor = Color.FromArgb(218, 0, 0);
         }
 
         private void btnTickets_Click(object sender, EventArgs e)
@@ -206,12 +210,24 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmCustomers.Show();
             
         }
+
+        private void btnAsset_Click(object sender, EventArgs e)
+        {
+            ChangeMenuSelection();
+            HideForms();
+            btnAsset.ForeColor = Color.White;
+            btnAsset.BackColor = Color.FromArgb(218, 0, 0);
+
+            pnlMainPage.Controls.Add(frmAssets);
+            frmAssets.Show();
+        }
         private void HideForms()
         {
             frmDash.Hide();
             frmTick.Hide();
             frmCentre.Hide();
             frmSched.Hide();
+            frmAssets.Hide();
             frmCustomers.Hide();
         }
 
@@ -326,6 +342,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
            
         }
 
-       
+        
     }
 }

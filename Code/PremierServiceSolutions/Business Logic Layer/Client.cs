@@ -58,7 +58,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         public int CompareTo(Client other)
         {
-            throw new NotImplementedException();
+            string current = this.PersonName;
+            string newname = other.PersonName;
+            return newname.CompareTo(current);
         }
 
         public void GetClientDetails()
