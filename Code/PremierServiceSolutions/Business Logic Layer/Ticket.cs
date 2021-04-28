@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PremierServiceSolutions.Business_Logic_Layer
 {
@@ -23,7 +24,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string clientID;
         private int employeeID;
         private DateTime ticketDate;
-        private int countOnDate; 
+        private int countOnDate;
+
+        private string clientName;
 
 
         public Ticket(int ticketID, int technicianID, string clientID, string ticketDescription, DateTime ticketDueDate, int employeeID, string ticketIssueType, DateTime ticketLastUpdated, DateTime ticketLoggedTime, string ticketPriority, string ticketStatus, string ticketTitle)
@@ -41,6 +44,19 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.clientID = clientID;
             this.employeeID = employeeID;
         }
+        public Ticket(int ticketID, string ticketTitle,string clientname, string ticketIssueType, string ticketPriority, string ticketStatus,DateTime datecreated)
+        {
+            this.ticketID = ticketID;
+            this.ticketTitle = ticketTitle;
+            this.ticketIssueType = ticketIssueType;
+            this.ticketPriority = ticketPriority;
+            this.ticketStatus = ticketStatus;
+            this.clientName = clientname;
+            this.ticketLoggedTime = datecreated;
+        }
+
+
+
         //Constructor for getting date of tickets and number of tickets on that date
         public Ticket(DateTime date, int count)
         {
@@ -66,6 +82,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public int EmployeeID { get => employeeID; set => employeeID = value; }
         public DateTime TicketDate { get => ticketDate; set => ticketDate = value; }
         public int CountOnDate { get => countOnDate; set => countOnDate = value; }
+        public string ClientName { get => clientName; set => clientName = value; }
 
         public void CreateTicket(Ticket objTicket)
         {
@@ -125,6 +142,23 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+        public List<Ticket> GetAllTicket()
+        {
+
+            try
+            {
+                TicketDH newobj = new TicketDH();
+                List<Ticket> newtick = new List<Ticket>();
+                newtick = newobj.GetAllActive();
+                return newtick;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+                
+            }
         }
 
         public int TicketCreated(Ticket objTicket)

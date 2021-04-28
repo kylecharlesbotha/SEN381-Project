@@ -134,7 +134,42 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //Close connection to database
                 sqlCon.Close();
                 //Return List of Ticket
-                return allTic;
+                return allTic.ToList();
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+        }
+
+        public List<Ticket> GetAllActive()
+        {
+            try
+            {
+                //List of type Ticket which will store all the records and then return that list
+                List<Ticket> allTic = new List<Ticket>();
+                //New SQL Connection which the query will use to perform the Select of tblTicket
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Tickets
+                string SelectQuery = "SELECT T.TicketID, T.TicketTitle, C.ClientName,T.TicketIssueType, T.TicketPriority, T.TicketStatus, Combined = CAST(T.TicketDateCreated as datetime) + CAST(T.TicketLoggedTime as datetime)  FROM tblTicket as T INNER JOIN tblClient as C ON T.ClientID = C.ClientID WHERE T.TicketStatus <> 'Closed'";
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    allTic.Add(new Ticket((int)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (string)sqlDataReader.GetValue(4), (string)sqlDataReader.GetValue(5), (DateTime)sqlDataReader.GetValue(6)));
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Ticket
+                return allTic.ToList();
             }
             catch (SqlException SQLE)
             {
