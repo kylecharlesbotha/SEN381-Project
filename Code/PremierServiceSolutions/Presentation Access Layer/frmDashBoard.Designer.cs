@@ -32,6 +32,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashBoard));
             this.pnlSideMenu = new System.Windows.Forms.Panel();
+            this.btnLogout = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnCallCentre = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.btnCustomerSupport = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlTop = new System.Windows.Forms.Panel();
             this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
+            this.bnNotifications = new BrbVideoManager.Controls.RoundedButton();
             this.pbbell = new System.Windows.Forms.PictureBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pbProfilePicture = new System.Windows.Forms.PictureBox();
@@ -59,8 +61,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.aboutUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bnNotifications = new BrbVideoManager.Controls.RoundedButton();
-            this.btnLogout = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -93,6 +93,28 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlSideMenu.Size = new System.Drawing.Size(300, 800);
             this.pnlSideMenu.TabIndex = 0;
             this.pnlSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlSideMenu_MouseDown);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLogout.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLogout.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Location = new System.Drawing.Point(45, 744);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.btnLogout.OnHoverButtonColor = System.Drawing.Color.Gray;
+            this.btnLogout.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnLogout.Size = new System.Drawing.Size(212, 44);
+            this.btnLogout.TabIndex = 13;
+            this.btnLogout.Text = "Log Out";
+            this.btnLogout.TextColor = System.Drawing.Color.White;
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnCallCentre
             // 
@@ -280,6 +302,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBMinimize.TabIndex = 21;
             this.iPBMinimize.TabStop = false;
             this.iPBMinimize.Click += new System.EventHandler(this.iPBMinimize_Click);
+            this.iPBMinimize.MouseEnter += new System.EventHandler(this.iPBMinimize_MouseEnter);
+            this.iPBMinimize.MouseLeave += new System.EventHandler(this.iPBMinimize_MouseLeave);
             // 
             // iPBExit
             // 
@@ -294,6 +318,30 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBExit.Size = new System.Drawing.Size(29, 29);
             this.iPBExit.TabIndex = 20;
             this.iPBExit.TabStop = false;
+            this.iPBExit.Click += new System.EventHandler(this.iPBExit_Click);
+            this.iPBExit.MouseEnter += new System.EventHandler(this.iPBExit_MouseEnter);
+            this.iPBExit.MouseLeave += new System.EventHandler(this.iPBExit_MouseLeave);
+            // 
+            // bnNotifications
+            // 
+            this.bnNotifications.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.bnNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bnNotifications.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bnNotifications.BorderDownColor = System.Drawing.Color.Empty;
+            this.bnNotifications.BorderDownWidth = 0F;
+            this.bnNotifications.BorderOverColor = System.Drawing.Color.Empty;
+            this.bnNotifications.BorderOverWidth = 0F;
+            this.bnNotifications.BorderRadius = 50;
+            this.bnNotifications.BorderWidth = 1F;
+            this.bnNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnNotifications.ForeColor = System.Drawing.Color.White;
+            this.bnNotifications.Location = new System.Drawing.Point(566, 38);
+            this.bnNotifications.Name = "bnNotifications";
+            this.bnNotifications.Size = new System.Drawing.Size(34, 20);
+            this.bnNotifications.TabIndex = 2;
+            this.bnNotifications.Text = "999";
+            this.bnNotifications.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bnNotifications.UseVisualStyleBackColor = false;
             // 
             // pbbell
             // 
@@ -399,7 +447,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.minimizeToTaskBarToolStripMenuItem.Name = "minimizeToTaskBarToolStripMenuItem";
             this.minimizeToTaskBarToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.minimizeToTaskBarToolStripMenuItem.Text = "Minimize to TaskBar";
-            this.minimizeToTaskBarToolStripMenuItem.Click += new System.EventHandler(this.minimizeToTaskBarToolStripMenuItem_Click);
             // 
             // aboutUpdateToolStripMenuItem
             // 
@@ -420,48 +467,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // bnNotifications
-            // 
-            this.bnNotifications.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.bnNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bnNotifications.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bnNotifications.BorderDownColor = System.Drawing.Color.Empty;
-            this.bnNotifications.BorderDownWidth = 0F;
-            this.bnNotifications.BorderOverColor = System.Drawing.Color.Empty;
-            this.bnNotifications.BorderOverWidth = 0F;
-            this.bnNotifications.BorderRadius = 50;
-            this.bnNotifications.BorderWidth = 1F;
-            this.bnNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnNotifications.ForeColor = System.Drawing.Color.White;
-            this.bnNotifications.Location = new System.Drawing.Point(566, 38);
-            this.bnNotifications.Name = "bnNotifications";
-            this.bnNotifications.Size = new System.Drawing.Size(34, 20);
-            this.bnNotifications.TabIndex = 2;
-            this.bnNotifications.Text = "999";
-            this.bnNotifications.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bnNotifications.UseVisualStyleBackColor = false;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnLogout.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLogout.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.ForeColor = System.Drawing.Color.Transparent;
-            this.btnLogout.Location = new System.Drawing.Point(45, 744);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.btnLogout.OnHoverButtonColor = System.Drawing.Color.Gray;
-            this.btnLogout.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnLogout.Size = new System.Drawing.Size(212, 44);
-            this.btnLogout.TabIndex = 13;
-            this.btnLogout.Text = "Log Out";
-            this.btnLogout.TextColor = System.Drawing.Color.White;
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // frmDashBoard
             // 

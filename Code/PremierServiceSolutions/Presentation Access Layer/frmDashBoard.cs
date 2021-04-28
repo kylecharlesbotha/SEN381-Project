@@ -3,13 +3,17 @@ using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using PremierServiceSolutions.Business_Logic_Layer;
 using PremierServiceSolutions.Pages;
+using PremierServiceSolutions.Serialization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +22,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 {
     public partial class frmDashBoard : Form
     {
+        #region Public and Private Var
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         private string loggeduser;
@@ -26,13 +31,25 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private bool _dragging = false;
         private Point _start_point = new Point(0, 0);
         private int Menuoption = 0;
-        
-       
+        private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
+        public string FullPath;
+        #endregion
+        #region Form Move Events
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+        #endregion
+
+        #region Objects of Forms
+        RememberMe objRemMe = new RememberMe();
         Form frmDash = new frmDash();
         Form frmTick = new frmTickets();
         Form frmSched = new frmSchedule();
         frmCentre frmCentre = new frmCentre();
         Form frmCustomers = new frmCustomers();
+
+        #endregion
         public frmDashBoard()
         {
             InitializeComponent();
@@ -41,8 +58,26 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmSched.TopLevel = false;
             frmCentre.TopLevel = false;
             frmCustomers.TopLevel = false;
-            
-            
+            FullPath = GetTemporaryDirectory();
+            FullPath += @"\489296awbduyg0298lfg.ser";
+
+
+        }
+
+        private void InsertObject(int Rem, string Token)
+        {
+            objRemMe.Remember = Rem;
+            objRemMe.AuthToken = Token;
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(FullPath, FileMode.Create, FileAccess.Write);
+            formatter.Serialize(stream, objRemMe);
+            stream.Close();
+        }
+        private string GetTemporaryDirectory()
+        {
+            string tempDirectory = Path.Combine(Path.GetTempPath(), DirectoryPath);
+            return tempDirectory;
         }
 
         public void SetUserOBJ(string username, int userid)
@@ -57,6 +92,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         }
 
+        #region Dashboard Events
         private void frmDashBoard_MouseDown(object sender, MouseEventArgs e)
         {
             _dragging = true;
@@ -87,6 +123,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmDash.Show();
         }
 
+        #endregion
+
+
+        #region Menu Methods and Button Methods
         private void ChangeMenuSelection()
         {
             btnDashBoard.BackColor = Color.White;
@@ -110,10 +150,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnTechnicians.ForeColor = Color.FromArgb(218, 0, 0);
             btnEmployees.ForeColor = Color.FromArgb(218, 0, 0);
             btnReports.ForeColor = Color.FromArgb(218, 0, 0);
-
-           
-
-
         }
 
         private void btnTickets_Click(object sender, EventArgs e)
@@ -127,16 +163,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmTick.Show();
 
         }
-        private void HideForms()
-        {
-            frmDash.Hide();
-            frmTick.Hide();
-            frmCentre.Hide();
-            frmSched.Hide();
-            frmCustomers.Hide();
-           
-        }
-
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
             ChangeMenuSelection();
@@ -147,7 +173,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             pnlMainPage.Controls.Add(frmDash);
             frmDash.Show();
         }
-
         private void btnSchedules_Click(object sender, EventArgs e)
         {
             ChangeMenuSelection();
@@ -168,6 +193,17 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             pnlMainPage.Controls.Add(frmCentre);
             frmCentre.Show();
         }
+        private void HideForms()
+        {
+            frmDash.Hide();
+            frmTick.Hide();
+            frmCentre.Hide();
+            frmSched.Hide();
+            frmCustomers.Hide();
+        }
+        #endregion
+
+
 
         private void pnlDailyTicketChart_Paint(object sender, PaintEventArgs e)
         {
@@ -183,10 +219,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
 
         }
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
+
+
+        #region Moving form and Minimizing Form
+
         private void pnlTop_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -203,16 +239,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void tBSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnNewTicket_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void iPBMinimize_Click(object sender, EventArgs e)
@@ -236,11 +262,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.WindowState = FormWindowState.Normal;
             NotifyIcon.Visible = false;
         }
+        #endregion
 
-        private void minimizeToTaskBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -249,9 +272,38 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            InsertObject(0, "auth");
             frmLoginScreen frmlog = new frmLoginScreen();
             frmlog.Show();
             this.Hide();
+        }
+
+        #region Hover Events for form controls
+
+        private void iPBExit_MouseEnter(object sender, EventArgs e)
+        {
+            iPBExit.ForeColor = Color.Black;
+        }
+
+        private void iPBExit_MouseLeave(object sender, EventArgs e)
+        {
+            iPBExit.ForeColor = Color.FromArgb(218, 0, 0);
+        }
+
+        private void iPBMinimize_MouseEnter(object sender, EventArgs e)
+        {
+            iPBMinimize.ForeColor = Color.Black;
+        }
+
+        private void iPBMinimize_MouseLeave(object sender, EventArgs e)
+        {
+            iPBMinimize.ForeColor = Color.FromArgb(218, 0, 0);
+        }
+        #endregion
+
+        private void iPBExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
