@@ -1,5 +1,4 @@
 ﻿using PremierServiceSolutions.Presentation_Access_Layer;
-using PremierServiceSolutions.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +20,7 @@ namespace PremierServiceSolutions
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSplashScreen());
+            Application.Run(new frmDashBoard());
         }
     }
 }

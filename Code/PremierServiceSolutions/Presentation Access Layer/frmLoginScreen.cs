@@ -147,7 +147,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
                     objUser = userRecord;
                     if(value==true)
                     {
-                        FDB.SetUserOBJ(userRecord.UserName,userRecord.UserID);
+                        FDB.SetUserOBJ(userRecord.UserName,userRecord.EmployeeID);
                         CreateAuthToken();
                         this.Hide();
                         FDB.Show();

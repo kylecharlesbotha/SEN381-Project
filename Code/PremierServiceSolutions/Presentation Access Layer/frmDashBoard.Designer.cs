@@ -245,6 +245,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCustomers.TabIndex = 4;
             this.btnCustomers.Text = "Customers";
             this.btnCustomers.UseVisualStyleBackColor = true;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
             // btnTickets
             // 

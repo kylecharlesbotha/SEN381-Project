@@ -39,6 +39,10 @@ namespace PremierServiceSolutions.Pages
             this.btnAllMyTickets = new BrbVideoManager.Controls.RoundedButton();
             this.btnNewTickets = new BrbVideoManager.Controls.RoundedButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbPriority = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.cbIssueType = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.cBStatus = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.cBTechnician = new Syncfusion.WinForms.ListView.SfComboBox();
             this.lblPriority = new System.Windows.Forms.Label();
             this.lblIssueType = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -53,18 +57,14 @@ namespace PremierServiceSolutions.Pages
             this.lblTimeCreated = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cBTechnician = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.cBStatus = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.cbIssueType = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.cbPriority = new Syncfusion.WinForms.ListView.SfComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbIssueType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cBStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cBTechnician)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cBTechnician)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cBStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbIssueType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
             this.SuspendLayout();
             // 
             // flpTickets
@@ -201,6 +201,67 @@ namespace PremierServiceSolutions.Pages
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(686, 89);
             this.panel2.TabIndex = 10;
+            // 
+            // cbPriority
+            // 
+            this.cbPriority.AllowDropDownResize = false;
+            this.cbPriority.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.cbPriority.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbPriority.Location = new System.Drawing.Point(94, 56);
+            this.cbPriority.Name = "cbPriority";
+            this.cbPriority.ShowToolTip = true;
+            this.cbPriority.Size = new System.Drawing.Size(180, 25);
+            this.cbPriority.Style.DropDownButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbPriority.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbPriority.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbPriority.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbPriority.TabIndex = 15;
+            // 
+            // cbIssueType
+            // 
+            this.cbIssueType.AllowDropDownResize = false;
+            this.cbIssueType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.cbIssueType.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbIssueType.Location = new System.Drawing.Point(407, 56);
+            this.cbIssueType.Name = "cbIssueType";
+            this.cbIssueType.ShowToolTip = true;
+            this.cbIssueType.Size = new System.Drawing.Size(180, 25);
+            this.cbIssueType.Style.DropDownButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbIssueType.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbIssueType.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbIssueType.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbIssueType.TabIndex = 14;
+            // 
+            // cBStatus
+            // 
+            this.cBStatus.AllowDropDownResize = false;
+            this.cBStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.cBStatus.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cBStatus.Location = new System.Drawing.Point(382, 14);
+            this.cBStatus.Name = "cBStatus";
+            this.cBStatus.ShowToolTip = true;
+            this.cBStatus.Size = new System.Drawing.Size(180, 25);
+            this.cBStatus.Style.ClearButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cBStatus.Style.DropDownButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cBStatus.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cBStatus.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cBStatus.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cBStatus.TabIndex = 13;
+            // 
+            // cBTechnician
+            // 
+            this.cBTechnician.AllowDropDownResize = false;
+            this.cBTechnician.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.cBTechnician.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cBTechnician.Location = new System.Drawing.Point(118, 14);
+            this.cBTechnician.Name = "cBTechnician";
+            this.cBTechnician.ShowToolTip = true;
+            this.cBTechnician.Size = new System.Drawing.Size(180, 25);
+            this.cBTechnician.Style.DropDownButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cBTechnician.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cBTechnician.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cBTechnician.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cBTechnician.TabIndex = 12;
             // 
             // lblPriority
             // 
@@ -360,67 +421,6 @@ namespace PremierServiceSolutions.Pages
             this.panel4.Size = new System.Drawing.Size(874, 35);
             this.panel4.TabIndex = 19;
             // 
-            // cBTechnician
-            // 
-            this.cBTechnician.AllowDropDownResize = false;
-            this.cBTechnician.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.cBTechnician.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cBTechnician.Location = new System.Drawing.Point(118, 14);
-            this.cBTechnician.Name = "cBTechnician";
-            this.cBTechnician.ShowToolTip = true;
-            this.cBTechnician.Size = new System.Drawing.Size(180, 25);
-            this.cBTechnician.Style.DropDownButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cBTechnician.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cBTechnician.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cBTechnician.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cBTechnician.TabIndex = 12;
-            // 
-            // cBStatus
-            // 
-            this.cBStatus.AllowDropDownResize = false;
-            this.cBStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.cBStatus.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cBStatus.Location = new System.Drawing.Point(382, 14);
-            this.cBStatus.Name = "cBStatus";
-            this.cBStatus.ShowToolTip = true;
-            this.cBStatus.Size = new System.Drawing.Size(180, 25);
-            this.cBStatus.Style.ClearButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cBStatus.Style.DropDownButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cBStatus.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cBStatus.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cBStatus.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cBStatus.TabIndex = 13;
-            // 
-            // cbIssueType
-            // 
-            this.cbIssueType.AllowDropDownResize = false;
-            this.cbIssueType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.cbIssueType.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbIssueType.Location = new System.Drawing.Point(407, 56);
-            this.cbIssueType.Name = "cbIssueType";
-            this.cbIssueType.ShowToolTip = true;
-            this.cbIssueType.Size = new System.Drawing.Size(180, 25);
-            this.cbIssueType.Style.DropDownButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbIssueType.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbIssueType.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbIssueType.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbIssueType.TabIndex = 14;
-            // 
-            // cbPriority
-            // 
-            this.cbPriority.AllowDropDownResize = false;
-            this.cbPriority.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.cbPriority.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbPriority.Location = new System.Drawing.Point(94, 56);
-            this.cbPriority.Name = "cbPriority";
-            this.cbPriority.ShowToolTip = true;
-            this.cbPriority.Size = new System.Drawing.Size(180, 25);
-            this.cbPriority.Style.DropDownButtonStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbPriority.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbPriority.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbPriority.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbPriority.TabIndex = 15;
-            // 
             // frmTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,13 +441,13 @@ namespace PremierServiceSolutions.Pages
             this.Text = "Tickets";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbIssueType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cBStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cBTechnician)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cBTechnician)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cBStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbIssueType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).EndInit();
             this.ResumeLayout(false);
 
         }

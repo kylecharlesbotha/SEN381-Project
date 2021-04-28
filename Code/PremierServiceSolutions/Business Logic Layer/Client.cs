@@ -104,8 +104,6 @@ namespace PremierServiceSolutions.Business_Logic_Layer
                     return ClientID;
                 }
 
-
-
             }
             //Return String
             return Letter;

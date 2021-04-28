@@ -47,7 +47,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         Form frmTick = new frmTickets();
         Form frmSched = new frmSchedule();
         frmCentre frmCentre = new frmCentre();
-        Form frmCustomers = new frmCustomers();
+        frmCustomers frmCustomers = new frmCustomers();
 
         #endregion
         public frmDashBoard()
@@ -60,6 +60,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmCustomers.TopLevel = false;
             FullPath = GetTemporaryDirectory();
             FullPath += @"\489296awbduyg0298lfg.ser";
+            frmCustomers.PopulateClients();
 
 
         }
@@ -193,6 +194,18 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             pnlMainPage.Controls.Add(frmCentre);
             frmCentre.Show();
         }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            ChangeMenuSelection();
+            HideForms();
+            btnCustomers.ForeColor = Color.White;
+            btnCustomers.BackColor = Color.FromArgb(218, 0, 0);
+
+            pnlMainPage.Controls.Add(frmCustomers);
+            frmCustomers.Show();
+            
+        }
         private void HideForms()
         {
             frmDash.Hide();
@@ -201,6 +214,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmSched.Hide();
             frmCustomers.Hide();
         }
+
+
         #endregion
 
 
@@ -305,5 +320,12 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+       
     }
 }

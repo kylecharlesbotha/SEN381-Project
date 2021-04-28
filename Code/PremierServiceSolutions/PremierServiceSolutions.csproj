@@ -148,6 +148,7 @@
     <Compile Include="Business Logic Layer\Issue.cs" />
     <Compile Include="Business Logic Layer\Package.cs" />
     <Compile Include="Business Logic Layer\Priority.cs" />
+    <Compile Include="Business Logic Layer\SendEmail.cs" />
     <Compile Include="Business Logic Layer\Service.cs" />
     <Compile Include="Business Logic Layer\Technician.cs" />
     <Compile Include="Business Logic Layer\Ticket.cs" />
@@ -284,6 +285,9 @@
     <Compile Include="Serialization\RememberMe.cs" />
     <EmbeddedResource Include="Pages\frmCentre.resx">
       <DependentUpon>frmCentre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmCustomers.resx">
+      <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\frmDash.resx">
       <DependentUpon>frmDash.cs</DependentUpon>
