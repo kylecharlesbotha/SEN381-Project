@@ -49,6 +49,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         frmCentre frmCentre = new frmCentre();
         frmCustomers frmCustomers = new frmCustomers();
         frmAssets frmAssets = new frmAssets();
+        frmCustomerSupport frmCustomerSupport = new frmCustomerSupport();
 
         #endregion
         public frmDashBoard()
@@ -60,6 +61,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmCentre.TopLevel = false;
             frmCustomers.TopLevel = false;
             frmAssets.TopLevel = false;
+            frmCustomerSupport.TopLevel = false;
             FullPath = GetTemporaryDirectory();
             FullPath += @"\489296awbduyg0298lfg.ser";
             frmCustomers.PopulateClients();
@@ -155,6 +157,35 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnEmployees.ForeColor = Color.FromArgb(218, 0, 0);
             btnReports.ForeColor = Color.FromArgb(218, 0, 0);
             btnAsset.ForeColor = Color.FromArgb(218, 0, 0);
+
+
+
+            pbDash.Image = Properties.Resources.DashRed;
+            pbCall.Image = Properties.Resources.CallRed;
+            pbTickets.Image = Properties.Resources.Tickets_Red;
+            pbSchedule.Image = Properties.Resources.ScheduleRed;
+            pbCustomer.Image = Properties.Resources.CustomerRed;
+            pbSupport.Image = Properties.Resources.CustomerSupportRed;
+            pbAssets.Image = Properties.Resources.AssestRed;
+            pbContracts.Image = Properties.Resources.ContractRed;
+            pbTechnician.Image = Properties.Resources.DashRed;
+            pbReports.Image = Properties.Resources.ReportsRed;
+            pbEmployee.Image = Properties.Resources.EmployeeRed;
+
+            pbDash.BackColor = Color.White ;
+            pbCall.BackColor = Color.White ;
+            pbTickets.BackColor = Color.White;
+            pbSchedule.BackColor = Color.White;
+            pbCustomer.BackColor = Color.White;
+            pbSupport.BackColor = Color.White;
+            pbAssets.BackColor = Color.White;
+            pbContracts.BackColor = Color.White;
+            pbTechnician.BackColor = Color.White;
+            pbReports.BackColor = Color.White;
+            pbEmployee.BackColor = Color.White;
+
+
+
         }
 
         private void btnTickets_Click(object sender, EventArgs e)
@@ -164,6 +195,9 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnTickets.ForeColor = Color.White;
             btnTickets.BackColor = Color.FromArgb(218, 0, 0);
 
+
+            pbTickets.BackColor = Color.FromArgb(218, 0, 0);
+            pbTickets.Image = Properties.Resources.TicketsWhite;
             pnlMainPage.Controls.Add(frmTick);
             frmTick.Show();
 
@@ -175,6 +209,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnDashBoard.ForeColor = Color.White;
             btnDashBoard.BackColor = Color.FromArgb(218, 0, 0);
 
+            pbDash.BackColor = Color.FromArgb(218, 0, 0);
+            pbDash.Image = Properties.Resources.DashWhite;
             pnlMainPage.Controls.Add(frmDash);
             frmDash.Show();
         }
@@ -184,6 +220,9 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             HideForms();
             btnSchedules.ForeColor = Color.White;
             btnSchedules.BackColor = Color.FromArgb(218, 0, 0);
+
+            pbSchedule.BackColor = Color.FromArgb(218, 0, 0);
+            pbSchedule.Image = Properties.Resources.ScheduleWhite;
             pnlMainPage.Controls.Add(frmSched);
             frmSched.Show();
         }
@@ -195,6 +234,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnCallCentre.ForeColor = Color.White;
             btnCallCentre.BackColor = Color.FromArgb(218, 0, 0);
 
+            pbCall.BackColor = Color.FromArgb(218, 0, 0);
+            pbCall.Image = Properties.Resources.CallWhite;
             pnlMainPage.Controls.Add(frmCentre);
             frmCentre.Show();
         }
@@ -206,6 +247,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnCustomers.ForeColor = Color.White;
             btnCustomers.BackColor = Color.FromArgb(218, 0, 0);
 
+            pbCustomer.BackColor = Color.FromArgb(218, 0, 0);
+            pbCustomer.Image = Properties.Resources.CustomerWhite;
             pnlMainPage.Controls.Add(frmCustomers);
             frmCustomers.Show();
             
@@ -218,8 +261,23 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnAsset.ForeColor = Color.White;
             btnAsset.BackColor = Color.FromArgb(218, 0, 0);
 
+            pbAssets.BackColor = Color.FromArgb(218, 0, 0);
+            pbAssets.Image = Properties.Resources.AssestWhite;
             pnlMainPage.Controls.Add(frmAssets);
             frmAssets.Show();
+        }
+
+        private void btnCustomerSupport_Click(object sender, EventArgs e)
+        {
+            ChangeMenuSelection();
+            HideForms();
+            btnCustomerSupport.ForeColor = Color.White;
+            btnCustomerSupport.BackColor = Color.FromArgb(218, 0, 0);
+
+            pbSupport.BackColor = Color.FromArgb(218, 0, 0);
+            pbSupport.Image = Properties.Resources.CustomerSupportWhite;
+            pnlMainPage.Controls.Add(frmCustomerSupport);
+            frmCustomerSupport.Show();
         }
         private void HideForms()
         {
@@ -229,6 +287,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmSched.Hide();
             frmAssets.Hide();
             frmCustomers.Hide();
+            frmCustomerSupport.Hide();
         }
 
 

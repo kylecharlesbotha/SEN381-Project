@@ -30,7 +30,9 @@ namespace PremierServiceSolutions.Pages
         private void InitializeComponent()
         {
             this.pnlTopClient = new System.Windows.Forms.Panel();
+            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
+            this.btnRAddClient = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.flpCustomers = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlSearchHeadings = new System.Windows.Forms.Panel();
             this.lblContacts = new System.Windows.Forms.Label();
@@ -39,10 +41,18 @@ namespace PremierServiceSolutions.Pages
             this.lblCustomerHeading = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.pnlNewClient = new System.Windows.Forms.Panel();
-            this.cbEmailonTick = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
+            this.cbGender = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.cbTitle = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.lblAdditional = new System.Windows.Forms.Label();
+            this.lblBasicInfo = new System.Windows.Forms.Label();
+            this.chkEmailonTick = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.chkSendEmail = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.chkSendSMS = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnCreateCustomerandTicket = new BrbVideoManager.Controls.RoundedButton();
+            this.btnCreateCustomer = new BrbVideoManager.Controls.RoundedButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlDivider = new System.Windows.Forms.Panel();
             this.lblNewCustomer = new System.Windows.Forms.Label();
@@ -70,23 +80,15 @@ namespace PremierServiceSolutions.Pages
             this.tbSurname = new System.Windows.Forms.TextBox();
             this.lblClient = new System.Windows.Forms.Label();
             this.tbClientBusName = new System.Windows.Forms.TextBox();
-            this.lblBasicInfo = new System.Windows.Forms.Label();
-            this.lblAdditional = new System.Windows.Forms.Label();
-            this.cbTitle = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCreateCustomerandTicket = new BrbVideoManager.Controls.RoundedButton();
-            this.btnCreateCustomer = new BrbVideoManager.Controls.RoundedButton();
-            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
-            this.btnRAddClient = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlTopClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
             this.pnlSearchHeadings.SuspendLayout();
             this.pnlNewClient.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEmailonTick)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbGender)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTitle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEmailonTick)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendSMS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTitle)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTopClient
@@ -100,6 +102,25 @@ namespace PremierServiceSolutions.Pages
             this.pnlTopClient.Size = new System.Drawing.Size(883, 69);
             this.pnlTopClient.TabIndex = 1;
             // 
+            // tBSearch
+            // 
+            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tBSearch.Location = new System.Drawing.Point(54, 20);
+            this.tBSearch.Multiline = true;
+            this.tBSearch.Name = "tBSearch";
+            this.tBSearch.Size = new System.Drawing.Size(380, 31);
+            this.tBSearch.TabIndex = 51;
+            this.tBSearch.Text = "Start Typing Client or Client ID";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
+            this.tBSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBSearch_KeyPress);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
+            // 
             // iPBSearch
             // 
             this.iPBSearch.BackColor = System.Drawing.Color.White;
@@ -112,6 +133,28 @@ namespace PremierServiceSolutions.Pages
             this.iPBSearch.Size = new System.Drawing.Size(32, 40);
             this.iPBSearch.TabIndex = 52;
             this.iPBSearch.TabStop = false;
+            // 
+            // btnRAddClient
+            // 
+            this.btnRAddClient.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRAddClient.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRAddClient.FlatAppearance.BorderSize = 0;
+            this.btnRAddClient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRAddClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRAddClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRAddClient.Location = new System.Drawing.Point(682, 14);
+            this.btnRAddClient.Name = "btnRAddClient";
+            this.btnRAddClient.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnRAddClient.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnRAddClient.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRAddClient.Size = new System.Drawing.Size(185, 40);
+            this.btnRAddClient.TabIndex = 53;
+            this.btnRAddClient.TabStop = false;
+            this.btnRAddClient.Text = "New Client +";
+            this.btnRAddClient.TextColor = System.Drawing.Color.White;
+            this.btnRAddClient.UseVisualStyleBackColor = true;
+            this.btnRAddClient.Click += new System.EventHandler(this.btnRAddClient_Click);
             // 
             // flpCustomers
             // 
@@ -199,10 +242,11 @@ namespace PremierServiceSolutions.Pages
             // pnlNewClient
             // 
             this.pnlNewClient.BackColor = System.Drawing.Color.White;
+            this.pnlNewClient.Controls.Add(this.cbGender);
             this.pnlNewClient.Controls.Add(this.cbTitle);
             this.pnlNewClient.Controls.Add(this.lblAdditional);
             this.pnlNewClient.Controls.Add(this.lblBasicInfo);
-            this.pnlNewClient.Controls.Add(this.cbEmailonTick);
+            this.pnlNewClient.Controls.Add(this.chkEmailonTick);
             this.pnlNewClient.Controls.Add(this.chkSendEmail);
             this.pnlNewClient.Controls.Add(this.chkSendSMS);
             this.pnlNewClient.Controls.Add(this.panel2);
@@ -243,34 +287,111 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewClient.TabIndex = 21;
             this.pnlNewClient.Visible = false;
             // 
-            // cbEmailonTick
+            // cbGender
             // 
-            this.cbEmailonTick.BeforeTouchSize = new System.Drawing.Size(217, 34);
-            this.cbEmailonTick.Location = new System.Drawing.Point(508, 543);
-            this.cbEmailonTick.Name = "cbEmailonTick";
-            this.cbEmailonTick.Size = new System.Drawing.Size(217, 34);
-            this.cbEmailonTick.TabIndex = 70;
-            this.cbEmailonTick.Text = "Send Email on Ticket Creation";
+            this.cbGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbGender.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbGender.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbGender.Location = new System.Drawing.Point(612, 115);
+            this.cbGender.Name = "cbGender";
+            this.cbGender.Size = new System.Drawing.Size(250, 24);
+            this.cbGender.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbGender.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
+            this.cbGender.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cbGender.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbGender.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbGender.TabIndex = 75;
+            // 
+            // cbTitle
+            // 
+            this.cbTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbTitle.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbTitle.Location = new System.Drawing.Point(166, 440);
+            this.cbTitle.Name = "cbTitle";
+            this.cbTitle.Size = new System.Drawing.Size(247, 24);
+            this.cbTitle.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbTitle.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
+            this.cbTitle.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cbTitle.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbTitle.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbTitle.TabIndex = 74;
+            // 
+            // lblAdditional
+            // 
+            this.lblAdditional.AutoSize = true;
+            this.lblAdditional.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdditional.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblAdditional.Location = new System.Drawing.Point(27, 498);
+            this.lblAdditional.Name = "lblAdditional";
+            this.lblAdditional.Size = new System.Drawing.Size(267, 29);
+            this.lblAdditional.TabIndex = 73;
+            this.lblAdditional.Text = "Additional Information";
+            // 
+            // lblBasicInfo
+            // 
+            this.lblBasicInfo.AutoSize = true;
+            this.lblBasicInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasicInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblBasicInfo.Location = new System.Drawing.Point(27, 75);
+            this.lblBasicInfo.Name = "lblBasicInfo";
+            this.lblBasicInfo.Size = new System.Drawing.Size(214, 29);
+            this.lblBasicInfo.TabIndex = 72;
+            this.lblBasicInfo.Text = "Basic Information";
+            // 
+            // chkEmailonTick
+            // 
+            this.chkEmailonTick.BeforeTouchSize = new System.Drawing.Size(217, 34);
+            this.chkEmailonTick.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            this.chkEmailonTick.BorderColor = System.Drawing.Color.Transparent;
+            this.chkEmailonTick.BorderSingle = System.Windows.Forms.ButtonBorderStyle.None;
+            this.chkEmailonTick.CanOverrideStyle = true;
+            this.chkEmailonTick.DrawFocusRectangle = false;
+            this.chkEmailonTick.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chkEmailonTick.Location = new System.Drawing.Point(508, 543);
+            this.chkEmailonTick.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chkEmailonTick.Name = "chkEmailonTick";
+            this.chkEmailonTick.Office2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
+            this.chkEmailonTick.Office2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Black;
+            this.chkEmailonTick.Size = new System.Drawing.Size(217, 34);
+            this.chkEmailonTick.Style = Syncfusion.Windows.Forms.Tools.CheckBoxAdvStyle.Metro;
+            this.chkEmailonTick.TabIndex = 70;
+            this.chkEmailonTick.Text = "Send Email on Ticket Creation";
+            this.chkEmailonTick.ThemeName = "Metro";
+            this.chkEmailonTick.ThemeStyle.CheckBoxTickThickness = 0;
+            this.chkEmailonTick.ThemeStyle.PressedTickColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chkEmailonTick.ThemeStyle.TickBoxBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chkEmailonTick.ThemeStyle.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             // 
             // chkSendEmail
             // 
             this.chkSendEmail.BeforeTouchSize = new System.Drawing.Size(217, 34);
             this.chkSendEmail.Border3DStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.chkSendEmail.BorderSingle = System.Windows.Forms.ButtonBorderStyle.None;
+            this.chkSendEmail.DrawFocusRectangle = false;
+            this.chkSendEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chkSendEmail.Location = new System.Drawing.Point(52, 583);
+            this.chkSendEmail.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chkSendEmail.Name = "chkSendEmail";
             this.chkSendEmail.Size = new System.Drawing.Size(217, 34);
+            this.chkSendEmail.Style = Syncfusion.Windows.Forms.Tools.CheckBoxAdvStyle.Metro;
             this.chkSendEmail.TabIndex = 69;
             this.chkSendEmail.Text = "Send Email";
+            this.chkSendEmail.ThemeName = "Metro";
             // 
             // chkSendSMS
             // 
             this.chkSendSMS.BeforeTouchSize = new System.Drawing.Size(217, 34);
+            this.chkSendSMS.DrawFocusRectangle = false;
+            this.chkSendSMS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chkSendSMS.Location = new System.Drawing.Point(52, 543);
+            this.chkSendSMS.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chkSendSMS.Name = "chkSendSMS";
             this.chkSendSMS.Size = new System.Drawing.Size(217, 34);
+            this.chkSendSMS.Style = Syncfusion.Windows.Forms.Tools.CheckBoxAdvStyle.Metro;
             this.chkSendSMS.TabIndex = 68;
             this.chkSendSMS.Text = "Send SMS";
+            this.chkSendSMS.ThemeName = "Metro";
             // 
             // panel2
             // 
@@ -279,6 +400,87 @@ namespace PremierServiceSolutions.Pages
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(863, 2);
             this.panel2.TabIndex = 67;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(16, 669);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancel.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancel.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCancel.Size = new System.Drawing.Size(155, 38);
+            this.btnCancel.TabIndex = 66;
+            this.btnCancel.TabStop = false;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(713, 16);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReset.Size = new System.Drawing.Size(155, 38);
+            this.btnReset.TabIndex = 65;
+            this.btnReset.TabStop = false;
+            this.btnReset.Text = "Reset Fields";
+            this.btnReset.TextColor = System.Drawing.Color.White;
+            this.btnReset.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateCustomerandTicket
+            // 
+            this.btnCreateCustomerandTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateCustomerandTicket.BorderColor = System.Drawing.Color.Empty;
+            this.btnCreateCustomerandTicket.BorderDownColor = System.Drawing.Color.Empty;
+            this.btnCreateCustomerandTicket.BorderDownWidth = 0F;
+            this.btnCreateCustomerandTicket.BorderOverColor = System.Drawing.Color.Empty;
+            this.btnCreateCustomerandTicket.BorderOverWidth = 0F;
+            this.btnCreateCustomerandTicket.BorderRadius = 50;
+            this.btnCreateCustomerandTicket.BorderWidth = 1.75F;
+            this.btnCreateCustomerandTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateCustomerandTicket.ForeColor = System.Drawing.Color.White;
+            this.btnCreateCustomerandTicket.Location = new System.Drawing.Point(629, 670);
+            this.btnCreateCustomerandTicket.Name = "btnCreateCustomerandTicket";
+            this.btnCreateCustomerandTicket.Size = new System.Drawing.Size(239, 38);
+            this.btnCreateCustomerandTicket.TabIndex = 64;
+            this.btnCreateCustomerandTicket.Text = "Create Customer and Ticket";
+            this.btnCreateCustomerandTicket.UseVisualStyleBackColor = false;
+            // 
+            // btnCreateCustomer
+            // 
+            this.btnCreateCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateCustomer.BorderColor = System.Drawing.Color.Empty;
+            this.btnCreateCustomer.BorderDownColor = System.Drawing.Color.Empty;
+            this.btnCreateCustomer.BorderDownWidth = 0F;
+            this.btnCreateCustomer.BorderOverColor = System.Drawing.Color.Empty;
+            this.btnCreateCustomer.BorderOverWidth = 0F;
+            this.btnCreateCustomer.BorderRadius = 50;
+            this.btnCreateCustomer.BorderWidth = 1.75F;
+            this.btnCreateCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnCreateCustomer.Location = new System.Drawing.Point(432, 670);
+            this.btnCreateCustomer.Name = "btnCreateCustomer";
+            this.btnCreateCustomer.Size = new System.Drawing.Size(172, 38);
+            this.btnCreateCustomer.TabIndex = 63;
+            this.btnCreateCustomer.Text = "Create Customer";
+            this.btnCreateCustomer.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -593,160 +795,6 @@ namespace PremierServiceSolutions.Pages
             this.tbClientBusName.Size = new System.Drawing.Size(250, 30);
             this.tbClientBusName.TabIndex = 27;
             // 
-            // lblBasicInfo
-            // 
-            this.lblBasicInfo.AutoSize = true;
-            this.lblBasicInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBasicInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblBasicInfo.Location = new System.Drawing.Point(27, 75);
-            this.lblBasicInfo.Name = "lblBasicInfo";
-            this.lblBasicInfo.Size = new System.Drawing.Size(214, 29);
-            this.lblBasicInfo.TabIndex = 72;
-            this.lblBasicInfo.Text = "Basic Information";
-            // 
-            // lblAdditional
-            // 
-            this.lblAdditional.AutoSize = true;
-            this.lblAdditional.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdditional.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAdditional.Location = new System.Drawing.Point(27, 498);
-            this.lblAdditional.Name = "lblAdditional";
-            this.lblAdditional.Size = new System.Drawing.Size(267, 29);
-            this.lblAdditional.TabIndex = 73;
-            this.lblAdditional.Text = "Additional Information";
-            // 
-            // cbTitle
-            // 
-            this.cbTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbTitle.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbTitle.Location = new System.Drawing.Point(166, 440);
-            this.cbTitle.Name = "cbTitle";
-            this.cbTitle.Size = new System.Drawing.Size(247, 24);
-            this.cbTitle.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbTitle.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
-            this.cbTitle.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.cbTitle.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbTitle.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbTitle.TabIndex = 74;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(16, 669);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancel.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancel.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCancel.Size = new System.Drawing.Size(155, 38);
-            this.btnCancel.TabIndex = 66;
-            this.btnCancel.TabStop = false;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(713, 16);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnReset.Size = new System.Drawing.Size(155, 38);
-            this.btnReset.TabIndex = 65;
-            this.btnReset.TabStop = false;
-            this.btnReset.Text = "Reset Fields";
-            this.btnReset.TextColor = System.Drawing.Color.White;
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // btnCreateCustomerandTicket
-            // 
-            this.btnCreateCustomerandTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateCustomerandTicket.BorderColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomerandTicket.BorderDownColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomerandTicket.BorderDownWidth = 0F;
-            this.btnCreateCustomerandTicket.BorderOverColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomerandTicket.BorderOverWidth = 0F;
-            this.btnCreateCustomerandTicket.BorderRadius = 50;
-            this.btnCreateCustomerandTicket.BorderWidth = 1.75F;
-            this.btnCreateCustomerandTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateCustomerandTicket.ForeColor = System.Drawing.Color.White;
-            this.btnCreateCustomerandTicket.Location = new System.Drawing.Point(629, 670);
-            this.btnCreateCustomerandTicket.Name = "btnCreateCustomerandTicket";
-            this.btnCreateCustomerandTicket.Size = new System.Drawing.Size(239, 38);
-            this.btnCreateCustomerandTicket.TabIndex = 64;
-            this.btnCreateCustomerandTicket.Text = "Create Customer and Ticket";
-            this.btnCreateCustomerandTicket.UseVisualStyleBackColor = false;
-            // 
-            // btnCreateCustomer
-            // 
-            this.btnCreateCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateCustomer.BorderColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomer.BorderDownColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomer.BorderDownWidth = 0F;
-            this.btnCreateCustomer.BorderOverColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomer.BorderOverWidth = 0F;
-            this.btnCreateCustomer.BorderRadius = 50;
-            this.btnCreateCustomer.BorderWidth = 1.75F;
-            this.btnCreateCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnCreateCustomer.Location = new System.Drawing.Point(432, 670);
-            this.btnCreateCustomer.Name = "btnCreateCustomer";
-            this.btnCreateCustomer.Size = new System.Drawing.Size(172, 38);
-            this.btnCreateCustomer.TabIndex = 63;
-            this.btnCreateCustomer.Text = "Create Customer";
-            this.btnCreateCustomer.UseVisualStyleBackColor = false;
-            // 
-            // tBSearch
-            // 
-            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tBSearch.Location = new System.Drawing.Point(54, 20);
-            this.tBSearch.Multiline = true;
-            this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(380, 31);
-            this.tBSearch.TabIndex = 51;
-            this.tBSearch.Text = "Start Typing Client or Client ID";
-            // 
-            // btnRAddClient
-            // 
-            this.btnRAddClient.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRAddClient.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRAddClient.FlatAppearance.BorderSize = 0;
-            this.btnRAddClient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnRAddClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnRAddClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRAddClient.Location = new System.Drawing.Point(682, 14);
-            this.btnRAddClient.Name = "btnRAddClient";
-            this.btnRAddClient.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnRAddClient.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnRAddClient.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRAddClient.Size = new System.Drawing.Size(185, 40);
-            this.btnRAddClient.TabIndex = 53;
-            this.btnRAddClient.TabStop = false;
-            this.btnRAddClient.Text = "New Client +";
-            this.btnRAddClient.TextColor = System.Drawing.Color.White;
-            this.btnRAddClient.UseVisualStyleBackColor = true;
-            this.btnRAddClient.Click += new System.EventHandler(this.btnRAddClient_Click);
-            // 
             // frmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -770,10 +818,11 @@ namespace PremierServiceSolutions.Pages
             this.pnlSearchHeadings.PerformLayout();
             this.pnlNewClient.ResumeLayout(false);
             this.pnlNewClient.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEmailonTick)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbGender)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTitle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEmailonTick)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendSMS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTitle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -823,11 +872,12 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Panel panel2;
         private CustomComponents.ButtonRound btnCancel;
         private CustomComponents.ButtonRound btnReset;
-        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv cbEmailonTick;
+        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv chkEmailonTick;
         private Syncfusion.Windows.Forms.Tools.CheckBoxAdv chkSendEmail;
         private Syncfusion.Windows.Forms.Tools.CheckBoxAdv chkSendSMS;
         private System.Windows.Forms.Label lblAdditional;
         private System.Windows.Forms.Label lblBasicInfo;
         private Syncfusion.WinForms.ListView.SfComboBox cbTitle;
+        private Syncfusion.WinForms.ListView.SfComboBox cbGender;
     }
 }

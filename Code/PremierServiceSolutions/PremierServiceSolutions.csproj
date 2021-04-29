@@ -139,6 +139,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business Logic Layer\Asset.cs" />
     <Compile Include="Business Logic Layer\BusinessContact.cs" />
     <Compile Include="Business Logic Layer\Call.cs" />
     <Compile Include="Business Logic Layer\CallCentreContract.cs" />
@@ -174,6 +175,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomComponents\SimpleScheduleDataProvider.cs" />
+    <Compile Include="Data Access Layer\AssetDH.cs" />
     <Compile Include="Data Access Layer\BusinessContactDH.cs" />
     <Compile Include="Data Access Layer\BusinessDH.cs" />
     <Compile Include="Data Access Layer\CallCentreContractDH.cs" />
@@ -289,6 +291,15 @@
     </Compile>
     <Compile Include="Repository\IRepositoryBase.cs" />
     <Compile Include="Serialization\RememberMe.cs" />
+    <None Include="Resources\ReportsWhite.png" />
+    <None Include="Resources\ReportsRed1.png" />
+    <None Include="Resources\TicketsWhite.png" />
+    <None Include="Resources\ScheduleWhite.png" />
+    <None Include="Resources\user_90px.png" />
+    <None Include="Resources\Tickets Red.png" />
+    <None Include="Resources\TechnicianRed.png" />
+    <None Include="Resources\ScheduleRed.png" />
+    <None Include="Resources\ReportsRed.png" />
     <EmbeddedResource Include="Pages\frmAssets.resx">
       <DependentUpon>frmAssets.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmCustomerSupport.resx">
+      <DependentUpon>frmCustomerSupport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\frmDash.resx">
       <DependentUpon>frmDash.cs</DependentUpon>
@@ -364,6 +378,23 @@
     <None Include="Resources\DeclineActiveCall.png" />
     <None Include="Resources\checkmark.png" />
     <None Include="Resources\DeleteMark.png" />
+    <None Include="Resources\AssestRed.png" />
+    <None Include="Resources\CallRed.png" />
+    <None Include="Resources\ContractRed.png" />
+    <None Include="Resources\CustomerRed.png" />
+    <None Include="Resources\CustomerSupportRed.png" />
+    <None Include="Resources\DashRed.png" />
+    <None Include="Resources\EmployeeRed.png" />
+    <None Include="Resources\AssestWhite.png" />
+    <None Include="Resources\ContractWhite.png" />
+    <None Include="Resources\DashWhite.png" />
+    <None Include="Resources\EmployeeWhite.png" />
+    <None Include="Resources\CustomerSupportWhite.png" />
+    <None Include="Resources\CallRed1.png" />
+    <None Include="Resources\CallRed2.png" />
+    <None Include="Resources\CallWhite.png" />
+    <None Include="Resources\CustomerRed1.png" />
+    <None Include="Resources\CustomerWhite.png" />
     <Content Include="Resources\Generic\BackGround.png" />
     <Content Include="Resources\Generic\PSSLogo.png" />
     <None Include="Resources\PassBackground.png" />

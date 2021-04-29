@@ -35,13 +35,13 @@ namespace PremierServiceSolutions.Pages
             this.lblName = new System.Windows.Forms.Label();
             this.lblCustomerHeading = new System.Windows.Forms.Label();
             this.lblMan = new System.Windows.Forms.Label();
-            this.flpCustomers = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlTopClient = new System.Windows.Forms.Panel();
+            this.flpAssets = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlTopAssets = new System.Windows.Forms.Panel();
             this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
             this.btnAddAsset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlSearchHeadings.SuspendLayout();
-            this.pnlTopClient.SuspendLayout();
+            this.pnlTopAssets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +64,7 @@ namespace PremierServiceSolutions.Pages
             this.lblSerial.BackColor = System.Drawing.Color.White;
             this.lblSerial.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSerial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSerial.Location = new System.Drawing.Point(546, 8);
+            this.lblSerial.Location = new System.Drawing.Point(755, 8);
             this.lblSerial.Name = "lblSerial";
             this.lblSerial.Size = new System.Drawing.Size(56, 19);
             this.lblSerial.TabIndex = 16;
@@ -76,7 +76,7 @@ namespace PremierServiceSolutions.Pages
             this.lblModel.BackColor = System.Drawing.Color.White;
             this.lblModel.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblModel.Location = new System.Drawing.Point(733, 8);
+            this.lblModel.Location = new System.Drawing.Point(555, 8);
             this.lblModel.Name = "lblModel";
             this.lblModel.Size = new System.Drawing.Size(59, 19);
             this.lblModel.TabIndex = 15;
@@ -118,26 +118,26 @@ namespace PremierServiceSolutions.Pages
             this.lblMan.TabIndex = 14;
             this.lblMan.Text = "Manufacturer";
             // 
-            // flpCustomers
+            // flpAssets
             // 
-            this.flpCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.flpCustomers.AutoScroll = true;
-            this.flpCustomers.BackColor = System.Drawing.Color.Transparent;
-            this.flpCustomers.Location = new System.Drawing.Point(9, 126);
-            this.flpCustomers.Name = "flpCustomers";
-            this.flpCustomers.Size = new System.Drawing.Size(883, 607);
-            this.flpCustomers.TabIndex = 22;
+            this.flpAssets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.flpAssets.AutoScroll = true;
+            this.flpAssets.BackColor = System.Drawing.Color.Transparent;
+            this.flpAssets.Location = new System.Drawing.Point(9, 126);
+            this.flpAssets.Name = "flpAssets";
+            this.flpAssets.Size = new System.Drawing.Size(883, 607);
+            this.flpAssets.TabIndex = 22;
             // 
-            // pnlTopClient
+            // pnlTopAssets
             // 
-            this.pnlTopClient.BackColor = System.Drawing.Color.White;
-            this.pnlTopClient.Controls.Add(this.tBSearch);
-            this.pnlTopClient.Controls.Add(this.iPBSearch);
-            this.pnlTopClient.Controls.Add(this.btnAddAsset);
-            this.pnlTopClient.Location = new System.Drawing.Point(9, 8);
-            this.pnlTopClient.Name = "pnlTopClient";
-            this.pnlTopClient.Size = new System.Drawing.Size(883, 69);
-            this.pnlTopClient.TabIndex = 21;
+            this.pnlTopAssets.BackColor = System.Drawing.Color.White;
+            this.pnlTopAssets.Controls.Add(this.tBSearch);
+            this.pnlTopAssets.Controls.Add(this.iPBSearch);
+            this.pnlTopAssets.Controls.Add(this.btnAddAsset);
+            this.pnlTopAssets.Location = new System.Drawing.Point(9, 8);
+            this.pnlTopAssets.Name = "pnlTopAssets";
+            this.pnlTopAssets.Size = new System.Drawing.Size(883, 69);
+            this.pnlTopAssets.TabIndex = 21;
             // 
             // tBSearch
             // 
@@ -149,9 +149,9 @@ namespace PremierServiceSolutions.Pages
             this.tBSearch.Location = new System.Drawing.Point(54, 20);
             this.tBSearch.Multiline = true;
             this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(380, 31);
+            this.tBSearch.Size = new System.Drawing.Size(419, 31);
             this.tBSearch.TabIndex = 51;
-            this.tBSearch.Text = "Start Typing Client or Client ID";
+            this.tBSearch.Text = "Start Typing Asset Name/Model or Serial";
             // 
             // iPBSearch
             // 
@@ -195,15 +195,16 @@ namespace PremierServiceSolutions.Pages
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(900, 740);
             this.Controls.Add(this.pnlSearchHeadings);
-            this.Controls.Add(this.flpCustomers);
-            this.Controls.Add(this.pnlTopClient);
+            this.Controls.Add(this.flpAssets);
+            this.Controls.Add(this.pnlTopAssets);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAssets";
             this.Text = "frmAssets";
             this.pnlSearchHeadings.ResumeLayout(false);
             this.pnlSearchHeadings.PerformLayout();
-            this.pnlTopClient.ResumeLayout(false);
-            this.pnlTopClient.PerformLayout();
+            this.pnlTopAssets.ResumeLayout(false);
+            this.pnlTopAssets.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).EndInit();
             this.ResumeLayout(false);
 
@@ -217,8 +218,8 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblCustomerHeading;
         private System.Windows.Forms.Label lblMan;
-        private System.Windows.Forms.FlowLayoutPanel flpCustomers;
-        private System.Windows.Forms.Panel pnlTopClient;
+        private System.Windows.Forms.FlowLayoutPanel flpAssets;
+        private System.Windows.Forms.Panel pnlTopAssets;
         private CustomComponents.Round_TextBox tBSearch;
         private FontAwesome.Sharp.IconPictureBox iPBSearch;
         private CustomComponents.ButtonRound btnAddAsset;

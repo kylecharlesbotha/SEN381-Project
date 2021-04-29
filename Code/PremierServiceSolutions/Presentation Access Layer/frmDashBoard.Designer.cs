@@ -32,6 +32,18 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashBoard));
             this.pnlSideMenu = new System.Windows.Forms.Panel();
+            this.pbEmployee = new System.Windows.Forms.PictureBox();
+            this.pbReports = new System.Windows.Forms.PictureBox();
+            this.pbTechnician = new System.Windows.Forms.PictureBox();
+            this.pbContracts = new System.Windows.Forms.PictureBox();
+            this.pbAssets = new System.Windows.Forms.PictureBox();
+            this.pbSupport = new System.Windows.Forms.PictureBox();
+            this.pbCustomer = new System.Windows.Forms.PictureBox();
+            this.pbSchedule = new System.Windows.Forms.PictureBox();
+            this.pbTickets = new System.Windows.Forms.PictureBox();
+            this.pbCall = new System.Windows.Forms.PictureBox();
+            this.pbDash = new System.Windows.Forms.PictureBox();
+            this.btnAsset = new System.Windows.Forms.Button();
             this.btnLogout = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnCallCentre = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
@@ -61,8 +73,18 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.aboutUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAsset = new System.Windows.Forms.Button();
             this.pnlSideMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReports)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTechnician)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbContracts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAssets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSupport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSchedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTickets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCall)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).BeginInit();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).BeginInit();
@@ -77,6 +99,17 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlSideMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlSideMenu.BackColor = System.Drawing.Color.White;
+            this.pnlSideMenu.Controls.Add(this.pbEmployee);
+            this.pnlSideMenu.Controls.Add(this.pbReports);
+            this.pnlSideMenu.Controls.Add(this.pbTechnician);
+            this.pnlSideMenu.Controls.Add(this.pbContracts);
+            this.pnlSideMenu.Controls.Add(this.pbAssets);
+            this.pnlSideMenu.Controls.Add(this.pbSupport);
+            this.pnlSideMenu.Controls.Add(this.pbCustomer);
+            this.pnlSideMenu.Controls.Add(this.pbSchedule);
+            this.pnlSideMenu.Controls.Add(this.pbTickets);
+            this.pnlSideMenu.Controls.Add(this.pbCall);
+            this.pnlSideMenu.Controls.Add(this.pbDash);
             this.pnlSideMenu.Controls.Add(this.btnAsset);
             this.pnlSideMenu.Controls.Add(this.btnLogout);
             this.pnlSideMenu.Controls.Add(this.btnCallCentre);
@@ -95,6 +128,141 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlSideMenu.Size = new System.Drawing.Size(300, 800);
             this.pnlSideMenu.TabIndex = 0;
             this.pnlSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlSideMenu_MouseDown);
+            // 
+            // pbEmployee
+            // 
+            this.pbEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.pbEmployee.Image = global::PremierServiceSolutions.Properties.Resources.EmployeeRed;
+            this.pbEmployee.Location = new System.Drawing.Point(0, 663);
+            this.pbEmployee.Name = "pbEmployee";
+            this.pbEmployee.Size = new System.Drawing.Size(45, 45);
+            this.pbEmployee.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbEmployee.TabIndex = 25;
+            this.pbEmployee.TabStop = false;
+            // 
+            // pbReports
+            // 
+            this.pbReports.BackColor = System.Drawing.Color.Transparent;
+            this.pbReports.Image = ((System.Drawing.Image)(resources.GetObject("pbReports.Image")));
+            this.pbReports.Location = new System.Drawing.Point(0, 612);
+            this.pbReports.Name = "pbReports";
+            this.pbReports.Size = new System.Drawing.Size(45, 45);
+            this.pbReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbReports.TabIndex = 24;
+            this.pbReports.TabStop = false;
+            // 
+            // pbTechnician
+            // 
+            this.pbTechnician.BackColor = System.Drawing.Color.Transparent;
+            this.pbTechnician.Location = new System.Drawing.Point(0, 561);
+            this.pbTechnician.Name = "pbTechnician";
+            this.pbTechnician.Size = new System.Drawing.Size(45, 45);
+            this.pbTechnician.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbTechnician.TabIndex = 23;
+            this.pbTechnician.TabStop = false;
+            // 
+            // pbContracts
+            // 
+            this.pbContracts.BackColor = System.Drawing.Color.Transparent;
+            this.pbContracts.Image = global::PremierServiceSolutions.Properties.Resources.ContractRed;
+            this.pbContracts.Location = new System.Drawing.Point(0, 510);
+            this.pbContracts.Name = "pbContracts";
+            this.pbContracts.Size = new System.Drawing.Size(45, 45);
+            this.pbContracts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbContracts.TabIndex = 22;
+            this.pbContracts.TabStop = false;
+            // 
+            // pbAssets
+            // 
+            this.pbAssets.BackColor = System.Drawing.Color.Transparent;
+            this.pbAssets.Image = global::PremierServiceSolutions.Properties.Resources.AssestRed;
+            this.pbAssets.Location = new System.Drawing.Point(0, 459);
+            this.pbAssets.Name = "pbAssets";
+            this.pbAssets.Size = new System.Drawing.Size(45, 45);
+            this.pbAssets.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAssets.TabIndex = 21;
+            this.pbAssets.TabStop = false;
+            // 
+            // pbSupport
+            // 
+            this.pbSupport.BackColor = System.Drawing.Color.Transparent;
+            this.pbSupport.Image = global::PremierServiceSolutions.Properties.Resources.CustomerSupportRed;
+            this.pbSupport.Location = new System.Drawing.Point(0, 408);
+            this.pbSupport.Name = "pbSupport";
+            this.pbSupport.Size = new System.Drawing.Size(45, 45);
+            this.pbSupport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSupport.TabIndex = 20;
+            this.pbSupport.TabStop = false;
+            // 
+            // pbCustomer
+            // 
+            this.pbCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.pbCustomer.Image = ((System.Drawing.Image)(resources.GetObject("pbCustomer.Image")));
+            this.pbCustomer.Location = new System.Drawing.Point(0, 357);
+            this.pbCustomer.Name = "pbCustomer";
+            this.pbCustomer.Size = new System.Drawing.Size(45, 45);
+            this.pbCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCustomer.TabIndex = 19;
+            this.pbCustomer.TabStop = false;
+            // 
+            // pbSchedule
+            // 
+            this.pbSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.pbSchedule.Image = global::PremierServiceSolutions.Properties.Resources.ScheduleRed;
+            this.pbSchedule.Location = new System.Drawing.Point(0, 306);
+            this.pbSchedule.Name = "pbSchedule";
+            this.pbSchedule.Size = new System.Drawing.Size(45, 45);
+            this.pbSchedule.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSchedule.TabIndex = 18;
+            this.pbSchedule.TabStop = false;
+            // 
+            // pbTickets
+            // 
+            this.pbTickets.BackColor = System.Drawing.Color.Transparent;
+            this.pbTickets.Image = global::PremierServiceSolutions.Properties.Resources.Tickets_Red;
+            this.pbTickets.Location = new System.Drawing.Point(0, 255);
+            this.pbTickets.Name = "pbTickets";
+            this.pbTickets.Size = new System.Drawing.Size(45, 45);
+            this.pbTickets.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbTickets.TabIndex = 17;
+            this.pbTickets.TabStop = false;
+            // 
+            // pbCall
+            // 
+            this.pbCall.BackColor = System.Drawing.Color.Transparent;
+            this.pbCall.Image = ((System.Drawing.Image)(resources.GetObject("pbCall.Image")));
+            this.pbCall.Location = new System.Drawing.Point(0, 204);
+            this.pbCall.Name = "pbCall";
+            this.pbCall.Size = new System.Drawing.Size(45, 45);
+            this.pbCall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCall.TabIndex = 16;
+            this.pbCall.TabStop = false;
+            // 
+            // pbDash
+            // 
+            this.pbDash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pbDash.Image = global::PremierServiceSolutions.Properties.Resources.DashWhite;
+            this.pbDash.Location = new System.Drawing.Point(0, 153);
+            this.pbDash.Name = "pbDash";
+            this.pbDash.Size = new System.Drawing.Size(45, 45);
+            this.pbDash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDash.TabIndex = 15;
+            this.pbDash.TabStop = false;
+            // 
+            // btnAsset
+            // 
+            this.btnAsset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAsset.FlatAppearance.BorderSize = 0;
+            this.btnAsset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAsset.Location = new System.Drawing.Point(0, 459);
+            this.btnAsset.Name = "btnAsset";
+            this.btnAsset.Size = new System.Drawing.Size(300, 45);
+            this.btnAsset.TabIndex = 14;
+            this.btnAsset.Text = "Assets";
+            this.btnAsset.UseVisualStyleBackColor = true;
+            this.btnAsset.Click += new System.EventHandler(this.btnAsset_Click);
             // 
             // btnLogout
             // 
@@ -160,6 +328,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCustomerSupport.TabIndex = 10;
             this.btnCustomerSupport.Text = "CustomerSupport";
             this.btnCustomerSupport.UseVisualStyleBackColor = true;
+            this.btnCustomerSupport.Click += new System.EventHandler(this.btnCustomerSupport_Click);
             // 
             // btnReports
             // 
@@ -226,11 +395,13 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashBoard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDashBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashBoard.Location = new System.Drawing.Point(0, 153);
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.Size = new System.Drawing.Size(300, 45);
             this.btnDashBoard.TabIndex = 5;
             this.btnDashBoard.Text = "DashBoard";
+            this.btnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashBoard.UseVisualStyleBackColor = true;
             this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
             // 
@@ -471,21 +642,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // btnAsset
-            // 
-            this.btnAsset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAsset.FlatAppearance.BorderSize = 0;
-            this.btnAsset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAsset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAsset.Location = new System.Drawing.Point(0, 459);
-            this.btnAsset.Name = "btnAsset";
-            this.btnAsset.Size = new System.Drawing.Size(300, 45);
-            this.btnAsset.TabIndex = 14;
-            this.btnAsset.Text = "Assets";
-            this.btnAsset.UseVisualStyleBackColor = true;
-            this.btnAsset.Click += new System.EventHandler(this.btnAsset_Click);
-            // 
             // frmDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,6 +665,17 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmDashBoard_MouseUp);
             this.Resize += new System.EventHandler(this.frmDashBoard_Resize);
             this.pnlSideMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReports)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTechnician)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbContracts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAssets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSupport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSchedule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTickets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCall)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBLogo)).EndInit();
             this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).EndInit();
@@ -553,5 +720,16 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private CustomComponents.ButtonRound btnLogout;
         private System.Windows.Forms.Button btnAsset;
+        private System.Windows.Forms.PictureBox pbEmployee;
+        private System.Windows.Forms.PictureBox pbReports;
+        private System.Windows.Forms.PictureBox pbTechnician;
+        private System.Windows.Forms.PictureBox pbContracts;
+        private System.Windows.Forms.PictureBox pbAssets;
+        private System.Windows.Forms.PictureBox pbSupport;
+        private System.Windows.Forms.PictureBox pbCustomer;
+        private System.Windows.Forms.PictureBox pbSchedule;
+        private System.Windows.Forms.PictureBox pbTickets;
+        private System.Windows.Forms.PictureBox pbCall;
+        private System.Windows.Forms.PictureBox pbDash;
     }
 }
