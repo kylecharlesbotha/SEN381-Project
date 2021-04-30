@@ -16,9 +16,11 @@ namespace PremierServiceSolutions
         [STAThread]
         static void Main()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDM1NjczQDMxMzkyZTMxMmUzMG5iQ0d1SVgxOUFQajJnd3p4WEw4Q1E5T0c4V29vWEZWZWVQMGpOMXZ3Nm89");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSplashScreen());
+            Application.Run(new frmDashBoard());
         }
     }
 }

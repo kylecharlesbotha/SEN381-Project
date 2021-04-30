@@ -54,8 +54,75 @@
     <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Syncfusion.Compression.Base, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Compression.Base.19.1.0.57\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Core.WinForms.19.1.0.57\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.WinForms, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.DataSource.WinForms.19.1.0.57\lib\net46\Syncfusion.DataSource.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Grid.Base.19.1.0.57\lib\net46\Syncfusion.Grid.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Grid.Windows.19.1.0.57\lib\net46\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.WinForms, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.GridCommon.WinForms.19.1.0.57\lib\net46\Syncfusion.GridCommon.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Licensing.19.1.0.57\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Pdf.WinForms.19.1.0.57\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PdfViewer.Windows, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.PdfViewer.Windows.19.1.0.57\lib\net46\Syncfusion.PdfViewer.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Schedule.Base, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Schedule.Base.19.1.0.57\lib\net46\Syncfusion.Schedule.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Schedule.Windows, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Schedule.Windows.19.1.0.57\lib\net46\Syncfusion.Schedule.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.WinForms, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.SfListView.WinForms.19.1.0.57\lib\net46\Syncfusion.SfListView.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Shared.Base.19.1.0.57\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Shared.Windows.19.1.0.57\lib\net46\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.SpellChecker.Base.19.1.0.57\lib\net46\Syncfusion.SpellChecker.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Base, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Tools.Base.19.1.0.57\lib\net46\Syncfusion.Tools.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=19.1460.0.57, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Tools.Windows.19.1.0.57\lib\net46\Syncfusion.Tools.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,16 +132,24 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
     <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business Logic Layer\Asset.cs" />
     <Compile Include="Business Logic Layer\BusinessContact.cs" />
     <Compile Include="Business Logic Layer\Call.cs" />
+    <Compile Include="Business Logic Layer\CallCentreContract.cs" />
     <Compile Include="Business Logic Layer\Client.cs" />
     <Compile Include="Business Logic Layer\Contract.cs" />
+    <Compile Include="Business Logic Layer\ContractType.cs" />
+    <Compile Include="Business Logic Layer\Issue.cs" />
     <Compile Include="Business Logic Layer\Package.cs" />
+    <Compile Include="Business Logic Layer\Priority.cs" />
+    <Compile Include="Business Logic Layer\SendEmail.cs" />
     <Compile Include="Business Logic Layer\Service.cs" />
     <Compile Include="Business Logic Layer\Technician.cs" />
     <Compile Include="Business Logic Layer\Ticket.cs" />
@@ -96,15 +171,24 @@
     <Compile Include="CustomComponents\Round TextBox.Designer.cs">
       <DependentUpon>Round TextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomComponents\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomComponents\SimpleScheduleDataProvider.cs" />
+    <Compile Include="Data Access Layer\AssetDH.cs" />
     <Compile Include="Data Access Layer\BusinessContactDH.cs" />
     <Compile Include="Data Access Layer\BusinessDH.cs" />
+    <Compile Include="Data Access Layer\CallCentreContractDH.cs" />
     <Compile Include="Data Access Layer\CallDH.cs" />
     <Compile Include="Data Access Layer\ClientDH.cs" />
     <Compile Include="Data Access Layer\ContractDH.cs" />
+    <Compile Include="Data Access Layer\ContractTypeDH.cs" />
     <Compile Include="Data Access Layer\CustomerContractDH.cs" />
     <Compile Include="Data Access Layer\DBHandler.cs" />
     <Compile Include="Data Access Layer\EmployeeDH.cs" />
+    <Compile Include="Data Access Layer\IssueDH.cs" />
     <Compile Include="Data Access Layer\PackageDH.cs" />
+    <Compile Include="Data Access Layer\PriorityDH.cs" />
     <Compile Include="Data Access Layer\SatisfactionDH.cs" />
     <Compile Include="Data Access Layer\ScheduleDH.cs" />
     <Compile Include="Data Access Layer\ServiceDH.cs" />
@@ -114,6 +198,78 @@
     <Compile Include="Data Access Layer\TestExampleDH.cs" />
     <Compile Include="Data Access Layer\TicketDH.cs" />
     <Compile Include="Data Access Layer\UserDH.cs" />
+    <Compile Include="Pages\frmAssets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmAssets.Designer.cs">
+      <DependentUpon>frmAssets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmCentre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmCentre.Designer.cs">
+      <DependentUpon>frmCentre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmContracts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmContracts.Designer.cs">
+      <DependentUpon>frmContracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmCustomers.Designer.cs">
+      <DependentUpon>frmCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmCustomerSupport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmCustomerSupport.Designer.cs">
+      <DependentUpon>frmCustomerSupport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmDash.Designer.cs">
+      <DependentUpon>frmDash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmDocumentation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmDocumentation.Designer.cs">
+      <DependentUpon>frmDocumentation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmSchedule.Designer.cs">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmTechnician.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmTechnician.Designer.cs">
+      <DependentUpon>frmTechnician.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmTickets.Designer.cs">
+      <DependentUpon>frmTickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Access Layer\frmCreateAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Access Layer\frmCreateAccount.Designer.cs">
+      <DependentUpon>frmCreateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Access Layer\frmDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation Access Layer\frmDashBoard.Designer.cs">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation Access Layer\frmLoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,7 +284,49 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\IRepositoryBase.cs" />
     <Compile Include="Serialization\RememberMe.cs" />
+    <None Include="Resources\ReportsWhite.png" />
+    <None Include="Resources\ReportsRed1.png" />
+    <None Include="Resources\TicketsWhite.png" />
+    <None Include="Resources\ScheduleWhite.png" />
+    <None Include="Resources\user_90px.png" />
+    <None Include="Resources\Tickets Red.png" />
+    <None Include="Resources\TechnicianRed.png" />
+    <None Include="Resources\ScheduleRed.png" />
+    <None Include="Resources\ReportsRed.png" />
+    <EmbeddedResource Include="Pages\frmAssets.resx">
+      <DependentUpon>frmAssets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmCentre.resx">
+      <DependentUpon>frmCentre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmCustomers.resx">
+      <DependentUpon>frmCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmCustomerSupport.resx">
+      <DependentUpon>frmCustomerSupport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmDash.resx">
+      <DependentUpon>frmDash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmSchedule.resx">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmTickets.resx">
+      <DependentUpon>frmTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Access Layer\frmCreateAccount.resx">
+      <DependentUpon>frmCreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation Access Layer\frmDashBoard.resx">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation Access Layer\frmLoginScreen.resx">
       <DependentUpon>frmLoginScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,14 +335,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -164,7 +362,39 @@
     <Folder Include="Resources\LoginScreen\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="PSSLogo.ico" />
+    <None Include="Resources\SFProDisplay-Bold.ttf" />
+    <None Include="Resources\SFProDisplay-Regular.ttf" />
+    <None Include="Resources\SFProDisplay-Semibold.ttf" />
+    <None Include="Resources\PSSLogo.png" />
+    <None Include="Resources\EmployeeBackground.png" />
+    <None Include="Resources\Bellicon.png" />
+    <None Include="Resources\DeclineCall.png" />
+    <None Include="Resources\AnswerCall.png" />
+    <None Include="Resources\AnswerActiveCall.png" />
+    <None Include="Resources\DeclineActiveCall.png" />
+    <None Include="Resources\checkmark.png" />
+    <None Include="Resources\DeleteMark.png" />
+    <None Include="Resources\AssestRed.png" />
+    <None Include="Resources\CallRed.png" />
+    <None Include="Resources\ContractRed.png" />
+    <None Include="Resources\CustomerRed.png" />
+    <None Include="Resources\CustomerSupportRed.png" />
+    <None Include="Resources\DashRed.png" />
+    <None Include="Resources\EmployeeRed.png" />
+    <None Include="Resources\AssestWhite.png" />
+    <None Include="Resources\ContractWhite.png" />
+    <None Include="Resources\DashWhite.png" />
+    <None Include="Resources\EmployeeWhite.png" />
+    <None Include="Resources\CustomerSupportWhite.png" />
+    <None Include="Resources\CallRed1.png" />
+    <None Include="Resources\CallRed2.png" />
+    <None Include="Resources\CallWhite.png" />
+    <None Include="Resources\CustomerRed1.png" />
+    <None Include="Resources\CustomerWhite.png" />
     <Content Include="Resources\Generic\BackGround.png" />
     <Content Include="Resources\Generic\PSSLogo.png" />
     <None Include="Resources\PassBackground.png" />
@@ -186,6 +416,25 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

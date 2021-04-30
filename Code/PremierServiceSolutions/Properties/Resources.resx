@@ -118,19 +118,109 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BackGround" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Generic\BackGround.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EmployeeBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EmployeeBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PersonLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PersonLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="checkmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\checkmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UserBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UserBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DeclineActiveCall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeclineActiveCall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PassBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PassBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TicketsWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TicketsWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EmployeeWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EmployeeWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AnswerActiveCall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AnswerActiveCall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ScheduleRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ScheduleRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SplashScreen\BackgroundImage.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PassBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PassBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ContractRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ContractRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BackGround" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Generic\BackGround.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DashWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DashWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DashRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DashRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EmployeeRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EmployeeRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AnswerCall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AnswerCall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeleteMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteMark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomerSupportRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomerSupportRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bellicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bellicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_90px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_90px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomerWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomerWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeclineCall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeclineCall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AssestWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AssestWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ScheduleWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ScheduleWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSSLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSSLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tickets Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tickets Red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomerSupportWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomerSupportWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CallWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CallWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AssestRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AssestRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CallRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CallRed2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomerRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomerRed1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ContractWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ContractWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PersonLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PersonLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReportsRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReportsRed1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReportsWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReportsWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,36 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//CheckTables and GetByID not implemented
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class UserDH
+    class UserDH : IRepositoryBase<User>
     {
-        //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
+       
         DBHandler objHandler = new DBHandler();
 
-        //Method which will be used to create new record
-        private bool CreateUser(User objUser)
+        public bool Create(User objUser)
         {
             try
             {
-                //Checking if the client already exists
-                int UserVal = FindUser(objUser);
-                if (UserVal == 1)
-                {
-                    //If it finds a client with same details return message saying Client already exists
-                    MessageBox.Show("Client Already Exists");
-                    return false;
-                }
-                else if (UserVal == 0)
-                {
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                    string InsertQuery = string.Format(@"INSERT INTO tblUser  EmployeeID, UserAccessLevel, UserAuthToken, UserName, UserPassword, UserState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",
-                        objUser.EmployeeObject.PersonID, 
-                        objUser.UserAccessLevel, 
-                        objUser.UserAuthToken, 
-                        objUser.UserName, 
-                        objUser.UserPassword, 
-                        objUser.UserState
+                    string InsertQuery = string.Format(@"INSERT INTO tblUser (EmployeeID, UserAccessLevel, UserAuthToken, UserName, UserPassword, UserState, UserSalt) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                        objUser.EmployeeID,
+                        objUser.UserAccessLevel,
+                        objUser.UserAuthToken,
+                        objUser.UserName,
+                        objUser.UserPassword,
+                        objUser.UserState,
+                        objUser.UserSalt
 
                         );
                     SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
@@ -44,18 +37,15 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     InsertCommand.ExecuteNonQuery();
                     sqlCon.Close();
                     return true;
-                }
-                return false;
             }
             catch (SqlException SQLE)
             {
+                MessageBox.Show(SQLE.Message);
                 return false;
             }
-
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateUser(User newObjUser, User oldObjUser)
+        public bool Update(User newObjUser, User oldObjUser)
         {
             try
             {
@@ -69,8 +59,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     newObjUser.UserAuthToken,
                     newObjUser.UserName,
                     newObjUser.UserPassword,
-                    newObjUser.UserState) ;
-                    
+                    newObjUser.UserState);
+
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
                 //Open the connection to the database
@@ -90,8 +80,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteUser(User objUser)
+        public bool Delete(User objUser)
         {
             try
             {
@@ -117,8 +106,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-        //Method used to Get all the records from the table in the database
-        private List<User> GetAllUser(User objUser)
+
+        public ICollection<User> GetAll()
         {
             try
             {
@@ -141,17 +130,19 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     allUsers.Add(new User(
                                 (int)sqlDataReader.GetValue(0),
                                 (int)sqlDataReader.GetValue(1),
-                                (string)sqlDataReader.GetValue(2),
+                                (int)sqlDataReader.GetValue(2),
                                 (string)sqlDataReader.GetValue(3),
                                 (string)sqlDataReader.GetValue(4),
                                 (string)sqlDataReader.GetValue(5),
-                                (string)sqlDataReader.GetValue(5)
+                                (string)sqlDataReader.GetValue(6),
+                                (string)sqlDataReader.GetValue(7)
+
                                 ));
                 }
                 //Close connection to database
                 sqlCon.Close();
                 //Return List of Clients
-                return allUsers;
+                return allUsers.ToList();
             }
             catch (SqlException SQLE)
             {
@@ -161,8 +152,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to find one record within the table
-        private int FindUser(User objUser)
+        public int Find(User objUser)
         {
             int RecordCount;
             try
@@ -191,18 +181,56 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method which will be called to check that neccessary fields exist in the other tables which have relationships
-        private bool CheckAllTables(User objUser)
+        public bool CheckTables(User entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User GetByID(User entity)
+        {
+            throw new NotImplementedException();
+        }
+        public User GetByUserName(string value)
         {
             try
             {
-                //Check if it exists in tblEmployee first 
-                //If it is not found in tblEmployee then return false else return true
-                return true;
+                //List of type User which will store all the records and then return that list
+                User ObjUserRecord = new User();
+                //New SQL Connection which the query will use to perform the Select of tblClients
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Clients
+                string SelectQuery = string.Format("SELECT * FROM tblUser WHERE UserName = '{0}'", value);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    ObjUserRecord.UserID = (int)sqlDataReader.GetValue(0);
+                    ObjUserRecord.EmployeeID = (int)sqlDataReader.GetValue(1);
+                    ObjUserRecord.UserAccessLevel = (int)sqlDataReader.GetValue(2);
+                    ObjUserRecord.UserAuthToken = (string)sqlDataReader.GetValue(3);
+                    ObjUserRecord.UserName = (string)sqlDataReader.GetValue(4);
+                    ObjUserRecord.UserPassword = (string)sqlDataReader.GetValue(5);
+                    ObjUserRecord.UserState = (string)sqlDataReader.GetValue(6);
+                    ObjUserRecord.UserSalt = (string)sqlDataReader.GetValue(7);
+
+
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Clients
+                return ObjUserRecord;
             }
             catch (SqlException SQLE)
             {
-                return false;
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
             }
         }
     }

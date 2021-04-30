@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,18 +10,48 @@ using System.Windows.Forms;
 
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class ContractDH
+    class ContractDH :IRepositoryBase<Contract>
     {
         //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
         DBHandler objHandler = new DBHandler();
 
-        //Method which will be used to create new record
-        private bool CreateContract(Contract objCon)
+
+        //Method used to find one record within the table
+        public int GetByID(string ID)
+        {
+            int RecordCount;
+            try
+            {
+                //New SQL Connection which the query will use to perform the Select of tblContract
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Contract
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblContract WHERE ContractID = '{0}'", ID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Execute Scalar which will return the first columns value and ignore the rest. This will show if there is a person or not
+                RecordCount = (Int32)sqlCommand.ExecuteScalar();
+                //Close connection to database
+                sqlCon.Close();
+                //Return Count of Contract
+                return RecordCount;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                RecordCount = -1;
+                return RecordCount;
+            }
+        }
+
+        public bool Create(Contract objCon)
         {
             try
             {
                 //Checking if the Contract already exists
-                int ConVal = FindContract(objCon);
+                int ConVal = Find(objCon);
                 if (ConVal == 1)
                 {
                     //If it finds a Contract with same details return message saying Contract already exists
@@ -47,11 +78,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
+            throw new NotImplementedException();
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateContract(Contract newObjCon, Contract oldObjCon)
+        public bool Update(Contract oldObjCon, Contract newObjCon)
         {
             try
             {
@@ -76,10 +106,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured please try again");
                 return false;
             }
+            throw new NotImplementedException();
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteContract(Contract objCon)
+        public bool Delete(Contract objCon)
         {
             try
             {
@@ -104,10 +134,12 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured please try again");
                 return false;
             }
+            throw new NotImplementedException();
         }
-        //Method used to Get all the records from the table in the database
-        private List<Contract> GetAllContract(Contract objCon)
+
+        public ICollection<Contract> GetAll()
         {
+
             try
             {
                 //List of type Contract which will store all the records and then return that list
@@ -126,7 +158,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allCon.Add(new Contract((int)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3)));
+                    allCon.Add(new Contract((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3)));
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -139,10 +171,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return null;
             }
+            throw new NotImplementedException();
         }
 
-        //Method used to find one record within the table
-        private int FindContract(Contract objCon)
+        public int Find(Contract objCon)
         {
             int RecordCount;
             try
@@ -169,9 +201,15 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 RecordCount = -1;
                 return RecordCount;
             }
+            throw new NotImplementedException();
         }
 
-        private Contract GetContract(Contract objCon)
+        public bool CheckTables(Contract objCon)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Contract GetByID(Contract objCon)
         {
             Contract objRecord = new Contract();
             try
@@ -192,7 +230,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    objRecord.ContractID = (int)sqlDataReader.GetValue(0);
+                    objRecord.ContractID = (string)sqlDataReader.GetValue(0);
                     objRecord.ContractDescription = (string)sqlDataReader.GetValue(1);
                     objRecord.ContractType = (string)sqlDataReader.GetValue(2);
                     objRecord.ContractState = (string)sqlDataReader.GetValue(3);
@@ -208,6 +246,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return null;
             }
+            throw new NotImplementedException();
         }
     }
 }

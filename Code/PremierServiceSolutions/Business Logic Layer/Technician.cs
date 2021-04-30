@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PremierServiceSolutions.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,8 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string technicianStatus;
         private int technicianState;
         private int employeeID;
-
+        private string techName;
+        TechnicianDH objTech = new TechnicianDH();
         public Technician(int technicianID, int technicianLevel, string technicianStatus, int employeeid,int technicianstate )
         {
             this.technicianID = technicianID;
@@ -23,15 +25,29 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.employeeID = employeeid;
         }
 
+        public Technician(int techid,string techname)
+        {
+            this.technicianID = techid;
+            this.techName = techname;
+        }
+        public Technician(int techid)
+        {
+            this.technicianID = techid;
+        }
         public Technician()
         {
+
         }
+
+
 
         public int TechnicianID { get => technicianID; set => technicianID = value; }
         public string TechnicianStatus { get => technicianStatus; set => technicianStatus = value; }
         public int TechnicianLevel { get => technicianLevel; set => technicianLevel = value; }
         public int TechnicianState { get => technicianState; set => technicianState = value; }
         public int EmployeeID { get => employeeID; set => employeeID = value; }
+        public string TechName { get => objTech.GetTechName(this); set => techName = value; }
+        public string TechNameList { get => techName; set => techName = value; }
 
         public override string ToString()
         {
@@ -47,5 +63,14 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
             return base.GetHashCode();
         }
+        
+        public List<Technician> GetTechNames()
+        {
+            
+            List<Technician> lstTech = objTech.GetTechnicianName().ToList();
+            return lstTech;
+            
+        }
+
     }
 }

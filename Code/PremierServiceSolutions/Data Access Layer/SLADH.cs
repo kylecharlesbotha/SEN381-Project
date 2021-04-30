@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,17 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//Delete, CheckTables Not Completed
+
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class SLADH
+    class SLADH : IRepositoryBase<ServiceLevelAgreement>
     {
         DBHandler objHandler = new DBHandler();
-        private bool CreateSLA(ServiceLevelAgreement objSLA)
+       
+        
+        public bool Create(ServiceLevelAgreement objSLA)
         {
             try
             {
                 //Checking if the client already exists
-                int SLAVal = FindSLA(objSLA);
+                int SLAVal = Find(objSLA);
                 if (SLAVal == 1)
                 {
                     //If it finds a client with same details return message saying Client already exists
@@ -41,9 +46,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
         }
-        private bool UpdateSLA(ServiceLevelAgreement newObjSLA, ServiceLevelAgreement oldObjSLA)
+
+        public bool Update(ServiceLevelAgreement newObjSLA, ServiceLevelAgreement oldObjSLA)
         {
             try
             {
@@ -73,7 +78,13 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-        private List<ServiceLevelAgreement> GetAllSLAs()
+
+        public bool Delete(ServiceLevelAgreement entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<ServiceLevelAgreement> GetAll()
         {
             try
             {
@@ -96,7 +107,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     allSLAs.Add(new ServiceLevelAgreement(
                                 (int)sqlDataReader.GetValue(0),
                                 (string)sqlDataReader.GetValue(1),
-                                (string)sqlDataReader.GetValue(2)                               
+                                (string)sqlDataReader.GetValue(2)
                                 ));
                 }
                 //Close connection to database
@@ -111,7 +122,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return null;
             }
         }
-        private int FindSLA(ServiceLevelAgreement objSLA)
+
+        public int Find(ServiceLevelAgreement objSLA)
         {
             int RecordCount;
             try
@@ -139,17 +151,23 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return RecordCount;
             }
         }
-        private ServiceLevelAgreement GetSLA(ServiceLevelAgreement objSLA)
+
+        public bool CheckTables(ServiceLevelAgreement entity)
         {
-            List<ServiceLevelAgreement> allSLAs = GetAllSLAs();
+            throw new NotImplementedException();
+        }
+
+        public ServiceLevelAgreement GetByID(ServiceLevelAgreement objSLA)
+        {
+            List<ServiceLevelAgreement> allSLAs = GetAll().ToList();
             foreach (ServiceLevelAgreement SLA in allSLAs)
             {
                 if (objSLA.SlaID == SLA.SlaID)
                 {
-                    return SLA; 
+                    return SLA;
                 }
             }
-            return null;    
+            return null;
         }
     }
 }

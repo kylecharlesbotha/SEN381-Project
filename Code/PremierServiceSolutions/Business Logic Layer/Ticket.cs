@@ -1,13 +1,16 @@
-﻿using System;
+﻿using PremierServiceSolutions.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PremierServiceSolutions.Business_Logic_Layer
 {
     class Ticket
     {
+        TicketDH objTicketDH = new TicketDH();
         private int ticketID;
         private string ticketTitle;
         private string ticketIssueType;
@@ -18,12 +21,15 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private DateTime ticketDueDate;
         private string ticketDescription;
         private int technicianID;
-        private int clientID;
+        private string clientID;
         private int employeeID;
+        private DateTime ticketDate;
+        private int countOnDate;
+
+        private string clientName;
 
 
-
-        public Ticket(int ticketID, int technicianID, int clientID, string ticketDescription, DateTime ticketDueDate, int employeeID, string ticketIssueType, DateTime ticketLastUpdated, DateTime ticketLoggedTime, string ticketPriority, string ticketStatus, string ticketTitle)
+        public Ticket(int ticketID, int technicianID, string clientID, string ticketDescription, DateTime ticketDueDate, int employeeID, string ticketIssueType, DateTime ticketLastUpdated, DateTime ticketLoggedTime, string ticketPriority, string ticketStatus, string ticketTitle)
         {
             this.ticketID = ticketID;
             this.ticketTitle = ticketTitle;
@@ -38,7 +44,25 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.clientID = clientID;
             this.employeeID = employeeID;
         }
+        public Ticket(int ticketID, string ticketTitle,string clientname, string ticketIssueType, string ticketPriority, string ticketStatus,DateTime datecreated)
+        {
+            this.ticketID = ticketID;
+            this.ticketTitle = ticketTitle;
+            this.ticketIssueType = ticketIssueType;
+            this.ticketPriority = ticketPriority;
+            this.ticketStatus = ticketStatus;
+            this.clientName = clientname;
+            this.ticketLoggedTime = datecreated;
+        }
 
+
+
+        //Constructor for getting date of tickets and number of tickets on that date
+        public Ticket(DateTime date, int count)
+        {
+            this.TicketDate = date;
+            this.CountOnDate = count; 
+        }
         public Ticket()
         {
 
@@ -54,12 +78,15 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public DateTime TicketDueDate { get => ticketDueDate; set => ticketDueDate = value; }
         public string TicketDescription { get => ticketDescription; set => ticketDescription = value; }
         public int TechnicianID { get => technicianID; set => technicianID = value; }
-        public int ClientID { get => clientID; set => clientID = value; }
+        public string ClientID { get => clientID; set => clientID = value; }
         public int EmployeeID { get => employeeID; set => employeeID = value; }
+        public DateTime TicketDate { get => ticketDate; set => ticketDate = value; }
+        public int CountOnDate { get => countOnDate; set => countOnDate = value; }
+        public string ClientName { get => clientName; set => clientName = value; }
 
-        public void CreateTicket()
+        public void CreateTicket(Ticket objTicket)
         {
-
+            objTicketDH.Create(objTicket);
         }
 
         public void EsculateTicket()
@@ -115,6 +142,38 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+        public List<Ticket> GetAllTicket()
+        {
+
+            try
+            {
+                TicketDH newobj = new TicketDH();
+                List<Ticket> newtick = new List<Ticket>();
+                newtick = newobj.GetAllActive();
+                return newtick;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+                
+            }
+        }
+
+        public int TicketCreated(Ticket objTicket)
+        {
+            try
+            {
+                int RecordID = objTicketDH.GetTicketCreated(objTicket);
+                return RecordID;
+            }
+            catch (Exception E)
+            {
+                return 0;
+               
+            }
+            
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using PremierServiceSolutions.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,19 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//GetByID not complete
+
 namespace PremierServiceSolutions.Data_Access_Layer
 {
-    class ScheduleDH
+    class ScheduleDH : IRepositoryBase<Schedule>
     {
-        //Object of DBHandler which will store the connection string. We do this so that we dont have to repeat code in multiple classes but instead just one
+       
         DBHandler objHandler = new DBHandler();
 
-        //Method which will be used to create new record
-        private bool CreateSchedule(Schedule objSch)
+      
+        public bool Create(Schedule objSch)
         {
             try
             {
-                int ScheduleVal = FindSchedule(objSch);
+                int ScheduleVal = Find(objSch);
                 if (ScheduleVal == 1)
                 {
                     //If it finds a Schedule with same details return message saying Schedule already exists
@@ -29,7 +32,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (ScheduleVal == 0)
                 {
                     //If Schedule does not exist
-                    if (CheckAllTables(objSch) == true)
+                    if (CheckTables(objSch) == true)
                     {
                         SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                         string InsertQuery = string.Format(@"INSERT INTO tblSchedule (ScheduleDate, ScheduleStartTime, ScheduleEndTime, ScheduleStatus, TicketID, ScheduleState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", objSch.ScheduleDate, objSch.ScheduleStartTime, objSch.ScheduleEndTime, objSch.ScheduleStatus, objSch.TicketID, objSch.ScheduleState);
@@ -47,11 +50,9 @@ namespace PremierServiceSolutions.Data_Access_Layer
             {
                 return false;
             }
-
         }
 
-        //Method which will be used to Update current record within Database
-        private bool UpdateSchedule(Schedule newObjSch, Schedule oldObjSch)
+        public bool Update(Schedule newObjSch, Schedule oldObjSch)
         {
             try
             {
@@ -78,8 +79,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to Delete a record from the database
-        private bool DeleteSchedule(Schedule objSch)
+        public bool Delete(Schedule objSch)
         {
             try
             {
@@ -105,8 +105,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
-        //Method used to Get all the records from the table in the database
-        private List<Schedule> GetAllSchedule(Schedule objSch)
+
+        public ICollection<Schedule> GetAll()
         {
             try
             {
@@ -141,8 +141,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method used to find one record within the table
-        private int FindSchedule(Schedule objSch)
+        public int Find(Schedule objSch)
         {
             //Get count of rows to see if object exists. Refer to ScheduleDH FindSchedule method
             int RecordCount;
@@ -172,8 +171,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
-        //Method which will be called to check that neccessary fields exist in the other tables which have relationships
-        private bool CheckAllTables(Schedule objSch)
+        public bool CheckTables(Schedule objSch)
         {
             int RecordCount;
             try
@@ -208,6 +206,11 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 MessageBox.Show("Error has occured");
                 return false;
             }
+        }
+
+        public Schedule GetByID(Schedule entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
