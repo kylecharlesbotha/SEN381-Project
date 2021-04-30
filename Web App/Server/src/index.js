@@ -23,10 +23,6 @@ app.get("/", (req, res, next) => {
     }
   });
 
-  app.use(function (req, res, next) {
-    res.status(404).send(`404 NOT FOUND, INVALID URL > ${req.originalUrl}`);
-});
-  
   //Error
 app.use((error, req, res, next) => {
     if (error.status) {
