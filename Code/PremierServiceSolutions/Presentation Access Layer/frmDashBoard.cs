@@ -62,6 +62,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmCustomers.TopLevel = false;
             frmAssets.TopLevel = false;
             frmCustomerSupport.TopLevel = false;
+            pnlSideMenu.Focus();
             FullPath = GetTemporaryDirectory();
             FullPath += @"\489296awbduyg0298lfg.ser";
             frmCustomers.PopulateClients();

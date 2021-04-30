@@ -44,7 +44,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pbCall = new System.Windows.Forms.PictureBox();
             this.pbDash = new System.Windows.Forms.PictureBox();
             this.btnAsset = new System.Windows.Forms.Button();
-            this.btnLogout = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnCallCentre = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.btnCustomerSupport = new System.Windows.Forms.Button();
@@ -59,7 +58,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlTop = new System.Windows.Forms.Panel();
             this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
-            this.bnNotifications = new BrbVideoManager.Controls.RoundedButton();
             this.pbbell = new System.Windows.Forms.PictureBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pbProfilePicture = new System.Windows.Forms.PictureBox();
@@ -73,6 +71,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.aboutUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bnNotifications = new BrbVideoManager.Controls.RoundedButton();
+            this.btnLogout = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReports)).BeginInit();
@@ -260,31 +260,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnAsset.Name = "btnAsset";
             this.btnAsset.Size = new System.Drawing.Size(300, 45);
             this.btnAsset.TabIndex = 14;
+            this.btnAsset.TabStop = false;
             this.btnAsset.Text = "Assets";
             this.btnAsset.UseVisualStyleBackColor = true;
             this.btnAsset.Click += new System.EventHandler(this.btnAsset_Click);
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnLogout.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLogout.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.Transparent;
-            this.btnLogout.Location = new System.Drawing.Point(45, 744);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.OnHoverBorderColor = System.Drawing.Color.Gray;
-            this.btnLogout.OnHoverButtonColor = System.Drawing.Color.Gray;
-            this.btnLogout.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnLogout.Size = new System.Drawing.Size(212, 44);
-            this.btnLogout.TabIndex = 13;
-            this.btnLogout.Text = "Log Out";
-            this.btnLogout.TextColor = System.Drawing.Color.White;
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnCallCentre
             // 
@@ -297,6 +276,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCallCentre.Name = "btnCallCentre";
             this.btnCallCentre.Size = new System.Drawing.Size(300, 45);
             this.btnCallCentre.TabIndex = 12;
+            this.btnCallCentre.TabStop = false;
             this.btnCallCentre.Text = "Call Centre";
             this.btnCallCentre.UseVisualStyleBackColor = true;
             this.btnCallCentre.Click += new System.EventHandler(this.btnCallCentre_Click);
@@ -312,6 +292,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(300, 45);
             this.btnEmployees.TabIndex = 11;
+            this.btnEmployees.TabStop = false;
             this.btnEmployees.Text = "Employees";
             this.btnEmployees.UseVisualStyleBackColor = true;
             // 
@@ -326,6 +307,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCustomerSupport.Name = "btnCustomerSupport";
             this.btnCustomerSupport.Size = new System.Drawing.Size(300, 45);
             this.btnCustomerSupport.TabIndex = 10;
+            this.btnCustomerSupport.TabStop = false;
             this.btnCustomerSupport.Text = "CustomerSupport";
             this.btnCustomerSupport.UseVisualStyleBackColor = true;
             this.btnCustomerSupport.Click += new System.EventHandler(this.btnCustomerSupport_Click);
@@ -341,6 +323,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(300, 45);
             this.btnReports.TabIndex = 9;
+            this.btnReports.TabStop = false;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = true;
             // 
@@ -355,6 +338,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnContracts.Name = "btnContracts";
             this.btnContracts.Size = new System.Drawing.Size(300, 45);
             this.btnContracts.TabIndex = 8;
+            this.btnContracts.TabStop = false;
             this.btnContracts.Text = "Contracts";
             this.btnContracts.UseVisualStyleBackColor = true;
             // 
@@ -369,6 +353,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnTechnicians.Name = "btnTechnicians";
             this.btnTechnicians.Size = new System.Drawing.Size(300, 45);
             this.btnTechnicians.TabIndex = 7;
+            this.btnTechnicians.TabStop = false;
             this.btnTechnicians.Text = "Technicians";
             this.btnTechnicians.UseVisualStyleBackColor = true;
             this.btnTechnicians.Click += new System.EventHandler(this.tbnTechnicians_Click);
@@ -384,6 +369,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnSchedules.Name = "btnSchedules";
             this.btnSchedules.Size = new System.Drawing.Size(300, 45);
             this.btnSchedules.TabIndex = 6;
+            this.btnSchedules.TabStop = false;
             this.btnSchedules.Text = "Schedules";
             this.btnSchedules.UseVisualStyleBackColor = true;
             this.btnSchedules.Click += new System.EventHandler(this.btnSchedules_Click);
@@ -400,6 +386,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.Size = new System.Drawing.Size(300, 45);
             this.btnDashBoard.TabIndex = 5;
+            this.btnDashBoard.TabStop = false;
             this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashBoard.UseVisualStyleBackColor = true;
@@ -416,6 +403,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(300, 45);
             this.btnCustomers.TabIndex = 4;
+            this.btnCustomers.TabStop = false;
             this.btnCustomers.Text = "Customers";
             this.btnCustomers.UseVisualStyleBackColor = true;
             this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
@@ -423,6 +411,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // btnTickets
             // 
             this.btnTickets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTickets.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnTickets.FlatAppearance.BorderSize = 0;
             this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -431,6 +420,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnTickets.Name = "btnTickets";
             this.btnTickets.Size = new System.Drawing.Size(300, 45);
             this.btnTickets.TabIndex = 3;
+            this.btnTickets.TabStop = false;
             this.btnTickets.Text = "Tickets";
             this.btnTickets.UseVisualStyleBackColor = true;
             this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
@@ -495,27 +485,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBExit.Click += new System.EventHandler(this.iPBExit_Click);
             this.iPBExit.MouseEnter += new System.EventHandler(this.iPBExit_MouseEnter);
             this.iPBExit.MouseLeave += new System.EventHandler(this.iPBExit_MouseLeave);
-            // 
-            // bnNotifications
-            // 
-            this.bnNotifications.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.bnNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bnNotifications.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bnNotifications.BorderDownColor = System.Drawing.Color.Empty;
-            this.bnNotifications.BorderDownWidth = 0F;
-            this.bnNotifications.BorderOverColor = System.Drawing.Color.Empty;
-            this.bnNotifications.BorderOverWidth = 0F;
-            this.bnNotifications.BorderRadius = 50;
-            this.bnNotifications.BorderWidth = 1F;
-            this.bnNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnNotifications.ForeColor = System.Drawing.Color.White;
-            this.bnNotifications.Location = new System.Drawing.Point(566, 38);
-            this.bnNotifications.Name = "bnNotifications";
-            this.bnNotifications.Size = new System.Drawing.Size(34, 20);
-            this.bnNotifications.TabIndex = 2;
-            this.bnNotifications.Text = "999";
-            this.bnNotifications.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bnNotifications.UseVisualStyleBackColor = false;
             // 
             // pbbell
             // 
@@ -641,6 +610,49 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // bnNotifications
+            // 
+            this.bnNotifications.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.bnNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bnNotifications.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bnNotifications.BorderDownColor = System.Drawing.Color.Empty;
+            this.bnNotifications.BorderDownWidth = 0F;
+            this.bnNotifications.BorderOverColor = System.Drawing.Color.Empty;
+            this.bnNotifications.BorderOverWidth = 0F;
+            this.bnNotifications.BorderRadius = 50;
+            this.bnNotifications.BorderWidth = 1F;
+            this.bnNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnNotifications.ForeColor = System.Drawing.Color.White;
+            this.bnNotifications.Location = new System.Drawing.Point(566, 38);
+            this.bnNotifications.Name = "bnNotifications";
+            this.bnNotifications.Size = new System.Drawing.Size(34, 20);
+            this.bnNotifications.TabIndex = 2;
+            this.bnNotifications.Text = "999";
+            this.bnNotifications.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bnNotifications.UseVisualStyleBackColor = false;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLogout.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLogout.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Location = new System.Drawing.Point(45, 744);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.OnHoverBorderColor = System.Drawing.Color.Gray;
+            this.btnLogout.OnHoverButtonColor = System.Drawing.Color.Gray;
+            this.btnLogout.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnLogout.Size = new System.Drawing.Size(212, 44);
+            this.btnLogout.TabIndex = 13;
+            this.btnLogout.Text = "Log Out";
+            this.btnLogout.TextColor = System.Drawing.Color.White;
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // frmDashBoard
             // 

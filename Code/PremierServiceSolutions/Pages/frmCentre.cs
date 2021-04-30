@@ -487,6 +487,7 @@ namespace PremierServiceSolutions.Pages
                 tbClientBusName.Text = ce.PersonName;
                 tbContact.Text = ce.ClientCell;
                 rtbAddress.Text = ce.ClientAddress;
+                
 
                 objCall2.ClientID = ce.ClientID;
                 setUpdate(objCall2, objCall2);
