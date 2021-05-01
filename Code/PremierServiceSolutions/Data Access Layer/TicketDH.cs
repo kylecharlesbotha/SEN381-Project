@@ -153,7 +153,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblTicket
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Tickets
-                string SelectQuery = "SELECT T.TicketID, T.TicketTitle, C.ClientName,T.TicketIssueType, T.TicketPriority, T.TicketStatus, Combined = CAST(T.TicketDateCreated as datetime) + CAST(T.TicketLoggedTime as datetime)  FROM tblTicket as T INNER JOIN tblClient as C ON T.ClientID = C.ClientID WHERE T.TicketStatus <> 'Closed'";
+                string SelectQuery = "SELECT T.TicketID,T.TechnicianID, T.TicketTitle, C.ClientName,T.TicketIssueType, T.TicketPriority, T.TicketStatus, Combined = CAST(T.TicketDateCreated as datetime) + CAST(T.TicketLoggedTime as datetime)  FROM tblTicket as T INNER JOIN tblClient as C ON T.ClientID = C.ClientID";
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
@@ -164,7 +164,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allTic.Add(new Ticket((int)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (string)sqlDataReader.GetValue(4), (string)sqlDataReader.GetValue(5), (DateTime)sqlDataReader.GetValue(6)));
+                    allTic.Add(new Ticket((int)sqlDataReader.GetValue(0), (int)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (string)sqlDataReader.GetValue(4), (string)sqlDataReader.GetValue(5), (string)sqlDataReader.GetValue(6), (DateTime)sqlDataReader.GetValue(7)));
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -174,7 +174,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             catch (SqlException SQLE)
             {
                 //Will catch any errors that occur and will display a error message. it will also return a empty list
-                MessageBox.Show("Error has occured");
+                MessageBox.Show(SQLE.Message);
                 return null;
             }
         }

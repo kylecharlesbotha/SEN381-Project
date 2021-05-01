@@ -49,14 +49,6 @@ namespace PremierServiceSolutions.Pages
             this.lblClosed = new System.Windows.Forms.Label();
             this.lblUnassigned = new System.Windows.Forms.Label();
             this.lblTicketsToday = new System.Windows.Forms.Label();
-            this.lblTickNumberHeading = new System.Windows.Forms.Label();
-            this.lblCustomerHeading = new System.Windows.Forms.Label();
-            this.lblIssueHeading = new System.Windows.Forms.Label();
-            this.lblPriorityHeading = new System.Windows.Forms.Label();
-            this.lblStatusHeading = new System.Windows.Forms.Label();
-            this.lblTimeCreated = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
@@ -64,7 +56,6 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.cBStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cBTechnician)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // flpTickets
@@ -73,9 +64,9 @@ namespace PremierServiceSolutions.Pages
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flpTickets.AutoScroll = true;
             this.flpTickets.BackColor = System.Drawing.Color.Transparent;
-            this.flpTickets.Location = new System.Drawing.Point(12, 223);
+            this.flpTickets.Location = new System.Drawing.Point(12, 178);
             this.flpTickets.Name = "flpTickets";
-            this.flpTickets.Size = new System.Drawing.Size(877, 505);
+            this.flpTickets.Size = new System.Drawing.Size(877, 550);
             this.flpTickets.TabIndex = 0;
             // 
             // lblTechnician
@@ -106,7 +97,7 @@ namespace PremierServiceSolutions.Pages
             this.panel1.Controls.Add(this.btnMyOpenTickets);
             this.panel1.Controls.Add(this.btnAllMyTickets);
             this.panel1.Controls.Add(this.btnNewTickets);
-            this.panel1.Location = new System.Drawing.Point(13, 123);
+            this.panel1.Location = new System.Drawing.Point(12, 107);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(685, 65);
             this.panel1.TabIndex = 9;
@@ -197,7 +188,7 @@ namespace PremierServiceSolutions.Pages
             this.panel2.Controls.Add(this.lblIssueType);
             this.panel2.Controls.Add(this.lblTechnician);
             this.panel2.Controls.Add(this.lblStatus);
-            this.panel2.Location = new System.Drawing.Point(12, 28);
+            this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(686, 89);
             this.panel2.TabIndex = 10;
@@ -288,7 +279,7 @@ namespace PremierServiceSolutions.Pages
             this.panel3.Controls.Add(this.lblClosed);
             this.panel3.Controls.Add(this.lblUnassigned);
             this.panel3.Controls.Add(this.lblTicketsToday);
-            this.panel3.Location = new System.Drawing.Point(704, 28);
+            this.panel3.Location = new System.Drawing.Point(705, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(184, 159);
             this.panel3.TabIndex = 11;
@@ -323,104 +314,6 @@ namespace PremierServiceSolutions.Pages
             this.lblTicketsToday.TabIndex = 8;
             this.lblTicketsToday.Text = "Tickets Today : 00";
             // 
-            // lblTickNumberHeading
-            // 
-            this.lblTickNumberHeading.AutoSize = true;
-            this.lblTickNumberHeading.BackColor = System.Drawing.Color.White;
-            this.lblTickNumberHeading.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTickNumberHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTickNumberHeading.Location = new System.Drawing.Point(25, 4);
-            this.lblTickNumberHeading.Name = "lblTickNumberHeading";
-            this.lblTickNumberHeading.Size = new System.Drawing.Size(20, 19);
-            this.lblTickNumberHeading.TabIndex = 12;
-            this.lblTickNumberHeading.Text = "#";
-            // 
-            // lblCustomerHeading
-            // 
-            this.lblCustomerHeading.AutoSize = true;
-            this.lblCustomerHeading.BackColor = System.Drawing.Color.White;
-            this.lblCustomerHeading.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCustomerHeading.Location = new System.Drawing.Point(184, 4);
-            this.lblCustomerHeading.Name = "lblCustomerHeading";
-            this.lblCustomerHeading.Size = new System.Drawing.Size(89, 19);
-            this.lblCustomerHeading.TabIndex = 13;
-            this.lblCustomerHeading.Text = "Customer";
-            // 
-            // lblIssueHeading
-            // 
-            this.lblIssueHeading.AutoSize = true;
-            this.lblIssueHeading.BackColor = System.Drawing.Color.White;
-            this.lblIssueHeading.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssueHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblIssueHeading.Location = new System.Drawing.Point(315, 4);
-            this.lblIssueHeading.Name = "lblIssueHeading";
-            this.lblIssueHeading.Size = new System.Drawing.Size(96, 19);
-            this.lblIssueHeading.TabIndex = 14;
-            this.lblIssueHeading.Text = "Issue Type";
-            // 
-            // lblPriorityHeading
-            // 
-            this.lblPriorityHeading.AutoSize = true;
-            this.lblPriorityHeading.BackColor = System.Drawing.Color.White;
-            this.lblPriorityHeading.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPriorityHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPriorityHeading.Location = new System.Drawing.Point(417, 4);
-            this.lblPriorityHeading.Name = "lblPriorityHeading";
-            this.lblPriorityHeading.Size = new System.Drawing.Size(71, 19);
-            this.lblPriorityHeading.TabIndex = 15;
-            this.lblPriorityHeading.Text = "Priority";
-            // 
-            // lblStatusHeading
-            // 
-            this.lblStatusHeading.AutoSize = true;
-            this.lblStatusHeading.BackColor = System.Drawing.Color.White;
-            this.lblStatusHeading.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblStatusHeading.Location = new System.Drawing.Point(551, 4);
-            this.lblStatusHeading.Name = "lblStatusHeading";
-            this.lblStatusHeading.Size = new System.Drawing.Size(62, 19);
-            this.lblStatusHeading.TabIndex = 16;
-            this.lblStatusHeading.Text = "Status";
-            // 
-            // lblTimeCreated
-            // 
-            this.lblTimeCreated.AutoSize = true;
-            this.lblTimeCreated.BackColor = System.Drawing.Color.White;
-            this.lblTimeCreated.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeCreated.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTimeCreated.Location = new System.Drawing.Point(702, 4);
-            this.lblTimeCreated.Name = "lblTimeCreated";
-            this.lblTimeCreated.Size = new System.Drawing.Size(119, 19);
-            this.lblTimeCreated.TabIndex = 17;
-            this.lblTimeCreated.Text = "Time Created";
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.White;
-            this.lblTitle.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(51, 4);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(102, 19);
-            this.lblTitle.TabIndex = 18;
-            this.lblTitle.Text = "Ticket Title";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.lblTitle);
-            this.panel4.Controls.Add(this.lblTimeCreated);
-            this.panel4.Controls.Add(this.lblTickNumberHeading);
-            this.panel4.Controls.Add(this.lblStatusHeading);
-            this.panel4.Controls.Add(this.lblCustomerHeading);
-            this.panel4.Controls.Add(this.lblPriorityHeading);
-            this.panel4.Controls.Add(this.lblIssueHeading);
-            this.panel4.Location = new System.Drawing.Point(13, 193);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(874, 35);
-            this.panel4.TabIndex = 19;
-            // 
             // frmTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,7 +326,6 @@ namespace PremierServiceSolutions.Pages
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flpTickets);
-            this.Controls.Add(this.panel4);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -446,8 +338,6 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.cBStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cBTechnician)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -469,14 +359,6 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Label lblClosed;
         private System.Windows.Forms.Label lblUnassigned;
         private System.Windows.Forms.Label lblTicketsToday;
-        private System.Windows.Forms.Label lblTickNumberHeading;
-        private System.Windows.Forms.Label lblCustomerHeading;
-        private System.Windows.Forms.Label lblIssueHeading;
-        private System.Windows.Forms.Label lblPriorityHeading;
-        private System.Windows.Forms.Label lblStatusHeading;
-        private System.Windows.Forms.Label lblTimeCreated;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Panel panel4;
         private Syncfusion.WinForms.ListView.SfComboBox cbPriority;
         private Syncfusion.WinForms.ListView.SfComboBox cbIssueType;
         private Syncfusion.WinForms.ListView.SfComboBox cBStatus;

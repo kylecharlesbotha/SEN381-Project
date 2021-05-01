@@ -44,9 +44,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.clientID = clientID;
             this.employeeID = employeeID;
         }
-        public Ticket(int ticketID, string ticketTitle,string clientname, string ticketIssueType, string ticketPriority, string ticketStatus,DateTime datecreated)
+        public Ticket(int ticketID,int techID, string ticketTitle,string clientname, string ticketIssueType, string ticketPriority, string ticketStatus,DateTime datecreated)
         {
             this.ticketID = ticketID;
+            this.technicianID = techID;
             this.ticketTitle = ticketTitle;
             this.ticketIssueType = ticketIssueType;
             this.ticketPriority = ticketPriority;
