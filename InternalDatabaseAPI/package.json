@@ -15,8 +15,6 @@
     "express": "^4.17.1",
     "helmet": "^4.5.0",
     "morgan": "^1.10.0",
-    "mssql": "^6.3.1",
-    "tedious": "^11.0.7",
-    "tedious-async": "^1.0.9"
+    "mssql": "^6.3.1"
   }
 }

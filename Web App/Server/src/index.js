@@ -3,7 +3,7 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 require("dotenv").config({ path: __dirname + "/../.env" });
 const port = process.env.PORT || 3001;
-
+const con = require("./db/db.js");
 const app = express();
 
 app.use(morgan("dev"));
@@ -23,6 +23,17 @@ app.get("/", (req, res, next) => {
     }
   });
 
+
+app.get("/testdb", (req, res, next) => {
+  try {
+    //throw new Error("Error");
+    con("DELETE FROM tblTest WHERE name='Kyle1'");
+    res.send("Done");
+    next();
+  } catch (error) {
+    next(error);
+  }
+});  
   //Error
 app.use((error, req, res, next) => {
     if (error.status) {
