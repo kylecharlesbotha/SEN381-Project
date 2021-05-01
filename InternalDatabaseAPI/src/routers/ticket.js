@@ -23,7 +23,6 @@ router.post("/db/tickets/updateTicket",async(req,res,next)=>{
     }catch (error){
         next(error);
     }
-    
 })
 
 module.exports = router
