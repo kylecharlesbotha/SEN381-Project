@@ -1,15 +1,30 @@
 const router = require("express").Router();
+const { NText } = require("mssql");
 const Crud = require("../models/crud");
 UserCrud = new Crud("tblUser", "UserID");
-router.get("/db/users/getUsers",async(req,res)=>{
-    res.send(await UserCrud.readAll());  
-})
-router.post("/db/users/getUser",async(req,res)=>{
+router.get("/db/users/getUsers",async(req,res,next)=>{
+    try{
+        res.send(await UserCrud.readAll());  
+    }catch (error){
+        next(error);
+    }
+});
+
+router.post("/db/users/getUser",async(req,res, next)=>{
     //!Expects userid header inside post req
-    res.send(await UserCrud.readOne(req.headers.userid));  
-})
-router.post("/db/users/updateUser",async(req,res)=>{
-    res.send(await UserCrud.updateOne(req.headers.userid, req.body.changes));
-})
+    try{
+        res.send(await UserCrud.readOne(req.headers.userid)); 
+    }catch (error){
+        next(error);
+    }  
+});
+
+router.post("/db/users/updateUser",async(req,res,next)=>{
+    try{
+        res.send(await UserCrud.updateOne(req.headers.userid, req.body.changes));
+    }catch (error){
+        next(error);
+    }
+});
 
 module.exports = router;
