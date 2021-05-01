@@ -16,13 +16,18 @@ namespace PremierServiceSolutions.Pages
         Ticket objTicket = new Ticket();
         List<Ticket> listTicket = new List<Ticket>();
         List<Technician> lstTechnician;
+        List<Issue> lstIssue;
         public frmTickets()
         {
             InitializeComponent();
             listTicket = objTicket.GetAllTicket();
             PopulateCbb();
             PopulateTickets();
-            
+            this.Width = 900;
+            this.Height = 740;
+            pnlTicketDetials.Left = 12;
+
+
         }
 
 
@@ -33,7 +38,7 @@ namespace PremierServiceSolutions.Pages
             try
             {
                 Issue objissue = new Issue();
-                List<Issue> lstIssue = objissue.GetAllIssues();
+                lstIssue = objissue.GetAllIssues();
                 cbIssueType.DataSource = lstIssue;
 
                 Priority objPriority = new Priority();
@@ -98,9 +103,6 @@ namespace PremierServiceSolutions.Pages
             //Setting new panel to insert at the top and move rest down
             flpTickets.Controls.SetChildIndex(p, 0);
 
-            //Painting the name on the panel
-            //p.Paint += (ss, ee) => { ee.Graphics.DrawString(p.Name, Font, Brushes.White, 22, 11); };
-
 
             //Creating Label for ticketnumber
             Label lID = new Label();
@@ -114,8 +116,7 @@ namespace PremierServiceSolutions.Pages
             lID.Left = 5;
             lID.Font = new Font("Arial", 10, FontStyle.Bold);
             lID.ForeColor = Color.White;
-            lID.BackColor = Color.Red;
-            lID.Click += new EventHandler(lblTicketIDClick);
+            lID.Click += new EventHandler(DisplayTickDetails);
 
             //Creating Label for tickettitle
             Label lTi = new Label();
@@ -129,8 +130,7 @@ namespace PremierServiceSolutions.Pages
             lTi.Left = (lID.Left + lID.Width  + 10);
             lTi.Font = new Font("Arial", 10, FontStyle.Bold);
             lTi.ForeColor = Color.White;
-            lTi.BackColor = Color.Pink;
-            lTi.Click += new EventHandler(lblTicketIDClick);
+
 
             //Creating Label for CustomerDetails
             Label lCus = new Label();
@@ -144,37 +144,30 @@ namespace PremierServiceSolutions.Pages
             lCus.Left = (lTi.Left + lTi.Width + 10);
             lCus.Font = new Font("Arial", 10, FontStyle.Bold);
             lCus.ForeColor = Color.White;
-            lCus.BackColor = Color.Blue;
-            lCus.Click += new EventHandler(lblTicketIDClick);
+
 
             string TechName = "";
-            int TechPos = 0;
-            int iCount = 0;
             foreach (Technician tecitem in lstTechnician)
             {
-                iCount++;
                 if(TechnicianID==tecitem.TechnicianID)
                 {
                     TechName = tecitem.TechName;
-                    TechPos = iCount;
-                    //MessageBox.Show(Convert.ToString(TechPos));
-                    //MessageBox.Show( Convert.ToString(tecitem.TechnicianID) + " " +TechName);   
                 }
             }
 
-            ComboBox cbTech = new ComboBox();
-            cbTech.Name = "cbTechName" + flpTickets.Controls.Count;
-            cbTech.DataSource = lstTechnician;
-            cbTech.DisplayMember = "TechNameList";  
-            cbTech.AutoSize = false;
-            cbTech.Size = new Size(150, 30);
-            p.Controls.Add(cbTech);
-            cbTech.Top = 10;
-            cbTech.Left = (lCus.Left + lCus.Width + 10);
-            cbTech.Font = new Font("Arial", 10, FontStyle.Bold);
-            cbTech.ForeColor = Color.White;
-            cbTech.BackColor = Color.Blue;
-            cbTech.MouseHover += new EventHandler(Testing);
+            Label lTech = new Label();
+            lTech.Name = "lTech" + flpTickets.Controls.Count;
+            lTech.AutoSize = false;
+            lTech.Text = TechName;
+            lTech.Size = new Size(150, 30);
+            p.Controls.Add(lTech);
+            lTech.Top = 10;
+            lTech.TextAlign = ContentAlignment.MiddleCenter;
+            lTech.Left = (lCus.Left + lCus.Width + 10);
+            lTech.Font = new Font("Arial", 10, FontStyle.Bold);
+            lTech.ForeColor = Color.White;
+
+
 
             //Creating Label for Issue Type
             Label lIssue = new Label();
@@ -185,11 +178,10 @@ namespace PremierServiceSolutions.Pages
             p.Controls.Add(lIssue);
             lIssue.Top = 10;
             lIssue.TextAlign = ContentAlignment.MiddleCenter;
-            lIssue.Left = (cbTech.Left + cbTech.Width + 10);
+            lIssue.Left = (lTech.Left + lTech.Width + 10);
             lIssue.Font = new Font("Arial", 10, FontStyle.Bold);
             lIssue.ForeColor = Color.White;
-            //lIssue.BackColor = Color.White;
-            lIssue.Click += new EventHandler(lblTicketIDClick);
+
 
             //Creating Label for Priority
             Label lPriority = new Label();
@@ -203,8 +195,7 @@ namespace PremierServiceSolutions.Pages
             lPriority.Left = (lIssue.Left + lIssue.Width + 10);
             lPriority.Font = new Font("Arial", 10, FontStyle.Bold);
             lPriority.ForeColor = Color.White;
-            //lPriority.BackColor = Color.White;
-            lPriority.Click += new EventHandler(lblTicketIDClick);
+
 
 
             //Creating Label for Status
@@ -219,8 +210,7 @@ namespace PremierServiceSolutions.Pages
             lStatus.Left = (lPriority.Left + lPriority.Width + 10);
             lStatus.Font = new Font("Arial", 10, FontStyle.Bold);
             lStatus.ForeColor = Color.White;
-            //lStatus.BackColor = Color.White;
-            lStatus.Click += new EventHandler(lblTicketIDClick);
+
 
 
             //Creating Label for Time Created
@@ -235,8 +225,7 @@ namespace PremierServiceSolutions.Pages
             lTime.Left = (lStatus.Left + lStatus.Width + 10);
             lTime.Font = new Font("Arial", 10, FontStyle.Bold);
             lTime.ForeColor = Color.White;
-            //lTime.BackColor = Color.White;
-            lTime.Click += new EventHandler(lblTicketIDClick);
+
 
 
             //Updating the Panel and forcing it to refresh its self
@@ -377,11 +366,7 @@ namespace PremierServiceSolutions.Pages
             flpTickets.Invalidate();
         }
 
-        protected void Testing(object sender, EventArgs e)
-        {
-            ComboBox cb = sender as ComboBox;
-            MessageBox.Show(cb.Name);
-        }
+
         #endregion
 
         protected void btnTicketView(object sender, EventArgs e)
@@ -389,21 +374,50 @@ namespace PremierServiceSolutions.Pages
             Button btn = sender as Button;
             MessageBox.Show(btn.Name);
         }
-        protected void lblTicketIDClick(object sender, EventArgs e)
+        protected void DisplayTickDetails(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            MessageBox.Show(lbl.Name);
+            int TechID = 0 ;
+            string TechName;
+            string Status;
+            foreach (Ticket ticket in listTicket)
+            {
+                if(lbl.Text == ticket.TicketID.ToString())
+                {
+                    tbClientBusName.Text = ticket.ClientName;
+                    rtbDesctiption.Text = ticket.TicketDescription;
+                    tbTickPriority.Text = ticket.TicketPriority;
+                    tbTickIssue.Text = ticket.TicketIssueType;
+                    tbTicLogged.Text = ticket.TicketLoggedTime.ToString();
+                    tbTickDateDue.Text = ticket.TicketDueDate.ToString();
+                    tbTicketID.Text = ticket.TicketID.ToString();
+                    tbTickTitle.Text = ticket.TicketTitle;
+                    Status = ticket.TicketStatus;
+                    TechID = ticket.TechnicianID;
+                }
+            }
+            int icount = -1;
+            int select = 0;
+            foreach (Technician item in lstTechnician)
+            {
+                icount++;
+                if(item.TechnicianID == TechID)
+                {
+                    select = icount;
+                }
+
+            }
+
+            sfTechCombo.DataSource = lstTechnician;
+            sfTechCombo.DisplayMember = "TechNameList";
+            sfTechCombo.SelectedIndex = select;
+
+            pnlTicketDetials.Visible = true;
         }
 
-
-        private void lblStatus_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void cBStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            pnlTicketDetials.Visible = false;
         }
     }
 }
