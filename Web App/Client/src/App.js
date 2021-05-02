@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Aux from "./hoc/Auxillary";
 import Layout from "./layout/Layout";
