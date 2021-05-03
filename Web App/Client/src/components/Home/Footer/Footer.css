@@ -1,0 +1,22 @@
+.fa {
+  display: inline-block;
+  font-size: 30px;
+  line-height: 32px;
+  color: white;
+  text-align: center;
+  vertical-align: top;
+}
+.footerheading h5 {
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+.footerheading p {
+  text-align: center;
+  font-size: small;
+  padding: 0px;
+  margin: 0px;
+}
+
+.btnsubscribe {
+  margin-top: 5%;
+}

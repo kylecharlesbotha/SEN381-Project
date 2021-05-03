@@ -2,7 +2,7 @@ import "./Navigation.css";
 import { NavLink } from "react-router-dom";
 const Navigation = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-2 mb-2 bg-white rounded">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           Premier Service Solutions
@@ -12,11 +12,8 @@ const Navigation = (props) => {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <i className="fa fa-bars"></i>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">

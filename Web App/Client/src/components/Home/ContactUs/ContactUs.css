@@ -1,18 +1,31 @@
-.contactus {
-  background-color: red;
-}
-
 .piccon {
-  background-color: blue;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
-
-.detcon {
-  background-color: green;
+.contactus {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
-
 .emailcontactus {
   display: block;
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  width: 100%;
+}
+
+.btnsendemail {
+  margin-bottom: 2%;
+}
+
+.sendemailimage {
+  width: 30%;
+  margin-left: 5%;
+}
+
+input {
+  border-radius: 25px;
+}
+.input-group-prepend {
+  background-color: red;
+  margin-bottom: 12%;
 }

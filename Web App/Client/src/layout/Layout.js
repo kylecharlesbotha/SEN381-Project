@@ -4,6 +4,7 @@ import Aux from "../hoc/Auxillary";
 import AgentPortal from "../components/AgentPortal/AgentPortal";
 import ClientPortal from "../components/ClientPortal/ClientPortal";
 import Home from "../components/Home/Home";
+import "font-awesome/css/font-awesome.min.css";
 
 class Layout extends Component {
   render() {
