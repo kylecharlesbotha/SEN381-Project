@@ -2,9 +2,7 @@ import Aux from "../../../hoc/Auxillary";
 import "../ContactUs/ContactUs.css";
 import Email from "../../../assets/images/EmailEtiquette.png";
 import Arrow from "../../../assets/images/arrow.png";
-import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import "font-awesome/css/font-awesome.min.css";
 
 const ContactUs = () => {
@@ -75,7 +73,7 @@ const ContactUs = () => {
               className="btn btn-dark btnsendemail btn-rounded"
             >
               Send Email
-              <img src={Arrow} className="sendemailimage" />
+              <img src={Arrow} className="sendemailimage" alt="arrow" />
             </button>
           </div>
         </div>

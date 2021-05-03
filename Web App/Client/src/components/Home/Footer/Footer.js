@@ -2,7 +2,6 @@ import Aux from "../../../hoc/Auxillary";
 import "./../Footer/Footer.css";
 import "font-awesome/css/font-awesome.min.css";
 import "mdb-ui-kit/css/mdb.min.css";
-import TextField from "@material-ui/core/TextField";
 
 const Footer = () => {
   return (
@@ -36,13 +35,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="container p-4 pb-0 text-center">
+        <div className="container p-1 pb-0 text-center footersec">
           <section className="mb-4">
             <a
               className="btn btn-floating m-1 btnfacebook"
               href="https://facebook.com"
               role="button"
               target="_blank"
+              rel="noreferrer"
             >
               <i className="fa fa-facebook"></i>
             </a>
@@ -52,6 +52,7 @@ const Footer = () => {
               href="https://twitter.com"
               target="_blank"
               role="button"
+              rel="noreferrer"
             >
               <i className="fa fa-twitter"></i>
             </a>
@@ -61,6 +62,7 @@ const Footer = () => {
               href="https://google.com"
               role="button"
               target="_blank"
+              rel="noreferrer"
             >
               <i className="fa fa-google"></i>
             </a>
@@ -70,6 +72,7 @@ const Footer = () => {
               href="https://instagram.com"
               role="button"
               target="_blank"
+              rel="noreferrer"
             >
               <i className="fa fa-instagram"></i>
             </a>
@@ -79,6 +82,7 @@ const Footer = () => {
               href="https://linkedin.com"
               role="button"
               target="_blank"
+              rel="noreferrer"
             >
               <i className="fa fa-linkedin"></i>
             </a>
@@ -88,12 +92,13 @@ const Footer = () => {
               href="https://github.com"
               role="button"
               target="_blank"
+              rel="noreferrer"
             >
               <i className="fa fa-github"></i>
             </a>
           </section>
         </div>
-        <section className="container">
+        <section className="container newsletter">
           <div className="row  justify-content-center">
             <div className="col-md-3">
               <p className="pt-1">
@@ -115,14 +120,16 @@ const Footer = () => {
             </div>
           </div>
         </section>
-        <div className="text-center p-3 footer">
-          © 2021 Copyright:
-          <a
-            className="text-white"
-            href="https://premierservicesolutions.co.za"
-          >
-            PremierServiceSolutions
-          </a>
+        <div className="footer">
+          <div className="text-center p-3">
+            © 2021 Copyright:
+            <a
+              className="text-white"
+              href="https://premierservicesolutions.co.za"
+            >
+              PremierServiceSolutions
+            </a>
+          </div>
         </div>
       </div>
     </Aux>

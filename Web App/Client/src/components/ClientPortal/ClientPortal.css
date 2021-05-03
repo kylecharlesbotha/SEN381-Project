@@ -1,0 +1,13 @@
+.navbar .fa-arrow-left {
+  color: black;
+  font-size: x-large;
+}
+.container {
+  margin-top: 8%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
