@@ -11,23 +11,24 @@ const ContactUs = () => {
   return (
     <Aux>
       <div
-        className="contactus container shadow-lg p-3 mb-5 bg-light rounded"
+        className="contactus container shadow-lg p-0  mb-5 bg-light rounded"
         id="contactus"
       >
         <div className="row">
           <div className="col-md-6 piccon">
             <img src={Email} className="emailcontactus" alt="paper plane" />
           </div>
-          <div className="col-md-6 detcon text-center">
+          <div className="col-md-6 detailscon text-center">
             <h2>Contact Us</h2>
             <div className="input-group mb-3">
               <div className="input-group-prepend"></div>
               <TextField
                 id="filled-basic"
                 label="Name"
-                variant="filled"
-                className="form-control"
+                variant="outlined"
+                className="form-control lblHeader"
                 size="small"
+                required
                 color="secondary"
               />
             </div>
@@ -36,8 +37,9 @@ const ContactUs = () => {
               <TextField
                 id="filled-basic"
                 label="Email Address"
-                variant="filled"
-                className="form-control"
+                variant="outlined"
+                required
+                className="form-control lblHeader"
                 size="small"
                 color="secondary"
               />
@@ -47,19 +49,25 @@ const ContactUs = () => {
               <TextField
                 id="filled-basic"
                 label="Subject"
-                variant="filled"
-                className="form-control"
+                required
+                variant="outlined"
+                className="form-control lblHeader"
                 size="small"
                 color="secondary"
               />
             </div>
             <div className="input-group mb-3">
               <div className="input-group-prepend"></div>
-              <TextareaAutosize
-                aria-label="minimum height"
-                rowsMin={2}
-                className="form-control"
-                placeholder="Message"
+              <TextField
+                id="standard-multiline-static"
+                label="Message"
+                multiline
+                required
+                variant="outlined"
+                className="form-control lblHeader"
+                size="small"
+                rowsMax={3}
+                color="secondary"
               />
             </div>
             <button

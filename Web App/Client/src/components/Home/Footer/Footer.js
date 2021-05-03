@@ -116,7 +116,7 @@ const Footer = () => {
           </div>
         </section>
         <div className="text-center p-3 footer">
-          © 2021 Copyright :
+          © 2021 Copyright:
           <a
             className="text-white"
             href="https://premierservicesolutions.co.za"
