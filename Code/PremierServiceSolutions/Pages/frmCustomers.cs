@@ -36,8 +36,6 @@ namespace PremierServiceSolutions.Pages
             PopulateClients();
             PopulateCBB();
         }
-
-
         public void PopulateClients()
         {
             foreach (Client clitem in lstClients)
@@ -65,6 +63,18 @@ namespace PremierServiceSolutions.Pages
             
         }
 
+        private void tBSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                tBSearch.Text = "Start Typing Client or Client ID";
+                pnlTopClient.Focus();
+                flpCustomers.Visible = false;
+                ResetSearch();
+                PopulateClients();
+                flpCustomers.Visible = true;
+            }
+        }
 
         #region Client Panel
         private void CreateEntry(string ID, string Name, string Contacts,string Email,DateTime DateCreated)
@@ -253,6 +263,7 @@ namespace PremierServiceSolutions.Pages
         private void btnRAddClient_Click(object sender, EventArgs e)
         {
             pnlNewClient.Visible = true;
+            btnReset_Click(null,null);//resets entry form to default state. Acts as a form load
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -354,23 +365,187 @@ namespace PremierServiceSolutions.Pages
         }
 
         #endregion
-
         private void tBSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
-        private void tBSearch_KeyDown(object sender, KeyEventArgs e)
+
+
+
+
+        //////////////////////PNL NEW CUSTOMERS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+        #region Button Reset Methods
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+
+        }
+        #endregion
+
+        #region FirstName Methods
+
+        private void tbFirstName_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbFirstName.Clear();
+            pbFirstNameCheck.Hide();
+        }
+
+        private void tbFirstName_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            if (String.IsNullOrEmpty(tbFirstName.Text))
             {
-                tBSearch.Text = "Start Typing Client or Client ID";
-                pnlTopClient.Focus();
-                flpCustomers.Visible = false;
-                ResetSearch();
-                PopulateClients();
-                flpCustomers.Visible = true;
+                tbFirstName.Text = "Username";
+                pbFirstNameCheck.Image = Properties.Resources.DeleteMark;
+                //CheckFirstName = false;
+                pbFirstNameCheck.Hide();
             }
         }
+
+        private void tbFirstName_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Alphabetic characters only
+        {
+            if (!char.IsLetter(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblFirstNameCheck.Text = "Please enter only Alphabetical characters.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblFirstNameCheck.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbFirstName_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+
+        }
+
+      
+        #endregion
+
+        #region Surname Methods
+        private void tbSurname_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbSurname.Clear();
+            pbSurnameCheck.Hide();
+        }
+
+        private void tbSurname_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            if (String.IsNullOrEmpty(tbSurname.Text))
+            {
+                tbSurname.Text = "Username";
+                pbSurnameCheck.Image = Properties.Resources.DeleteMark;
+                //CheckSurname = false;
+                pbSurnameCheck.Hide();
+            }
+        }
+
+        private void tbSurname_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Alphabetic characters only
+        {
+            if (!char.IsLetter(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblSurnameCheck.Text = "Please enter only Alphabetical characters.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblSurnameCheck.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbSurname_TextChanged(object sender, EventArgs e) //If textbox text change, check for the following below
+        {
+
+
+        }
+
+
+
+
+        #endregion
+
+        #region IDNumber Methods
+        private void tbIDNumber_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbIDNumber.Clear();
+            pbIDNumberCheck.Hide();
+        }
+
+        private void tbIDNumber_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            if (String.IsNullOrEmpty(tbIDNumber.Text))
+            {
+                tbIDNumber.Text = "Username";
+                pbIDNumberCheck.Image = Properties.Resources.DeleteMark;
+                //CheckSIDNumber = false;
+                pbIDNumberCheck.Hide();
+            }
+        }
+
+        private void tbIDNumber_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Numbers only
+        {
+            if (!char.IsNumber(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblCheckIDNumber.Text = "Please enter only numbers.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblCheckIDNumber.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbIDNumber_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+
+        }
+
+
+        #endregion
+
+        #region Phone Methods
+        private void tbPhone_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbPhone.Clear();
+            pbPhoneCheck.Hide();
+        }
+
+        private void tbPhone_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            if (String.IsNullOrEmpty(tbPhone.Text))
+            {
+                tbPhone.Text = "Phone";
+                pbPhoneCheck.Image = Properties.Resources.DeleteMark;
+                //CheckPhone = false;
+                pbPhoneCheck.Hide();
+            }
+        }
+        private void tbPhone_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Numbers only
+        {
+            if (!char.IsNumber(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblCheckPhone.Text = "Please enter only numbers.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblCheckPhone.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbPhone_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+
+        }
+
+        #endregion
     }
 }
