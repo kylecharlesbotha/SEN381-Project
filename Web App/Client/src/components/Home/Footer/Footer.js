@@ -120,7 +120,7 @@ const Footer = () => {
             </div>
           </div>
         </section>
-        <div className="footer">
+        <div className="footer1">
           <div className="text-center p-3">
             © 2021 Copyright:
             <a

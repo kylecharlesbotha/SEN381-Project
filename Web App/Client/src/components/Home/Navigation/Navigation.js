@@ -5,7 +5,7 @@ import Box from "@material-ui/core/Box";
 import Logo from "../../../assets/images/PSSLogo.png";
 const Navigation = (props) => {
   return (
-    <Typography component="Div">
+    <Typography component="div">
       <Box>
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-2 mb-2 bg-white rounded">
           <div className="container-fluid">
