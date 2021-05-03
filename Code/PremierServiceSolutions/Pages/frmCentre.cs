@@ -15,6 +15,7 @@ namespace PremierServiceSolutions.Pages
 {
     public partial class frmCentre : Form
     {
+        
         bool Answer = false;
         DateTime startTime = new DateTime();
         List<Client> lsAllClients = new List<Client>();
@@ -558,6 +559,8 @@ namespace PremierServiceSolutions.Pages
 
 
                 cbTechnician.DataSource = lstTechnician;
+                cbTechnician.SelectedIndex = 0;
+                cbTechnician.Text = "Administrator";
 
                 cbIssueType.DisplayMember = "IssueName";
 
@@ -601,6 +604,9 @@ namespace PremierServiceSolutions.Pages
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
             AddTicket();
+
+            pnlClientDetials.Enabled = false;
+            pnlTicket.Enabled = false;
         }
 
         public void AddTicket()
@@ -733,6 +739,13 @@ namespace PremierServiceSolutions.Pages
                 pbDeclineCall.Image = Properties.Resources.DeclineCall;
                 pBAnswerCall.Enabled = false;
                 pbDeclineCall.Enabled = false;
+
+                pnlTicket.Enabled = false;
+                pnlClientDetials.Enabled = false;
+
+                lblTimeStarted.Text = "Time Started :";
+                lblCellNumber.Text = "Phone Number";
+                lblTime.Text = "Call Duration :";
             }
             catch (Exception ee)
             {
@@ -741,5 +754,7 @@ namespace PremierServiceSolutions.Pages
            
 
         }
+
+        
     }
 }
