@@ -12,6 +12,12 @@
 .detailscon {
   background-color: white;
 }
+.detailscon h2 {
+  font-weight: 600;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: rgb(218, 0, 0);
+}
 .emailcontactus {
   display: block;
   margin: auto;
