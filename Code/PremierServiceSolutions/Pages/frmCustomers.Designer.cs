@@ -31,9 +31,7 @@ namespace PremierServiceSolutions.Pages
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomers));
             this.pnlTopClient = new System.Windows.Forms.Panel();
-            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
-            this.btnRAddClient = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.flpCustomers = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlSearchHeadings = new System.Windows.Forms.Panel();
             this.lblContacts = new System.Windows.Forms.Label();
@@ -42,6 +40,8 @@ namespace PremierServiceSolutions.Pages
             this.lblCustomerHeading = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.pnlNewClient = new System.Windows.Forms.Panel();
+            this.lblPhoneCheck = new System.Windows.Forms.Label();
+            this.lblIDNumberCheck = new System.Windows.Forms.Label();
             this.lblSurnameCheck = new System.Windows.Forms.Label();
             this.lblFirstNameCheck = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,8 +50,8 @@ namespace PremierServiceSolutions.Pages
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pbNewCusTitle = new System.Windows.Forms.PictureBox();
-            this.pbNewCusPriority = new System.Windows.Forms.PictureBox();
+            this.pbTitleCheck = new System.Windows.Forms.PictureBox();
+            this.pbPriorityCheck = new System.Windows.Forms.PictureBox();
             this.pbPhoneCheck = new System.Windows.Forms.PictureBox();
             this.pbEmailCheck = new System.Windows.Forms.PictureBox();
             this.pbIDNumberCheck = new System.Windows.Forms.PictureBox();
@@ -65,10 +65,6 @@ namespace PremierServiceSolutions.Pages
             this.chkSendEmail = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.chkSendSMS = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCreateCustomerandTicket = new BrbVideoManager.Controls.RoundedButton();
-            this.btnCreateCustomer = new BrbVideoManager.Controls.RoundedButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlDivider = new System.Windows.Forms.Panel();
             this.lblNewCustomer = new System.Windows.Forms.Label();
@@ -85,7 +81,6 @@ namespace PremierServiceSolutions.Pages
             this.lblAddress = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.lblPriority = new System.Windows.Forms.Label();
-            this.tbPriority = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.lblAddEmail = new System.Windows.Forms.Label();
@@ -96,8 +91,15 @@ namespace PremierServiceSolutions.Pages
             this.tbSurname = new System.Windows.Forms.TextBox();
             this.lblClient = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.lblCheckIDNumber = new System.Windows.Forms.Label();
-            this.lblCheckPhone = new System.Windows.Forms.Label();
+            this.cbPriority = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnCreateCustomerandTicket = new BrbVideoManager.Controls.RoundedButton();
+            this.btnCreateCustomer = new BrbVideoManager.Controls.RoundedButton();
+            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
+            this.btnRAddClient = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.lblPriorityCheck = new System.Windows.Forms.Label();
+            this.lblTitleCheck = new System.Windows.Forms.Label();
             this.pnlTopClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
             this.pnlSearchHeadings.SuspendLayout();
@@ -108,8 +110,8 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewCusTitle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewCusPriority)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTitleCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPriorityCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIDNumberCheck)).BeginInit();
@@ -120,6 +122,7 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.chkEmailonTick)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendSMS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTopClient
@@ -133,25 +136,6 @@ namespace PremierServiceSolutions.Pages
             this.pnlTopClient.Size = new System.Drawing.Size(883, 69);
             this.pnlTopClient.TabIndex = 1;
             // 
-            // tBSearch
-            // 
-            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tBSearch.Location = new System.Drawing.Point(54, 20);
-            this.tBSearch.Multiline = true;
-            this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(380, 31);
-            this.tBSearch.TabIndex = 51;
-            this.tBSearch.Text = "Start Typing Client or Client ID";
-            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
-            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
-            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
-            this.tBSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBSearch_KeyPress);
-            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
-            // 
             // iPBSearch
             // 
             this.iPBSearch.BackColor = System.Drawing.Color.White;
@@ -164,28 +148,6 @@ namespace PremierServiceSolutions.Pages
             this.iPBSearch.Size = new System.Drawing.Size(32, 40);
             this.iPBSearch.TabIndex = 52;
             this.iPBSearch.TabStop = false;
-            // 
-            // btnRAddClient
-            // 
-            this.btnRAddClient.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRAddClient.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRAddClient.FlatAppearance.BorderSize = 0;
-            this.btnRAddClient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnRAddClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnRAddClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRAddClient.Location = new System.Drawing.Point(682, 14);
-            this.btnRAddClient.Name = "btnRAddClient";
-            this.btnRAddClient.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnRAddClient.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnRAddClient.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRAddClient.Size = new System.Drawing.Size(185, 40);
-            this.btnRAddClient.TabIndex = 53;
-            this.btnRAddClient.TabStop = false;
-            this.btnRAddClient.Text = "New Client +";
-            this.btnRAddClient.TextColor = System.Drawing.Color.White;
-            this.btnRAddClient.UseVisualStyleBackColor = true;
-            this.btnRAddClient.Click += new System.EventHandler(this.btnRAddClient_Click);
             // 
             // flpCustomers
             // 
@@ -273,8 +235,11 @@ namespace PremierServiceSolutions.Pages
             // pnlNewClient
             // 
             this.pnlNewClient.BackColor = System.Drawing.Color.White;
-            this.pnlNewClient.Controls.Add(this.lblCheckPhone);
-            this.pnlNewClient.Controls.Add(this.lblCheckIDNumber);
+            this.pnlNewClient.Controls.Add(this.lblTitleCheck);
+            this.pnlNewClient.Controls.Add(this.lblPriorityCheck);
+            this.pnlNewClient.Controls.Add(this.cbPriority);
+            this.pnlNewClient.Controls.Add(this.lblPhoneCheck);
+            this.pnlNewClient.Controls.Add(this.lblIDNumberCheck);
             this.pnlNewClient.Controls.Add(this.lblSurnameCheck);
             this.pnlNewClient.Controls.Add(this.lblFirstNameCheck);
             this.pnlNewClient.Controls.Add(this.pictureBox1);
@@ -283,8 +248,8 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewClient.Controls.Add(this.pictureBox4);
             this.pnlNewClient.Controls.Add(this.pictureBox5);
             this.pnlNewClient.Controls.Add(this.pictureBox6);
-            this.pnlNewClient.Controls.Add(this.pbNewCusTitle);
-            this.pnlNewClient.Controls.Add(this.pbNewCusPriority);
+            this.pnlNewClient.Controls.Add(this.pbTitleCheck);
+            this.pnlNewClient.Controls.Add(this.pbPriorityCheck);
             this.pnlNewClient.Controls.Add(this.pbPhoneCheck);
             this.pnlNewClient.Controls.Add(this.pbEmailCheck);
             this.pnlNewClient.Controls.Add(this.pbIDNumberCheck);
@@ -318,7 +283,6 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewClient.Controls.Add(this.lblAddress);
             this.pnlNewClient.Controls.Add(this.tbAddress);
             this.pnlNewClient.Controls.Add(this.lblPriority);
-            this.pnlNewClient.Controls.Add(this.tbPriority);
             this.pnlNewClient.Controls.Add(this.lblPhone);
             this.pnlNewClient.Controls.Add(this.tbPhone);
             this.pnlNewClient.Controls.Add(this.lblAddEmail);
@@ -334,6 +298,28 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewClient.Size = new System.Drawing.Size(883, 725);
             this.pnlNewClient.TabIndex = 21;
             this.pnlNewClient.Visible = false;
+            // 
+            // lblPhoneCheck
+            // 
+            this.lblPhoneCheck.AutoSize = true;
+            this.lblPhoneCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblPhoneCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneCheck.Location = new System.Drawing.Point(164, 315);
+            this.lblPhoneCheck.Name = "lblPhoneCheck";
+            this.lblPhoneCheck.Size = new System.Drawing.Size(79, 13);
+            this.lblPhoneCheck.TabIndex = 92;
+            this.lblPhoneCheck.Text = "lblPhoneCheck";
+            // 
+            // lblIDNumberCheck
+            // 
+            this.lblIDNumberCheck.AutoSize = true;
+            this.lblIDNumberCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblIDNumberCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblIDNumberCheck.Location = new System.Drawing.Point(164, 208);
+            this.lblIDNumberCheck.Name = "lblIDNumberCheck";
+            this.lblIDNumberCheck.Size = new System.Drawing.Size(96, 13);
+            this.lblIDNumberCheck.TabIndex = 91;
+            this.lblIDNumberCheck.Text = "lblIDNumberCheck";
             // 
             // lblSurnameCheck
             // 
@@ -417,25 +403,25 @@ namespace PremierServiceSolutions.Pages
             this.pictureBox6.TabIndex = 83;
             this.pictureBox6.TabStop = false;
             // 
-            // pbNewCusTitle
+            // pbTitleCheck
             // 
-            this.pbNewCusTitle.Image = ((System.Drawing.Image)(resources.GetObject("pbNewCusTitle.Image")));
-            this.pbNewCusTitle.Location = new System.Drawing.Point(390, 438);
-            this.pbNewCusTitle.Name = "pbNewCusTitle";
-            this.pbNewCusTitle.Size = new System.Drawing.Size(30, 30);
-            this.pbNewCusTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNewCusTitle.TabIndex = 82;
-            this.pbNewCusTitle.TabStop = false;
+            this.pbTitleCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbTitleCheck.Image")));
+            this.pbTitleCheck.Location = new System.Drawing.Point(390, 438);
+            this.pbTitleCheck.Name = "pbTitleCheck";
+            this.pbTitleCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbTitleCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbTitleCheck.TabIndex = 82;
+            this.pbTitleCheck.TabStop = false;
             // 
-            // pbNewCusPriority
+            // pbPriorityCheck
             // 
-            this.pbNewCusPriority.Image = ((System.Drawing.Image)(resources.GetObject("pbNewCusPriority.Image")));
-            this.pbNewCusPriority.Location = new System.Drawing.Point(390, 384);
-            this.pbNewCusPriority.Name = "pbNewCusPriority";
-            this.pbNewCusPriority.Size = new System.Drawing.Size(30, 30);
-            this.pbNewCusPriority.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNewCusPriority.TabIndex = 81;
-            this.pbNewCusPriority.TabStop = false;
+            this.pbPriorityCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbPriorityCheck.Image")));
+            this.pbPriorityCheck.Location = new System.Drawing.Point(390, 384);
+            this.pbPriorityCheck.Name = "pbPriorityCheck";
+            this.pbPriorityCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbPriorityCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPriorityCheck.TabIndex = 81;
+            this.pbPriorityCheck.TabStop = false;
             // 
             // pbPhoneCheck
             // 
@@ -516,6 +502,8 @@ namespace PremierServiceSolutions.Pages
             this.cbTitle.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.cbTitle.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbTitle.TabIndex = 74;
+            this.cbTitle.SelectedIndexChanged += new System.EventHandler(this.cbTitle_SelectedIndexChanged);
+            this.cbTitle.Leave += new System.EventHandler(this.cbTitle_Leave);
             // 
             // lblAdditional
             // 
@@ -601,6 +589,334 @@ namespace PremierServiceSolutions.Pages
             this.panel2.Size = new System.Drawing.Size(863, 2);
             this.panel2.TabIndex = 67;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Location = new System.Drawing.Point(10, 493);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(863, 2);
+            this.panel1.TabIndex = 61;
+            // 
+            // pnlDivider
+            // 
+            this.pnlDivider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlDivider.Location = new System.Drawing.Point(10, 64);
+            this.pnlDivider.Name = "pnlDivider";
+            this.pnlDivider.Size = new System.Drawing.Size(863, 2);
+            this.pnlDivider.TabIndex = 60;
+            // 
+            // lblNewCustomer
+            // 
+            this.lblNewCustomer.AutoSize = true;
+            this.lblNewCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewCustomer.Location = new System.Drawing.Point(28, 21);
+            this.lblNewCustomer.Name = "lblNewCustomer";
+            this.lblNewCustomer.Size = new System.Drawing.Size(206, 31);
+            this.lblNewCustomer.TabIndex = 59;
+            this.lblNewCustomer.Text = "New Customer";
+            // 
+            // lblGender
+            // 
+            this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblGender.Location = new System.Drawing.Point(445, 118);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(156, 25);
+            this.lblGender.TabIndex = 58;
+            this.lblGender.Text = "Client Gender :";
+            // 
+            // lblZip
+            // 
+            this.lblZip.AutoSize = true;
+            this.lblZip.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblZip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblZip.Location = new System.Drawing.Point(424, 386);
+            this.lblZip.Name = "lblZip";
+            this.lblZip.Size = new System.Drawing.Size(177, 25);
+            this.lblZip.TabIndex = 56;
+            this.lblZip.Text = "Zip/Postal Code :";
+            // 
+            // tbZip
+            // 
+            this.tbZip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbZip.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbZip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbZip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbZip.Location = new System.Drawing.Point(607, 382);
+            this.tbZip.Multiline = true;
+            this.tbZip.Name = "tbZip";
+            this.tbZip.Size = new System.Drawing.Size(234, 30);
+            this.tbZip.TabIndex = 55;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTitle.Location = new System.Drawing.Point(87, 440);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(65, 25);
+            this.lblTitle.TabIndex = 52;
+            this.lblTitle.Text = "Title :";
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCountry.Location = new System.Drawing.Point(446, 329);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(155, 25);
+            this.lblCountry.TabIndex = 50;
+            this.lblCountry.Text = "State/Country :";
+            // 
+            // tbState
+            // 
+            this.tbState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbState.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbState.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbState.Location = new System.Drawing.Point(607, 328);
+            this.tbState.Multiline = true;
+            this.tbState.Name = "tbState";
+            this.tbState.Size = new System.Drawing.Size(234, 30);
+            this.tbState.TabIndex = 49;
+            // 
+            // lblCity
+            // 
+            this.lblCity.AutoSize = true;
+            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCity.Location = new System.Drawing.Point(540, 277);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(61, 25);
+            this.lblCity.TabIndex = 48;
+            this.lblCity.Text = "City :";
+            // 
+            // tbCity
+            // 
+            this.tbCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbCity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbCity.Location = new System.Drawing.Point(607, 275);
+            this.tbCity.Multiline = true;
+            this.tbCity.Name = "tbCity";
+            this.tbCity.Size = new System.Drawing.Size(234, 30);
+            this.tbCity.TabIndex = 47;
+            // 
+            // lblAddress2
+            // 
+            this.lblAddress2.AutoSize = true;
+            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblAddress2.Location = new System.Drawing.Point(480, 224);
+            this.lblAddress2.Name = "lblAddress2";
+            this.lblAddress2.Size = new System.Drawing.Size(121, 25);
+            this.lblAddress2.TabIndex = 46;
+            this.lblAddress2.Text = "Address 2 :";
+            // 
+            // tbAddress2
+            // 
+            this.tbAddress2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbAddress2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbAddress2.Location = new System.Drawing.Point(607, 221);
+            this.tbAddress2.Multiline = true;
+            this.tbAddress2.Name = "tbAddress2";
+            this.tbAddress2.Size = new System.Drawing.Size(234, 30);
+            this.tbAddress2.TabIndex = 45;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblAddress.Location = new System.Drawing.Point(498, 172);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(103, 25);
+            this.lblAddress.TabIndex = 44;
+            this.lblAddress.Text = "Address :";
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbAddress.Location = new System.Drawing.Point(607, 167);
+            this.tbAddress.Multiline = true;
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(234, 30);
+            this.tbAddress.TabIndex = 43;
+            // 
+            // lblPriority
+            // 
+            this.lblPriority.AutoSize = true;
+            this.lblPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPriority.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblPriority.Location = new System.Drawing.Point(62, 386);
+            this.lblPriority.Name = "lblPriority";
+            this.lblPriority.Size = new System.Drawing.Size(91, 25);
+            this.lblPriority.TabIndex = 42;
+            this.lblPriority.Text = "Priority :";
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblPhone.Location = new System.Drawing.Point(67, 329);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(86, 25);
+            this.lblPhone.TabIndex = 36;
+            this.lblPhone.Text = "Phone :";
+            // 
+            // tbPhone
+            // 
+            this.tbPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbPhone.Location = new System.Drawing.Point(159, 328);
+            this.tbPhone.MaxLength = 10;
+            this.tbPhone.Multiline = true;
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Size = new System.Drawing.Size(229, 30);
+            this.tbPhone.TabIndex = 35;
+            this.tbPhone.TextChanged += new System.EventHandler(this.tbPhone_TextChanged);
+            this.tbPhone.Enter += new System.EventHandler(this.tbPhone_Enter);
+            this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
+            this.tbPhone.Leave += new System.EventHandler(this.tbPhone_Leave);
+            // 
+            // lblAddEmail
+            // 
+            this.lblAddEmail.AutoSize = true;
+            this.lblAddEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblAddEmail.Location = new System.Drawing.Point(76, 277);
+            this.lblAddEmail.Name = "lblAddEmail";
+            this.lblAddEmail.Size = new System.Drawing.Size(77, 25);
+            this.lblAddEmail.TabIndex = 34;
+            this.lblAddEmail.Text = "Email :";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbEmail.Location = new System.Drawing.Point(159, 275);
+            this.tbEmail.Multiline = true;
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(229, 30);
+            this.tbEmail.TabIndex = 33;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
+            this.tbEmail.Enter += new System.EventHandler(this.tbEmail_Enter);
+            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
+            // 
+            // lblIDNumber
+            // 
+            this.lblIDNumber.AutoSize = true;
+            this.lblIDNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblIDNumber.Location = new System.Drawing.Point(34, 224);
+            this.lblIDNumber.Name = "lblIDNumber";
+            this.lblIDNumber.Size = new System.Drawing.Size(119, 25);
+            this.lblIDNumber.TabIndex = 32;
+            this.lblIDNumber.Text = "ID Number:";
+            // 
+            // tbIDNumber
+            // 
+            this.tbIDNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbIDNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbIDNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbIDNumber.Location = new System.Drawing.Point(159, 221);
+            this.tbIDNumber.MaxLength = 13;
+            this.tbIDNumber.Multiline = true;
+            this.tbIDNumber.Name = "tbIDNumber";
+            this.tbIDNumber.Size = new System.Drawing.Size(229, 30);
+            this.tbIDNumber.TabIndex = 31;
+            this.tbIDNumber.TextChanged += new System.EventHandler(this.tbIDNumber_TextChanged);
+            this.tbIDNumber.Enter += new System.EventHandler(this.tbIDNumber_Enter);
+            this.tbIDNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbIDNumber_KeyPress);
+            this.tbIDNumber.Leave += new System.EventHandler(this.tbIDNumber_Leave);
+            // 
+            // lblSurname
+            // 
+            this.lblSurname.AutoSize = true;
+            this.lblSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSurname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblSurname.Location = new System.Drawing.Point(43, 166);
+            this.lblSurname.Name = "lblSurname";
+            this.lblSurname.Size = new System.Drawing.Size(110, 25);
+            this.lblSurname.TabIndex = 30;
+            this.lblSurname.Text = "Surname :";
+            // 
+            // tbSurname
+            // 
+            this.tbSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSurname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbSurname.Location = new System.Drawing.Point(159, 167);
+            this.tbSurname.Multiline = true;
+            this.tbSurname.Name = "tbSurname";
+            this.tbSurname.Size = new System.Drawing.Size(229, 30);
+            this.tbSurname.TabIndex = 29;
+            this.tbSurname.TextChanged += new System.EventHandler(this.tbSurname_TextChanged);
+            this.tbSurname.Enter += new System.EventHandler(this.tbSurname_Enter);
+            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSurname_KeyPress);
+            this.tbSurname.Leave += new System.EventHandler(this.tbSurname_Leave);
+            // 
+            // lblClient
+            // 
+            this.lblClient.AutoSize = true;
+            this.lblClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblClient.Location = new System.Drawing.Point(31, 118);
+            this.lblClient.Name = "lblClient";
+            this.lblClient.Size = new System.Drawing.Size(122, 25);
+            this.lblClient.TabIndex = 28;
+            this.lblClient.Text = "First Name:";
+            // 
+            // tbFirstName
+            // 
+            this.tbFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbFirstName.Location = new System.Drawing.Point(159, 115);
+            this.tbFirstName.Multiline = true;
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(229, 30);
+            this.tbFirstName.TabIndex = 27;
+            this.tbFirstName.TextChanged += new System.EventHandler(this.tbFirstName_TextChanged);
+            this.tbFirstName.Enter += new System.EventHandler(this.tbFirstName_Enter);
+            this.tbFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFirstName_KeyPress);
+            this.tbFirstName.Leave += new System.EventHandler(this.tbFirstName_Leave);
+            // 
+            // cbPriority
+            // 
+            this.cbPriority.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbPriority.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbPriority.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbPriority.Location = new System.Drawing.Point(161, 388);
+            this.cbPriority.Name = "cbPriority";
+            this.cbPriority.Size = new System.Drawing.Size(226, 24);
+            this.cbPriority.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbPriority.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
+            this.cbPriority.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cbPriority.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbPriority.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbPriority.TabIndex = 93;
+            this.cbPriority.SelectedIndexChanged += new System.EventHandler(this.cbPriority_SelectedIndexChanged);
+            this.cbPriority.Leave += new System.EventHandler(this.cbPriority_Leave);
+            // 
             // btnCancel
             // 
             this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
@@ -683,356 +999,68 @@ namespace PremierServiceSolutions.Pages
             this.btnCreateCustomer.Text = "Create Customer";
             this.btnCreateCustomer.UseVisualStyleBackColor = false;
             // 
-            // panel1
+            // tBSearch
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(10, 493);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(863, 2);
-            this.panel1.TabIndex = 61;
+            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tBSearch.Location = new System.Drawing.Point(54, 20);
+            this.tBSearch.Multiline = true;
+            this.tBSearch.Name = "tBSearch";
+            this.tBSearch.Size = new System.Drawing.Size(380, 31);
+            this.tBSearch.TabIndex = 51;
+            this.tBSearch.Text = "Start Typing Client or Client ID";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
+            this.tBSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tBSearch_KeyPress);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
             // 
-            // pnlDivider
+            // btnRAddClient
             // 
-            this.pnlDivider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnlDivider.Location = new System.Drawing.Point(10, 64);
-            this.pnlDivider.Name = "pnlDivider";
-            this.pnlDivider.Size = new System.Drawing.Size(863, 2);
-            this.pnlDivider.TabIndex = 60;
+            this.btnRAddClient.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRAddClient.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRAddClient.FlatAppearance.BorderSize = 0;
+            this.btnRAddClient.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRAddClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRAddClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRAddClient.Location = new System.Drawing.Point(682, 14);
+            this.btnRAddClient.Name = "btnRAddClient";
+            this.btnRAddClient.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnRAddClient.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnRAddClient.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRAddClient.Size = new System.Drawing.Size(185, 40);
+            this.btnRAddClient.TabIndex = 53;
+            this.btnRAddClient.TabStop = false;
+            this.btnRAddClient.Text = "New Client +";
+            this.btnRAddClient.TextColor = System.Drawing.Color.White;
+            this.btnRAddClient.UseVisualStyleBackColor = true;
+            this.btnRAddClient.Click += new System.EventHandler(this.btnRAddClient_Click);
             // 
-            // lblNewCustomer
+            // lblPriorityCheck
             // 
-            this.lblNewCustomer.AutoSize = true;
-            this.lblNewCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNewCustomer.Location = new System.Drawing.Point(28, 21);
-            this.lblNewCustomer.Name = "lblNewCustomer";
-            this.lblNewCustomer.Size = new System.Drawing.Size(206, 31);
-            this.lblNewCustomer.TabIndex = 59;
-            this.lblNewCustomer.Text = "New Customer";
+            this.lblPriorityCheck.AutoSize = true;
+            this.lblPriorityCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblPriorityCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblPriorityCheck.Location = new System.Drawing.Point(164, 374);
+            this.lblPriorityCheck.Name = "lblPriorityCheck";
+            this.lblPriorityCheck.Size = new System.Drawing.Size(79, 13);
+            this.lblPriorityCheck.TabIndex = 94;
+            this.lblPriorityCheck.Text = "lblPriorityCheck";
             // 
-            // lblGender
+            // lblTitleCheck
             // 
-            this.lblGender.AutoSize = true;
-            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblGender.Location = new System.Drawing.Point(445, 118);
-            this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(156, 25);
-            this.lblGender.TabIndex = 58;
-            this.lblGender.Text = "Client Gender :";
-            // 
-            // lblZip
-            // 
-            this.lblZip.AutoSize = true;
-            this.lblZip.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblZip.Location = new System.Drawing.Point(424, 386);
-            this.lblZip.Name = "lblZip";
-            this.lblZip.Size = new System.Drawing.Size(177, 25);
-            this.lblZip.TabIndex = 56;
-            this.lblZip.Text = "Zip/Postal Code :";
-            // 
-            // tbZip
-            // 
-            this.tbZip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbZip.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbZip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbZip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbZip.Location = new System.Drawing.Point(607, 382);
-            this.tbZip.Multiline = true;
-            this.tbZip.Name = "tbZip";
-            this.tbZip.ReadOnly = true;
-            this.tbZip.Size = new System.Drawing.Size(234, 30);
-            this.tbZip.TabIndex = 55;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(87, 440);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(65, 25);
-            this.lblTitle.TabIndex = 52;
-            this.lblTitle.Text = "Title :";
-            // 
-            // lblCountry
-            // 
-            this.lblCountry.AutoSize = true;
-            this.lblCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCountry.Location = new System.Drawing.Point(446, 329);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(155, 25);
-            this.lblCountry.TabIndex = 50;
-            this.lblCountry.Text = "State/Country :";
-            // 
-            // tbState
-            // 
-            this.tbState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbState.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbState.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbState.Location = new System.Drawing.Point(607, 328);
-            this.tbState.Multiline = true;
-            this.tbState.Name = "tbState";
-            this.tbState.ReadOnly = true;
-            this.tbState.Size = new System.Drawing.Size(234, 30);
-            this.tbState.TabIndex = 49;
-            // 
-            // lblCity
-            // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCity.Location = new System.Drawing.Point(540, 277);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(61, 25);
-            this.lblCity.TabIndex = 48;
-            this.lblCity.Text = "City :";
-            // 
-            // tbCity
-            // 
-            this.tbCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbCity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbCity.Location = new System.Drawing.Point(607, 275);
-            this.tbCity.Multiline = true;
-            this.tbCity.Name = "tbCity";
-            this.tbCity.ReadOnly = true;
-            this.tbCity.Size = new System.Drawing.Size(234, 30);
-            this.tbCity.TabIndex = 47;
-            // 
-            // lblAddress2
-            // 
-            this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAddress2.Location = new System.Drawing.Point(480, 224);
-            this.lblAddress2.Name = "lblAddress2";
-            this.lblAddress2.Size = new System.Drawing.Size(121, 25);
-            this.lblAddress2.TabIndex = 46;
-            this.lblAddress2.Text = "Address 2 :";
-            // 
-            // tbAddress2
-            // 
-            this.tbAddress2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbAddress2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAddress2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbAddress2.Location = new System.Drawing.Point(607, 221);
-            this.tbAddress2.Multiline = true;
-            this.tbAddress2.Name = "tbAddress2";
-            this.tbAddress2.ReadOnly = true;
-            this.tbAddress2.Size = new System.Drawing.Size(234, 30);
-            this.tbAddress2.TabIndex = 45;
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAddress.Location = new System.Drawing.Point(498, 172);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(103, 25);
-            this.lblAddress.TabIndex = 44;
-            this.lblAddress.Text = "Address :";
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbAddress.Location = new System.Drawing.Point(607, 167);
-            this.tbAddress.Multiline = true;
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.ReadOnly = true;
-            this.tbAddress.Size = new System.Drawing.Size(234, 30);
-            this.tbAddress.TabIndex = 43;
-            // 
-            // lblPriority
-            // 
-            this.lblPriority.AutoSize = true;
-            this.lblPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPriority.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPriority.Location = new System.Drawing.Point(62, 386);
-            this.lblPriority.Name = "lblPriority";
-            this.lblPriority.Size = new System.Drawing.Size(91, 25);
-            this.lblPriority.TabIndex = 42;
-            this.lblPriority.Text = "Priority :";
-            // 
-            // tbPriority
-            // 
-            this.tbPriority.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbPriority.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPriority.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbPriority.Location = new System.Drawing.Point(159, 384);
-            this.tbPriority.Multiline = true;
-            this.tbPriority.Name = "tbPriority";
-            this.tbPriority.ReadOnly = true;
-            this.tbPriority.Size = new System.Drawing.Size(229, 30);
-            this.tbPriority.TabIndex = 41;
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPhone.Location = new System.Drawing.Point(67, 329);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(86, 25);
-            this.lblPhone.TabIndex = 36;
-            this.lblPhone.Text = "Phone :";
-            // 
-            // tbPhone
-            // 
-            this.tbPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbPhone.Location = new System.Drawing.Point(159, 328);
-            this.tbPhone.Multiline = true;
-            this.tbPhone.Name = "tbPhone";
-            this.tbPhone.ReadOnly = true;
-            this.tbPhone.Size = new System.Drawing.Size(229, 30);
-            this.tbPhone.TabIndex = 35;
-            this.tbPhone.TextChanged += new System.EventHandler(this.tbPhone_TextChanged);
-            this.tbPhone.Enter += new System.EventHandler(this.tbPhone_Enter);
-            this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
-            this.tbPhone.Leave += new System.EventHandler(this.tbPhone_Leave);
-            // 
-            // lblAddEmail
-            // 
-            this.lblAddEmail.AutoSize = true;
-            this.lblAddEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAddEmail.Location = new System.Drawing.Point(76, 277);
-            this.lblAddEmail.Name = "lblAddEmail";
-            this.lblAddEmail.Size = new System.Drawing.Size(77, 25);
-            this.lblAddEmail.TabIndex = 34;
-            this.lblAddEmail.Text = "Email :";
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbEmail.Location = new System.Drawing.Point(159, 275);
-            this.tbEmail.Multiline = true;
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.ReadOnly = true;
-            this.tbEmail.Size = new System.Drawing.Size(229, 30);
-            this.tbEmail.TabIndex = 33;
-            // 
-            // lblIDNumber
-            // 
-            this.lblIDNumber.AutoSize = true;
-            this.lblIDNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblIDNumber.Location = new System.Drawing.Point(34, 224);
-            this.lblIDNumber.Name = "lblIDNumber";
-            this.lblIDNumber.Size = new System.Drawing.Size(119, 25);
-            this.lblIDNumber.TabIndex = 32;
-            this.lblIDNumber.Text = "ID Number:";
-            // 
-            // tbIDNumber
-            // 
-            this.tbIDNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbIDNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbIDNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbIDNumber.Location = new System.Drawing.Point(159, 221);
-            this.tbIDNumber.Multiline = true;
-            this.tbIDNumber.Name = "tbIDNumber";
-            this.tbIDNumber.ReadOnly = true;
-            this.tbIDNumber.Size = new System.Drawing.Size(229, 30);
-            this.tbIDNumber.TabIndex = 31;
-            this.tbIDNumber.TextChanged += new System.EventHandler(this.tbIDNumber_TextChanged);
-            this.tbIDNumber.Enter += new System.EventHandler(this.tbIDNumber_Enter);
-            this.tbIDNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbIDNumber_KeyPress);
-            this.tbIDNumber.Leave += new System.EventHandler(this.tbIDNumber_Leave);
-            // 
-            // lblSurname
-            // 
-            this.lblSurname.AutoSize = true;
-            this.lblSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSurname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSurname.Location = new System.Drawing.Point(43, 166);
-            this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(110, 25);
-            this.lblSurname.TabIndex = 30;
-            this.lblSurname.Text = "Surname :";
-            // 
-            // tbSurname
-            // 
-            this.tbSurname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSurname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbSurname.Location = new System.Drawing.Point(159, 167);
-            this.tbSurname.Multiline = true;
-            this.tbSurname.Name = "tbSurname";
-            this.tbSurname.ReadOnly = true;
-            this.tbSurname.Size = new System.Drawing.Size(229, 30);
-            this.tbSurname.TabIndex = 29;
-            this.tbSurname.TextChanged += new System.EventHandler(this.tbSurname_TextChanged);
-            this.tbSurname.Enter += new System.EventHandler(this.tbSurname_Enter);
-            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSurname_KeyPress);
-            this.tbSurname.Leave += new System.EventHandler(this.tbSurname_Leave);
-            // 
-            // lblClient
-            // 
-            this.lblClient.AutoSize = true;
-            this.lblClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblClient.Location = new System.Drawing.Point(31, 118);
-            this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(122, 25);
-            this.lblClient.TabIndex = 28;
-            this.lblClient.Text = "First Name:";
-            // 
-            // tbFirstName
-            // 
-            this.tbFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbFirstName.Location = new System.Drawing.Point(159, 115);
-            this.tbFirstName.Multiline = true;
-            this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.ReadOnly = true;
-            this.tbFirstName.Size = new System.Drawing.Size(229, 30);
-            this.tbFirstName.TabIndex = 27;
-            this.tbFirstName.TextChanged += new System.EventHandler(this.tbFirstName_TextChanged);
-            this.tbFirstName.Enter += new System.EventHandler(this.tbFirstName_Enter);
-            this.tbFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFirstName_KeyPress);
-            this.tbFirstName.Leave += new System.EventHandler(this.tbFirstName_Leave);
-            // 
-            // lblCheckIDNumber
-            // 
-            this.lblCheckIDNumber.AutoSize = true;
-            this.lblCheckIDNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblCheckIDNumber.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckIDNumber.Location = new System.Drawing.Point(164, 208);
-            this.lblCheckIDNumber.Name = "lblCheckIDNumber";
-            this.lblCheckIDNumber.Size = new System.Drawing.Size(96, 13);
-            this.lblCheckIDNumber.TabIndex = 91;
-            this.lblCheckIDNumber.Text = "lblCheckIDNumber";
-            // 
-            // lblCheckPhone
-            // 
-            this.lblCheckPhone.AutoSize = true;
-            this.lblCheckPhone.BackColor = System.Drawing.Color.Transparent;
-            this.lblCheckPhone.ForeColor = System.Drawing.Color.Red;
-            this.lblCheckPhone.Location = new System.Drawing.Point(164, 315);
-            this.lblCheckPhone.Name = "lblCheckPhone";
-            this.lblCheckPhone.Size = new System.Drawing.Size(79, 13);
-            this.lblCheckPhone.TabIndex = 92;
-            this.lblCheckPhone.Text = "lblCheckPhone";
+            this.lblTitleCheck.AutoSize = true;
+            this.lblTitleCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitleCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblTitleCheck.Location = new System.Drawing.Point(164, 427);
+            this.lblTitleCheck.Name = "lblTitleCheck";
+            this.lblTitleCheck.Size = new System.Drawing.Size(68, 13);
+            this.lblTitleCheck.TabIndex = 95;
+            this.lblTitleCheck.Text = "lblTitleCheck";
             // 
             // frmCustomers
             // 
@@ -1063,8 +1091,8 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewCusTitle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewCusPriority)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTitleCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPriorityCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmailCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIDNumberCheck)).EndInit();
@@ -1075,6 +1103,7 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.chkEmailonTick)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendSMS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1115,7 +1144,6 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.Label lblPriority;
-        private System.Windows.Forms.TextBox tbPriority;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlDivider;
         private System.Windows.Forms.Label lblNewCustomer;
@@ -1131,8 +1159,8 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Label lblBasicInfo;
         private Syncfusion.WinForms.ListView.SfComboBox cbTitle;
         private Syncfusion.WinForms.ListView.SfComboBox cbGender;
-        private System.Windows.Forms.PictureBox pbNewCusTitle;
-        private System.Windows.Forms.PictureBox pbNewCusPriority;
+        private System.Windows.Forms.PictureBox pbTitleCheck;
+        private System.Windows.Forms.PictureBox pbPriorityCheck;
         private System.Windows.Forms.PictureBox pbPhoneCheck;
         private System.Windows.Forms.PictureBox pbEmailCheck;
         private System.Windows.Forms.PictureBox pbIDNumberCheck;
@@ -1146,7 +1174,10 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label lblFirstNameCheck;
         private System.Windows.Forms.Label lblSurnameCheck;
-        private System.Windows.Forms.Label lblCheckIDNumber;
-        private System.Windows.Forms.Label lblCheckPhone;
+        private System.Windows.Forms.Label lblIDNumberCheck;
+        private System.Windows.Forms.Label lblPhoneCheck;
+        private Syncfusion.WinForms.ListView.SfComboBox cbPriority;
+        private System.Windows.Forms.Label lblTitleCheck;
+        private System.Windows.Forms.Label lblPriorityCheck;
     }
 }
