@@ -1,0 +1,39 @@
+.navbar .fa-power-off {
+  color: black;
+  font-size: x-large;
+}
+
+.ticketicon {
+  background-color: white;
+  width: 20%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.ticketdetails {
+  width: 80%;
+  float: right;
+  height: 100%;
+}
+
+.redstrip {
+  background-color: red;
+  float: left;
+  width: 10%;
+  height: 100%;
+}
+.ticketimage {
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
+.ticketdetails p {
+  margin-bottom: 0px;
+  word-wrap: break-word;
+}
+.ticketcont {
+  margin-top: 1%;
+}

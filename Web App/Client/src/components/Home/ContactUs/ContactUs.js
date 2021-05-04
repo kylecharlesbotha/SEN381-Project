@@ -8,10 +8,8 @@ import "font-awesome/css/font-awesome.min.css";
 const ContactUs = () => {
   return (
     <Aux>
-      <div
-        className="contactus container shadow-lg p-0  mb-5 bg-light rounded"
-        id="contactus"
-      >
+      <div id="contactus"></div>
+      <div className="contactus container shadow-lg p-0  mb-5 bg-light rounded">
         <div className="row">
           <div className="col-md-6 piccon">
             <img src={Email} className="emailcontactus" alt="paper plane" />
