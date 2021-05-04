@@ -7,11 +7,12 @@ const helmet = require("helmet");
 const userRouter = require("./routers/user");
 const ticketRouter = require("./routers/ticket");
 const dbRouter = require("./routers/db");
-
+const employeeUserRouter = require("./routers/employeeUser");
 require("dotenv").config({ path: __dirname + "/../.env" });
 const port = process.env.PORT || 9999;
 const con = require("./db/db.js");
 const app = express();
+
 
 app.use(morgan("dev"));
 app.use(helmet());
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(userRouter);
 app.use(ticketRouter);
 app.use(dbRouter);
+app.use(employeeUserRouter);
 
 app.get("/", (req, res, next) => {
     try {
@@ -34,18 +36,7 @@ app.get("/", (req, res, next) => {
     }
   });
 
-
-app.get("/testdb", (req, res, next) => {
-  try {
-    //throw new Error("Error");
-    con("DELETE FROM tblTest WHERE name='Kyle1'");
-    res.send("Done");
-    next();
-  } catch (error) {
-    next(error);
-  }
-});  
-  //Error
+//Error
 app.use((error, req, res, next) => {
     if (error.status) {
       res.status(error.status);

@@ -1,0 +1,15 @@
+.navbar .fa-bars {
+	color: black;
+	font-size: x-large;
+}
+.navbar {
+	font-weight: 500;
+}
+.logoimg {
+  width: 70px;
+  margin-left: 1%;
+}
+
+.navbar-brand {
+  width: 30%;
+}

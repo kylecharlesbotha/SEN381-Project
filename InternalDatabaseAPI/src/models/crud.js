@@ -37,6 +37,7 @@ module.exports = class Crud {
         );      
         sql = sql.slice(0, -1);
         sql += ` WHERE ${this.filter}=${objOld.UserID}`;
+        console.log(sql);
         const data = await execSQL(sql);
         return data;
     }

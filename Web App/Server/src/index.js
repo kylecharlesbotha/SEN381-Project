@@ -1,39 +1,21 @@
 const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
+const cors = require("cors");
+const errorHandler = require("./middleware/error");
 require("dotenv").config({ path: __dirname + "/../.env" });
 const port = process.env.PORT || 3001;
-const con = require("./db/db.js");
-const app = express();
 
+const app = express();
+app.use(cors());
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(express.json());
 
-app.get("/", (req, res, next) => {
-    try {
-      //throw new Error("Error");
-      res.json({
-        success: "true",
-        message: `Welcome to premier service solutions API`,
-        data: {},
-      });
-    } catch (error) {
-      next(error);
-    }
-  });
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/private", require("./routes/private"));
+app.use(errorHandler); 
 
-
-app.get("/testdb", (req, res, next) => {
-  try {
-    //throw new Error("Error");
-    con("DELETE FROM tblTest WHERE name='Kyle1'");
-    res.send("Done");
-    next();
-  } catch (error) {
-    next(error);
-  }
-});  
   //Error
 app.use((error, req, res, next) => {
     if (error.status) {
@@ -48,6 +30,11 @@ app.use((error, req, res, next) => {
     });
 });
   
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 });
+
+process.on("unhandledRejection", (err,promise) => {
+  console.log(`Logged error: ${err}`);
+  server.close(() => process.exit(1));
+})
