@@ -7,7 +7,7 @@ const helmet = require("helmet");
 const userRouter = require("./routers/user");
 const ticketRouter = require("./routers/ticket");
 const dbRouter = require("./routers/db");
-
+const employeeUserRouter = require("./routers/employeeUser");
 require("dotenv").config({ path: __dirname + "/../.env" });
 const port = process.env.PORT || 9999;
 const con = require("./db/db.js");
@@ -21,6 +21,7 @@ app.use(express.json());
 app.use(userRouter);
 app.use(ticketRouter);
 app.use(dbRouter);
+app.use(employeeUserRouter);
 
 app.get("/", (req, res, next) => {
     try {
