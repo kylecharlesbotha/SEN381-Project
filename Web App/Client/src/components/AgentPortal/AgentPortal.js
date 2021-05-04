@@ -8,6 +8,9 @@ import { NavLink } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const RedCheckbox = withStyles({
   root: {
@@ -41,7 +44,40 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-const AgentPortal = (props) => {
+const AgentPortal = ({history}) => {
+  const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [error, setError] = useState("");
+
+	useEffect(() => {
+		if (localStorage.getItem("authToken")) {
+			history.push("/AgentPortal/Dashboard");
+		}
+	}, [history]);
+	const loginHandler = async (e) => {
+		e.preventDefault();
+		const config = {
+			header: {
+				"Content-Type": "application/json",
+			},
+		};
+
+		try {
+			const { data } = await axios.post(
+				"http://localhost:3001/api/auth/login",
+				{ UserName: username, UserPassword: password },
+				config,
+			);
+			localStorage.setItem("authToken", data.token);
+			history.push("/AgentPortal/Dashboard");
+		} catch (error) {
+		 console.dir(error);
+			setError(error.response.data.error);
+			setTimeout(() => {
+				setError("");
+			}, 5000);
+		}
+	};
   return (
     <Aux>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-2 mb-2 bg-white rounded">
@@ -59,7 +95,9 @@ const AgentPortal = (props) => {
       <div className="container logincont">
         <div className="row justify-content-center bg-light shadow-lg  bg-white rounded-start">
           <div className="col-md-6  text-center bg-light shadow-lg bg-white rounded">
+            <form onSubmit={loginHandler}>
             <h5>Agent Portal Login</h5>
+            {error && <span>{error}</span>}
             <div className="input-group mb-3">
               <div className="input-group-prepend formin"></div>
               <CssTextField
@@ -70,6 +108,9 @@ const AgentPortal = (props) => {
                 size="medium"
                 required
                 color="secondary"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                tabIndex={1}
               />
             </div>
             <div className="input-group mb-0">
@@ -82,6 +123,9 @@ const AgentPortal = (props) => {
                 required
                 type="password"
                 id="custom-css-outlined-input"
+                value={password}
+						    onChange={(e) => setPassword(e.target.value)}
+						    tabIndex={2}
               />
             </div>
             <div className="input-group mb-0">
@@ -93,7 +137,7 @@ const AgentPortal = (props) => {
               />
             </div>
             <button
-              type="button"
+              type="submit"
               className="btn btnsignin justify-content-center"
               color="#ff5c5c"
             >
@@ -109,7 +153,9 @@ const AgentPortal = (props) => {
                 Forgot password?
               </a>
             </div>
+            </form>
           </div>
+          
           <div className="col-md-6 text-center ">
           <img src={Logo} alt="logo" className="logoimg"/>
           </div>
