@@ -22,28 +22,32 @@ const Navigation = (props) => {
               <ul className="navbar-nav ms-auto">
                 <li fontWeight="fontWeightBold" className="nav-item">
                   <Box fontWeight="fontWeightBold" m={1}>
-                    <a className="nav-link active" aria-current="page" href="/">
+                    <a
+                      className="nav-link active"
+                      aria-current="page"
+                      href="#welcome"
+                    >
                       Home
                     </a>
                   </Box>
                 </li>
                 <li className="nav-item scroll-to-section">
                   <Box fontWeight="fontWeightBold" m={1}>
-                    <a className="nav-link" href="/">
+                    <a className="nav-link" href="#aboutus">
                       About Us
                     </a>
                   </Box>
                 </li>
                 <li className="nav-item">
                   <Box fontWeight="fontWeightBold" m={1}>
-                    <a className="nav-link" href="/">
+                    <a className="nav-link" href="#services">
                       Services
                     </a>
                   </Box>
                 </li>
                 <li className="nav-item">
                   <Box fontWeight="fontWeightBold" m={1}>
-                    <a className="nav-link" href="/">
+                    <a className="nav-link" href="#contactus">
                       Contact Us
                     </a>
                   </Box>

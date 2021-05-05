@@ -88,7 +88,7 @@ const ClientPortal = (props) => {
               <div className="input-group-prepend formin"></div>
               <FormControlLabel
                 control={<RedCheckbox name="chkRemeberme" />}
-                label="Remeber Me"
+                label="Remember Me"
                 className="chk"
               />
             </div>
