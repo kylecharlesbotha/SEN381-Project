@@ -122,19 +122,31 @@ namespace PremierServiceSolutions.Pages
                 new PieSeries
                 {
                     Title = "In Progress",
-                    Values = new ChartValues<double> {ticketDH.GetTicketCountByStatus("In Progress")},
+                    Values = new ChartValues<double> {ticketDH.GetTicketCountByStatus("In-Progress")},
                     DataLabels = true
                 },
                 new PieSeries
                 {
-                    Title = "Assigned",
-                    Values = new ChartValues<double> {ticketDH.GetTicketCountByStatus("Assigned")},
+                    Title = "New",
+                    Values = new ChartValues<double> {ticketDH.GetTicketCountByStatus("New")},
                     DataLabels = true
                 },
                 new PieSeries
                 {
-                    Title = "Unassigned",
-                    Values = new ChartValues<double> {ticketDH.GetTicketCountByStatus("Assigned")},
+                    Title = "Scheduled",
+                    Values = new ChartValues<double> {ticketDH.GetTicketCountByStatus("Scheduled")},
+                    DataLabels = true
+                },
+                new PieSeries
+                {
+                    Title = "Waiting on Customer",
+                    Values = new ChartValues<double> {ticketDH.GetTicketCountByStatus("Waiting on Customer")},
+                    DataLabels = true
+                },
+                new PieSeries
+                {
+                    Title = "Customer Reply",
+                    Values = new ChartValues<double> {ticketDH.GetTicketCountByStatus("Customer Reply")},
                     DataLabels = true
                 }
             };
