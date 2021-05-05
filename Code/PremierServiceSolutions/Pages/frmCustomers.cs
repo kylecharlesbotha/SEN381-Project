@@ -384,10 +384,27 @@ namespace PremierServiceSolutions.Pages
         }
 
         #endregion
-        
+
 
         //////////////////////PNL NEW CUSTOMERS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+        #region Variables
+        //Bool Functions to check if respective information are filled in (Live validation).
+        bool CheckFirstName = false;
+        bool CheckSurname = false;
+        bool CheckIdNumber = false;
+        bool CheckEmail = false;
+        bool CheckPhone = false;
+        bool CheckPriority = false;
+        bool CheckTitle = false;
+        bool CheckGender = false;
+        bool CheckAddress = false;
+        bool CheckAddress2 = false;
+        bool CheckCity = false;
+        bool CheckCountry = false;
+        bool CheckZip = false;
+
+        #endregion
 
         #region Button Reset Methods (pnl load)
         private void btnReset_Click(object sender, EventArgs e)
@@ -406,21 +423,44 @@ namespace PremierServiceSolutions.Pages
             tbIDNumber.Text = "";
             tbEmail.Text = "";
             tbPhone.Text = "";
+            tbAddress.Text = "";
+            tbAddress2.Text = "";
+            tbState.Text = "";
+            tbCity.Text = "";
+            tbZip.Text = "";
 
 
 
             //Show and Hide checkboxes.(Used to show live validation status of input controls)
             pbFirstNameCheck.Hide();
+            pbFirstNameCheck.Image = Properties.Resources.DeleteMark;
             pbSurnameCheck.Hide();
+            pbSurnameCheck.Image = Properties.Resources.DeleteMark;
             pbIDNumberCheck.Hide();
+            pbIDNumberCheck.Image = Properties.Resources.DeleteMark;
             pbEmailCheck.Hide();
+            pbEmailCheck.Image = Properties.Resources.DeleteMark;
             pbPhoneCheck.Hide();
+            pbPhoneCheck.Image = Properties.Resources.DeleteMark;
             pbPriorityCheck.Show();
             pbPriorityCheck.Image = Properties.Resources.DeleteMark;
             cbPriority.SelectedIndex = -1;
             pbTitleCheck.Show();
             pbTitleCheck.Image = Properties.Resources.DeleteMark;
             cbTitle.SelectedIndex = -1;
+            pbClientGenderCheck.Show();
+            pbClientGenderCheck.Image = Properties.Resources.DeleteMark;
+            cbGender.SelectedIndex = -1;
+            pbAddressCheck.Hide();
+            pbAddressCheck.Image = Properties.Resources.DeleteMark;
+            pbAddress2Check.Hide();
+            pbAddress2Check.Image = Properties.Resources.DeleteMark;
+            pbCityCheck.Hide();
+            pbCityCheck.Image = Properties.Resources.DeleteMark;
+            pbCountryCheck.Hide();
+            pbCountryCheck.Image = Properties.Resources.DeleteMark;
+            pbZipCheck.Hide();
+            pbZipCheck.Image = Properties.Resources.DeleteMark;
 
             //Sets relevant label messages(Used for validation) for respective input controls
             lblFirstNameCheck.Text = "";
@@ -429,6 +469,10 @@ namespace PremierServiceSolutions.Pages
             lblPhoneCheck.Text = "";
             lblPriorityCheck.Text = "Please select option below";
             lblTitleCheck.Text = "Please select option below";
+            lblClientGenderCheck.Text = "Please select option below";
+            lblCityCheck.Text = "";
+            lblCountryCheck.Text = "";
+            lblZipCheck.Text = "";
         }
         #endregion
 
@@ -449,7 +493,7 @@ namespace PremierServiceSolutions.Pages
                
                 tbFirstName.Text = "";
                 pbFirstNameCheck.Image = Properties.Resources.DeleteMark;
-                //CheckFirstName = false;
+                CheckFirstName = false;
                 pbFirstNameCheck.Hide();
             }
         }
@@ -474,12 +518,12 @@ namespace PremierServiceSolutions.Pages
             {
                 pbFirstNameCheck.Show();
                 pbFirstNameCheck.Image = Properties.Resources.checkmark;
-                //CheckFirstName = true;
+                CheckFirstName = true;
             }
             else
             {
                 pbFirstNameCheck.Image = Properties.Resources.DeleteMark;
-                //CheckFirstName = false;
+                CheckFirstName = false;
             }
         }
 
@@ -501,7 +545,7 @@ namespace PremierServiceSolutions.Pages
             {
                 tbSurname.Text = "";
                 pbSurnameCheck.Image = Properties.Resources.DeleteMark;
-                //CheckSurname = false;
+                CheckSurname = false;
                 pbSurnameCheck.Hide();
             }
         }
@@ -526,12 +570,12 @@ namespace PremierServiceSolutions.Pages
             {
                 pbSurnameCheck.Show();
                 pbSurnameCheck.Image = Properties.Resources.checkmark;
-                //CheckSurname = true;
+                CheckSurname = true;
             }
             else
             {
                 pbSurnameCheck.Image = Properties.Resources.DeleteMark;
-                //CheckSurname = false;
+                CheckSurname = false;
             }
 
         }
@@ -554,7 +598,7 @@ namespace PremierServiceSolutions.Pages
             {
                 tbIDNumber.Text = "";
                 pbIDNumberCheck.Image = Properties.Resources.DeleteMark;
-                //CheckSIDNumber = false;
+                CheckIdNumber = false;
                 pbIDNumberCheck.Hide();
             }
         }
@@ -583,19 +627,19 @@ namespace PremierServiceSolutions.Pages
                 {
                     lblIDNumberCheck.Text = "Must be 13 characters long";
                     pbIDNumberCheck.Image = Properties.Resources.DeleteMark;
-                    //CheckIdNumber=false
+                    CheckIdNumber = false;
                 }
                 else
                 {
                     lblIDNumberCheck.Text = "";
                     pbIDNumberCheck.Image = Properties.Resources.checkmark;
-                    //CheckIdNumber=true
+                    CheckIdNumber = true;
                 }
             }
             else
             {
                 pbIDNumberCheck.Image = Properties.Resources.DeleteMark;
-                //CheckIdNumber = false;
+                CheckIdNumber = false;
             }
 
 
@@ -618,7 +662,7 @@ namespace PremierServiceSolutions.Pages
             {
                 tbEmail.Text = "";
                 pbSurnameCheck.Image = Properties.Resources.DeleteMark;
-                //CheckEmail = false;
+                CheckEmail = false;
                 pbSurnameCheck.Hide();
             }
         }
@@ -636,26 +680,26 @@ namespace PremierServiceSolutions.Pages
                     if (!mRegxExpression.IsMatch(tbEmail.Text.Trim()))
                     {
                         pbEmailCheck.Image = Properties.Resources.DeleteMark;
-                        //CheckEmail = false;
+                        CheckEmail = false;
                     }
                     else
                     {
                         pbEmailCheck.Image = Properties.Resources.checkmark;
-                        //CheckEmail = true;
+                        CheckEmail = true;
                     }
                 }
             }
             else
             {
                 pbEmailCheck.Image = Properties.Resources.DeleteMark;
-                //CheckEmail = false;
+                CheckEmail = false;
             }
-            
-            
+
+
         }
 
         #endregion
-
+   
         #region Phone Methods
         private void tbPhone_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
         {
@@ -670,7 +714,7 @@ namespace PremierServiceSolutions.Pages
             {
                 tbPhone.Text = "";
                 pbPhoneCheck.Image = Properties.Resources.DeleteMark;
-                //CheckPhone = false;
+                CheckPhone = false;
                 pbPhoneCheck.Hide();
             }
         }
@@ -698,19 +742,19 @@ namespace PremierServiceSolutions.Pages
                 {
                     lblPhoneCheck.Text = "Must be 10 characters long";
                     pbPhoneCheck.Image = Properties.Resources.DeleteMark;
-                    //CheckPhone=fakse
+                    CheckPhone = false;
                 }
                 else
                 {
                     lblPhoneCheck.Text = "";
                     pbPhoneCheck.Image = Properties.Resources.checkmark;
-                    //CheckPhone=true
+                    CheckPhone = true;
                 }
             }
             else
             {
                 pbPhoneCheck.Image = Properties.Resources.DeleteMark;
-                //CheckPhone=fakse
+                CheckPhone = false;
             }
         }
 
@@ -724,13 +768,13 @@ namespace PremierServiceSolutions.Pages
         {
             if (cbPriority.SelectedIndex > -1)//if something is selected
             {
-                //CheckPriority = true;
+                CheckPriority = true;
                 lblPriorityCheck.Text = "";
                 pbPriorityCheck.Image = Properties.Resources.checkmark;
             }
             else
             {
-                //CheckPriority = false;
+                CheckPriority = false;
                 lblPriorityCheck.Text = "Please select option below";
                 pbPriorityCheck.Image = Properties.Resources.DeleteMark;
 
@@ -741,13 +785,13 @@ namespace PremierServiceSolutions.Pages
         {
             if (cbPriority.SelectedIndex > -1)//if something is selected do following
             {
-                //CheckPriority = true;
+                CheckPriority = true;
                 lblPriorityCheck.Text = "";
                 pbPriorityCheck.Image = Properties.Resources.checkmark;
             }
             else
             {
-                //CheckPriority = false;
+                CheckPriority = false;
                 lblPriorityCheck.Text = "Please select option below";
                 pbPriorityCheck.Image = Properties.Resources.DeleteMark;
 
@@ -760,13 +804,13 @@ namespace PremierServiceSolutions.Pages
         {
             if (cbTitle.SelectedIndex > -1)//if something is selected
             {
-                //CheckTitle = true;
+                CheckTitle = true;
                 lblTitleCheck.Text = "";
                 pbTitleCheck.Image = Properties.Resources.checkmark;
             }
             else
             {
-                //CheckTitle = false;
+                CheckTitle = false;
                 lblTitleCheck.Text = "Please select option below";
                 pbTitleCheck.Image = Properties.Resources.DeleteMark;
 
@@ -777,19 +821,316 @@ namespace PremierServiceSolutions.Pages
         {
             if (cbTitle.SelectedIndex > -1)//if something is selected
             {
-                //CheckTitle = true;
+                CheckTitle = true;
                 lblTitleCheck.Text = "";
                 pbTitleCheck.Image = Properties.Resources.checkmark;
             }
             else
             {
-                //CheckTitle = false;
+                CheckTitle = false;
                 lblTitleCheck.Text = "Please select option below";
                 pbTitleCheck.Image = Properties.Resources.DeleteMark;
 
             }
         }
 
+        #endregion
+
+        #region ComboBoxList Gender Methods
+        private void cbGender_Leave(object sender, EventArgs e) //On leaving, if no index selected, reset combobox (And live validation labels/PB's) to default state
+        {
+            if (cbGender.SelectedIndex > -1)//if something is selected
+            {
+                CheckGender = true;
+                lblClientGenderCheck.Text = "";
+                pbClientGenderCheck.Image = Properties.Resources.checkmark;
+            }
+            else
+            {
+                CheckGender = false;
+                lblClientGenderCheck.Text = "Please select option below";
+                pbClientGenderCheck.Image = Properties.Resources.DeleteMark;
+
+            }
+        }
+
+
+        private void cbGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbGender.SelectedIndex > -1)//if something is selected
+            {
+                CheckGender = true;
+                lblClientGenderCheck.Text = "";
+                pbClientGenderCheck.Image = Properties.Resources.checkmark;
+            }
+            else
+            {
+                CheckGender = false;
+                lblClientGenderCheck.Text = "Please select option below";
+                pbClientGenderCheck.Image = Properties.Resources.DeleteMark;
+
+            }
+        }
+        #endregion
+
+        #region Address Methods
+        private void tbAddress_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbAddress.Clear();
+            pbAddressCheck.Hide();
+        }
+
+        private void tbAddress_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            if (String.IsNullOrEmpty(tbAddress.Text))
+            {
+                tbAddress.Text = "";
+                pbAddressCheck.Image = Properties.Resources.DeleteMark;
+                CheckAddress = false;
+                pbAddressCheck.Hide();
+            }
+        }
+
+        private void tbAddress_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            Regex mRegxExpression;
+            pbAddressCheck.Show();
+            if (!String.IsNullOrEmpty(tbAddress.Text))//If valid information are given do following
+            {
+                if (tbAddress.Text.Trim() != string.Empty)
+                {
+                    mRegxExpression = new Regex(@"\d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St)\.?");
+
+                    if (!mRegxExpression.IsMatch(tbAddress.Text.Trim()))
+                    {
+                        pbAddressCheck.Image = Properties.Resources.DeleteMark;
+                        CheckAddress = false;
+                    }
+                    else
+                    {
+                        pbAddressCheck.Image = Properties.Resources.checkmark;
+                        CheckAddress = true;
+                    }
+                }
+            }
+            else
+            {
+                pbAddressCheck.Image = Properties.Resources.DeleteMark;
+                CheckAddress = false;
+            }
+        }
+        #endregion
+
+        #region Address2 Methods
+        private void tbAddress2_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbAddress2.Clear();
+            pbAddress2Check.Hide();
+        }
+
+        private void tbAddress2_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            if (String.IsNullOrEmpty(tbAddress2.Text))
+            {
+                tbAddress2.Text = "";
+                pbAddress2Check.Image = Properties.Resources.DeleteMark;
+                CheckAddress2 = false;
+                pbAddress2Check.Hide();
+            }
+        }
+
+        private void tbAddress2_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            Regex mRegxExpression;
+            pbAddress2Check.Show();
+            if (!String.IsNullOrEmpty(tbAddress2.Text))//If valid information are given do following
+            {
+                if (tbAddress2.Text.Trim() != string.Empty)
+                {
+                    mRegxExpression = new Regex(@"\d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St)\.?");
+
+                    if (!mRegxExpression.IsMatch(tbAddress2.Text.Trim()))
+                    {
+                        pbAddress2Check.Image = Properties.Resources.DeleteMark;
+                        CheckAddress2 = false;
+                    }
+                    else
+                    {
+                        pbAddress2Check.Image = Properties.Resources.checkmark;
+                        CheckAddress2 = true;
+                    }
+                }
+            }
+            else
+            {
+                pbAddress2Check.Image = Properties.Resources.DeleteMark;
+                CheckAddress2 = false;
+            }
+        }
+        #endregion
+
+        #region City Methods
+        private void tbCity_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbCity.Clear();
+            pbCityCheck.Hide();
+            lblCityCheck.Text = "";
+        }
+
+        private void tbCity_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            lblCityCheck.Text = "";
+            if (String.IsNullOrEmpty(tbCity.Text))
+            {
+
+                tbCity.Text = "";
+                pbCityCheck.Image = Properties.Resources.DeleteMark;
+                CheckCity = false;
+                pbCityCheck.Hide();
+            }
+        }
+
+        private void tbCity_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Alphabetic characters only
+        {
+            if (!char.IsLetter(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblCityCheck.Text = "Please enter only Alphabetical characters.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblCityCheck.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbCity_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            if (!String.IsNullOrEmpty(tbCity.Text))//If valid information are given do following
+            {
+                pbCityCheck.Show();
+                pbCityCheck.Image = Properties.Resources.checkmark;
+                CheckCity = true;
+            }
+            else
+            {
+                pbCityCheck.Image = Properties.Resources.DeleteMark;
+                CheckCity = false;
+            }
+        }
+
+        #endregion
+
+        #region Country/State Methods
+        private void tbState_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbState.Clear();
+            pbCountryCheck.Hide();
+            lblCountryCheck.Text = "";
+        }
+
+        private void tbState_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            lblCountryCheck.Text = "";
+            if (String.IsNullOrEmpty(tbState.Text))
+            {
+
+                tbState.Text = "";
+                pbCountryCheck.Image = Properties.Resources.DeleteMark;
+                CheckCountry = false;
+                pbCountryCheck.Hide();
+            }
+        }
+
+        private void tbState_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Alphabetic characters only
+        {
+            if (!char.IsLetter(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblCountryCheck.Text = "Please enter only Alphabetical characters.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblCountryCheck.Text = "";
+                e.Handled = false;
+            }
+        }
+        private void tbState_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            if (!String.IsNullOrEmpty(tbState.Text))//If valid information are given do following
+            {
+                pbCountryCheck.Show();
+                pbCountryCheck.Image = Properties.Resources.checkmark;
+                CheckCountry = true;
+            }
+            else
+            {
+                pbCountryCheck.Image = Properties.Resources.DeleteMark;
+                CheckCountry = false;
+            }
+        }
+
+        #endregion
+
+        #region Zip/Postal code Methods
+        private void tbZip_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbZip.Clear();
+            pbZipCheck.Hide();
+        }
+
+
+        private void tbZip_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            lblZipCheck.Text = "";
+            if (String.IsNullOrEmpty(tbZip.Text))
+            {
+                tbZip.Text = "";
+                pbZipCheck.Image = Properties.Resources.DeleteMark;
+                CheckZip = false;
+                pbZipCheck.Hide();
+            }
+        }
+
+        private void tbZip_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Numbers only
+        {
+            if (!char.IsNumber(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblZipCheck.Text = "Please enter only numbers.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblZipCheck.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbZip_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            pbZipCheck.Show();
+            if (!String.IsNullOrEmpty(tbZip.Text))//If valid information are given do following
+            {
+
+                if (tbZip.Text.Length != 4)
+                {
+                    lblZipCheck.Text = "Must be 4 characters long";
+                    pbZipCheck.Image = Properties.Resources.DeleteMark;
+                    CheckZip = false;
+                }
+                else
+                {
+                    lblZipCheck.Text = "";
+                    pbZipCheck.Image = Properties.Resources.checkmark;
+                    CheckZip = true;
+                }
+            }
+            else
+            {
+                pbPhoneCheck.Image = Properties.Resources.DeleteMark;
+                CheckPhone = false;
+            }
+        }
         #endregion
     }
 }

@@ -40,16 +40,19 @@ namespace PremierServiceSolutions.Pages
             this.lblCustomerHeading = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.pnlNewClient = new System.Windows.Forms.Panel();
+            this.lblTitleCheck = new System.Windows.Forms.Label();
+            this.lblPriorityCheck = new System.Windows.Forms.Label();
+            this.cbPriority = new Syncfusion.WinForms.ListView.SfComboBox();
             this.lblPhoneCheck = new System.Windows.Forms.Label();
             this.lblIDNumberCheck = new System.Windows.Forms.Label();
             this.lblSurnameCheck = new System.Windows.Forms.Label();
             this.lblFirstNameCheck = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pbZipCheck = new System.Windows.Forms.PictureBox();
+            this.pbCountryCheck = new System.Windows.Forms.PictureBox();
+            this.pbCityCheck = new System.Windows.Forms.PictureBox();
+            this.pbAddress2Check = new System.Windows.Forms.PictureBox();
+            this.pbAddressCheck = new System.Windows.Forms.PictureBox();
+            this.pbClientGenderCheck = new System.Windows.Forms.PictureBox();
             this.pbTitleCheck = new System.Windows.Forms.PictureBox();
             this.pbPriorityCheck = new System.Windows.Forms.PictureBox();
             this.pbPhoneCheck = new System.Windows.Forms.PictureBox();
@@ -91,25 +94,27 @@ namespace PremierServiceSolutions.Pages
             this.tbSurname = new System.Windows.Forms.TextBox();
             this.lblClient = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.cbPriority = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.lblClientGenderCheck = new System.Windows.Forms.Label();
+            this.lblCityCheck = new System.Windows.Forms.Label();
+            this.lblCountryCheck = new System.Windows.Forms.Label();
+            this.lblZipCheck = new System.Windows.Forms.Label();
             this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnCreateCustomerandTicket = new BrbVideoManager.Controls.RoundedButton();
             this.btnCreateCustomer = new BrbVideoManager.Controls.RoundedButton();
             this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.btnRAddClient = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.lblPriorityCheck = new System.Windows.Forms.Label();
-            this.lblTitleCheck = new System.Windows.Forms.Label();
             this.pnlTopClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
             this.pnlSearchHeadings.SuspendLayout();
             this.pnlNewClient.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbZipCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCountryCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCityCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAddress2Check)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAddressCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClientGenderCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitleCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPriorityCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneCheck)).BeginInit();
@@ -122,7 +127,6 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.chkEmailonTick)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendSMS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTopClient
@@ -235,6 +239,10 @@ namespace PremierServiceSolutions.Pages
             // pnlNewClient
             // 
             this.pnlNewClient.BackColor = System.Drawing.Color.White;
+            this.pnlNewClient.Controls.Add(this.lblZipCheck);
+            this.pnlNewClient.Controls.Add(this.lblCountryCheck);
+            this.pnlNewClient.Controls.Add(this.lblCityCheck);
+            this.pnlNewClient.Controls.Add(this.lblClientGenderCheck);
             this.pnlNewClient.Controls.Add(this.lblTitleCheck);
             this.pnlNewClient.Controls.Add(this.lblPriorityCheck);
             this.pnlNewClient.Controls.Add(this.cbPriority);
@@ -242,12 +250,12 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewClient.Controls.Add(this.lblIDNumberCheck);
             this.pnlNewClient.Controls.Add(this.lblSurnameCheck);
             this.pnlNewClient.Controls.Add(this.lblFirstNameCheck);
-            this.pnlNewClient.Controls.Add(this.pictureBox1);
-            this.pnlNewClient.Controls.Add(this.pictureBox2);
-            this.pnlNewClient.Controls.Add(this.pictureBox3);
-            this.pnlNewClient.Controls.Add(this.pictureBox4);
-            this.pnlNewClient.Controls.Add(this.pictureBox5);
-            this.pnlNewClient.Controls.Add(this.pictureBox6);
+            this.pnlNewClient.Controls.Add(this.pbZipCheck);
+            this.pnlNewClient.Controls.Add(this.pbCountryCheck);
+            this.pnlNewClient.Controls.Add(this.pbCityCheck);
+            this.pnlNewClient.Controls.Add(this.pbAddress2Check);
+            this.pnlNewClient.Controls.Add(this.pbAddressCheck);
+            this.pnlNewClient.Controls.Add(this.pbClientGenderCheck);
             this.pnlNewClient.Controls.Add(this.pbTitleCheck);
             this.pnlNewClient.Controls.Add(this.pbPriorityCheck);
             this.pnlNewClient.Controls.Add(this.pbPhoneCheck);
@@ -299,6 +307,45 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewClient.TabIndex = 21;
             this.pnlNewClient.Visible = false;
             // 
+            // lblTitleCheck
+            // 
+            this.lblTitleCheck.AutoSize = true;
+            this.lblTitleCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitleCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblTitleCheck.Location = new System.Drawing.Point(164, 427);
+            this.lblTitleCheck.Name = "lblTitleCheck";
+            this.lblTitleCheck.Size = new System.Drawing.Size(68, 13);
+            this.lblTitleCheck.TabIndex = 95;
+            this.lblTitleCheck.Text = "lblTitleCheck";
+            // 
+            // lblPriorityCheck
+            // 
+            this.lblPriorityCheck.AutoSize = true;
+            this.lblPriorityCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblPriorityCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblPriorityCheck.Location = new System.Drawing.Point(164, 374);
+            this.lblPriorityCheck.Name = "lblPriorityCheck";
+            this.lblPriorityCheck.Size = new System.Drawing.Size(79, 13);
+            this.lblPriorityCheck.TabIndex = 94;
+            this.lblPriorityCheck.Text = "lblPriorityCheck";
+            // 
+            // cbPriority
+            // 
+            this.cbPriority.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbPriority.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbPriority.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbPriority.Location = new System.Drawing.Point(161, 388);
+            this.cbPriority.Name = "cbPriority";
+            this.cbPriority.Size = new System.Drawing.Size(226, 24);
+            this.cbPriority.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbPriority.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
+            this.cbPriority.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cbPriority.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbPriority.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbPriority.TabIndex = 93;
+            this.cbPriority.SelectedIndexChanged += new System.EventHandler(this.cbPriority_SelectedIndexChanged);
+            this.cbPriority.Leave += new System.EventHandler(this.cbPriority_Leave);
+            // 
             // lblPhoneCheck
             // 
             this.lblPhoneCheck.AutoSize = true;
@@ -339,69 +386,69 @@ namespace PremierServiceSolutions.Pages
             this.lblFirstNameCheck.ForeColor = System.Drawing.Color.Red;
             this.lblFirstNameCheck.Location = new System.Drawing.Point(164, 102);
             this.lblFirstNameCheck.Name = "lblFirstNameCheck";
-            this.lblFirstNameCheck.Size = new System.Drawing.Size(135, 13);
+            this.lblFirstNameCheck.Size = new System.Drawing.Size(95, 13);
             this.lblFirstNameCheck.TabIndex = 89;
-            this.lblFirstNameCheck.Text = "lblCheckNewCusFirstName";
+            this.lblFirstNameCheck.Text = "lblFirstNameCheck";
             // 
-            // pictureBox1
+            // pbZipCheck
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(843, 383);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 88;
-            this.pictureBox1.TabStop = false;
+            this.pbZipCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbZipCheck.Image")));
+            this.pbZipCheck.Location = new System.Drawing.Point(843, 383);
+            this.pbZipCheck.Name = "pbZipCheck";
+            this.pbZipCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbZipCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbZipCheck.TabIndex = 88;
+            this.pbZipCheck.TabStop = false;
             // 
-            // pictureBox2
+            // pbCountryCheck
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(843, 328);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 87;
-            this.pictureBox2.TabStop = false;
+            this.pbCountryCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbCountryCheck.Image")));
+            this.pbCountryCheck.Location = new System.Drawing.Point(843, 328);
+            this.pbCountryCheck.Name = "pbCountryCheck";
+            this.pbCountryCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbCountryCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCountryCheck.TabIndex = 87;
+            this.pbCountryCheck.TabStop = false;
             // 
-            // pictureBox3
+            // pbCityCheck
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(843, 275);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 86;
-            this.pictureBox3.TabStop = false;
+            this.pbCityCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbCityCheck.Image")));
+            this.pbCityCheck.Location = new System.Drawing.Point(843, 275);
+            this.pbCityCheck.Name = "pbCityCheck";
+            this.pbCityCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbCityCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCityCheck.TabIndex = 86;
+            this.pbCityCheck.TabStop = false;
             // 
-            // pictureBox4
+            // pbAddress2Check
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(843, 221);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 85;
-            this.pictureBox4.TabStop = false;
+            this.pbAddress2Check.Image = ((System.Drawing.Image)(resources.GetObject("pbAddress2Check.Image")));
+            this.pbAddress2Check.Location = new System.Drawing.Point(843, 221);
+            this.pbAddress2Check.Name = "pbAddress2Check";
+            this.pbAddress2Check.Size = new System.Drawing.Size(30, 30);
+            this.pbAddress2Check.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAddress2Check.TabIndex = 85;
+            this.pbAddress2Check.TabStop = false;
             // 
-            // pictureBox5
+            // pbAddressCheck
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(843, 167);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 84;
-            this.pictureBox5.TabStop = false;
+            this.pbAddressCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbAddressCheck.Image")));
+            this.pbAddressCheck.Location = new System.Drawing.Point(843, 167);
+            this.pbAddressCheck.Name = "pbAddressCheck";
+            this.pbAddressCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbAddressCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAddressCheck.TabIndex = 84;
+            this.pbAddressCheck.TabStop = false;
             // 
-            // pictureBox6
+            // pbClientGenderCheck
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(843, 116);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 83;
-            this.pictureBox6.TabStop = false;
+            this.pbClientGenderCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbClientGenderCheck.Image")));
+            this.pbClientGenderCheck.Location = new System.Drawing.Point(843, 116);
+            this.pbClientGenderCheck.Name = "pbClientGenderCheck";
+            this.pbClientGenderCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbClientGenderCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbClientGenderCheck.TabIndex = 83;
+            this.pbClientGenderCheck.TabStop = false;
             // 
             // pbTitleCheck
             // 
@@ -487,6 +534,8 @@ namespace PremierServiceSolutions.Pages
             this.cbGender.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.cbGender.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbGender.TabIndex = 75;
+            this.cbGender.SelectedIndexChanged += new System.EventHandler(this.cbGender_SelectedIndexChanged);
+            this.cbGender.Leave += new System.EventHandler(this.cbGender_Leave);
             // 
             // cbTitle
             // 
@@ -645,10 +694,15 @@ namespace PremierServiceSolutions.Pages
             this.tbZip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbZip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.tbZip.Location = new System.Drawing.Point(607, 382);
+            this.tbZip.MaxLength = 4;
             this.tbZip.Multiline = true;
             this.tbZip.Name = "tbZip";
             this.tbZip.Size = new System.Drawing.Size(234, 30);
             this.tbZip.TabIndex = 55;
+            this.tbZip.TextChanged += new System.EventHandler(this.tbZip_TextChanged);
+            this.tbZip.Enter += new System.EventHandler(this.tbZip_Enter);
+            this.tbZip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbZip_KeyPress);
+            this.tbZip.Leave += new System.EventHandler(this.tbZip_Leave);
             // 
             // lblTitle
             // 
@@ -683,6 +737,10 @@ namespace PremierServiceSolutions.Pages
             this.tbState.Name = "tbState";
             this.tbState.Size = new System.Drawing.Size(234, 30);
             this.tbState.TabIndex = 49;
+            this.tbState.TextChanged += new System.EventHandler(this.tbState_TextChanged);
+            this.tbState.Enter += new System.EventHandler(this.tbState_Enter);
+            this.tbState.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbState_KeyPress);
+            this.tbState.Leave += new System.EventHandler(this.tbState_Leave);
             // 
             // lblCity
             // 
@@ -706,6 +764,10 @@ namespace PremierServiceSolutions.Pages
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(234, 30);
             this.tbCity.TabIndex = 47;
+            this.tbCity.TextChanged += new System.EventHandler(this.tbCity_TextChanged);
+            this.tbCity.Enter += new System.EventHandler(this.tbCity_Enter);
+            this.tbCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCity_KeyPress);
+            this.tbCity.Leave += new System.EventHandler(this.tbCity_Leave);
             // 
             // lblAddress2
             // 
@@ -729,6 +791,9 @@ namespace PremierServiceSolutions.Pages
             this.tbAddress2.Name = "tbAddress2";
             this.tbAddress2.Size = new System.Drawing.Size(234, 30);
             this.tbAddress2.TabIndex = 45;
+            this.tbAddress2.TextChanged += new System.EventHandler(this.tbAddress2_TextChanged);
+            this.tbAddress2.Enter += new System.EventHandler(this.tbAddress2_Enter);
+            this.tbAddress2.Leave += new System.EventHandler(this.tbAddress2_Leave);
             // 
             // lblAddress
             // 
@@ -752,6 +817,9 @@ namespace PremierServiceSolutions.Pages
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(234, 30);
             this.tbAddress.TabIndex = 43;
+            this.tbAddress.TextChanged += new System.EventHandler(this.tbAddress_TextChanged);
+            this.tbAddress.Enter += new System.EventHandler(this.tbAddress_Enter);
+            this.tbAddress.Leave += new System.EventHandler(this.tbAddress_Leave);
             // 
             // lblPriority
             // 
@@ -900,22 +968,49 @@ namespace PremierServiceSolutions.Pages
             this.tbFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFirstName_KeyPress);
             this.tbFirstName.Leave += new System.EventHandler(this.tbFirstName_Leave);
             // 
-            // cbPriority
+            // lblClientGenderCheck
             // 
-            this.cbPriority.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbPriority.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbPriority.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbPriority.Location = new System.Drawing.Point(161, 388);
-            this.cbPriority.Name = "cbPriority";
-            this.cbPriority.Size = new System.Drawing.Size(226, 24);
-            this.cbPriority.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbPriority.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
-            this.cbPriority.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.cbPriority.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbPriority.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbPriority.TabIndex = 93;
-            this.cbPriority.SelectedIndexChanged += new System.EventHandler(this.cbPriority_SelectedIndexChanged);
-            this.cbPriority.Leave += new System.EventHandler(this.cbPriority_Leave);
+            this.lblClientGenderCheck.AutoSize = true;
+            this.lblClientGenderCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblClientGenderCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblClientGenderCheck.Location = new System.Drawing.Point(613, 102);
+            this.lblClientGenderCheck.Name = "lblClientGenderCheck";
+            this.lblClientGenderCheck.Size = new System.Drawing.Size(109, 13);
+            this.lblClientGenderCheck.TabIndex = 96;
+            this.lblClientGenderCheck.Text = "lblClientGenderCheck";
+            // 
+            // lblCityCheck
+            // 
+            this.lblCityCheck.AutoSize = true;
+            this.lblCityCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblCityCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblCityCheck.Location = new System.Drawing.Point(613, 260);
+            this.lblCityCheck.Name = "lblCityCheck";
+            this.lblCityCheck.Size = new System.Drawing.Size(65, 13);
+            this.lblCityCheck.TabIndex = 97;
+            this.lblCityCheck.Text = "lblCityCheck";
+            // 
+            // lblCountryCheck
+            // 
+            this.lblCountryCheck.AutoSize = true;
+            this.lblCountryCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountryCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblCountryCheck.Location = new System.Drawing.Point(613, 315);
+            this.lblCountryCheck.Name = "lblCountryCheck";
+            this.lblCountryCheck.Size = new System.Drawing.Size(84, 13);
+            this.lblCountryCheck.TabIndex = 98;
+            this.lblCountryCheck.Text = "lblCountryCheck";
+            // 
+            // lblZipCheck
+            // 
+            this.lblZipCheck.AutoSize = true;
+            this.lblZipCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblZipCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblZipCheck.Location = new System.Drawing.Point(613, 366);
+            this.lblZipCheck.Name = "lblZipCheck";
+            this.lblZipCheck.Size = new System.Drawing.Size(63, 13);
+            this.lblZipCheck.TabIndex = 99;
+            this.lblZipCheck.Text = "lblZipCheck";
             // 
             // btnCancel
             // 
@@ -1040,28 +1135,6 @@ namespace PremierServiceSolutions.Pages
             this.btnRAddClient.UseVisualStyleBackColor = true;
             this.btnRAddClient.Click += new System.EventHandler(this.btnRAddClient_Click);
             // 
-            // lblPriorityCheck
-            // 
-            this.lblPriorityCheck.AutoSize = true;
-            this.lblPriorityCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblPriorityCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblPriorityCheck.Location = new System.Drawing.Point(164, 374);
-            this.lblPriorityCheck.Name = "lblPriorityCheck";
-            this.lblPriorityCheck.Size = new System.Drawing.Size(79, 13);
-            this.lblPriorityCheck.TabIndex = 94;
-            this.lblPriorityCheck.Text = "lblPriorityCheck";
-            // 
-            // lblTitleCheck
-            // 
-            this.lblTitleCheck.AutoSize = true;
-            this.lblTitleCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitleCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblTitleCheck.Location = new System.Drawing.Point(164, 427);
-            this.lblTitleCheck.Name = "lblTitleCheck";
-            this.lblTitleCheck.Size = new System.Drawing.Size(68, 13);
-            this.lblTitleCheck.TabIndex = 95;
-            this.lblTitleCheck.Text = "lblTitleCheck";
-            // 
             // frmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1085,12 +1158,13 @@ namespace PremierServiceSolutions.Pages
             this.pnlSearchHeadings.PerformLayout();
             this.pnlNewClient.ResumeLayout(false);
             this.pnlNewClient.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbZipCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCountryCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCityCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAddress2Check)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAddressCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClientGenderCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitleCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPriorityCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneCheck)).EndInit();
@@ -1103,7 +1177,6 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.chkEmailonTick)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendSMS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1166,12 +1239,12 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.PictureBox pbIDNumberCheck;
         private System.Windows.Forms.PictureBox pbSurnameCheck;
         private System.Windows.Forms.PictureBox pbFirstNameCheck;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pbZipCheck;
+        private System.Windows.Forms.PictureBox pbCountryCheck;
+        private System.Windows.Forms.PictureBox pbCityCheck;
+        private System.Windows.Forms.PictureBox pbAddress2Check;
+        private System.Windows.Forms.PictureBox pbAddressCheck;
+        private System.Windows.Forms.PictureBox pbClientGenderCheck;
         private System.Windows.Forms.Label lblFirstNameCheck;
         private System.Windows.Forms.Label lblSurnameCheck;
         private System.Windows.Forms.Label lblIDNumberCheck;
@@ -1179,5 +1252,9 @@ namespace PremierServiceSolutions.Pages
         private Syncfusion.WinForms.ListView.SfComboBox cbPriority;
         private System.Windows.Forms.Label lblTitleCheck;
         private System.Windows.Forms.Label lblPriorityCheck;
+        private System.Windows.Forms.Label lblClientGenderCheck;
+        private System.Windows.Forms.Label lblCountryCheck;
+        private System.Windows.Forms.Label lblCityCheck;
+        private System.Windows.Forms.Label lblZipCheck;
     }
 }
