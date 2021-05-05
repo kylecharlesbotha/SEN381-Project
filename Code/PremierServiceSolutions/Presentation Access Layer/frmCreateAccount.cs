@@ -52,6 +52,13 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             CheckAdminCode = false;
             CheckUserType = false;
 
+            //Clear all content in textboxes
+            tBEmployeeNumber.Text = "EmployeeNumber";
+            tbUsername.Text = "Username";
+            tBPassword.Text = "Password";
+            tBConfirmPassword.Text = "Confirm Password";
+            tbAdminCode.Text = "Administrator Code";
+
             //Show and Hide checkboxes.(Used to show live validation status of input controls)
             pbEmpNumCheck.Hide();
             pbUsernameCheck.Hide();
@@ -83,6 +90,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         private void tBEmployeeNumber_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
         {
+            lblCheckEmpNum.Text = "";
             if (String.IsNullOrEmpty(tBEmployeeNumber.Text))
             {
                 tBEmployeeNumber.Text = "EmployeeNumber";
@@ -169,6 +177,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         private void tbUsername_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
         {
+            lblCheckUsername.Text="";
             if (String.IsNullOrEmpty(tbUsername.Text))
             {
                 tbUsername.Text = "Username";
@@ -358,6 +367,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         private void tbAdminCode_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
         {
+            lblCheckAdminCode.Text = "";
             if (String.IsNullOrEmpty(tbAdminCode.Text))
             {
                 pbAdminCodeCheck.Hide();

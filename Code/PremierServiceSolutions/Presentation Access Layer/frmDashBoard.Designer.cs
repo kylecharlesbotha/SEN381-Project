@@ -54,7 +54,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnSchedules = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
-            this.btnTickets = new System.Windows.Forms.Button();
             this.pBLogo = new System.Windows.Forms.PictureBox();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
@@ -73,6 +72,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.aboutUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTickets = new System.Windows.Forms.Button();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReports)).BeginInit();
@@ -121,8 +121,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlSideMenu.Controls.Add(this.btnSchedules);
             this.pnlSideMenu.Controls.Add(this.btnDashBoard);
             this.pnlSideMenu.Controls.Add(this.btnCustomers);
-            this.pnlSideMenu.Controls.Add(this.btnTickets);
             this.pnlSideMenu.Controls.Add(this.pBLogo);
+            this.pnlSideMenu.Controls.Add(this.btnTickets);
             this.pnlSideMenu.Location = new System.Drawing.Point(-1, 0);
             this.pnlSideMenu.Name = "pnlSideMenu";
             this.pnlSideMenu.Size = new System.Drawing.Size(300, 800);
@@ -260,6 +260,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnAsset.Name = "btnAsset";
             this.btnAsset.Size = new System.Drawing.Size(300, 45);
             this.btnAsset.TabIndex = 14;
+            this.btnAsset.TabStop = false;
             this.btnAsset.Text = "Assets";
             this.btnAsset.UseVisualStyleBackColor = true;
             this.btnAsset.Click += new System.EventHandler(this.btnAsset_Click);
@@ -297,6 +298,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCallCentre.Name = "btnCallCentre";
             this.btnCallCentre.Size = new System.Drawing.Size(300, 45);
             this.btnCallCentre.TabIndex = 12;
+            this.btnCallCentre.TabStop = false;
             this.btnCallCentre.Text = "Call Centre";
             this.btnCallCentre.UseVisualStyleBackColor = true;
             this.btnCallCentre.Click += new System.EventHandler(this.btnCallCentre_Click);
@@ -312,6 +314,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(300, 45);
             this.btnEmployees.TabIndex = 11;
+            this.btnEmployees.TabStop = false;
             this.btnEmployees.Text = "Employees";
             this.btnEmployees.UseVisualStyleBackColor = true;
             // 
@@ -326,6 +329,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCustomerSupport.Name = "btnCustomerSupport";
             this.btnCustomerSupport.Size = new System.Drawing.Size(300, 45);
             this.btnCustomerSupport.TabIndex = 10;
+            this.btnCustomerSupport.TabStop = false;
             this.btnCustomerSupport.Text = "CustomerSupport";
             this.btnCustomerSupport.UseVisualStyleBackColor = true;
             this.btnCustomerSupport.Click += new System.EventHandler(this.btnCustomerSupport_Click);
@@ -341,6 +345,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(300, 45);
             this.btnReports.TabIndex = 9;
+            this.btnReports.TabStop = false;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = true;
             // 
@@ -355,6 +360,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnContracts.Name = "btnContracts";
             this.btnContracts.Size = new System.Drawing.Size(300, 45);
             this.btnContracts.TabIndex = 8;
+            this.btnContracts.TabStop = false;
             this.btnContracts.Text = "Contracts";
             this.btnContracts.UseVisualStyleBackColor = true;
             // 
@@ -369,6 +375,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnTechnicians.Name = "btnTechnicians";
             this.btnTechnicians.Size = new System.Drawing.Size(300, 45);
             this.btnTechnicians.TabIndex = 7;
+            this.btnTechnicians.TabStop = false;
             this.btnTechnicians.Text = "Technicians";
             this.btnTechnicians.UseVisualStyleBackColor = true;
             this.btnTechnicians.Click += new System.EventHandler(this.tbnTechnicians_Click);
@@ -384,6 +391,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnSchedules.Name = "btnSchedules";
             this.btnSchedules.Size = new System.Drawing.Size(300, 45);
             this.btnSchedules.TabIndex = 6;
+            this.btnSchedules.TabStop = false;
             this.btnSchedules.Text = "Schedules";
             this.btnSchedules.UseVisualStyleBackColor = true;
             this.btnSchedules.Click += new System.EventHandler(this.btnSchedules_Click);
@@ -400,6 +408,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.Size = new System.Drawing.Size(300, 45);
             this.btnDashBoard.TabIndex = 5;
+            this.btnDashBoard.TabStop = false;
             this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashBoard.UseVisualStyleBackColor = true;
@@ -416,24 +425,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(300, 45);
             this.btnCustomers.TabIndex = 4;
+            this.btnCustomers.TabStop = false;
             this.btnCustomers.Text = "Customers";
             this.btnCustomers.UseVisualStyleBackColor = true;
             this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
-            // 
-            // btnTickets
-            // 
-            this.btnTickets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTickets.FlatAppearance.BorderSize = 0;
-            this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnTickets.Location = new System.Drawing.Point(0, 255);
-            this.btnTickets.Name = "btnTickets";
-            this.btnTickets.Size = new System.Drawing.Size(300, 45);
-            this.btnTickets.TabIndex = 3;
-            this.btnTickets.Text = "Tickets";
-            this.btnTickets.UseVisualStyleBackColor = true;
-            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
             // 
             // pBLogo
             // 
@@ -642,6 +637,22 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // btnTickets
+            // 
+            this.btnTickets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTickets.FlatAppearance.BorderSize = 0;
+            this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnTickets.Location = new System.Drawing.Point(0, 255);
+            this.btnTickets.Name = "btnTickets";
+            this.btnTickets.Size = new System.Drawing.Size(300, 45);
+            this.btnTickets.TabIndex = 26;
+            this.btnTickets.TabStop = false;
+            this.btnTickets.Text = "Tickets";
+            this.btnTickets.UseVisualStyleBackColor = true;
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
+            // 
             // frmDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -700,7 +711,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.Button btnSchedules;
         private System.Windows.Forms.Button btnDashBoard;
         private System.Windows.Forms.Button btnCustomers;
-        private System.Windows.Forms.Button btnTickets;
         private System.Windows.Forms.Panel pnlTop;
         private BrbVideoManager.Controls.RoundedButton bnNotifications;
         private System.Windows.Forms.Label lblUserName;
@@ -731,5 +741,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.PictureBox pbTickets;
         private System.Windows.Forms.PictureBox pbCall;
         private System.Windows.Forms.PictureBox pbDash;
+        private System.Windows.Forms.Button btnTickets;
     }
 }

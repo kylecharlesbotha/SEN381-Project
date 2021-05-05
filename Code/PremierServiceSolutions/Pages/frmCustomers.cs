@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,7 +38,7 @@ namespace PremierServiceSolutions.Pages
             PopulateCBB();
         }
 
-
+        #region Populate Methods
         public void PopulateClients()
         {
             foreach (Client clitem in lstClients)
@@ -60,11 +61,40 @@ namespace PremierServiceSolutions.Pages
             Titles.Add("Prof");
             Titles.Add("Rev");
 
+            List<int> Priorities = new List<int>();
+            Priorities.Add(0);
+            Priorities.Add(1);
+            Priorities.Add(2);
+            Priorities.Add(3);
+            Priorities.Add(4);
+
             cbGender.DataSource = Genders;
             cbTitle.DataSource = Titles;
+            cbPriority.DataSource = Priorities;
             
         }
 
+        #endregion
+
+        #region Textbox Search Methods
+        private void tBSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                tBSearch.Text = "Start Typing Client or Client ID";
+                pnlTopClient.Focus();
+                flpCustomers.Visible = false;
+                ResetSearch();
+                PopulateClients();
+                flpCustomers.Visible = true;
+            }
+        }
+        private void tBSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        #endregion
 
         #region Client Panel
         private void CreateEntry(string ID, string Name, string Contacts,string Email,DateTime DateCreated)
@@ -253,6 +283,7 @@ namespace PremierServiceSolutions.Pages
         private void btnRAddClient_Click(object sender, EventArgs e)
         {
             pnlNewClient.Visible = true;
+            btnReset_Click(null,null);//resets entry form to default state. Acts as a form load
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -260,7 +291,6 @@ namespace PremierServiceSolutions.Pages
             pnlNewClient.Visible = false;
         }
         #endregion
-
 
         #region Search for Client
         private void tBSearch_TextChanged(object sender, EventArgs e)
@@ -354,23 +384,412 @@ namespace PremierServiceSolutions.Pages
         }
 
         #endregion
+        
 
-        private void tBSearch_KeyPress(object sender, KeyPressEventArgs e)
+        //////////////////////PNL NEW CUSTOMERS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+        #region Button Reset Methods (pnl load)
+        private void btnReset_Click(object sender, EventArgs e)
         {
+            //Boolean variables used for live Validation statuses.(Used to check if all information required are correct and filled in before commencing)
+            //CheckEmpNum = false;
+            //CheckUsername = false;
+            //CheckPassword = false;
+            //CheckConfirmPassword = false;
+            //CheckAdminCode = false;
+            //CheckUserType = false;
+
+            //Clear all content in textboxes
+            tbFirstName.Text = "";
+            tbSurname.Text = "";
+            tbIDNumber.Text = "";
+            tbEmail.Text = "";
+            tbPhone.Text = "";
+
+
+
+            //Show and Hide checkboxes.(Used to show live validation status of input controls)
+            pbFirstNameCheck.Hide();
+            pbSurnameCheck.Hide();
+            pbIDNumberCheck.Hide();
+            pbEmailCheck.Hide();
+            pbPhoneCheck.Hide();
+            pbPriorityCheck.Show();
+            pbPriorityCheck.Image = Properties.Resources.DeleteMark;
+            cbPriority.SelectedIndex = -1;
+            pbTitleCheck.Show();
+            pbTitleCheck.Image = Properties.Resources.DeleteMark;
+            cbTitle.SelectedIndex = -1;
+
+            //Sets relevant label messages(Used for validation) for respective input controls
+            lblFirstNameCheck.Text = "";
+            lblSurnameCheck.Text = "";
+            lblIDNumberCheck.Text = "";
+            lblPhoneCheck.Text = "";
+            lblPriorityCheck.Text = "Please select option below";
+            lblTitleCheck.Text = "Please select option below";
+        }
+        #endregion
+
+        #region FirstName Methods
+
+        private void tbFirstName_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbFirstName.Clear();
+            pbFirstNameCheck.Hide();
+            lblFirstNameCheck.Text = "";
+        }
+
+        private void tbFirstName_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            lblFirstNameCheck.Text = "";
+            if (String.IsNullOrEmpty(tbFirstName.Text))
+            {
+               
+                tbFirstName.Text = "";
+                pbFirstNameCheck.Image = Properties.Resources.DeleteMark;
+                //CheckFirstName = false;
+                pbFirstNameCheck.Hide();
+            }
+        }
+
+        private void tbFirstName_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Alphabetic characters only
+        {
+            if (!char.IsLetter(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblFirstNameCheck.Text = "Please enter only Alphabetical characters.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblFirstNameCheck.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbFirstName_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            if (!String.IsNullOrEmpty(tbFirstName.Text))//If valid information are given do following
+            {
+                pbFirstNameCheck.Show();
+                pbFirstNameCheck.Image = Properties.Resources.checkmark;
+                //CheckFirstName = true;
+            }
+            else
+            {
+                pbFirstNameCheck.Image = Properties.Resources.DeleteMark;
+                //CheckFirstName = false;
+            }
+        }
+
+      
+        #endregion
+
+        #region Surname Methods
+        private void tbSurname_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbSurname.Clear();
+            pbSurnameCheck.Hide();
+            lblSurnameCheck.Text = "";
+        }
+
+        private void tbSurname_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            lblSurnameCheck.Text = "";
+            if (String.IsNullOrEmpty(tbSurname.Text))
+            {
+                tbSurname.Text = "";
+                pbSurnameCheck.Image = Properties.Resources.DeleteMark;
+                //CheckSurname = false;
+                pbSurnameCheck.Hide();
+            }
+        }
+
+        private void tbSurname_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Alphabetic characters only
+        {
+            if (!char.IsLetter(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblSurnameCheck.Text = "Please enter only Alphabetical characters.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblSurnameCheck.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbSurname_TextChanged(object sender, EventArgs e) //If textbox text change, check for the following below
+        {
+            if (!String.IsNullOrEmpty(tbSurname.Text))//If valid information are given do following
+            {
+                pbSurnameCheck.Show();
+                pbSurnameCheck.Image = Properties.Resources.checkmark;
+                //CheckSurname = true;
+            }
+            else
+            {
+                pbSurnameCheck.Image = Properties.Resources.DeleteMark;
+                //CheckSurname = false;
+            }
+
+        }
+
+
+
+
+        #endregion
+
+        #region IDNumber Methods
+        private void tbIDNumber_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbIDNumber.Clear();
+            pbIDNumberCheck.Hide();
+        }
+
+        private void tbIDNumber_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            if (String.IsNullOrEmpty(tbIDNumber.Text))
+            {
+                tbIDNumber.Text = "";
+                pbIDNumberCheck.Image = Properties.Resources.DeleteMark;
+                //CheckSIDNumber = false;
+                pbIDNumberCheck.Hide();
+            }
+        }
+
+        private void tbIDNumber_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Numbers only
+        {
+            if (!char.IsNumber(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete  )
+            {
+                lblIDNumberCheck.Text = "Please enter only numbers";
+                e.Handled = true;
+            }
+            else
+            {
+                lblIDNumberCheck.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbIDNumber_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            pbIDNumberCheck.Show();
+            if (!String.IsNullOrEmpty(tbIDNumber.Text))//If valid information are given do following
+            {
+
+                if (tbIDNumber.Text.Length != 13)
+                {
+                    lblIDNumberCheck.Text = "Must be 13 characters long";
+                    pbIDNumberCheck.Image = Properties.Resources.DeleteMark;
+                    //CheckIdNumber=false
+                }
+                else
+                {
+                    lblIDNumberCheck.Text = "";
+                    pbIDNumberCheck.Image = Properties.Resources.checkmark;
+                    //CheckIdNumber=true
+                }
+            }
+            else
+            {
+                pbIDNumberCheck.Image = Properties.Resources.DeleteMark;
+                //CheckIdNumber = false;
+            }
+
+
             
         }
 
-        private void tBSearch_KeyDown(object sender, KeyEventArgs e)
+
+        #endregion
+
+        #region Email Methods
+        private void tbEmail_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
         {
-            if (e.KeyCode == Keys.Escape)
+            tbEmail.Clear();
+            pbEmailCheck.Hide();
+        }
+
+        private void tbEmail_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            if (String.IsNullOrEmpty(tbEmail.Text))
             {
-                tBSearch.Text = "Start Typing Client or Client ID";
-                pnlTopClient.Focus();
-                flpCustomers.Visible = false;
-                ResetSearch();
-                PopulateClients();
-                flpCustomers.Visible = true;
+                tbEmail.Text = "";
+                pbSurnameCheck.Image = Properties.Resources.DeleteMark;
+                //CheckEmail = false;
+                pbSurnameCheck.Hide();
             }
         }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+            Regex mRegxExpression;
+            pbEmailCheck.Show();
+            if (!String.IsNullOrEmpty(tbEmail.Text))//If valid information are given do following
+            {
+                if (tbEmail.Text.Trim() != string.Empty)
+                {
+                    mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                    if (!mRegxExpression.IsMatch(tbEmail.Text.Trim()))
+                    {
+                        pbEmailCheck.Image = Properties.Resources.DeleteMark;
+                        //CheckEmail = false;
+                    }
+                    else
+                    {
+                        pbEmailCheck.Image = Properties.Resources.checkmark;
+                        //CheckEmail = true;
+                    }
+                }
+            }
+            else
+            {
+                pbEmailCheck.Image = Properties.Resources.DeleteMark;
+                //CheckEmail = false;
+            }
+            
+            
+        }
+
+        #endregion
+
+        #region Phone Methods
+        private void tbPhone_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
+        {
+            tbPhone.Clear();
+            pbPhoneCheck.Hide();
+        }
+
+        private void tbPhone_Leave(object sender, EventArgs e) //On leaving, if No information given, reset textbox to default state
+        {
+            lblPhoneCheck.Text = "";
+            if (String.IsNullOrEmpty(tbPhone.Text))
+            {
+                tbPhone.Text = "";
+                pbPhoneCheck.Image = Properties.Resources.DeleteMark;
+                //CheckPhone = false;
+                pbPhoneCheck.Hide();
+            }
+        }
+        private void tbPhone_KeyPress(object sender, KeyPressEventArgs e) //Ensures that information entered into textbox are Numbers only
+        {
+            if (!char.IsNumber(e.KeyChar) == true && e.KeyChar != (char)8 && e.KeyChar != (char)Keys.Delete)
+            {
+                lblPhoneCheck.Text = "Please enter only numbers.";
+                e.Handled = true;
+            }
+            else
+            {
+                lblPhoneCheck.Text = "";
+                e.Handled = false;
+            }
+        }
+
+        private void tbPhone_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            pbPhoneCheck.Show();
+            if (!String.IsNullOrEmpty(tbPhone.Text))//If valid information are given do following
+            {
+
+                if (tbPhone.Text.Length != 10)
+                {
+                    lblPhoneCheck.Text = "Must be 10 characters long";
+                    pbPhoneCheck.Image = Properties.Resources.DeleteMark;
+                    //CheckPhone=fakse
+                }
+                else
+                {
+                    lblPhoneCheck.Text = "";
+                    pbPhoneCheck.Image = Properties.Resources.checkmark;
+                    //CheckPhone=true
+                }
+            }
+            else
+            {
+                pbPhoneCheck.Image = Properties.Resources.DeleteMark;
+                //CheckPhone=fakse
+            }
+        }
+
+
+
+
+        #endregion
+
+        #region ComboBoxList Priority Methods
+        private void cbPriority_Leave(object sender, EventArgs e) //On leaving, if no index selected, reset combobox (And live validation labels/PB's) to default state
+        {
+            if (cbPriority.SelectedIndex > -1)//if something is selected
+            {
+                //CheckPriority = true;
+                lblPriorityCheck.Text = "";
+                pbPriorityCheck.Image = Properties.Resources.checkmark;
+            }
+            else
+            {
+                //CheckPriority = false;
+                lblPriorityCheck.Text = "Please select option below";
+                pbPriorityCheck.Image = Properties.Resources.DeleteMark;
+
+            }
+        }
+
+        private void cbPriority_SelectedIndexChanged(object sender, EventArgs e) //On combobox selection change
+        {
+            if (cbPriority.SelectedIndex > -1)//if something is selected do following
+            {
+                //CheckPriority = true;
+                lblPriorityCheck.Text = "";
+                pbPriorityCheck.Image = Properties.Resources.checkmark;
+            }
+            else
+            {
+                //CheckPriority = false;
+                lblPriorityCheck.Text = "Please select option below";
+                pbPriorityCheck.Image = Properties.Resources.DeleteMark;
+
+            }
+        }
+        #endregion
+
+        #region ComboBoxList Title Methods
+        private void cbTitle_Leave(object sender, EventArgs e) //On leaving, if no index selected, reset combobox (And live validation labels/PB's) to default state
+        {
+            if (cbTitle.SelectedIndex > -1)//if something is selected
+            {
+                //CheckTitle = true;
+                lblTitleCheck.Text = "";
+                pbTitleCheck.Image = Properties.Resources.checkmark;
+            }
+            else
+            {
+                //CheckTitle = false;
+                lblTitleCheck.Text = "Please select option below";
+                pbTitleCheck.Image = Properties.Resources.DeleteMark;
+
+            }
+        }
+
+        private void cbTitle_SelectedIndexChanged(object sender, EventArgs e) //On combobox selection change
+        {
+            if (cbTitle.SelectedIndex > -1)//if something is selected
+            {
+                //CheckTitle = true;
+                lblTitleCheck.Text = "";
+                pbTitleCheck.Image = Properties.Resources.checkmark;
+            }
+            else
+            {
+                //CheckTitle = false;
+                lblTitleCheck.Text = "Please select option below";
+                pbTitleCheck.Image = Properties.Resources.DeleteMark;
+
+            }
+        }
+
+        #endregion
     }
 }
