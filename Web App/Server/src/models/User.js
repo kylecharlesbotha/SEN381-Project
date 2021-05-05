@@ -48,7 +48,7 @@ const findOne = async(username) => {
         return data; 
     }catch(error){
         console.log(error);
-        next(error);
+        return error;
     }
 }
 const findById = async(id) => {
