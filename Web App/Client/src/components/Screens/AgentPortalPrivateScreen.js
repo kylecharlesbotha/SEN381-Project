@@ -5,6 +5,10 @@ import { NavLink } from "react-router-dom";
 import Logo from "../../assets/images/PSSLogo.png";
 import Aux from "../../hoc/Auxillary";
 import Box from "@material-ui/core/Box";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import TicketsPage from "../AgentPortalTickets/AgentPortalTickets";
+import SatisfactionPage from "../AgentPortalSatisfaction/AgentPortalSatisfaction";
+import ChatPage from "../AgentPortalChat/AgentPortalChat";
 const PrivateScreen = ({ history }) => {
 	const [error, setError] = useState("");
 	const [privateData, setPrivateData] = useState("");
@@ -22,7 +26,7 @@ const PrivateScreen = ({ history }) => {
 				},
 			};
 			try {           
-				const { data } = await axios.get("http://41.1.73.25:3001/api/private/", config);
+				const { data } = await axios.get("http://41.1.129.59:3001/api/private/", config);
 				setPrivateData(data.data);
 			} catch (error) {
                 
@@ -47,6 +51,8 @@ const PrivateScreen = ({ history }) => {
 		// </>
 		<>	
 			<Aux>
+				
+				<BrowserRouter>	
 				<nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-2 mb-0 bg-white rounded">
 					<div className="container-fluid">
 						<img src={Logo} alt="Logo" className="logoimg" />
@@ -62,16 +68,28 @@ const PrivateScreen = ({ history }) => {
 						<ul className="navbar-nav">
 								<li fontWeight="fontWeightBold" className="nav-item">
 									<Box fontWeight="fontWeightBold" m={1}>
-										<a className="nav-link active" aria-current="page" href="/">
+										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Dashboard">
 											Dashboard
-										</a>
+										</NavLink>
 									</Box>
 								</li>
 								<li fontWeight="fontWeightBold" className="nav-item">
 									<Box fontWeight="fontWeightBold" m={1}>
-										<a className="nav-link active" aria-current="page" href="/AgentPortal">
+										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Tickets">
 											Tickets
-										</a>
+										</NavLink>
+									</Box>
+								</li><li fontWeight="fontWeightBold" className="nav-item">
+									<Box fontWeight="fontWeightBold" m={1}>
+										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Satisfaction">
+											Satisfaction
+										</NavLink>
+									</Box>
+								</li><li fontWeight="fontWeightBold" className="nav-item">
+									<Box fontWeight="fontWeightBold" m={1}>
+										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Chat">
+											Chat
+										</NavLink>
 									</Box>
 								</li>
 							</ul>
@@ -93,8 +111,14 @@ const PrivateScreen = ({ history }) => {
 							</ul>
 						</div>
 					</div>
-				</nav>
-				<AgentPortalDashboard/>
+				</nav>		
+					<Switch>     
+						<Route path="/AgentPortal/Dashboard" component={AgentPortalDashboard} />
+						<Route path="/AgentPortal/Tickets" component={TicketsPage}/>
+						<Route path="/AgentPortal/Satisfaction" component={SatisfactionPage}/>
+						<Route path="/AgentPortal/Chat" component={ChatPage}/>
+					</Switch>
+      			</BrowserRouter>
 			</Aux>
 		</>
 	);
