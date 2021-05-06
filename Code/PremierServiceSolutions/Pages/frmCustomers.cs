@@ -620,6 +620,7 @@ namespace PremierServiceSolutions.Pages
         private void tbIDNumber_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
         {
             pbIDNumberCheck.Show();
+            
             if (!String.IsNullOrEmpty(tbIDNumber.Text))//If valid information are given do following
             {
 
@@ -642,8 +643,17 @@ namespace PremierServiceSolutions.Pages
                 CheckIdNumber = false;
             }
 
+            foreach (Client clitem in lstClients)
+            {
+                if (tbIDNumber.Text == clitem.ClientIDNumber)
+                {
+                    lblIDNumberCheck.Text = "Client already exsisting";
+                    pbIDNumberCheck.Image = Properties.Resources.DeleteMark;
+                    CheckIdNumber = false;
+                }
+            }
 
-            
+
         }
 
 
@@ -1132,5 +1142,10 @@ namespace PremierServiceSolutions.Pages
             }
         }
         #endregion
+
+        private void btnCreateCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
