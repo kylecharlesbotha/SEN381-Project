@@ -4,6 +4,7 @@ import Aux from "../hoc/Auxillary";
 import AgentPortal from "../components/AgentPortal/AgentPortal";
 import ClientPortal from "../components/ClientPortal/ClientPortal";
 import ClientPortalDashboard from "../components/ClientPortalDashboard/ClientPortalDashboard";
+import Feedback from "../components/ClientPortalDashboard/Feedback/Feedback";
 import Home from "../components/Home/Home";
 import "font-awesome/css/font-awesome.min.css";
 import AgentPortalPrivateRoute from "../components/Routes/AgentPortalPrivateRoute";
@@ -27,6 +28,7 @@ class Layout extends Component {
               path="/ClientPortalDashboard"
               component={ClientPortalDashboard}
             />
+            <Route path="/Feedback" component={Feedback} />
           </Switch>
         </Aux>
       </BrowserRouter>
