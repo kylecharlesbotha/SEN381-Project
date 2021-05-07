@@ -67,6 +67,21 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
 
         }
+        public bool InsertClient(Client objNewClient)
+        {
+            bool Success = false;
+            try
+            {
+                objNewClient.ClientID = CreateClientID();
+                Success = objClientDH.Create(objNewClient);
+                return Success;
+            }
+            catch(Exception E)
+            {
+                System.Windows.Forms.MessageBox.Show(E.Message);
+                return Success;
+            }
+        }
 
         public override bool Equals(object obj)
         {

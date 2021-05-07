@@ -17,6 +17,7 @@ namespace PremierServiceSolutions.Pages
 
         #region Class Objects
         Client objclient = new Client();
+        Client objInsertClient = new Client();
 
         #endregion
 
@@ -32,6 +33,10 @@ namespace PremierServiceSolutions.Pages
 
             pnlNewClient.Left = 9;
             pnlNewClient.Top = 11;
+            LoadCus();
+        }
+        private void LoadCus()
+        {
             lstClients = objclient.GetAll();
             lstClients.Sort();
             PopulateClients();
@@ -533,6 +538,7 @@ namespace PremierServiceSolutions.Pages
         #region Surname Methods
         private void tbSurname_Enter(object sender, EventArgs e)//On being active form control, clear textbox for user to enter required information
         {
+
             tbSurname.Clear();
             pbSurnameCheck.Hide();
             lblSurnameCheck.Text = "";
@@ -949,27 +955,13 @@ namespace PremierServiceSolutions.Pages
             }
         }
 
-        private void tbAddress2_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        private void tbAddress2_TextChanged(object sender, EventArgs e)
         {
-            Regex mRegxExpression;
             pbAddress2Check.Show();
             if (!String.IsNullOrEmpty(tbAddress2.Text))//If valid information are given do following
             {
-                if (tbAddress2.Text.Trim() != string.Empty)
-                {
-                    mRegxExpression = new Regex(@"\d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St)\.?");
-
-                    if (!mRegxExpression.IsMatch(tbAddress2.Text.Trim()))
-                    {
-                        pbAddress2Check.Image = Properties.Resources.DeleteMark;
-                        CheckAddress2 = false;
-                    }
-                    else
-                    {
-                        pbAddress2Check.Image = Properties.Resources.checkmark;
-                        CheckAddress2 = true;
-                    }
-                }
+                pbAddress2Check.Image = Properties.Resources.checkmark;
+                CheckAddress2 = true;
             }
             else
             {
@@ -1143,9 +1135,76 @@ namespace PremierServiceSolutions.Pages
         }
         #endregion
 
-        private void btnCreateCustomer_Click(object sender, EventArgs e)
+
+        private bool CheckValidEntry()
         {
+            try
+            {
+                if((CheckFirstName==true)&& (CheckSurname == true) && (CheckIdNumber == true) && (CheckEmail == true) && (CheckPhone == true) && (CheckPriority == true) && (CheckTitle == true) && (CheckGender == true) && (CheckAddress == true) && (CheckAddress2 == true) && (CheckCity == true) && (CheckCountry == true) && (CheckZip == true))
+                {
+                    objInsertClient.ClientCell = tbPhone.Text;
+                    objInsertClient.PersonName = tbFirstName.Text;
+                    objInsertClient.PersonSurname = tbSurname.Text;
+                    objInsertClient.ClientIDNumber = tbIDNumber.Text;
+                    objInsertClient.ClientEmail = tbEmail.Text;
+                    objInsertClient.ClientPriority = Convert.ToInt16(cbPriority.Text);
+                    objInsertClient.ClientGender = cbGender.Text;
+                    objInsertClient.ClientAddress = tbAddress.Text + " " + tbAddress2.Text + " " + tbCity.Text + " " + tbState.Text + " " + tbZip.Text;
+                    objInsertClient.ClientTitle = cbTitle.Text;
+                    DateTime date = DateTime.Now;
+
+                    date.ToString("yyyy-MM-dd HH:mm:ss");
+                    date.ToString("yyyy-MM-dd");
+
+                    objInsertClient.ClientCreationDate = date;
+                    objInsertClient.ClientState = 1;
+
+
+                    return true;
+                }
+            }
+            catch(Exception E)
+            {
+                return false;
+            }
+
+            return false;
+        }
+
+        private void btnCreateCustomer_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CheckValidEntry() == true)
+                {
+                    bool worked = objInsertClient.InsertClient(objInsertClient);
+
+                    if (worked == true)
+                    {
+                        MessageBox.Show("Client Successfuly Added!");
+                        pnlNewClient.Visible = false;
+                        ResetSearch();
+                        flpCustomers.Visible = true;
+                        LoadCus();
+                       
+                    }
+                    else
+                    {
+                        MessageBox.Show("Client was not added to the System");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please Complete all Fields");
+
+                }
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
 
         }
+
     }
 }

@@ -83,7 +83,7 @@ namespace PremierServiceSolutions.Pages
             this.tbState = new System.Windows.Forms.TextBox();
             this.lblCity = new System.Windows.Forms.Label();
             this.tbCity = new System.Windows.Forms.TextBox();
-            this.lblAddress2 = new System.Windows.Forms.Label();
+            this.lblSuburb = new System.Windows.Forms.Label();
             this.tbAddress2 = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
@@ -98,10 +98,9 @@ namespace PremierServiceSolutions.Pages
             this.tbSurname = new System.Windows.Forms.TextBox();
             this.lblClient = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.btnCreateCustomer = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCreateCustomerandTicket = new BrbVideoManager.Controls.RoundedButton();
-            this.btnCreateCustomer = new BrbVideoManager.Controls.RoundedButton();
             this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.btnRAddClient = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlTopClient.SuspendLayout();
@@ -158,7 +157,7 @@ namespace PremierServiceSolutions.Pages
             this.flpCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.flpCustomers.AutoScroll = true;
             this.flpCustomers.BackColor = System.Drawing.Color.Transparent;
-            this.flpCustomers.Location = new System.Drawing.Point(9, 146);
+            this.flpCustomers.Location = new System.Drawing.Point(9, 129);
             this.flpCustomers.Name = "flpCustomers";
             this.flpCustomers.Size = new System.Drawing.Size(883, 607);
             this.flpCustomers.TabIndex = 2;
@@ -239,6 +238,7 @@ namespace PremierServiceSolutions.Pages
             // pnlNewClient
             // 
             this.pnlNewClient.BackColor = System.Drawing.Color.White;
+            this.pnlNewClient.Controls.Add(this.btnCreateCustomer);
             this.pnlNewClient.Controls.Add(this.lblZipCheck);
             this.pnlNewClient.Controls.Add(this.lblCountryCheck);
             this.pnlNewClient.Controls.Add(this.lblCityCheck);
@@ -273,8 +273,6 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewClient.Controls.Add(this.panel2);
             this.pnlNewClient.Controls.Add(this.btnCancel);
             this.pnlNewClient.Controls.Add(this.btnReset);
-            this.pnlNewClient.Controls.Add(this.btnCreateCustomerandTicket);
-            this.pnlNewClient.Controls.Add(this.btnCreateCustomer);
             this.pnlNewClient.Controls.Add(this.panel1);
             this.pnlNewClient.Controls.Add(this.pnlDivider);
             this.pnlNewClient.Controls.Add(this.lblNewCustomer);
@@ -286,7 +284,7 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewClient.Controls.Add(this.tbState);
             this.pnlNewClient.Controls.Add(this.lblCity);
             this.pnlNewClient.Controls.Add(this.tbCity);
-            this.pnlNewClient.Controls.Add(this.lblAddress2);
+            this.pnlNewClient.Controls.Add(this.lblSuburb);
             this.pnlNewClient.Controls.Add(this.tbAddress2);
             this.pnlNewClient.Controls.Add(this.lblAddress);
             this.pnlNewClient.Controls.Add(this.tbAddress);
@@ -301,7 +299,7 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewClient.Controls.Add(this.tbSurname);
             this.pnlNewClient.Controls.Add(this.lblClient);
             this.pnlNewClient.Controls.Add(this.tbFirstName);
-            this.pnlNewClient.Location = new System.Drawing.Point(925, 20);
+            this.pnlNewClient.Location = new System.Drawing.Point(915, 11);
             this.pnlNewClient.Name = "pnlNewClient";
             this.pnlNewClient.Size = new System.Drawing.Size(883, 725);
             this.pnlNewClient.TabIndex = 21;
@@ -356,7 +354,7 @@ namespace PremierServiceSolutions.Pages
             this.lblTitleCheck.AutoSize = true;
             this.lblTitleCheck.BackColor = System.Drawing.Color.Transparent;
             this.lblTitleCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblTitleCheck.Location = new System.Drawing.Point(164, 427);
+            this.lblTitleCheck.Location = new System.Drawing.Point(164, 457);
             this.lblTitleCheck.Name = "lblTitleCheck";
             this.lblTitleCheck.Size = new System.Drawing.Size(68, 13);
             this.lblTitleCheck.TabIndex = 95;
@@ -367,7 +365,7 @@ namespace PremierServiceSolutions.Pages
             this.lblPriorityCheck.AutoSize = true;
             this.lblPriorityCheck.BackColor = System.Drawing.Color.Transparent;
             this.lblPriorityCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblPriorityCheck.Location = new System.Drawing.Point(164, 374);
+            this.lblPriorityCheck.Location = new System.Drawing.Point(164, 404);
             this.lblPriorityCheck.Name = "lblPriorityCheck";
             this.lblPriorityCheck.Size = new System.Drawing.Size(79, 13);
             this.lblPriorityCheck.TabIndex = 94;
@@ -378,7 +376,7 @@ namespace PremierServiceSolutions.Pages
             this.cbPriority.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.cbPriority.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cbPriority.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbPriority.Location = new System.Drawing.Point(161, 388);
+            this.cbPriority.Location = new System.Drawing.Point(161, 418);
             this.cbPriority.Name = "cbPriority";
             this.cbPriority.Size = new System.Drawing.Size(226, 24);
             this.cbPriority.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -395,7 +393,7 @@ namespace PremierServiceSolutions.Pages
             this.lblPhoneCheck.AutoSize = true;
             this.lblPhoneCheck.BackColor = System.Drawing.Color.Transparent;
             this.lblPhoneCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneCheck.Location = new System.Drawing.Point(164, 315);
+            this.lblPhoneCheck.Location = new System.Drawing.Point(164, 345);
             this.lblPhoneCheck.Name = "lblPhoneCheck";
             this.lblPhoneCheck.Size = new System.Drawing.Size(79, 13);
             this.lblPhoneCheck.TabIndex = 92;
@@ -497,7 +495,7 @@ namespace PremierServiceSolutions.Pages
             // pbTitleCheck
             // 
             this.pbTitleCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbTitleCheck.Image")));
-            this.pbTitleCheck.Location = new System.Drawing.Point(390, 438);
+            this.pbTitleCheck.Location = new System.Drawing.Point(390, 468);
             this.pbTitleCheck.Name = "pbTitleCheck";
             this.pbTitleCheck.Size = new System.Drawing.Size(30, 30);
             this.pbTitleCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -507,7 +505,7 @@ namespace PremierServiceSolutions.Pages
             // pbPriorityCheck
             // 
             this.pbPriorityCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbPriorityCheck.Image")));
-            this.pbPriorityCheck.Location = new System.Drawing.Point(390, 384);
+            this.pbPriorityCheck.Location = new System.Drawing.Point(390, 414);
             this.pbPriorityCheck.Name = "pbPriorityCheck";
             this.pbPriorityCheck.Size = new System.Drawing.Size(30, 30);
             this.pbPriorityCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -517,7 +515,7 @@ namespace PremierServiceSolutions.Pages
             // pbPhoneCheck
             // 
             this.pbPhoneCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbPhoneCheck.Image")));
-            this.pbPhoneCheck.Location = new System.Drawing.Point(390, 328);
+            this.pbPhoneCheck.Location = new System.Drawing.Point(390, 358);
             this.pbPhoneCheck.Name = "pbPhoneCheck";
             this.pbPhoneCheck.Size = new System.Drawing.Size(30, 30);
             this.pbPhoneCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -586,7 +584,7 @@ namespace PremierServiceSolutions.Pages
             this.cbTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.cbTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cbTitle.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbTitle.Location = new System.Drawing.Point(161, 441);
+            this.cbTitle.Location = new System.Drawing.Point(161, 471);
             this.cbTitle.Name = "cbTitle";
             this.cbTitle.Size = new System.Drawing.Size(226, 24);
             this.cbTitle.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -603,7 +601,7 @@ namespace PremierServiceSolutions.Pages
             this.lblAdditional.AutoSize = true;
             this.lblAdditional.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdditional.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAdditional.Location = new System.Drawing.Point(27, 498);
+            this.lblAdditional.Location = new System.Drawing.Point(11, 528);
             this.lblAdditional.Name = "lblAdditional";
             this.lblAdditional.Size = new System.Drawing.Size(267, 29);
             this.lblAdditional.TabIndex = 73;
@@ -629,7 +627,7 @@ namespace PremierServiceSolutions.Pages
             this.chkEmailonTick.CanOverrideStyle = true;
             this.chkEmailonTick.DrawFocusRectangle = false;
             this.chkEmailonTick.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkEmailonTick.Location = new System.Drawing.Point(508, 543);
+            this.chkEmailonTick.Location = new System.Drawing.Point(504, 560);
             this.chkEmailonTick.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chkEmailonTick.Name = "chkEmailonTick";
             this.chkEmailonTick.Office2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
@@ -651,7 +649,7 @@ namespace PremierServiceSolutions.Pages
             this.chkSendEmail.BorderSingle = System.Windows.Forms.ButtonBorderStyle.None;
             this.chkSendEmail.DrawFocusRectangle = false;
             this.chkSendEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkSendEmail.Location = new System.Drawing.Point(52, 583);
+            this.chkSendEmail.Location = new System.Drawing.Point(48, 600);
             this.chkSendEmail.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chkSendEmail.Name = "chkSendEmail";
             this.chkSendEmail.Size = new System.Drawing.Size(217, 34);
@@ -665,7 +663,7 @@ namespace PremierServiceSolutions.Pages
             this.chkSendSMS.BeforeTouchSize = new System.Drawing.Size(217, 34);
             this.chkSendSMS.DrawFocusRectangle = false;
             this.chkSendSMS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkSendSMS.Location = new System.Drawing.Point(52, 543);
+            this.chkSendSMS.Location = new System.Drawing.Point(48, 560);
             this.chkSendSMS.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chkSendSMS.Name = "chkSendSMS";
             this.chkSendSMS.Size = new System.Drawing.Size(217, 34);
@@ -685,7 +683,7 @@ namespace PremierServiceSolutions.Pages
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(10, 493);
+            this.panel1.Location = new System.Drawing.Point(10, 523);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(863, 2);
             this.panel1.TabIndex = 61;
@@ -743,6 +741,7 @@ namespace PremierServiceSolutions.Pages
             this.tbZip.Name = "tbZip";
             this.tbZip.Size = new System.Drawing.Size(234, 30);
             this.tbZip.TabIndex = 55;
+            this.tbZip.Text = "1459";
             this.tbZip.TextChanged += new System.EventHandler(this.tbZip_TextChanged);
             this.tbZip.Enter += new System.EventHandler(this.tbZip_Enter);
             this.tbZip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbZip_KeyPress);
@@ -753,7 +752,7 @@ namespace PremierServiceSolutions.Pages
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(87, 440);
+            this.lblTitle.Location = new System.Drawing.Point(87, 470);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(65, 25);
             this.lblTitle.TabIndex = 52;
@@ -781,6 +780,7 @@ namespace PremierServiceSolutions.Pages
             this.tbState.Name = "tbState";
             this.tbState.Size = new System.Drawing.Size(234, 30);
             this.tbState.TabIndex = 49;
+            this.tbState.Text = "1459";
             this.tbState.TextChanged += new System.EventHandler(this.tbState_TextChanged);
             this.tbState.Enter += new System.EventHandler(this.tbState_Enter);
             this.tbState.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbState_KeyPress);
@@ -808,21 +808,22 @@ namespace PremierServiceSolutions.Pages
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(234, 30);
             this.tbCity.TabIndex = 47;
+            this.tbCity.Text = "Bokburg";
             this.tbCity.TextChanged += new System.EventHandler(this.tbCity_TextChanged);
             this.tbCity.Enter += new System.EventHandler(this.tbCity_Enter);
             this.tbCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCity_KeyPress);
             this.tbCity.Leave += new System.EventHandler(this.tbCity_Leave);
             // 
-            // lblAddress2
+            // lblSuburb
             // 
-            this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAddress2.Location = new System.Drawing.Point(480, 224);
-            this.lblAddress2.Name = "lblAddress2";
-            this.lblAddress2.Size = new System.Drawing.Size(121, 25);
-            this.lblAddress2.TabIndex = 46;
-            this.lblAddress2.Text = "Address 2 :";
+            this.lblSuburb.AutoSize = true;
+            this.lblSuburb.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuburb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblSuburb.Location = new System.Drawing.Point(508, 224);
+            this.lblSuburb.Name = "lblSuburb";
+            this.lblSuburb.Size = new System.Drawing.Size(93, 25);
+            this.lblSuburb.TabIndex = 46;
+            this.lblSuburb.Text = "Suburb :";
             // 
             // tbAddress2
             // 
@@ -835,6 +836,7 @@ namespace PremierServiceSolutions.Pages
             this.tbAddress2.Name = "tbAddress2";
             this.tbAddress2.Size = new System.Drawing.Size(234, 30);
             this.tbAddress2.TabIndex = 45;
+            this.tbAddress2.Text = "Bardene";
             this.tbAddress2.TextChanged += new System.EventHandler(this.tbAddress2_TextChanged);
             this.tbAddress2.Enter += new System.EventHandler(this.tbAddress2_Enter);
             this.tbAddress2.Leave += new System.EventHandler(this.tbAddress2_Leave);
@@ -861,6 +863,7 @@ namespace PremierServiceSolutions.Pages
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(234, 30);
             this.tbAddress.TabIndex = 43;
+            this.tbAddress.Text = "23 Eli Road";
             this.tbAddress.TextChanged += new System.EventHandler(this.tbAddress_TextChanged);
             this.tbAddress.Enter += new System.EventHandler(this.tbAddress_Enter);
             this.tbAddress.Leave += new System.EventHandler(this.tbAddress_Leave);
@@ -870,7 +873,7 @@ namespace PremierServiceSolutions.Pages
             this.lblPriority.AutoSize = true;
             this.lblPriority.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPriority.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPriority.Location = new System.Drawing.Point(62, 386);
+            this.lblPriority.Location = new System.Drawing.Point(62, 416);
             this.lblPriority.Name = "lblPriority";
             this.lblPriority.Size = new System.Drawing.Size(91, 25);
             this.lblPriority.TabIndex = 42;
@@ -881,7 +884,7 @@ namespace PremierServiceSolutions.Pages
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPhone.Location = new System.Drawing.Point(67, 329);
+            this.lblPhone.Location = new System.Drawing.Point(67, 359);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(86, 25);
             this.lblPhone.TabIndex = 36;
@@ -893,7 +896,7 @@ namespace PremierServiceSolutions.Pages
             this.tbPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbPhone.Location = new System.Drawing.Point(159, 328);
+            this.tbPhone.Location = new System.Drawing.Point(159, 358);
             this.tbPhone.MaxLength = 10;
             this.tbPhone.Multiline = true;
             this.tbPhone.Name = "tbPhone";
@@ -924,8 +927,10 @@ namespace PremierServiceSolutions.Pages
             this.tbEmail.Location = new System.Drawing.Point(159, 275);
             this.tbEmail.Multiline = true;
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(229, 30);
+            this.tbEmail.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.tbEmail.Size = new System.Drawing.Size(229, 45);
             this.tbEmail.TabIndex = 33;
+            this.tbEmail.WordWrap = false;
             this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             this.tbEmail.Enter += new System.EventHandler(this.tbEmail_Enter);
             this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
@@ -980,6 +985,7 @@ namespace PremierServiceSolutions.Pages
             this.tbSurname.Name = "tbSurname";
             this.tbSurname.Size = new System.Drawing.Size(229, 30);
             this.tbSurname.TabIndex = 29;
+            this.tbSurname.WordWrap = false;
             this.tbSurname.TextChanged += new System.EventHandler(this.tbSurname_TextChanged);
             this.tbSurname.Enter += new System.EventHandler(this.tbSurname_Enter);
             this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSurname_KeyPress);
@@ -1011,6 +1017,28 @@ namespace PremierServiceSolutions.Pages
             this.tbFirstName.Enter += new System.EventHandler(this.tbFirstName_Enter);
             this.tbFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFirstName_KeyPress);
             this.tbFirstName.Leave += new System.EventHandler(this.tbFirstName_Leave);
+            // 
+            // btnCreateCustomer
+            // 
+            this.btnCreateCustomer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateCustomer.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateCustomer.FlatAppearance.BorderSize = 0;
+            this.btnCreateCustomer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateCustomer.Location = new System.Drawing.Point(658, 669);
+            this.btnCreateCustomer.Name = "btnCreateCustomer";
+            this.btnCreateCustomer.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateCustomer.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateCustomer.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCreateCustomer.Size = new System.Drawing.Size(215, 38);
+            this.btnCreateCustomer.TabIndex = 100;
+            this.btnCreateCustomer.TabStop = false;
+            this.btnCreateCustomer.Text = "Create Customer";
+            this.btnCreateCustomer.TextColor = System.Drawing.Color.White;
+            this.btnCreateCustomer.UseVisualStyleBackColor = true;
+            this.btnCreateCustomer.Click += new System.EventHandler(this.btnCreateCustomer_Click_1);
             // 
             // btnCancel
             // 
@@ -1055,45 +1083,6 @@ namespace PremierServiceSolutions.Pages
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnCreateCustomerandTicket
-            // 
-            this.btnCreateCustomerandTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateCustomerandTicket.BorderColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomerandTicket.BorderDownColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomerandTicket.BorderDownWidth = 0F;
-            this.btnCreateCustomerandTicket.BorderOverColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomerandTicket.BorderOverWidth = 0F;
-            this.btnCreateCustomerandTicket.BorderRadius = 50;
-            this.btnCreateCustomerandTicket.BorderWidth = 1.75F;
-            this.btnCreateCustomerandTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateCustomerandTicket.ForeColor = System.Drawing.Color.White;
-            this.btnCreateCustomerandTicket.Location = new System.Drawing.Point(629, 670);
-            this.btnCreateCustomerandTicket.Name = "btnCreateCustomerandTicket";
-            this.btnCreateCustomerandTicket.Size = new System.Drawing.Size(239, 38);
-            this.btnCreateCustomerandTicket.TabIndex = 64;
-            this.btnCreateCustomerandTicket.Text = "Create Customer and Ticket";
-            this.btnCreateCustomerandTicket.UseVisualStyleBackColor = false;
-            // 
-            // btnCreateCustomer
-            // 
-            this.btnCreateCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateCustomer.BorderColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomer.BorderDownColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomer.BorderDownWidth = 0F;
-            this.btnCreateCustomer.BorderOverColor = System.Drawing.Color.Empty;
-            this.btnCreateCustomer.BorderOverWidth = 0F;
-            this.btnCreateCustomer.BorderRadius = 50;
-            this.btnCreateCustomer.BorderWidth = 1.75F;
-            this.btnCreateCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnCreateCustomer.Location = new System.Drawing.Point(432, 670);
-            this.btnCreateCustomer.Name = "btnCreateCustomer";
-            this.btnCreateCustomer.Size = new System.Drawing.Size(172, 38);
-            this.btnCreateCustomer.TabIndex = 63;
-            this.btnCreateCustomer.Text = "Create Customer";
-            this.btnCreateCustomer.UseVisualStyleBackColor = false;
-            this.btnCreateCustomer.Click += new System.EventHandler(this.btnCreateCustomer_Click);
             // 
             // tBSearch
             // 
@@ -1143,7 +1132,7 @@ namespace PremierServiceSolutions.Pages
             this.AutoScroll = true;
             this.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.BackGround;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1857, 757);
+            this.ClientSize = new System.Drawing.Size(1857, 740);
             this.Controls.Add(this.pnlNewClient);
             this.Controls.Add(this.flpCustomers);
             this.Controls.Add(this.pnlSearchHeadings);
@@ -1213,7 +1202,7 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.TextBox tbState;
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.TextBox tbCity;
-        private System.Windows.Forms.Label lblAddress2;
+        private System.Windows.Forms.Label lblSuburb;
         private System.Windows.Forms.TextBox tbAddress2;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.TextBox tbAddress;
@@ -1221,8 +1210,6 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlDivider;
         private System.Windows.Forms.Label lblNewCustomer;
-        private BrbVideoManager.Controls.RoundedButton btnCreateCustomerandTicket;
-        private BrbVideoManager.Controls.RoundedButton btnCreateCustomer;
         private System.Windows.Forms.Panel panel2;
         private CustomComponents.ButtonRound btnCancel;
         private CustomComponents.ButtonRound btnReset;
@@ -1257,5 +1244,6 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Label lblCountryCheck;
         private System.Windows.Forms.Label lblCityCheck;
         private System.Windows.Forms.Label lblZipCheck;
+        private CustomComponents.ButtonRound btnCreateCustomer;
     }
 }

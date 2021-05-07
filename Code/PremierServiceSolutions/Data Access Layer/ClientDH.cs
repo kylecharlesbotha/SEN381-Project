@@ -134,6 +134,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
             catch (SqlException SQLE)
             {
+                MessageBox.Show(SQLE.Message);
                 return false;
             }
             throw new NotImplementedException();
@@ -262,7 +263,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblClient
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Clients
-                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblClient WHERE ClientIDNumber = '{0}' AND ClientName = '{1}' AND ClientSurname = '{2}''", objClient.ClientIDNumber, objClient.PersonName, objClient.PersonSurname);
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblClient WHERE ClientIDNumber = '{0}' AND ClientName = '{1}' AND ClientSurname = '{2}'", objClient.ClientIDNumber, objClient.PersonName, objClient.PersonSurname);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //Open the connection to the database
@@ -277,8 +278,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
             catch (SqlException SQLE)
             {
                 //Will catch any errors that occur and will display a error message. it will also return a empty list
-                MessageBox.Show("Error has occured");
-                RecordCount = -1;
+                MessageBox.Show(SQLE.Message + "Find Method");
+                RecordCount = 1;
                 return RecordCount;
             }
             throw new NotImplementedException();
