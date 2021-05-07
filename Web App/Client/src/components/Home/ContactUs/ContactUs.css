@@ -1,0 +1,48 @@
+.piccon {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+.contactus {
+  margin-top: 10%;
+  margin-bottom: 5%;
+  background-color: white;
+}
+.detailscon {
+  background-color: white;
+}
+.detailscon h2 {
+  font-weight: 600;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: rgb(218, 0, 0);
+}
+.emailcontactus {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.btnsendemail {
+  margin-top: 8%;
+  margin-bottom: 4%;
+}
+
+.sendemailimage {
+  width: 30%;
+  margin-left: 5%;
+}
+
+input {
+  border-radius: 25px;
+}
+.input-group-prepend {
+  background-color: red;
+  margin-bottom: 12%;
+}
+.lblHeader label {
+  background-color: white;
+  padding-left: 2%;
+  padding-right: 2%;
+}

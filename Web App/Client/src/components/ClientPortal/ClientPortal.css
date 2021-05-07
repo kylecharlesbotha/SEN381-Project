@@ -1,0 +1,56 @@
+.navbar .fa-arrow-left {
+  color: black;
+  font-size: x-large;
+}
+.logincont {
+  margin-top: 15vh;
+}
+.logincont h5 {
+  color: rgb(218, 0, 0);
+  font-weight: 600;
+  font-size: xx-large;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.logincont button {
+  border: 2px solid rgb(218, 0, 0);
+  color: rgb(218, 0, 0);
+  font-size: large;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.lblHeader label {
+  background-color: white;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.formin {
+  margin-left: 10%;
+}
+.inputboxes {
+  width: 80%;
+}
+
+.btnsignin {
+  margin-bottom: 3%;
+  width: 40%;
+  height: 15%;
+}
+
+.chk CheckBox {
+  color: red;
+}
+.forgotlink {
+  color: gray;
+}
+
+.forgotlink:hover {
+  color: red;
+}
