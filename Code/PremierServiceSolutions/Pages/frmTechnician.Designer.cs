@@ -31,69 +31,69 @@ namespace PremierServiceSolutions.Pages
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTechnician));
             this.pnlSearchHeadings = new System.Windows.Forms.Panel();
-            this.lblSerial = new System.Windows.Forms.Label();
-            this.lblModel = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             this.lblCustomerHeading = new System.Windows.Forms.Label();
-            this.lblMan = new System.Windows.Forms.Label();
-            this.flpContracts = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlTopContracts = new System.Windows.Forms.Panel();
+            this.lblLevel = new System.Windows.Forms.Label();
+            this.flpTechnician = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlTopTechnician = new System.Windows.Forms.Panel();
             this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
             this.btnAddTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlSearchHeadings.SuspendLayout();
-            this.pnlTopContracts.SuspendLayout();
+            this.pnlTopTechnician.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSearchHeadings
             // 
             this.pnlSearchHeadings.BackColor = System.Drawing.Color.White;
-            this.pnlSearchHeadings.Controls.Add(this.lblSerial);
-            this.pnlSearchHeadings.Controls.Add(this.lblModel);
-            this.pnlSearchHeadings.Controls.Add(this.lblName);
+            this.pnlSearchHeadings.Controls.Add(this.lblEmail);
+            this.pnlSearchHeadings.Controls.Add(this.lblStatus);
+            this.pnlSearchHeadings.Controls.Add(this.lblID);
             this.pnlSearchHeadings.Controls.Add(this.lblCustomerHeading);
-            this.pnlSearchHeadings.Controls.Add(this.lblMan);
+            this.pnlSearchHeadings.Controls.Add(this.lblLevel);
             this.pnlSearchHeadings.Location = new System.Drawing.Point(5, 87);
             this.pnlSearchHeadings.Name = "pnlSearchHeadings";
             this.pnlSearchHeadings.Size = new System.Drawing.Size(883, 35);
             this.pnlSearchHeadings.TabIndex = 29;
             // 
-            // lblSerial
+            // lblEmail
             // 
-            this.lblSerial.AutoSize = true;
-            this.lblSerial.BackColor = System.Drawing.Color.White;
-            this.lblSerial.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSerial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSerial.Location = new System.Drawing.Point(755, 8);
-            this.lblSerial.Name = "lblSerial";
-            this.lblSerial.Size = new System.Drawing.Size(56, 19);
-            this.lblSerial.TabIndex = 16;
-            this.lblSerial.Text = "Serial";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.BackColor = System.Drawing.Color.White;
+            this.lblEmail.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblEmail.Location = new System.Drawing.Point(678, 8);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(53, 19);
+            this.lblEmail.TabIndex = 16;
+            this.lblEmail.Text = "Email";
             // 
-            // lblModel
+            // lblStatus
             // 
-            this.lblModel.AutoSize = true;
-            this.lblModel.BackColor = System.Drawing.Color.White;
-            this.lblModel.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblModel.Location = new System.Drawing.Point(555, 8);
-            this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(59, 19);
-            this.lblModel.TabIndex = 15;
-            this.lblModel.Text = "Model";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.BackColor = System.Drawing.Color.White;
+            this.lblStatus.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblStatus.Location = new System.Drawing.Point(455, 8);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(62, 19);
+            this.lblStatus.TabIndex = 15;
+            this.lblStatus.Text = "Status";
             // 
-            // lblName
+            // lblID
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.White;
-            this.lblName.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblName.Location = new System.Drawing.Point(32, 8);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(55, 19);
-            this.lblName.TabIndex = 12;
-            this.lblName.Text = "Name";
+            this.lblID.AutoSize = true;
+            this.lblID.BackColor = System.Drawing.Color.White;
+            this.lblID.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblID.Location = new System.Drawing.Point(7, 8);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(69, 19);
+            this.lblID.TabIndex = 12;
+            this.lblID.Text = "Tech ID";
             // 
             // lblCustomerHeading
             // 
@@ -101,44 +101,44 @@ namespace PremierServiceSolutions.Pages
             this.lblCustomerHeading.BackColor = System.Drawing.Color.White;
             this.lblCustomerHeading.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCustomerHeading.Location = new System.Drawing.Point(170, 8);
+            this.lblCustomerHeading.Location = new System.Drawing.Point(115, 8);
             this.lblCustomerHeading.Name = "lblCustomerHeading";
-            this.lblCustomerHeading.Size = new System.Drawing.Size(89, 19);
+            this.lblCustomerHeading.Size = new System.Drawing.Size(97, 19);
             this.lblCustomerHeading.TabIndex = 13;
-            this.lblCustomerHeading.Text = "Customer";
+            this.lblCustomerHeading.Text = "First Name";
             // 
-            // lblMan
+            // lblLevel
             // 
-            this.lblMan.AutoSize = true;
-            this.lblMan.BackColor = System.Drawing.Color.White;
-            this.lblMan.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblMan.Location = new System.Drawing.Point(344, 8);
-            this.lblMan.Name = "lblMan";
-            this.lblMan.Size = new System.Drawing.Size(119, 19);
-            this.lblMan.TabIndex = 14;
-            this.lblMan.Text = "Manufacturer";
+            this.lblLevel.AutoSize = true;
+            this.lblLevel.BackColor = System.Drawing.Color.White;
+            this.lblLevel.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblLevel.Location = new System.Drawing.Point(315, 8);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(53, 19);
+            this.lblLevel.TabIndex = 14;
+            this.lblLevel.Text = "Level";
             // 
-            // flpContracts
+            // flpTechnician
             // 
-            this.flpContracts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.flpContracts.AutoScroll = true;
-            this.flpContracts.BackColor = System.Drawing.Color.Transparent;
-            this.flpContracts.Location = new System.Drawing.Point(5, 132);
-            this.flpContracts.Name = "flpContracts";
-            this.flpContracts.Size = new System.Drawing.Size(883, 607);
-            this.flpContracts.TabIndex = 28;
+            this.flpTechnician.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.flpTechnician.AutoScroll = true;
+            this.flpTechnician.BackColor = System.Drawing.Color.Transparent;
+            this.flpTechnician.Location = new System.Drawing.Point(5, 132);
+            this.flpTechnician.Name = "flpTechnician";
+            this.flpTechnician.Size = new System.Drawing.Size(883, 607);
+            this.flpTechnician.TabIndex = 28;
             // 
-            // pnlTopContracts
+            // pnlTopTechnician
             // 
-            this.pnlTopContracts.BackColor = System.Drawing.Color.White;
-            this.pnlTopContracts.Controls.Add(this.tBSearch);
-            this.pnlTopContracts.Controls.Add(this.iPBSearch);
-            this.pnlTopContracts.Controls.Add(this.btnAddTechnician);
-            this.pnlTopContracts.Location = new System.Drawing.Point(5, 12);
-            this.pnlTopContracts.Name = "pnlTopContracts";
-            this.pnlTopContracts.Size = new System.Drawing.Size(883, 69);
-            this.pnlTopContracts.TabIndex = 27;
+            this.pnlTopTechnician.BackColor = System.Drawing.Color.White;
+            this.pnlTopTechnician.Controls.Add(this.tBSearch);
+            this.pnlTopTechnician.Controls.Add(this.iPBSearch);
+            this.pnlTopTechnician.Controls.Add(this.btnAddTechnician);
+            this.pnlTopTechnician.Location = new System.Drawing.Point(5, 12);
+            this.pnlTopTechnician.Name = "pnlTopTechnician";
+            this.pnlTopTechnician.Size = new System.Drawing.Size(883, 69);
+            this.pnlTopTechnician.TabIndex = 27;
             // 
             // tBSearch
             // 
@@ -153,6 +153,10 @@ namespace PremierServiceSolutions.Pages
             this.tBSearch.Size = new System.Drawing.Size(419, 31);
             this.tBSearch.TabIndex = 51;
             this.tBSearch.Text = "Start Typing TechnicianID/Technician Name";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
             // 
             // iPBSearch
             // 
@@ -196,16 +200,16 @@ namespace PremierServiceSolutions.Pages
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(900, 740);
             this.Controls.Add(this.pnlSearchHeadings);
-            this.Controls.Add(this.flpContracts);
-            this.Controls.Add(this.pnlTopContracts);
+            this.Controls.Add(this.flpTechnician);
+            this.Controls.Add(this.pnlTopTechnician);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTechnician";
             this.Text = "frmTechnician";
             this.pnlSearchHeadings.ResumeLayout(false);
             this.pnlSearchHeadings.PerformLayout();
-            this.pnlTopContracts.ResumeLayout(false);
-            this.pnlTopContracts.PerformLayout();
+            this.pnlTopTechnician.ResumeLayout(false);
+            this.pnlTopTechnician.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).EndInit();
             this.ResumeLayout(false);
 
@@ -214,13 +218,13 @@ namespace PremierServiceSolutions.Pages
         #endregion
 
         private System.Windows.Forms.Panel pnlSearchHeadings;
-        private System.Windows.Forms.Label lblSerial;
-        private System.Windows.Forms.Label lblModel;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblCustomerHeading;
-        private System.Windows.Forms.Label lblMan;
-        private System.Windows.Forms.FlowLayoutPanel flpContracts;
-        private System.Windows.Forms.Panel pnlTopContracts;
+        private System.Windows.Forms.Label lblLevel;
+        private System.Windows.Forms.FlowLayoutPanel flpTechnician;
+        private System.Windows.Forms.Panel pnlTopTechnician;
         private CustomComponents.Round_TextBox tBSearch;
         private FontAwesome.Sharp.IconPictureBox iPBSearch;
         private CustomComponents.ButtonRound btnAddTechnician;

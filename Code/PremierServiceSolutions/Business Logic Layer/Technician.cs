@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PremierServiceSolutions.Business_Logic_Layer
 {
-    class Technician
+    class Technician : IComparable<Technician>
     {
         private int technicianID;
         private int technicianLevel;
@@ -15,6 +15,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int technicianState;
         private int employeeID;
         private string techName;
+        private string techEmail;
         TechnicianDH objTech = new TechnicianDH();
         public Technician(int technicianID, int technicianLevel, string technicianStatus, int employeeid,int technicianstate )
         {
@@ -23,6 +24,14 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.technicianLevel = technicianLevel;
             this.technicianState = technicianstate;
             this.employeeID = employeeid;
+        }
+        public Technician(int technicianid,string techname,int techlevel, string techstatus,string techemail)
+        {
+            this.technicianID = technicianid;
+            this.techName = techname;
+            this.technicianLevel = techlevel;
+            this.technicianStatus = techstatus;
+            this.techEmail = techemail;
         }
 
         public Technician(int techid,string techname)
@@ -54,10 +63,17 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public int EmployeeID { get => employeeID; set => employeeID = value; }
         public string TechName { get => objTech.GetTechName(this); set => techName = value; }
         public string TechNameList { get => techName; set => techName = value; }
+        public string TechEmail { get => techEmail; set => techEmail = value; }
 
         public override string ToString()
         {
             return base.ToString();
+        }
+        public int CompareTo(Technician other)
+        {
+            string current = this.TechName;
+            string newname = other.TechName;
+            return newname.CompareTo(current);
         }
 
         public override bool Equals(object obj)
@@ -88,6 +104,20 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             {
                 System.Windows.Forms.MessageBox.Show(E.Message);
                 return null;
+            }
+        }
+
+        public List<Technician> GetTechRecords()
+        {
+            List<Technician> newList = new List<Technician>();
+            try
+            {
+                newList = objTech.GetTechRecords().ToList();
+                return newList;
+            }
+            catch
+            {
+                return newList;
             }
         }
 

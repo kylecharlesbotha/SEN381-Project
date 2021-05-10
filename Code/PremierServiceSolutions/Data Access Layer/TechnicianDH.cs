@@ -141,6 +141,41 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
+        public ICollection<Technician> GetTechRecords()
+        {
+            try
+            {
+                //List of type Technician which will store all the records and then return that list
+                List<Technician> allTechnicians = new List<Technician>();
+                //New SQL Connection which the query will use to perform the Select of tblTechnician
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Technicains
+                string SelectQuery = "SELECT T.TechnicianID, E.EmployeeName,T.TechnicianLevel,T.TechnicianStatus,E.EmployeeEmail FROM tblTechnician AS T INNER JOIN tblEmployee as E on E.EmployeeID = T.EmployeeID";
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    allTechnicians.Add(new Technician((int)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (int)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (string)sqlDataReader.GetValue(4)));
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Technicians
+                return allTechnicians;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+        }
+
         public ICollection<Technician> GetTechnicianName()
         {
             try
