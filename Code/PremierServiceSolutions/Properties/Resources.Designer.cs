@@ -373,6 +373,26 @@ namespace PremierServiceSolutions.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TechnicianRed {
+            get {
+                object obj = ResourceManager.GetObject("TechnicianRed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TechnicianWhite {
+            get {
+                object obj = ResourceManager.GetObject("TechnicianWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Tickets_Red {
             get {
                 object obj = ResourceManager.GetObject("Tickets Red", resourceCulture);
