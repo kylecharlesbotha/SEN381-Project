@@ -24,6 +24,7 @@ namespace PremierServiceSolutions.Pages
         private string priority = "";
         private string status ="";
         private int valid = 0;
+        private int currenttech;
         public frmTickets()
         {
             InitializeComponent();
@@ -34,10 +35,13 @@ namespace PremierServiceSolutions.Pages
             this.Width = 900;
             this.Height = 740;
             pnlTicketDetials.Left = 12;
-
+            
 
         }
-
+        public void SetStuff(int Tech)
+        {
+            currenttech = Tech;
+        }
 
         #region Populating CBB
         private void PopulateCbb()
@@ -833,5 +837,21 @@ namespace PremierServiceSolutions.Pages
             }
         }
         #endregion
+
+        private void btnMyTickets_Click(object sender, EventArgs e)
+        {
+
+            ResetTickets();
+            flpTickets.Visible = true;
+            foreach (Ticket ticket in listTicket)
+            {
+                if (ticket.TechnicianID == currenttech)
+                {
+                    CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime); ; ;
+                }
+            }
+            CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
+            ResetCBB();
+        }
     }
 }

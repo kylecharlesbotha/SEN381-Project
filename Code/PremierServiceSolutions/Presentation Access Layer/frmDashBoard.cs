@@ -43,8 +43,9 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
 
         #region Objects of Forms
         RememberMe objRemMe = new RememberMe();
+        Technician CurrentTech = new Technician();
         Form frmDash = new frmDash();
-        Form frmTick = new frmTickets();
+        frmTickets frmTick = new frmTickets();
         Form frmSched = new frmSchedule();
         frmCentre frmCentre = new frmCentre();
         frmCustomers frmCustomers = new frmCustomers();
@@ -91,6 +92,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             loggeduser = username;
             lblUserName.Text = username;
             frmCentre.CurrentEmployee = userid;
+            CurrentTech = CurrentTech.GetTechID(username);
+            frmTick.SetStuff(CurrentTech.TechnicianID); 
         }
        
         private void tbnTechnicians_Click(object sender, EventArgs e)

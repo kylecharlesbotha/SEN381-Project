@@ -34,7 +34,12 @@ namespace PremierServiceSolutions.Pages
             this.lblTechnician = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMyOpen = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnMyTickets = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnNewTickets = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFilter = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.cbPriority = new Syncfusion.WinForms.ListView.SfComboBox();
             this.cbIssueType = new Syncfusion.WinForms.ListView.SfComboBox();
             this.cBStatus = new Syncfusion.WinForms.ListView.SfComboBox();
@@ -73,11 +78,6 @@ namespace PremierServiceSolutions.Pages
             this.lblDes = new System.Windows.Forms.Label();
             this.lblClient = new System.Windows.Forms.Label();
             this.tbClientBusName = new System.Windows.Forms.TextBox();
-            this.btnNewTickets = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnMyTickets = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnMyOpen = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnFilter = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
@@ -132,6 +132,85 @@ namespace PremierServiceSolutions.Pages
             this.panel1.Size = new System.Drawing.Size(685, 65);
             this.panel1.TabIndex = 9;
             // 
+            // btnMyOpen
+            // 
+            this.btnMyOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMyOpen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMyOpen.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMyOpen.FlatAppearance.BorderSize = 0;
+            this.btnMyOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMyOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMyOpen.Location = new System.Drawing.Point(190, 14);
+            this.btnMyOpen.Name = "btnMyOpen";
+            this.btnMyOpen.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnMyOpen.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnMyOpen.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnMyOpen.Size = new System.Drawing.Size(154, 36);
+            this.btnMyOpen.TabIndex = 80;
+            this.btnMyOpen.Text = "My Open Tickets";
+            this.btnMyOpen.TextColor = System.Drawing.Color.White;
+            this.btnMyOpen.UseVisualStyleBackColor = true;
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(528, 14);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReset.Size = new System.Drawing.Size(154, 36);
+            this.btnReset.TabIndex = 79;
+            this.btnReset.Text = "Reset";
+            this.btnReset.TextColor = System.Drawing.Color.White;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnMyTickets
+            // 
+            this.btnMyTickets.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMyTickets.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMyTickets.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMyTickets.FlatAppearance.BorderSize = 0;
+            this.btnMyTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMyTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMyTickets.Location = new System.Drawing.Point(19, 14);
+            this.btnMyTickets.Name = "btnMyTickets";
+            this.btnMyTickets.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnMyTickets.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnMyTickets.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnMyTickets.Size = new System.Drawing.Size(154, 36);
+            this.btnMyTickets.TabIndex = 78;
+            this.btnMyTickets.Text = "My Tickets";
+            this.btnMyTickets.TextColor = System.Drawing.Color.White;
+            this.btnMyTickets.UseVisualStyleBackColor = true;
+            this.btnMyTickets.Click += new System.EventHandler(this.btnMyTickets_Click);
+            // 
+            // btnNewTickets
+            // 
+            this.btnNewTickets.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnNewTickets.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnNewTickets.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnNewTickets.FlatAppearance.BorderSize = 0;
+            this.btnNewTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewTickets.Location = new System.Drawing.Point(368, 14);
+            this.btnNewTickets.Name = "btnNewTickets";
+            this.btnNewTickets.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnNewTickets.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnNewTickets.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnNewTickets.Size = new System.Drawing.Size(154, 36);
+            this.btnNewTickets.TabIndex = 77;
+            this.btnNewTickets.Text = "New Tickets";
+            this.btnNewTickets.TextColor = System.Drawing.Color.White;
+            this.btnNewTickets.UseVisualStyleBackColor = true;
+            this.btnNewTickets.Click += new System.EventHandler(this.btnNewTickets_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnFilter);
@@ -147,6 +226,26 @@ namespace PremierServiceSolutions.Pages
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(686, 89);
             this.panel2.TabIndex = 10;
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFilter.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFilter.FlatAppearance.BorderSize = 0;
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.Location = new System.Drawing.Point(588, 28);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnFilter.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnFilter.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnFilter.Size = new System.Drawing.Size(84, 36);
+            this.btnFilter.TabIndex = 80;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.TextColor = System.Drawing.Color.White;
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // cbPriority
             // 
@@ -644,104 +743,6 @@ namespace PremierServiceSolutions.Pages
             this.tbClientBusName.ReadOnly = true;
             this.tbClientBusName.Size = new System.Drawing.Size(230, 30);
             this.tbClientBusName.TabIndex = 27;
-            // 
-            // btnNewTickets
-            // 
-            this.btnNewTickets.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnNewTickets.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnNewTickets.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnNewTickets.FlatAppearance.BorderSize = 0;
-            this.btnNewTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewTickets.Location = new System.Drawing.Point(368, 14);
-            this.btnNewTickets.Name = "btnNewTickets";
-            this.btnNewTickets.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnNewTickets.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnNewTickets.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnNewTickets.Size = new System.Drawing.Size(154, 36);
-            this.btnNewTickets.TabIndex = 77;
-            this.btnNewTickets.Text = "New Tickets";
-            this.btnNewTickets.TextColor = System.Drawing.Color.White;
-            this.btnNewTickets.UseVisualStyleBackColor = true;
-            this.btnNewTickets.Click += new System.EventHandler(this.btnNewTickets_Click);
-            // 
-            // btnMyTickets
-            // 
-            this.btnMyTickets.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMyTickets.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnMyTickets.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnMyTickets.FlatAppearance.BorderSize = 0;
-            this.btnMyTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMyTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMyTickets.Location = new System.Drawing.Point(19, 14);
-            this.btnMyTickets.Name = "btnMyTickets";
-            this.btnMyTickets.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnMyTickets.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnMyTickets.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnMyTickets.Size = new System.Drawing.Size(154, 36);
-            this.btnMyTickets.TabIndex = 78;
-            this.btnMyTickets.Text = "My Tickets";
-            this.btnMyTickets.TextColor = System.Drawing.Color.White;
-            this.btnMyTickets.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(528, 14);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnReset.Size = new System.Drawing.Size(154, 36);
-            this.btnReset.TabIndex = 79;
-            this.btnReset.Text = "Reset";
-            this.btnReset.TextColor = System.Drawing.Color.White;
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnMyOpen
-            // 
-            this.btnMyOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMyOpen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnMyOpen.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnMyOpen.FlatAppearance.BorderSize = 0;
-            this.btnMyOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMyOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMyOpen.Location = new System.Drawing.Point(190, 14);
-            this.btnMyOpen.Name = "btnMyOpen";
-            this.btnMyOpen.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnMyOpen.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnMyOpen.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnMyOpen.Size = new System.Drawing.Size(154, 36);
-            this.btnMyOpen.TabIndex = 80;
-            this.btnMyOpen.Text = "My Open Tickets";
-            this.btnMyOpen.TextColor = System.Drawing.Color.White;
-            this.btnMyOpen.UseVisualStyleBackColor = true;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnFilter.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnFilter.FlatAppearance.BorderSize = 0;
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilter.Location = new System.Drawing.Point(588, 28);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnFilter.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnFilter.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnFilter.Size = new System.Drawing.Size(84, 36);
-            this.btnFilter.TabIndex = 80;
-            this.btnFilter.Text = "Filter";
-            this.btnFilter.TextColor = System.Drawing.Color.White;
-            this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // frmTickets
             // 

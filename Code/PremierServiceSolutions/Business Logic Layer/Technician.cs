@@ -34,6 +34,12 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
             this.technicianID = techid;
         }
+        public Technician(string username, int employeeid, int techid)
+        {
+            this.techName = username;
+            this.employeeID = employeeid;
+            this.technicianID = techid;
+        }
         public Technician()
         {
 
@@ -70,6 +76,19 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             List<Technician> lstTech = objTech.GetTechnicianName().ToList();
             return lstTech;
             
+        }
+
+        public Technician GetTechID(string UserName)
+        {
+            try
+            {
+                return objTech.GetCurrentTec(UserName);
+            }
+            catch(Exception E)
+            {
+                System.Windows.Forms.MessageBox.Show(E.Message);
+                return null;
+            }
         }
 
     }

@@ -471,7 +471,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return RecordCount;
             }
         }
-        
+
+
         public int GetTechniciansTicketCount(int technicianID)
         {
             int RecordCount = 0;

@@ -25,7 +25,6 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int employeeID;
         private DateTime ticketDate;
         private int countOnDate;
-
         private string clientName;
 
 
@@ -59,7 +58,6 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         }
 
 
-
         //Constructor for getting date of tickets and number of tickets on that date
         public Ticket(DateTime date, int count)
         {
@@ -89,7 +87,15 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         public void CreateTicket(Ticket objTicket)
         {
-            objTicketDH.Create(objTicket);
+            try
+            {
+                objTicketDH.Create(objTicket);
+            }
+            catch(Exception E)
+            {
+
+            }
+
         }
 
         public void EsculateTicket()
