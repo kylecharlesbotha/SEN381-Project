@@ -113,7 +113,41 @@ namespace PremierServiceSolutions.Pages
             lblNew.Text = "New Tickets : " + Convert.ToString(TicketNew);
             
         }
+        #endregion
 
+        #region Ticket Entries
+        private void CreateNullEntry(string CusName)
+        {
+            //Create Panel Dynamically for each Client Record
+            Panel p = new Panel();
+            p.Name = "ClientPanel" + (flpTickets.Controls.Count);
+           
+            p.BackColor = Color.FromArgb(179, 179, 179);          
+
+            //Setting the Size of Panel and adding it to the main panel
+            p.Size = new Size(flpTickets.ClientSize.Width - 6, 50);
+            flpTickets.Controls.Add(p);
+
+            //Painting the name on the panel
+            p.Paint += (ss, ee) => { ee.Graphics.DrawString(p.Name, Font, Brushes.White, 22, 11); };
+
+
+            //Creating Label for Customer Name
+            Label lID = new Label();
+            lID.Name = "lblCusName" + flpTickets.Controls.Count;
+            lID.Text = CusName;
+            lID.AutoSize = false;
+            lID.Size = new Size(p.Width - 5, 30);
+            p.Controls.Add(lID);
+            lID.Top = 10;
+            lID.TextAlign = ContentAlignment.MiddleCenter;
+            lID.Left = 15;
+            lID.Font = new Font("Arial", 14, FontStyle.Bold);
+            lID.ForeColor = Color.White;
+            lID.BackColor = Color.FromArgb(179, 179, 179);
+
+            flpTickets.Invalidate();
+        }
 
 
         private void CreateEntry(int TicketID, string TicketTitle, string CustomerName, int TechnicianID, string IssueType,string Priority,string Status,DateTime datecreated)
@@ -460,16 +494,8 @@ namespace PremierServiceSolutions.Pages
         {
             ShowNewTicket();
         }
-        private void ResetTickets()
-        {
-            for (int i = flpTickets.Controls.Count - 1; i >= 0; i--)
-            {
-                flpTickets.Controls[i].Dispose();
-            }
-            flpTickets.Visible = false;
-            
-        }
-
+        
+        #region NewTickets
         private void ShowNewTicket()
         {
 
@@ -483,8 +509,11 @@ namespace PremierServiceSolutions.Pages
                 }
             }
             CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
+            ResetCBB();
         }
+        #endregion
 
+        #region Reset of Tickets
         private void btnReset_Click(object sender, EventArgs e)
         {
             ResetTickets();
@@ -494,13 +523,28 @@ namespace PremierServiceSolutions.Pages
                     CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime); ; ;
             }
             CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
+            ResetCBB();
+        }
+
+        private void ResetCBB()
+        {
             cbPriority.SelectedIndex = -1;
             cBTechnician.SelectedIndex = -1;
             cBStatus.SelectedIndex = -1;
             cbIssueType.SelectedIndex = -1;
         }
+        private void ResetTickets()
+        {
+            for (int i = flpTickets.Controls.Count - 1; i >= 0; i--)
+            {
+                flpTickets.Controls[i].Dispose();
+            }
+            flpTickets.Visible = false;
 
+        }
+        #endregion
 
+        #region Assign CBB Values
         private void cBTechnician_SelectedIndexChanged(object sender, EventArgs e)
         {
             tech = cBTechnician.SelectedIndex;
@@ -520,7 +564,10 @@ namespace PremierServiceSolutions.Pages
         {
             issue = cbIssueType.Text;
         }
+        #endregion
 
+
+        #region Filter Methods
         private void FilterTickets()
         {
             lstFilterTicket.Clear();
@@ -577,22 +624,36 @@ namespace PremierServiceSolutions.Pages
                 }
                 else//if Priority is choosen and Issue is Empty
                 {
-                    if (tech.ToString() == "-1" && status == "")//Checks that only Priority is Selected
+                    if (status == "")//If Status is not Selected
                     {
-
-                        foreach (Ticket ticket in listTicket)
+                        if (tech.ToString() == "-1")//Checks that only Priority is Selected
                         {
-                            if (ticket.TicketPriority == priority)//Display Filter matching Priority
+
+                            foreach (Ticket ticket in listTicket)
                             {
-                                lstFilterTicket.Add(ticket);
-                                valid = 1;
+                                if (ticket.TicketPriority == priority)//Display Filter matching Priority
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
+                            }
+                        }
+
+                        if (tech.ToString() != "-1")//If Technician and Priority is choosen
+                        {
+                            foreach (Ticket ticket in listTicket)
+                            {
+                                if (ticket.TechnicianID == tech && ticket.TicketPriority == priority)//Display Filter matching Technician and Priority
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
                             }
                         }
                     }
-
-                    if(tech.ToString() =="-1")//If Technician,Issue is not choosen and Priority Is
+                    else//If only Priority and Status is choosen
                     {
-                        if(status!="")//If only Priority and Status is choosen
+                        if (tech.ToString() == "-1")//If Technician,Issue is not choosen and Priority and status is
                         {
                             foreach (Ticket ticket in listTicket)
                             {
@@ -603,19 +664,21 @@ namespace PremierServiceSolutions.Pages
                                 }
                             }
                         }
-
-                    }
-                    else if(tech.ToString()!= "-1")//If Technician and Priority is choosen
-                    {
-                        foreach(Ticket ticket in listTicket)
+                        else //If Eveything but issue is choosen
+                        {
+                            foreach(Ticket ticket in listTicket)
                             {
-                            if (ticket.TechnicianID == tech && ticket.TicketPriority==priority )//Display Filter matching Technician and Priority
-                            {
-                                lstFilterTicket.Add(ticket);
-                                valid = 1;
+                                if (ticket.TicketPriority == priority && ticket.TicketStatus == status && ticket.TechnicianID == tech)//Display Filter matching Priority and Status
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
                             }
                         }
                     }
+                    
+
+                    
 
 
                 }
@@ -624,11 +687,11 @@ namespace PremierServiceSolutions.Pages
             {
                 if (priority == "") //If Priority is Empty
                 {
-                    if(tech.ToString()=="-1")//Checks that Technician is also empty
+                    if(tech.ToString()=="-1")//Checks that Technician,Priority is empty
                     {
                         if(status!="")//Checks if only Issue and Status is Selected
                         {
-                            foreach (Ticket ticket in listTicket)
+                            foreach (Ticket ticket in listTicket)// Display Filter matching Issue and Status
                             {
                                 if (ticket.TicketIssueType == issue && ticket.TicketStatus == status)
                                 {
@@ -640,43 +703,83 @@ namespace PremierServiceSolutions.Pages
                     }
                     else
                     {
-                        foreach (Ticket ticket in listTicket)
+                        if (tech.ToString() != "-1" && status == "")//If Priority is Empty but Technician and Issue is selected
                         {
-                            if (ticket.TicketIssueType == issue && ticket.TechnicianID == tech)
+                            foreach (Ticket ticket in listTicket)// Display Filter matching Technician and Issue
                             {
-                                lstFilterTicket.Add(ticket);
-                                valid = 1;
+                                if (ticket.TicketIssueType == issue && ticket.TechnicianID == tech)
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
+                            }
+                        }
+
+                        if (tech.ToString() != "-1" && status != "")//If Issue, Technician and Status is Selected
+                        {
+                            foreach (Ticket ticket in listTicket)// Display Filter matching Technician and Issue
+                            {
+                                if (ticket.TicketIssueType == issue && ticket.TechnicianID == tech && ticket.TicketStatus == status)
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
+                            }
+                        }
+
+
+                    }
+                }
+                else //Priority is choosen and Issue
+                {
+                    if (status == "") //If Status is not choosen
+                    {
+                        if (priority != "" && tech.ToString() == "-1") //If Priority,Issue is selected and no tech selected and status is not
+                        {
+                            foreach (Ticket ticket in listTicket)//Display Filter matching Issue and Priority
+                            {
+                                if (ticket.TicketIssueType == issue && ticket.TicketPriority == priority)
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
+                            }
+                        }
+
+
+                        if (priority != "" && tech.ToString() != "-1" ) //if Priority ,Tech,Issue is selected and status is not
+                        {
+                            foreach (Ticket ticket in listTicket)//Display Filter matching Technician and Priority and Issue
+                            {
+                                if (ticket.TicketIssueType == issue && ticket.TicketPriority == priority && ticket.TechnicianID == tech)
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
+                            }
+                        }
+                    }
+                    else//Issue Priority and Status is choosen
+                    {
+                        if(tech.ToString()=="-1")//Making sure Tech is not selected
+                        {
+                            foreach (Ticket ticket in listTicket)//Display Filter matching Status and Priority and Issue
+                            {
+                                if (ticket.TicketIssueType == issue && ticket.TicketPriority == priority && ticket.TicketStatus == status)
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
                             }
                         }
                     }
                 }
-                else if(priority!="" && tech.ToString()=="-1") //If Priority is selected and no tech selected
-                {
-                    foreach (Ticket ticket in listTicket)
-                    {
-                        if (ticket.TicketIssueType == issue && ticket.TicketPriority==priority)
-                        {
-                            lstFilterTicket.Add(ticket);
-                            valid = 1;
-                        }
-                    }
-                }
-                if(priority!="" && tech.ToString()!="-1") //if Priority and tech not selected
-                {
-                    foreach (Ticket ticket in listTicket)
-                    {
-                        if (ticket.TicketIssueType == issue && ticket.TicketPriority == priority && ticket.TechnicianID == tech)
-                        {
-                            lstFilterTicket.Add(ticket);
-                            valid = 1;
-                        }
-                    }
-                }
+                
 
                 if (tech.ToString() == "-1" && status == "" && priority=="") //If only Issue is selected
                 {
 
-                    foreach (Ticket ticket in listTicket)
+                    foreach (Ticket ticket in listTicket)///Display Filter matching Issue
                     {
                         if (ticket.TicketIssueType == issue)
                         {
@@ -709,7 +812,12 @@ namespace PremierServiceSolutions.Pages
                 CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime); ; ;
 
             }
+            
             CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
+            if (flpTickets.Controls.Count == 1)
+            {
+                CreateNullEntry("No Search Results Found. Try changing Filters");
+            }
 
         }
 
@@ -724,5 +832,6 @@ namespace PremierServiceSolutions.Pages
                 DisplayFilter();
             }
         }
+        #endregion
     }
 }
