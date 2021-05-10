@@ -18,10 +18,17 @@ namespace PremierServiceSolutions.Pages
         List<Technician> lstTechnician;
         List<Issue> lstIssue;
         List<Status> lstStatus;
+        List<Ticket> lstFilterTicket;
+        private int tech =-1;
+        private string issue = "";
+        private string priority = "";
+        private string status ="";
+        private int valid = 0;
         public frmTickets()
         {
             InitializeComponent();
             listTicket = objTicket.GetAllTicket();
+            lstFilterTicket = objTicket.GetAllTicket();
             PopulateCbb();
             PopulateTickets();
             this.Width = 900;
@@ -98,11 +105,13 @@ namespace PremierServiceSolutions.Pages
                     TicketNew++;
                 }
                 CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime) ; ;;
+              
             }
             CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
             lblTicketsToday.Text = "Tickets Today : " + Convert.ToString(TicketToday);
             lblClosed.Text = "Tickets Closed : " + Convert.ToString(TicketClosed);
             lblNew.Text = "New Tickets : " + Convert.ToString(TicketNew);
+            
         }
 
 
@@ -458,6 +467,7 @@ namespace PremierServiceSolutions.Pages
                 flpTickets.Controls[i].Dispose();
             }
             flpTickets.Visible = false;
+            
         }
 
         private void ShowNewTicket()
@@ -484,6 +494,235 @@ namespace PremierServiceSolutions.Pages
                     CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime); ; ;
             }
             CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
+            cbPriority.SelectedIndex = -1;
+            cBTechnician.SelectedIndex = -1;
+            cBStatus.SelectedIndex = -1;
+            cbIssueType.SelectedIndex = -1;
+        }
+
+
+        private void cBTechnician_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tech = cBTechnician.SelectedIndex;
+        }
+
+        private void cBStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            status = cBStatus.Text;
+        }
+
+        private void cbPriority_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            priority = cbPriority.Text;
+        }
+
+        private void cbIssueType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            issue = cbIssueType.Text;
+        }
+
+        private void FilterTickets()
+        {
+            lstFilterTicket.Clear();
+            if(issue=="") //If Issue is not selected
+            {
+                if(priority=="") //If Priority is not Selected
+                {
+                    if(tech.ToString()=="-1") //If Tech is not selected
+                    {
+                        if(status=="")//If Status Not Selected
+                        {
+                            MessageBox.Show("Please Select filters to filter against"); //Shows Error to show that no filters were choosen
+                            valid = 0;
+                        }
+                        else //If everything besides Status is chosen
+                        {
+                            foreach (Ticket ticket in listTicket)
+                            {
+                                if (ticket.TicketStatus == status) //Display Filter matching Status
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    MessageBox.Show("Stats");
+                                    valid = 1;
+                                }
+                            }
+                        }
+                    }
+                    else //If Technician is choosen
+                    {
+                        if(status=="")//Checks that only Tech is Selected
+                        {
+                            foreach (Ticket ticket in listTicket)
+                            {
+                                if (ticket.TechnicianID == tech)//Display Filter matching Technician
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
+                            }
+                        }
+                        else if(status!="") //if Technician and Status is choosen
+                        {
+                            foreach(Ticket ticket in listTicket)
+                            {
+                                if (ticket.TechnicianID == tech && ticket.TicketStatus == status)//Display Filter matching Technician and Status
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
+                            }
+                        }
+
+                    }
+                }
+                else//if Priority is choosen and Issue is Empty
+                {
+                    if (tech.ToString() == "-1" && status == "")//Checks that only Priority is Selected
+                    {
+
+                        foreach (Ticket ticket in listTicket)
+                        {
+                            if (ticket.TicketPriority == priority)//Display Filter matching Priority
+                            {
+                                lstFilterTicket.Add(ticket);
+                                valid = 1;
+                            }
+                        }
+                    }
+
+                    if(tech.ToString() =="-1")//If Technician,Issue is not choosen and Priority Is
+                    {
+                        if(status!="")//If only Priority and Status is choosen
+                        {
+                            foreach (Ticket ticket in listTicket)
+                            {
+                                if (ticket.TicketPriority == priority && ticket.TicketStatus == status)//Display Filter matching Priority and Status
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
+                            }
+                        }
+
+                    }
+                    else if(tech.ToString()!= "-1")//If Technician and Priority is choosen
+                    {
+                        foreach(Ticket ticket in listTicket)
+                            {
+                            if (ticket.TechnicianID == tech && ticket.TicketPriority==priority )//Display Filter matching Technician and Priority
+                            {
+                                lstFilterTicket.Add(ticket);
+                                valid = 1;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+            else //If Issue has a selection
+            {
+                if (priority == "") //If Priority is Empty
+                {
+                    if(tech.ToString()=="-1")//Checks that Technician is also empty
+                    {
+                        if(status!="")//Checks if only Issue and Status is Selected
+                        {
+                            foreach (Ticket ticket in listTicket)
+                            {
+                                if (ticket.TicketIssueType == issue && ticket.TicketStatus == status)
+                                {
+                                    lstFilterTicket.Add(ticket);
+                                    valid = 1;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (Ticket ticket in listTicket)
+                        {
+                            if (ticket.TicketIssueType == issue && ticket.TechnicianID == tech)
+                            {
+                                lstFilterTicket.Add(ticket);
+                                valid = 1;
+                            }
+                        }
+                    }
+                }
+                else if(priority!="" && tech.ToString()=="-1") //If Priority is selected and no tech selected
+                {
+                    foreach (Ticket ticket in listTicket)
+                    {
+                        if (ticket.TicketIssueType == issue && ticket.TicketPriority==priority)
+                        {
+                            lstFilterTicket.Add(ticket);
+                            valid = 1;
+                        }
+                    }
+                }
+                if(priority!="" && tech.ToString()!="-1") //if Priority and tech not selected
+                {
+                    foreach (Ticket ticket in listTicket)
+                    {
+                        if (ticket.TicketIssueType == issue && ticket.TicketPriority == priority && ticket.TechnicianID == tech)
+                        {
+                            lstFilterTicket.Add(ticket);
+                            valid = 1;
+                        }
+                    }
+                }
+
+                if (tech.ToString() == "-1" && status == "" && priority=="") //If only Issue is selected
+                {
+
+                    foreach (Ticket ticket in listTicket)
+                    {
+                        if (ticket.TicketIssueType == issue)
+                        {
+                            lstFilterTicket.Add(ticket);
+                            valid = 1;
+                        }
+                    }
+                }
+                else //If all is selected
+                {
+                    foreach (Ticket ticket in listTicket)
+                    {
+                        if (ticket.TicketIssueType == issue && ticket.TicketPriority==priority && ticket.TicketStatus == status && ticket.TechnicianID==tech)
+                        {
+                            lstFilterTicket.Add(ticket);
+                            valid = 1;
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+        private void DisplayFilter()
+        {
+            foreach (Ticket ticket in lstFilterTicket)
+            {
+
+                CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime); ; ;
+
+            }
+            CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
+
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            FilterTickets();
+            if (valid == 1)
+            {
+                ResetTickets();
+                flpTickets.Visible = true;
+                
+                DisplayFilter();
+            }
         }
     }
 }

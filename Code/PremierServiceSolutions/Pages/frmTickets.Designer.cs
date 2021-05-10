@@ -77,6 +77,7 @@ namespace PremierServiceSolutions.Pages
             this.btnMyTickets = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnMyOpen = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnFilter = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
@@ -103,7 +104,7 @@ namespace PremierServiceSolutions.Pages
             // 
             this.lblTechnician.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTechnician.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTechnician.Location = new System.Drawing.Point(15, 14);
+            this.lblTechnician.Location = new System.Drawing.Point(11, 13);
             this.lblTechnician.Name = "lblTechnician";
             this.lblTechnician.Size = new System.Drawing.Size(108, 23);
             this.lblTechnician.TabIndex = 3;
@@ -133,6 +134,7 @@ namespace PremierServiceSolutions.Pages
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnFilter);
             this.panel2.Controls.Add(this.cbPriority);
             this.panel2.Controls.Add(this.cbIssueType);
             this.panel2.Controls.Add(this.cBStatus);
@@ -151,7 +153,7 @@ namespace PremierServiceSolutions.Pages
             this.cbPriority.AllowDropDownResize = false;
             this.cbPriority.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.cbPriority.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbPriority.Location = new System.Drawing.Point(94, 56);
+            this.cbPriority.Location = new System.Drawing.Point(90, 55);
             this.cbPriority.Name = "cbPriority";
             this.cbPriority.ShowToolTip = true;
             this.cbPriority.Size = new System.Drawing.Size(180, 25);
@@ -160,13 +162,14 @@ namespace PremierServiceSolutions.Pages
             this.cbPriority.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cbPriority.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbPriority.TabIndex = 15;
+            this.cbPriority.SelectedIndexChanged += new System.EventHandler(this.cbPriority_SelectedIndexChanged);
             // 
             // cbIssueType
             // 
             this.cbIssueType.AllowDropDownResize = false;
             this.cbIssueType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.cbIssueType.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbIssueType.Location = new System.Drawing.Point(407, 56);
+            this.cbIssueType.Location = new System.Drawing.Point(382, 56);
             this.cbIssueType.Name = "cbIssueType";
             this.cbIssueType.ShowToolTip = true;
             this.cbIssueType.Size = new System.Drawing.Size(180, 25);
@@ -175,6 +178,7 @@ namespace PremierServiceSolutions.Pages
             this.cbIssueType.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cbIssueType.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbIssueType.TabIndex = 14;
+            this.cbIssueType.SelectedIndexChanged += new System.EventHandler(this.cbIssueType_SelectedIndexChanged);
             // 
             // cBStatus
             // 
@@ -191,13 +195,14 @@ namespace PremierServiceSolutions.Pages
             this.cBStatus.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cBStatus.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cBStatus.TabIndex = 13;
+            this.cBStatus.SelectedIndexChanged += new System.EventHandler(this.cBStatus_SelectedIndexChanged);
             // 
             // cBTechnician
             // 
             this.cBTechnician.AllowDropDownResize = false;
             this.cBTechnician.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.cBTechnician.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cBTechnician.Location = new System.Drawing.Point(118, 14);
+            this.cBTechnician.Location = new System.Drawing.Point(114, 13);
             this.cBTechnician.Name = "cBTechnician";
             this.cBTechnician.ShowToolTip = true;
             this.cBTechnician.Size = new System.Drawing.Size(180, 25);
@@ -206,12 +211,13 @@ namespace PremierServiceSolutions.Pages
             this.cBTechnician.Style.EditorStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cBTechnician.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cBTechnician.TabIndex = 12;
+            this.cBTechnician.SelectedIndexChanged += new System.EventHandler(this.cBTechnician_SelectedIndexChanged);
             // 
             // lblPriority
             // 
             this.lblPriority.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPriority.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPriority.Location = new System.Drawing.Point(15, 58);
+            this.lblPriority.Location = new System.Drawing.Point(11, 57);
             this.lblPriority.Name = "lblPriority";
             this.lblPriority.Size = new System.Drawing.Size(100, 23);
             this.lblPriority.TabIndex = 9;
@@ -221,7 +227,7 @@ namespace PremierServiceSolutions.Pages
             // 
             this.lblIssueType.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIssueType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblIssueType.Location = new System.Drawing.Point(304, 58);
+            this.lblIssueType.Location = new System.Drawing.Point(279, 58);
             this.lblIssueType.Name = "lblIssueType";
             this.lblIssueType.Size = new System.Drawing.Size(107, 23);
             this.lblIssueType.TabIndex = 11;
@@ -717,6 +723,26 @@ namespace PremierServiceSolutions.Pages
             this.btnMyOpen.TextColor = System.Drawing.Color.White;
             this.btnMyOpen.UseVisualStyleBackColor = true;
             // 
+            // btnFilter
+            // 
+            this.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFilter.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnFilter.FlatAppearance.BorderSize = 0;
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.Location = new System.Drawing.Point(588, 28);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnFilter.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnFilter.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnFilter.Size = new System.Drawing.Size(84, 36);
+            this.btnFilter.TabIndex = 80;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.TextColor = System.Drawing.Color.White;
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
             // frmTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -799,5 +825,6 @@ namespace PremierServiceSolutions.Pages
         private CustomComponents.ButtonRound btnReset;
         private CustomComponents.ButtonRound btnMyTickets;
         private CustomComponents.ButtonRound btnNewTickets;
+        private CustomComponents.ButtonRound btnFilter;
     }
 }
