@@ -242,6 +242,12 @@
     <Compile Include="Pages\frmDocumentation.Designer.cs">
       <DependentUpon>frmDocumentation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\frmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\frmEmployee.Designer.cs">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\frmSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +299,8 @@
     </Compile>
     <Compile Include="Repository\IRepositoryBase.cs" />
     <Compile Include="Serialization\RememberMe.cs" />
+    <None Include="Resources\TechnicianWhite.png" />
+    <None Include="Resources\TechnicianRed1.png" />
     <None Include="Resources\ReportsWhite.png" />
     <None Include="Resources\ReportsRed1.png" />
     <None Include="Resources\TicketsWhite.png" />
@@ -308,6 +316,9 @@
     <EmbeddedResource Include="Pages\frmCentre.resx">
       <DependentUpon>frmCentre.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmContracts.resx">
+      <DependentUpon>frmContracts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,8 +328,14 @@
     <EmbeddedResource Include="Pages\frmDash.resx">
       <DependentUpon>frmDash.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmEmployee.resx">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\frmSchedule.resx">
       <DependentUpon>frmSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmTechnician.resx">
+      <DependentUpon>frmTechnician.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\frmTickets.resx">
       <DependentUpon>frmTickets.cs</DependentUpon>

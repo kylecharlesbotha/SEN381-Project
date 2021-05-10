@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -51,6 +52,9 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         frmCustomers frmCustomers = new frmCustomers();
         frmAssets frmAssets = new frmAssets();
         frmCustomerSupport frmCustomerSupport = new frmCustomerSupport();
+        frmContracts frmContracts = new frmContracts();
+        frmTechnician frmTechnician = new frmTechnician();
+        frmEmployee frmEmployee = new frmEmployee();
 
         #endregion
         public frmDashBoard()
@@ -63,6 +67,9 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmCustomers.TopLevel = false;
             frmAssets.TopLevel = false;
             frmCustomerSupport.TopLevel = false;
+            frmEmployee.TopLevel = false;
+            frmContracts.TopLevel = false;
+            frmTechnician.TopLevel = false;
             pnlSideMenu.Focus();
             FullPath = GetTemporaryDirectory();
             FullPath += @"\489296awbduyg0298lfg.ser";
@@ -96,10 +103,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             frmTick.SetStuff(CurrentTech.TechnicianID); 
         }
        
-        private void tbnTechnicians_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         #region Dashboard Events
         private void frmDashBoard_MouseDown(object sender, MouseEventArgs e)
@@ -149,6 +153,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnEmployees.BackColor = Color.White;
             btnReports.BackColor = Color.White;
             btnAsset.BackColor = Color.White;
+            btnTechnicians.BackColor = Color.White;
+
 
             btnDashBoard.ForeColor = Color.FromArgb(218,0,0);
             btnCallCentre.ForeColor = Color.FromArgb(218, 0, 0);
@@ -161,6 +167,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnEmployees.ForeColor = Color.FromArgb(218, 0, 0);
             btnReports.ForeColor = Color.FromArgb(218, 0, 0);
             btnAsset.ForeColor = Color.FromArgb(218, 0, 0);
+            btnTechnicians.ForeColor = Color.FromArgb(218, 0, 0);
 
 
 
@@ -175,6 +182,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             pbTechnician.Image = Properties.Resources.DashRed;
             pbReports.Image = Properties.Resources.ReportsRed;
             pbEmployee.Image = Properties.Resources.EmployeeRed;
+            pbTechnician.Image = Properties.Resources.TechnicianRed;
+
 
             pbDash.BackColor = Color.White ;
             pbCall.BackColor = Color.White ;
@@ -187,10 +196,25 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             pbTechnician.BackColor = Color.White;
             pbReports.BackColor = Color.White;
             pbEmployee.BackColor = Color.White;
+            frmTechnician.BackColor = Color.White;
 
 
 
         }
+        private void HideForms()
+        {
+            frmDash.Hide();
+            frmTick.Hide();
+            frmCentre.Hide();
+            frmSched.Hide();
+            frmAssets.Hide();
+            frmCustomers.Hide();
+            frmCustomerSupport.Hide();
+            frmContracts.Hide();
+            frmEmployee.Hide();
+            frmTechnician.Hide();
+        }
+
 
         private void btnTickets_Click(object sender, EventArgs e)
         {
@@ -282,16 +306,46 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             pbSupport.Image = Properties.Resources.CustomerSupportWhite;
             pnlMainPage.Controls.Add(frmCustomerSupport);
             frmCustomerSupport.Show();
+
+            Process.Start("http://www.Google.com");
         }
-        private void HideForms()
+        private void btnEmployees_Click(object sender, EventArgs e)
         {
-            frmDash.Hide();
-            frmTick.Hide();
-            frmCentre.Hide();
-            frmSched.Hide();
-            frmAssets.Hide();
-            frmCustomers.Hide();
-            frmCustomerSupport.Hide();
+            ChangeMenuSelection();
+            HideForms();
+            btnEmployees.ForeColor = Color.White;
+            btnEmployees.BackColor = Color.FromArgb(218, 0, 0);
+
+            pbEmployee.BackColor = Color.FromArgb(218, 0, 0);
+            pbEmployee.Image = Properties.Resources.EmployeeWhite;
+            pnlMainPage.Controls.Add(frmEmployee);
+            frmEmployee.Show();
+        }
+
+        private void btnContracts_Click(object sender, EventArgs e)
+        {
+            ChangeMenuSelection();
+            HideForms();
+            btnContracts.ForeColor = Color.White;
+            btnContracts.BackColor = Color.FromArgb(218, 0, 0);
+
+            pbContracts.BackColor = Color.FromArgb(218, 0, 0);
+            pbContracts.Image = Properties.Resources.ContractWhite;
+            pnlMainPage.Controls.Add(frmContracts);
+            frmContracts.Show();
+        }
+
+        private void tbnTechnicians_Click(object sender, EventArgs e)
+        {
+            ChangeMenuSelection();
+            HideForms();
+            btnTechnicians.ForeColor = Color.White;
+            btnTechnicians.BackColor = Color.FromArgb(218, 0, 0);
+
+            pbTechnician.BackColor = Color.FromArgb(218, 0, 0);
+            pbTechnician.Image = Properties.Resources.TechnicianWhite;
+            pnlMainPage.Controls.Add(frmTechnician);
+            frmTechnician.Show();
         }
 
 
@@ -398,11 +452,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private void iPBExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
         }
 
         

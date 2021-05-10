@@ -151,6 +151,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             // pbTechnician
             // 
             this.pbTechnician.BackColor = System.Drawing.Color.Transparent;
+            this.pbTechnician.Image = global::PremierServiceSolutions.Properties.Resources.TechnicianRed;
             this.pbTechnician.Location = new System.Drawing.Point(0, 561);
             this.pbTechnician.Name = "pbTechnician";
             this.pbTechnician.Size = new System.Drawing.Size(45, 45);
@@ -314,6 +315,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnEmployees.TabStop = false;
             this.btnEmployees.Text = "Employees";
             this.btnEmployees.UseVisualStyleBackColor = true;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // btnCustomerSupport
             // 
@@ -360,6 +362,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnContracts.TabStop = false;
             this.btnContracts.Text = "Contracts";
             this.btnContracts.UseVisualStyleBackColor = true;
+            this.btnContracts.Click += new System.EventHandler(this.btnContracts_Click);
             // 
             // btnTechnicians
             // 
