@@ -17,6 +17,7 @@ namespace PremierServiceSolutions.Pages
         List<Ticket> listTicket = new List<Ticket>();
         List<Technician> lstTechnician;
         List<Issue> lstIssue;
+        List<Status> lstStatus;
         public frmTickets()
         {
             InitializeComponent();
@@ -37,26 +38,30 @@ namespace PremierServiceSolutions.Pages
 
             try
             {
+                //CB Issue Types
                 Issue objissue = new Issue();
                 lstIssue = objissue.GetAllIssues();
                 cbIssueType.DataSource = lstIssue;
+                cbIssueType.DisplayMember = "IssueName";
 
+                //CB Priority Types
                 Priority objPriority = new Priority();
                 List<Priority> lstPriority = objPriority.GetAllPriority();
                 cbPriority.DataSource = lstPriority;
-
-                Technician objTechnician = new Technician();
-                lstTechnician = objTechnician.GetTechNames();
-
-                cBStatus.DataSource = listTicket;
-                cBStatus.DisplayMember = "TicketStatus";
-                cBTechnician.DataSource = lstTechnician;
-
-                cbIssueType.DisplayMember = "IssueName";
-
                 cbPriority.DisplayMember = "Priorityname";
 
+                //CB Technician Types
+                Technician objTechnician = new Technician();
+                lstTechnician = objTechnician.GetTechNames();
+                cBTechnician.DataSource = lstTechnician;
                 cBTechnician.DisplayMember = "TechNameList";
+
+
+                Status objStatus = new Status();
+                lstStatus = objStatus.GetAll();
+                cBStatus.DataSource = lstStatus;
+                cBStatus.DisplayMember = "StatusName";
+                
             }
             catch (Exception ee)
             {
@@ -71,11 +76,33 @@ namespace PremierServiceSolutions.Pages
         #region Creating of Tickets
         private void PopulateTickets()
         {
+            DateTime date = DateTime.Now;
+            date.ToString("yyyy-MM-dd HH:mm:ss");
+            date.ToString("yyyy-MM-dd");
+            int TicketToday = 0;
+            int TicketClosed = 0;
+            int TicketNew = 0;
             foreach (Ticket ticket in listTicket)
             {
+                ticket.TicketLoggedTime.ToString("yyyy-MM-dd");
+                if(date==ticket.TicketLoggedTime)
+                {
+                    TicketToday++;
+                }
+                if(ticket.TicketStatus=="Resolved")
+                {
+                    TicketClosed++;
+                }
+                if (ticket.TicketStatus == "New")
+                {
+                    TicketNew++;
+                }
                 CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime) ; ;;
             }
             CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
+            lblTicketsToday.Text = "Tickets Today : " + Convert.ToString(TicketToday);
+            lblClosed.Text = "Tickets Closed : " + Convert.ToString(TicketClosed);
+            lblNew.Text = "New Tickets : " + Convert.ToString(TicketNew);
         }
 
 
@@ -418,6 +445,45 @@ namespace PremierServiceSolutions.Pages
         private void btnClose_Click(object sender, EventArgs e)
         {
             pnlTicketDetials.Visible = false;
+        }
+
+        private void btnNewTickets_Click(object sender, EventArgs e)
+        {
+            ShowNewTicket();
+        }
+        private void ResetTickets()
+        {
+            for (int i = flpTickets.Controls.Count - 1; i >= 0; i--)
+            {
+                flpTickets.Controls[i].Dispose();
+            }
+            flpTickets.Visible = false;
+        }
+
+        private void ShowNewTicket()
+        {
+
+            ResetTickets();
+            flpTickets.Visible = true;
+            foreach (Ticket ticket in listTicket)
+            {
+                if (ticket.TicketStatus == "New")
+                {
+                    CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime); ; ;
+                }
+            }
+            CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ResetTickets();
+            flpTickets.Visible = true;
+            foreach (Ticket ticket in listTicket)
+            {
+                    CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime); ; ;
+            }
+            CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
         }
     }
 }

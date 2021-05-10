@@ -55,11 +55,10 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
             this.pBLogo = new System.Windows.Forms.PictureBox();
+            this.btnTickets = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.iPBMinimize = new FontAwesome.Sharp.IconPictureBox();
             this.iPBExit = new FontAwesome.Sharp.IconPictureBox();
-            this.bnNotifications = new BrbVideoManager.Controls.RoundedButton();
-            this.pbbell = new System.Windows.Forms.PictureBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pbProfilePicture = new System.Windows.Forms.PictureBox();
             this.pnlMainPage = new System.Windows.Forms.Panel();
@@ -72,7 +71,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.aboutUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnTickets = new System.Windows.Forms.Button();
             this.pnlSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbReports)).BeginInit();
@@ -89,7 +87,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbbell)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
             this.ContextMenuNotify.SuspendLayout();
             this.SuspendLayout();
@@ -440,6 +437,22 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pBLogo.TabIndex = 0;
             this.pBLogo.TabStop = false;
             // 
+            // btnTickets
+            // 
+            this.btnTickets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTickets.FlatAppearance.BorderSize = 0;
+            this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnTickets.Location = new System.Drawing.Point(0, 255);
+            this.btnTickets.Name = "btnTickets";
+            this.btnTickets.Size = new System.Drawing.Size(300, 45);
+            this.btnTickets.TabIndex = 26;
+            this.btnTickets.TabStop = false;
+            this.btnTickets.Text = "Tickets";
+            this.btnTickets.UseVisualStyleBackColor = true;
+            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
+            // 
             // pnlTop
             // 
             this.pnlTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -447,8 +460,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlTop.BackColor = System.Drawing.Color.White;
             this.pnlTop.Controls.Add(this.iPBMinimize);
             this.pnlTop.Controls.Add(this.iPBExit);
-            this.pnlTop.Controls.Add(this.bnNotifications);
-            this.pnlTop.Controls.Add(this.pbbell);
             this.pnlTop.Controls.Add(this.lblUserName);
             this.pnlTop.Controls.Add(this.pbProfilePicture);
             this.pnlTop.Location = new System.Drawing.Point(300, 1);
@@ -490,38 +501,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.iPBExit.Click += new System.EventHandler(this.iPBExit_Click);
             this.iPBExit.MouseEnter += new System.EventHandler(this.iPBExit_MouseEnter);
             this.iPBExit.MouseLeave += new System.EventHandler(this.iPBExit_MouseLeave);
-            // 
-            // bnNotifications
-            // 
-            this.bnNotifications.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.bnNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bnNotifications.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bnNotifications.BorderDownColor = System.Drawing.Color.Empty;
-            this.bnNotifications.BorderDownWidth = 0F;
-            this.bnNotifications.BorderOverColor = System.Drawing.Color.Empty;
-            this.bnNotifications.BorderOverWidth = 0F;
-            this.bnNotifications.BorderRadius = 50;
-            this.bnNotifications.BorderWidth = 1F;
-            this.bnNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnNotifications.ForeColor = System.Drawing.Color.White;
-            this.bnNotifications.Location = new System.Drawing.Point(566, 38);
-            this.bnNotifications.Name = "bnNotifications";
-            this.bnNotifications.Size = new System.Drawing.Size(34, 20);
-            this.bnNotifications.TabIndex = 2;
-            this.bnNotifications.Text = "999";
-            this.bnNotifications.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bnNotifications.UseVisualStyleBackColor = false;
-            // 
-            // pbbell
-            // 
-            this.pbbell.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pbbell.Image = global::PremierServiceSolutions.Properties.Resources.Bellicon;
-            this.pbbell.Location = new System.Drawing.Point(561, 0);
-            this.pbbell.Name = "pbbell";
-            this.pbbell.Size = new System.Drawing.Size(43, 41);
-            this.pbbell.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbbell.TabIndex = 5;
-            this.pbbell.TabStop = false;
             // 
             // lblUserName
             // 
@@ -637,22 +616,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // btnTickets
-            // 
-            this.btnTickets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTickets.FlatAppearance.BorderSize = 0;
-            this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTickets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnTickets.Location = new System.Drawing.Point(0, 255);
-            this.btnTickets.Name = "btnTickets";
-            this.btnTickets.Size = new System.Drawing.Size(300, 45);
-            this.btnTickets.TabIndex = 26;
-            this.btnTickets.TabStop = false;
-            this.btnTickets.Text = "Tickets";
-            this.btnTickets.UseVisualStyleBackColor = true;
-            this.btnTickets.Click += new System.EventHandler(this.btnTickets_Click);
-            // 
             // frmDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -691,7 +654,6 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iPBMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iPBExit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbbell)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).EndInit();
             this.ContextMenuNotify.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -712,10 +674,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         private System.Windows.Forms.Button btnDashBoard;
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Panel pnlTop;
-        private BrbVideoManager.Controls.RoundedButton bnNotifications;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.PictureBox pbProfilePicture;
-        private System.Windows.Forms.PictureBox pbbell;
         private System.Windows.Forms.Panel pnlMainPage;
         private FontAwesome.Sharp.IconPictureBox iPBMinimize;
         private FontAwesome.Sharp.IconPictureBox iPBExit;

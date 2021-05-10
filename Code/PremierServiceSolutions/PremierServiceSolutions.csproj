@@ -151,6 +151,7 @@
     <Compile Include="Business Logic Layer\Priority.cs" />
     <Compile Include="Business Logic Layer\SendEmail.cs" />
     <Compile Include="Business Logic Layer\Service.cs" />
+    <Compile Include="Business Logic Layer\Status.cs" />
     <Compile Include="Business Logic Layer\Technician.cs" />
     <Compile Include="Business Logic Layer\Ticket.cs" />
     <Compile Include="Business Logic Layer\User.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Data Access Layer\ServiceDH.cs" />
     <Compile Include="Data Access Layer\SLADH.cs" />
     <Compile Include="Data Access Layer\SLAFilesDH.cs" />
+    <Compile Include="Data Access Layer\StatusDH.cs" />
     <Compile Include="Data Access Layer\TechnicianDH.cs" />
     <Compile Include="Data Access Layer\TestExampleDH.cs" />
     <Compile Include="Data Access Layer\TicketDH.cs" />
