@@ -47,6 +47,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     objRecord.EmployeeRole = (string)sqlDataReader.GetValue(6);
                     objRecord.EmployeeStart = (DateTime)sqlDataReader.GetValue(7);
                     objRecord.EmployeeStatus = (string)sqlDataReader.GetValue(8);
+                    objRecord.EmployeeEmail = (string)sqlDataReader.GetValue(9);
                   
 
                 }
@@ -78,7 +79,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 else if (EmployeeVal == 0)
                 {
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                    string InsertQuery = string.Format(@"INSERT INTO tblEmployee (EmployeeName,EmployeeSurname,EmployeeIDNumber,EmployeeCell,EmployeeGender,EmployeeRole,EmployeeStartDate,EmployeeStatus) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                    string InsertQuery = string.Format(@"INSERT INTO tblEmployee (EmployeeName,EmployeeSurname,EmployeeIDNumber,EmployeeCell,EmployeeGender,EmployeeRole,EmployeeStartDate,EmployeeStatus,EmployeeEmail) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
                         objEmp.EmployeeName,
                         objEmp.EmployeeSurName,
                         objEmp.EmployeeIDNumber,
@@ -86,7 +87,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                         objEmp.EmployeeGender,
                         objEmp.EmployeeRole,
                         objEmp.EmployeeStart,
-                        objEmp.EmployeeStatus
+                        objEmp.EmployeeStatus,
+                        objEmp.EmployeeEmail
                         );
                     SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
                     sqlCon.Open();
@@ -196,7 +198,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                         (string)sqlDataReader.GetValue(5),
                         (string)sqlDataReader.GetValue(6),
                         (DateTime)sqlDataReader.GetValue(7),
-                        (string)sqlDataReader.GetValue(8)
+                        (string)sqlDataReader.GetValue(8),
+                        (string)sqlDataReader.GetValue(9)
                         ));
                 }
                 //Close connection to database

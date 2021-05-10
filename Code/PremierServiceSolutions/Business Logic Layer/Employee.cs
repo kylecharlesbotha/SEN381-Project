@@ -23,11 +23,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string employeeRole;
         private DateTime employeeStart;
         private string employeeStatus;
+        private string employeeEmail;
 
-
-
-
-        public Employee(int employeeid, string employeename, string employeesurName, string employeeIDNumber, string employeecell, string employeegender, string employeerole, DateTime employeestart, string employeestatus)
+        
+        public Employee(int employeeid, string employeename, string employeesurName, string employeeIDNumber, string employeecell, string employeegender, string employeerole, DateTime employeestart, string employeestatus,string employeeemail)
         {
             this.employeeID = employeeid;
             this.employeeName = employeename;
@@ -38,20 +37,15 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.employeeRole = employeerole;
             this.employeeStart = employeestart;
             this.employeeStatus = employeestatus;
+            this.employeeEmail = employeeemail;
         }
 
         public Employee()
         {
         }
-
         public override string ToString()
         {
-            return base.PersonName + base.PersonSurname + "whhyyyy" + base.PersonID;
-        }
-
-        public int CompareTo(Employee other)
-        {
-            throw new NotImplementedException();
+            return base.ToString();
         }
 
         public int EmployeeID { get => employeeID; set => employeeID = value; }
@@ -68,6 +62,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string EmployeeRole { get => employeeRole; set => employeeRole = value; }
         public DateTime EmployeeStart { get => employeeStart; set => employeeStart = value; }
         public string EmployeeStatus1 { get => employeeStatus; set => employeeStatus = value; }
+        public string EmployeeEmail { get => employeeEmail; set => employeeEmail = value; }
 
         public void GetEmployeeDuration()
         {
@@ -77,6 +72,13 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public override bool Equals(object obj)
         {
             return base.Equals(obj);
+        }
+
+        public int CompareTo(Employee other)
+        {
+            string current = this.EmployeeName;
+            string newname = other.EmployeeName;
+            return newname.CompareTo(current);
         }
 
         public override int GetHashCode()
@@ -92,8 +94,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
                 curEmployees = objEmpDH.GetAll().ToList();
                 return curEmployees;
             }
-            catch
+            catch(Exception E)
             {
+                System.Windows.Forms.MessageBox.Show(E.Message);
                 return null;
             }
         }
