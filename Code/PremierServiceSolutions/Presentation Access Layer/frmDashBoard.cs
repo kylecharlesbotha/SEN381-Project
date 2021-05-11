@@ -43,6 +43,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         #endregion
 
         #region Objects of Forms
+       
         RememberMe objRemMe = new RememberMe();
         Technician CurrentTech = new Technician();
         Form frmDash = new frmDash();
@@ -55,6 +56,8 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
         frmContracts frmContracts = new frmContracts();
         frmTechnician frmTechnician = new frmTechnician();
         frmEmployee frmEmployee = new frmEmployee();
+        
+
 
         #endregion
         public frmDashBoard()
