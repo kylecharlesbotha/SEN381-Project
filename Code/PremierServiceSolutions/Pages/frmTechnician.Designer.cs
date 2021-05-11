@@ -105,6 +105,9 @@ namespace PremierServiceSolutions.Pages
             this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.btnAddTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.lblDetailsState = new System.Windows.Forms.Label();
+            this.tbDetailsState = new System.Windows.Forms.TextBox();
+            this.btnActiveTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlSearchHeadings.SuspendLayout();
             this.pnlTopTechnician.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
@@ -741,6 +744,9 @@ namespace PremierServiceSolutions.Pages
             // 
             this.pnlTechnicianDetials.AutoScroll = true;
             this.pnlTechnicianDetials.BackColor = System.Drawing.Color.White;
+            this.pnlTechnicianDetials.Controls.Add(this.btnActiveTechnician);
+            this.pnlTechnicianDetials.Controls.Add(this.lblDetailsState);
+            this.pnlTechnicianDetials.Controls.Add(this.tbDetailsState);
             this.pnlTechnicianDetials.Controls.Add(this.lblTechEmail);
             this.pnlTechnicianDetials.Controls.Add(this.tbDetailsTechEmail);
             this.pnlTechnicianDetials.Controls.Add(this.lblTechRole);
@@ -820,7 +826,6 @@ namespace PremierServiceSolutions.Pages
             this.tbDetailsTechStatus.Location = new System.Drawing.Point(597, 206);
             this.tbDetailsTechStatus.Multiline = true;
             this.tbDetailsTechStatus.Name = "tbDetailsTechStatus";
-            this.tbDetailsTechStatus.ReadOnly = true;
             this.tbDetailsTechStatus.Size = new System.Drawing.Size(214, 30);
             this.tbDetailsTechStatus.TabIndex = 70;
             // 
@@ -990,6 +995,7 @@ namespace PremierServiceSolutions.Pages
             this.btnSaveChanged.Text = "Save Changes";
             this.btnSaveChanged.TextColor = System.Drawing.Color.White;
             this.btnSaveChanged.UseVisualStyleBackColor = true;
+            this.btnSaveChanged.Click += new System.EventHandler(this.btnSaveChanged_Click);
             // 
             // btnDeleteTech
             // 
@@ -1008,6 +1014,7 @@ namespace PremierServiceSolutions.Pages
             this.btnDeleteTech.Text = "Delete Technician";
             this.btnDeleteTech.TextColor = System.Drawing.Color.White;
             this.btnDeleteTech.UseVisualStyleBackColor = true;
+            this.btnDeleteTech.Click += new System.EventHandler(this.btnDeleteTech_Click);
             // 
             // btnClose
             // 
@@ -1134,6 +1141,50 @@ namespace PremierServiceSolutions.Pages
             this.btnAddTechnician.UseVisualStyleBackColor = true;
             this.btnAddTechnician.Click += new System.EventHandler(this.btnAddTechnician_Click);
             // 
+            // lblDetailsState
+            // 
+            this.lblDetailsState.AutoSize = true;
+            this.lblDetailsState.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailsState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDetailsState.Location = new System.Drawing.Point(486, 375);
+            this.lblDetailsState.Name = "lblDetailsState";
+            this.lblDetailsState.Size = new System.Drawing.Size(74, 25);
+            this.lblDetailsState.TabIndex = 90;
+            this.lblDetailsState.Text = "State :";
+            // 
+            // tbDetailsState
+            // 
+            this.tbDetailsState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsState.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsState.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsState.Location = new System.Drawing.Point(593, 373);
+            this.tbDetailsState.Multiline = true;
+            this.tbDetailsState.Name = "tbDetailsState";
+            this.tbDetailsState.ReadOnly = true;
+            this.tbDetailsState.Size = new System.Drawing.Size(218, 30);
+            this.tbDetailsState.TabIndex = 89;
+            // 
+            // btnActiveTechnician
+            // 
+            this.btnActiveTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnActiveTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnActiveTechnician.FlatAppearance.BorderSize = 0;
+            this.btnActiveTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActiveTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActiveTechnician.Location = new System.Drawing.Point(364, 514);
+            this.btnActiveTechnician.Name = "btnActiveTechnician";
+            this.btnActiveTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnActiveTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnActiveTechnician.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnActiveTechnician.Size = new System.Drawing.Size(196, 36);
+            this.btnActiveTechnician.TabIndex = 91;
+            this.btnActiveTechnician.Text = "Activate Technician";
+            this.btnActiveTechnician.TextColor = System.Drawing.Color.White;
+            this.btnActiveTechnician.UseVisualStyleBackColor = true;
+            this.btnActiveTechnician.Visible = false;
+            this.btnActiveTechnician.Click += new System.EventHandler(this.btnActiveTechnician_Click);
+            // 
             // frmTechnician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1253,5 +1304,8 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.TextBox tbDetailsTechRole;
         private System.Windows.Forms.Label lblTechEmail;
         private System.Windows.Forms.TextBox tbDetailsTechEmail;
+        private System.Windows.Forms.Label lblDetailsState;
+        private System.Windows.Forms.TextBox tbDetailsState;
+        private CustomComponents.ButtonRound btnActiveTechnician;
     }
 }

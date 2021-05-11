@@ -31,6 +31,7 @@ namespace PremierServiceSolutions.Pages
         int AdminCode = 1234;
         List<Technician> lstTechnician = new List<Technician>();
         List<Technician> lstSearchTechnician = new List<Technician>();
+        Technician newObject;
 
         List<Employee> lstEmployee = new List<Employee>();
         #endregion
@@ -79,9 +80,12 @@ namespace PremierServiceSolutions.Pages
 
         public void PopulateTechnicians()
         {
-            foreach(Technician tecitem in lstTechnician)
+            foreach (Technician tecitem in lstTechnician)
             {
-                CreateEntry(tecitem.TechnicianID.ToString(), tecitem.TechNameList, tecitem.TechnicianLevel.ToString(), tecitem.TechnicianStatus, tecitem.TechEmail);
+                if (tecitem.TechnicianState == 1)
+                {
+                    CreateEntry(tecitem.TechnicianID.ToString(), tecitem.TechNameList, tecitem.TechnicianLevel.ToString(), tecitem.TechnicianStatus, tecitem.TechEmail);
+                }
             }
         }
 
@@ -260,7 +264,7 @@ namespace PremierServiceSolutions.Pages
         protected void TechDetails(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            int Techid = Convert.ToInt32(lbl.Text);         
+            int Techid = Convert.ToInt32(lbl.Text);
             GetTechDetails(Techid);
             pnlTechnicianDetials.Visible = true;
         }
@@ -279,7 +283,7 @@ namespace PremierServiceSolutions.Pages
         {
             try
             {
-                Technician newObject = objTechnician.GetTechDetails(TechID);
+                newObject = objTechnician.GetTechDetails(TechID);
                 tbDetailsEmpID.Text = newObject.EmployeeID.ToString();
                 tbDetailsTechID.Text = newObject.TechnicianID.ToString();
                 tbDetailsTechName.Text = newObject.TechName;
@@ -287,8 +291,18 @@ namespace PremierServiceSolutions.Pages
                 tbDetailsTechRole.Text = newObject.EmployeeRole;
                 tbDetailsTechStatus.Text = newObject.TechnicianStatus;
                 sfTechLevel.Text = newObject.TechnicianLevel.ToString();
+                if(newObject.TechnicianState==1)
+                {
+                    tbDetailsState.Text = "Active";
+                    btnActiveTechnician.Visible = false;
+                }
+                else
+                {
+                    tbDetailsState.Text = "De-Activated";
+                    btnActiveTechnician.Visible = true;
+                }
             }
-            catch(Exception E)
+            catch (Exception E)
             {
 
             }
@@ -371,6 +385,19 @@ namespace PremierServiceSolutions.Pages
 
             }
         }
+        private void tBSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                tBSearch.Text = "Start Typing TechnicianID/Technician Name";
+                pnlTopTechnician.Focus();
+                flpTechnician.Visible = false;
+                ResetSearch();
+                PopulateTechnicians();
+                flpTechnician.Visible = true;
+            }
+
+        }
         private void ResetSearch()
         {
             for (int i = flpTechnician.Controls.Count - 1; i >= 0; i--)
@@ -383,24 +410,12 @@ namespace PremierServiceSolutions.Pages
 
         #endregion
 
-        private void tBSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-                if (e.KeyCode == Keys.Escape)
-                {
-                    tBSearch.Text = "Start Typing TechnicianID/Technician Name";
-                    pnlTopTechnician.Focus();
-                    flpTechnician.Visible = false;
-                    ResetSearch();
-                    PopulateTechnicians();
-                    flpTechnician.Visible = true;
-                }
 
-        }
 
         private void btnAddTechnician_Click(object sender, EventArgs e)
         {
             pnlNewTech.Visible = true;
-            btnReset_Click(null,null);//resets upcoming panel(form) to default state
+            btnReset_Click(null, null);//resets upcoming panel(form) to default state
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -417,7 +432,7 @@ namespace PremierServiceSolutions.Pages
             if (cbEmployee.SelectedIndex > -1)//if something is selected
             {
                 found = objTechnician.GetTechEmpID(cbEmployee.SelectedIndex);
-                if (found==true)
+                if (found == true)
                 {
                     CheckEmployee = true;
                     lblEmployeeCheck.Text = "";
@@ -429,7 +444,7 @@ namespace PremierServiceSolutions.Pages
                     lblEmployeeCheck.Text = "Already a technician linked to employee";
                     pbEmployeeCheck.Image = Properties.Resources.DeleteMark;
                 }
-                
+
             }
             else
             {
@@ -498,7 +513,7 @@ namespace PremierServiceSolutions.Pages
         #region Checkbox Create User Methods
         private void chkCreateAccount_CheckStateChanged(object sender, EventArgs e)
         {
-            if (chkCreateAccount.Checked==true)
+            if (chkCreateAccount.Checked == true)
             {
                 tbUsername.Enabled = true;
                 tbAccessCode.Enabled = true;
@@ -619,19 +634,19 @@ namespace PremierServiceSolutions.Pages
                     if (uservalue.UserName.ToLower() == username)
                     {
                         pbUsernameCheck.Image = Properties.Resources.DeleteMark;
-                       CheckUsername = false;
+                        CheckUsername = false;
                     }
                     else
                     {
                         pbUsernameCheck.Image = Properties.Resources.checkmark;
-                       CheckUsername = true;
+                        CheckUsername = true;
                     }
                 }
             }
             else
             {
                 pbUsernameCheck.Image = Properties.Resources.DeleteMark;
-               CheckUsername = false;
+                CheckUsername = false;
             }
         }
 
@@ -862,11 +877,11 @@ namespace PremierServiceSolutions.Pages
         #region Button Create Technician / Account Methods
         private void btnCreateTechnician_Click(object sender, EventArgs e)
         {
-            if (chkCreateAccount.Checked==true)
+            if (chkCreateAccount.Checked == true)
             {
                 bool JustAvariable = true;
                 //If all information check == true then enter else display message saying fill in all info correctly
-                if (JustAvariable==true)
+                if (JustAvariable == true)
                 {
                     //Create user AND assign technician to employee
                 }
@@ -892,9 +907,54 @@ namespace PremierServiceSolutions.Pages
         }
         #endregion
 
+        #region Panel Technician Details Method
         private void btnClose_Click(object sender, EventArgs e)
         {
             pnlTechnicianDetials.Visible = false;
         }
+
+        private void btnDeleteTech_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool sub = objTechnician.DeleteTech(newObject);
+                if(sub==true)
+                {
+                    MessageBox.Show("Technician has been successfuly Deleted");
+                    ResetSearch();
+                    LoadTech();
+                    pnlTechnicianDetials.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete Technician. Please try again");
+                }
+            }
+            catch(Exception E)
+            {
+
+            }
+        }
+        private void btnSaveChanged_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception E)
+            {
+
+            }
+
+        }
+        private void btnActiveTechnician_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        #endregion
+
+
     }
 }

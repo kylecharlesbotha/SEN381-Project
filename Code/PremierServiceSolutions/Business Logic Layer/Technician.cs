@@ -26,13 +26,14 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.technicianState = technicianstate;
             this.employeeID = employeeid;
         }
-        public Technician(int technicianid,string techname,int techlevel, string techstatus,string techemail)
+        public Technician(int technicianid,string techname,int techlevel, string techstatus,string techemail, int technicianstate)
         {
             this.technicianID = technicianid;
             this.techName = techname;
             this.technicianLevel = techlevel;
             this.technicianStatus = techstatus;
             this.techEmail = techemail;
+            this.technicianState = technicianstate;
         }
 
         public Technician(int techid,string techname)
@@ -148,6 +149,19 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             {
                 System.Windows.Forms.MessageBox.Show(E.Message);
                 return newTech;
+            }
+        }
+        public bool DeleteTech(Technician Tec)
+        {
+            bool Submited = false;
+            try
+            {
+                Submited = objTech.Delete(Tec);
+                return Submited;
+            }
+            catch(Exception E)
+            {
+                return Submited;
             }
         }
 
