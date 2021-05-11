@@ -396,7 +396,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblTechnician
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Technicains
-                string SelectQuery = string.Format("SELECT T.TechnicianID, E.EmployeeID,E.EmployeeName, T.TechnicianStatus ,E.EmployeeEmail, E.EmployeeRole, T.TechnicianLevel FROM tblTechnician AS T INNER JOIN tblEmployee AS E ON E.EmployeeID = T.EmployeeID WHERE T.TechnicianID = '{0}'",);
+                string SelectQuery = string.Format("SELECT T.TechnicianID, E.EmployeeID,E.EmployeeName, T.TechnicianStatus ,E.EmployeeEmail, E.EmployeeRole, T.TechnicianLevel FROM tblTechnician AS T INNER JOIN tblEmployee AS E ON E.EmployeeID = T.EmployeeID WHERE T.TechnicianID = '{0}'",TechID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
