@@ -73,7 +73,7 @@ namespace PremierServiceSolutions.Pages
             lAssName.Size = new Size(130, 30);
             p.Controls.Add(lAssName);
             lAssName.Top = 10;
-            lAssName.TextAlign = ContentAlignment.MiddleCenter;
+            lAssName.TextAlign = ContentAlignment.MiddleLeft;
             lAssName.Left = 15;
             lAssName.Font = new Font("Arial", 10, FontStyle.Bold);
             lAssName.ForeColor = Color.White;
@@ -106,7 +106,7 @@ namespace PremierServiceSolutions.Pages
             LManu.Size = new Size(150, 30);
             p.Controls.Add(LManu);
             LManu.Top = 10;
-            LManu.TextAlign = ContentAlignment.MiddleCenter;
+            LManu.TextAlign = ContentAlignment.MiddleLeft;
             LManu.Left = (lCusName.Left + lCusName.Width + 20);
             LManu.Font = new Font("Arial", 10, FontStyle.Bold);
             LManu.ForeColor = Color.White;
@@ -214,8 +214,108 @@ namespace PremierServiceSolutions.Pages
         protected void HoverLeave(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            lbl.ForeColor = Color.White;
+            lbl.ForeColor = Color.White ;
         }
+        #endregion
+
+
+        #region Search for Employee Methods
+        private void tBSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tBSearch.Text == "Start Typing Asset Name/Model or Serial")
+            {
+                
+            }
+            else
+            {
+                flpAssets.Visible = false;
+                bool found = false;
+                if (String.IsNullOrWhiteSpace(tBSearch.Text))
+                {
+                    ResetSearch();
+                    PopulateAssets();
+                    flpAssets.Visible = true;
+                }
+                else
+                {
+
+                    ResetSearch();
+                    flpAssets.Visible = false;
+                    string Text = tBSearch.Text.ToLower();
+
+
+
+                    foreach (Asset asitem in lstAsset)
+                    {
+                        if ((asitem.Model.StartsWith(Text)) || (asitem.AssetName.ToLower().StartsWith(Text)) || (asitem.SerialNumber.ToLower().StartsWith(Text)) )
+                        {
+                            CreateEntry(asitem.AssetName, asitem.ClientID, asitem.Manufacturer, asitem.Model, asitem.SerialNumber);
+                            found = true;
+
+                        }
+                    }
+
+                    
+                    if (found == false)
+                    {
+                        CreateNullEntry("Asset Not Found! Please clear search and try again.");
+                    }
+                    flpAssets.Visible = true;
+                }
+            }
+        
+        }
+        private void tBSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                tBSearch.Text = "Start Typing Asset Name/Model or Serial";
+                pnlTopAssets.Focus();
+                flpAssets.Visible = false;
+                ResetSearch();
+                PopulateAssets();
+                flpAssets.Visible = true;
+            }
+        }
+
+        private void tBSearch_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tBSearch.Text == "Start Typing Asset Name/Model or Serial")
+                {
+                    tBSearch.Clear();
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void tBSearch_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(tBSearch.Text))
+                {
+                    tBSearch.Text = "Start Typing Asset Name/Model or Serial";
+                }
+            }
+            catch
+            {
+
+            }
+        }
+        private void ResetSearch()
+        {
+            for (int i = flpAssets.Controls.Count - 1; i >= 0; i--)
+            {
+                flpAssets.Controls[i].Dispose();
+            }
+            flpAssets.Visible = false;
+        }
+
         #endregion
     }
 }

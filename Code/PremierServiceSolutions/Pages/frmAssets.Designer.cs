@@ -64,7 +64,7 @@ namespace PremierServiceSolutions.Pages
             this.lblSerial.BackColor = System.Drawing.Color.White;
             this.lblSerial.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSerial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSerial.Location = new System.Drawing.Point(755, 8);
+            this.lblSerial.Location = new System.Drawing.Point(724, 8);
             this.lblSerial.Name = "lblSerial";
             this.lblSerial.Size = new System.Drawing.Size(56, 19);
             this.lblSerial.TabIndex = 16;
@@ -76,7 +76,7 @@ namespace PremierServiceSolutions.Pages
             this.lblModel.BackColor = System.Drawing.Color.White;
             this.lblModel.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblModel.Location = new System.Drawing.Point(555, 8);
+            this.lblModel.Location = new System.Drawing.Point(518, 8);
             this.lblModel.Name = "lblModel";
             this.lblModel.Size = new System.Drawing.Size(59, 19);
             this.lblModel.TabIndex = 15;
@@ -112,7 +112,7 @@ namespace PremierServiceSolutions.Pages
             this.lblMan.BackColor = System.Drawing.Color.White;
             this.lblMan.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblMan.Location = new System.Drawing.Point(344, 8);
+            this.lblMan.Location = new System.Drawing.Point(331, 8);
             this.lblMan.Name = "lblMan";
             this.lblMan.Size = new System.Drawing.Size(119, 19);
             this.lblMan.TabIndex = 14;
@@ -152,6 +152,10 @@ namespace PremierServiceSolutions.Pages
             this.tBSearch.Size = new System.Drawing.Size(419, 31);
             this.tBSearch.TabIndex = 51;
             this.tBSearch.Text = "Start Typing Asset Name/Model or Serial";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
             // 
             // iPBSearch
             // 

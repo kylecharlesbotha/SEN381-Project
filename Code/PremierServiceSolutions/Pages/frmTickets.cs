@@ -853,5 +853,20 @@ namespace PremierServiceSolutions.Pages
             CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
             ResetCBB();
         }
+
+        private void btnMyOpen_Click(object sender, EventArgs e)
+        {
+            ResetTickets();
+            flpTickets.Visible = true;
+            foreach (Ticket ticket in listTicket)
+            {
+                if (ticket.TechnicianID == currenttech && ticket.TicketStatus != "Resolved")
+                {
+                    CreateEntry(ticket.TicketID, ticket.TicketTitle, ticket.ClientName, ticket.TechnicianID, ticket.TicketIssueType, ticket.TicketPriority, ticket.TicketStatus, ticket.TicketLoggedTime); ; ;
+                }
+            }
+            CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
+            ResetCBB();
+        }
     }
 }

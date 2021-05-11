@@ -150,6 +150,7 @@ namespace PremierServiceSolutions.Pages
             this.btnMyOpen.Text = "My Open Tickets";
             this.btnMyOpen.TextColor = System.Drawing.Color.White;
             this.btnMyOpen.UseVisualStyleBackColor = true;
+            this.btnMyOpen.Click += new System.EventHandler(this.btnMyOpen_Click);
             // 
             // btnReset
             // 
