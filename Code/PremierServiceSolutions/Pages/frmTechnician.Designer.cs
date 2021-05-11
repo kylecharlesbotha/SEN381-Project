@@ -38,13 +38,30 @@ namespace PremierServiceSolutions.Pages
             this.lblLevel = new System.Windows.Forms.Label();
             this.flpTechnician = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlTopTechnician = new System.Windows.Forms.Panel();
-            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
-            this.btnAddTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlNewTech = new System.Windows.Forms.Panel();
-            this.btnCreateTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.cbbUserTypeCheck = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.lblUserTypeCheck = new System.Windows.Forms.Label();
+            this.pbUserTypeCheck = new System.Windows.Forms.PictureBox();
+            this.lblUserType = new System.Windows.Forms.Label();
+            this.lblAccessCodeCheck = new System.Windows.Forms.Label();
+            this.pbAccessCodeCheck = new System.Windows.Forms.PictureBox();
+            this.lblAdminsitrator = new System.Windows.Forms.Label();
+            this.tbAccessCode = new System.Windows.Forms.TextBox();
+            this.lblConPasswordCheck = new System.Windows.Forms.Label();
+            this.pbConPasswordCheck = new System.Windows.Forms.PictureBox();
+            this.lblConPassword = new System.Windows.Forms.Label();
+            this.tbConPassword = new System.Windows.Forms.TextBox();
+            this.lblPasswordCheck = new System.Windows.Forms.Label();
+            this.pbPasswordCheck = new System.Windows.Forms.PictureBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.pnlDivider2 = new System.Windows.Forms.Panel();
+            this.cbLevel = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.cbEmployee = new Syncfusion.WinForms.ListView.SfComboBox();
             this.lblUsernameCheck = new System.Windows.Forms.Label();
-            this.lblSurnameCheck = new System.Windows.Forms.Label();
+            this.lblLevelCheck = new System.Windows.Forms.Label();
             this.lblEmployeeCheck = new System.Windows.Forms.Label();
             this.pbUsernameCheck = new System.Windows.Forms.PictureBox();
             this.pbLevelCheck = new System.Windows.Forms.PictureBox();
@@ -54,51 +71,34 @@ namespace PremierServiceSolutions.Pages
             this.chkSendEmail = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.chkCreateAccount = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.pnlDivider4 = new System.Windows.Forms.Panel();
-            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlDivider3 = new System.Windows.Forms.Panel();
             this.pnlDivider1 = new System.Windows.Forms.Panel();
             this.lblNewTech = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.tbIDNumber = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
             this.lblTechLevel = new System.Windows.Forms.Label();
             this.lblEmployeeID = new System.Windows.Forms.Label();
-            this.cbEmployee = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.cbLevel = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.pnlDivider2 = new System.Windows.Forms.Panel();
-            this.lblPasswordCheck = new System.Windows.Forms.Label();
-            this.pbPasswordCheck = new System.Windows.Forms.PictureBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.tbPassword = new System.Windows.Forms.TextBox();
-            this.lblConPasswordCheck = new System.Windows.Forms.Label();
-            this.pbConPasswordCheck = new System.Windows.Forms.PictureBox();
-            this.lblConPassword = new System.Windows.Forms.Label();
-            this.tbConPassword = new System.Windows.Forms.TextBox();
-            this.lblAccessCodeCheck = new System.Windows.Forms.Label();
-            this.pbAccessCodeCheck = new System.Windows.Forms.PictureBox();
-            this.lblAdminsitrator = new System.Windows.Forms.Label();
-            this.tbAccessCode = new System.Windows.Forms.TextBox();
-            this.cbbUserTypeCheck = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.lblUserTypeCheck = new System.Windows.Forms.Label();
-            this.pbUserTypeCheck = new System.Windows.Forms.PictureBox();
-            this.lblUserType = new System.Windows.Forms.Label();
+            this.btnCreateTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
+            this.btnAddTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlSearchHeadings.SuspendLayout();
             this.pnlTopTechnician.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
             this.pnlNewTech.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbUserTypeCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAccessCodeCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConPasswordCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsernameCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLevelCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployeeCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCreateAccount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbConPasswordCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAccessCodeCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbUserTypeCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSearchHeadings
@@ -118,11 +118,11 @@ namespace PremierServiceSolutions.Pages
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.BackColor = System.Drawing.Color.White;
-            this.lblEmail.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblEmail.Location = new System.Drawing.Point(678, 8);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(53, 19);
+            this.lblEmail.Size = new System.Drawing.Size(53, 20);
             this.lblEmail.TabIndex = 16;
             this.lblEmail.Text = "Email";
             // 
@@ -130,11 +130,11 @@ namespace PremierServiceSolutions.Pages
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.BackColor = System.Drawing.Color.White;
-            this.lblStatus.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblStatus.Location = new System.Drawing.Point(455, 8);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(62, 19);
+            this.lblStatus.Size = new System.Drawing.Size(62, 20);
             this.lblStatus.TabIndex = 15;
             this.lblStatus.Text = "Status";
             // 
@@ -142,11 +142,11 @@ namespace PremierServiceSolutions.Pages
             // 
             this.lblID.AutoSize = true;
             this.lblID.BackColor = System.Drawing.Color.White;
-            this.lblID.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblID.Location = new System.Drawing.Point(7, 8);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(69, 19);
+            this.lblID.Size = new System.Drawing.Size(72, 20);
             this.lblID.TabIndex = 12;
             this.lblID.Text = "Tech ID";
             // 
@@ -154,11 +154,11 @@ namespace PremierServiceSolutions.Pages
             // 
             this.lblCustomerHeading.AutoSize = true;
             this.lblCustomerHeading.BackColor = System.Drawing.Color.White;
-            this.lblCustomerHeading.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblCustomerHeading.Location = new System.Drawing.Point(115, 8);
             this.lblCustomerHeading.Name = "lblCustomerHeading";
-            this.lblCustomerHeading.Size = new System.Drawing.Size(97, 19);
+            this.lblCustomerHeading.Size = new System.Drawing.Size(96, 20);
             this.lblCustomerHeading.TabIndex = 13;
             this.lblCustomerHeading.Text = "First Name";
             // 
@@ -166,11 +166,11 @@ namespace PremierServiceSolutions.Pages
             // 
             this.lblLevel.AutoSize = true;
             this.lblLevel.BackColor = System.Drawing.Color.White;
-            this.lblLevel.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblLevel.Location = new System.Drawing.Point(315, 8);
             this.lblLevel.Name = "lblLevel";
-            this.lblLevel.Size = new System.Drawing.Size(53, 19);
+            this.lblLevel.Size = new System.Drawing.Size(51, 20);
             this.lblLevel.TabIndex = 14;
             this.lblLevel.Text = "Level";
             // 
@@ -195,24 +195,6 @@ namespace PremierServiceSolutions.Pages
             this.pnlTopTechnician.Size = new System.Drawing.Size(883, 69);
             this.pnlTopTechnician.TabIndex = 27;
             // 
-            // tBSearch
-            // 
-            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tBSearch.Location = new System.Drawing.Point(54, 20);
-            this.tBSearch.Multiline = true;
-            this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(419, 31);
-            this.tBSearch.TabIndex = 51;
-            this.tBSearch.Text = "Start Typing TechnicianID/Technician Name";
-            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
-            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
-            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
-            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
-            // 
             // iPBSearch
             // 
             this.iPBSearch.BackColor = System.Drawing.Color.White;
@@ -225,27 +207,6 @@ namespace PremierServiceSolutions.Pages
             this.iPBSearch.Size = new System.Drawing.Size(32, 40);
             this.iPBSearch.TabIndex = 52;
             this.iPBSearch.TabStop = false;
-            // 
-            // btnAddTechnician
-            // 
-            this.btnAddTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddTechnician.FlatAppearance.BorderSize = 0;
-            this.btnAddTechnician.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAddTechnician.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAddTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTechnician.Location = new System.Drawing.Point(682, 14);
-            this.btnAddTechnician.Name = "btnAddTechnician";
-            this.btnAddTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnAddTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnAddTechnician.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddTechnician.Size = new System.Drawing.Size(185, 40);
-            this.btnAddTechnician.TabIndex = 53;
-            this.btnAddTechnician.TabStop = false;
-            this.btnAddTechnician.Text = "New Technician +";
-            this.btnAddTechnician.TextColor = System.Drawing.Color.White;
-            this.btnAddTechnician.UseVisualStyleBackColor = true;
             // 
             // pnlNewTech
             // 
@@ -272,7 +233,7 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewTech.Controls.Add(this.cbEmployee);
             this.pnlNewTech.Controls.Add(this.btnCreateTechnician);
             this.pnlNewTech.Controls.Add(this.lblUsernameCheck);
-            this.pnlNewTech.Controls.Add(this.lblSurnameCheck);
+            this.pnlNewTech.Controls.Add(this.lblLevelCheck);
             this.pnlNewTech.Controls.Add(this.lblEmployeeCheck);
             this.pnlNewTech.Controls.Add(this.pbUsernameCheck);
             this.pnlNewTech.Controls.Add(this.pbLevelCheck);
@@ -288,35 +249,267 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewTech.Controls.Add(this.pnlDivider1);
             this.pnlNewTech.Controls.Add(this.lblNewTech);
             this.pnlNewTech.Controls.Add(this.lblUsername);
-            this.pnlNewTech.Controls.Add(this.tbIDNumber);
+            this.pnlNewTech.Controls.Add(this.tbUsername);
             this.pnlNewTech.Controls.Add(this.lblTechLevel);
             this.pnlNewTech.Controls.Add(this.lblEmployeeID);
-            this.pnlNewTech.Location = new System.Drawing.Point(916, 12);
+            this.pnlNewTech.Location = new System.Drawing.Point(432, 3);
             this.pnlNewTech.Name = "pnlNewTech";
             this.pnlNewTech.Size = new System.Drawing.Size(883, 725);
             this.pnlNewTech.TabIndex = 30;
             this.pnlNewTech.Visible = false;
             // 
-            // btnCreateTechnician
+            // cbbUserTypeCheck
             // 
-            this.btnCreateTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateTechnician.FlatAppearance.BorderSize = 0;
-            this.btnCreateTechnician.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateTechnician.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateTechnician.Location = new System.Drawing.Point(658, 669);
-            this.btnCreateTechnician.Name = "btnCreateTechnician";
-            this.btnCreateTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateTechnician.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCreateTechnician.Size = new System.Drawing.Size(215, 38);
-            this.btnCreateTechnician.TabIndex = 100;
-            this.btnCreateTechnician.TabStop = false;
-            this.btnCreateTechnician.Text = "Create Technician";
-            this.btnCreateTechnician.TextColor = System.Drawing.Color.White;
-            this.btnCreateTechnician.UseVisualStyleBackColor = true;
+            this.cbbUserTypeCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbbUserTypeCheck.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbbUserTypeCheck.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbbUserTypeCheck.Enabled = false;
+            this.cbbUserTypeCheck.Location = new System.Drawing.Point(153, 467);
+            this.cbbUserTypeCheck.MaxDropDownItems = 3;
+            this.cbbUserTypeCheck.Name = "cbbUserTypeCheck";
+            this.cbbUserTypeCheck.Size = new System.Drawing.Size(199, 28);
+            this.cbbUserTypeCheck.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbbUserTypeCheck.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
+            this.cbbUserTypeCheck.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cbbUserTypeCheck.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbbUserTypeCheck.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbUserTypeCheck.TabIndex = 120;
+            this.cbbUserTypeCheck.ValueMember = "";
+            this.cbbUserTypeCheck.SelectedIndexChanged += new System.EventHandler(this.cbbUserTypeCheck_SelectedIndexChanged);
+            this.cbbUserTypeCheck.Leave += new System.EventHandler(this.cbbUserTypeCheck_Leave);
+            // 
+            // lblUserTypeCheck
+            // 
+            this.lblUserTypeCheck.AutoSize = true;
+            this.lblUserTypeCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserTypeCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblUserTypeCheck.Location = new System.Drawing.Point(158, 454);
+            this.lblUserTypeCheck.Name = "lblUserTypeCheck";
+            this.lblUserTypeCheck.Size = new System.Drawing.Size(94, 13);
+            this.lblUserTypeCheck.TabIndex = 119;
+            this.lblUserTypeCheck.Text = "lblUserTypeCheck";
+            // 
+            // pbUserTypeCheck
+            // 
+            this.pbUserTypeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbUserTypeCheck.Image")));
+            this.pbUserTypeCheck.Location = new System.Drawing.Point(356, 465);
+            this.pbUserTypeCheck.Name = "pbUserTypeCheck";
+            this.pbUserTypeCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbUserTypeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUserTypeCheck.TabIndex = 118;
+            this.pbUserTypeCheck.TabStop = false;
+            // 
+            // lblUserType
+            // 
+            this.lblUserType.AutoSize = true;
+            this.lblUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUserType.Location = new System.Drawing.Point(24, 470);
+            this.lblUserType.Name = "lblUserType";
+            this.lblUserType.Size = new System.Drawing.Size(123, 25);
+            this.lblUserType.TabIndex = 117;
+            this.lblUserType.Text = "User Type :";
+            // 
+            // lblAccessCodeCheck
+            // 
+            this.lblAccessCodeCheck.AutoSize = true;
+            this.lblAccessCodeCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblAccessCodeCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblAccessCodeCheck.Location = new System.Drawing.Point(158, 389);
+            this.lblAccessCodeCheck.Name = "lblAccessCodeCheck";
+            this.lblAccessCodeCheck.Size = new System.Drawing.Size(108, 13);
+            this.lblAccessCodeCheck.TabIndex = 116;
+            this.lblAccessCodeCheck.Text = "lblAccessCodeCheck";
+            // 
+            // pbAccessCodeCheck
+            // 
+            this.pbAccessCodeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbAccessCodeCheck.Image")));
+            this.pbAccessCodeCheck.Location = new System.Drawing.Point(356, 402);
+            this.pbAccessCodeCheck.Name = "pbAccessCodeCheck";
+            this.pbAccessCodeCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbAccessCodeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAccessCodeCheck.TabIndex = 115;
+            this.pbAccessCodeCheck.TabStop = false;
+            // 
+            // lblAdminsitrator
+            // 
+            this.lblAdminsitrator.AutoSize = true;
+            this.lblAdminsitrator.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminsitrator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblAdminsitrator.Location = new System.Drawing.Point(2, 407);
+            this.lblAdminsitrator.Name = "lblAdminsitrator";
+            this.lblAdminsitrator.Size = new System.Drawing.Size(145, 25);
+            this.lblAdminsitrator.TabIndex = 114;
+            this.lblAdminsitrator.Text = "Access Code:";
+            // 
+            // tbAccessCode
+            // 
+            this.tbAccessCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbAccessCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAccessCode.Enabled = false;
+            this.tbAccessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAccessCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbAccessCode.Location = new System.Drawing.Point(153, 402);
+            this.tbAccessCode.MaxLength = 13;
+            this.tbAccessCode.Multiline = true;
+            this.tbAccessCode.Name = "tbAccessCode";
+            this.tbAccessCode.Size = new System.Drawing.Size(199, 30);
+            this.tbAccessCode.TabIndex = 113;
+            this.tbAccessCode.TextChanged += new System.EventHandler(this.tbAccessCode_TextChanged);
+            this.tbAccessCode.Enter += new System.EventHandler(this.tbAccessCode_Enter);
+            this.tbAccessCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAccessCode_KeyPress);
+            this.tbAccessCode.Leave += new System.EventHandler(this.tbAccessCode_Leave);
+            // 
+            // lblConPasswordCheck
+            // 
+            this.lblConPasswordCheck.AutoSize = true;
+            this.lblConPasswordCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblConPasswordCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblConPasswordCheck.Location = new System.Drawing.Point(616, 389);
+            this.lblConPasswordCheck.Name = "lblConPasswordCheck";
+            this.lblConPasswordCheck.Size = new System.Drawing.Size(113, 13);
+            this.lblConPasswordCheck.TabIndex = 112;
+            this.lblConPasswordCheck.Text = "lblConPasswordCheck";
+            // 
+            // pbConPasswordCheck
+            // 
+            this.pbConPasswordCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbConPasswordCheck.Image")));
+            this.pbConPasswordCheck.Location = new System.Drawing.Point(842, 402);
+            this.pbConPasswordCheck.Name = "pbConPasswordCheck";
+            this.pbConPasswordCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbConPasswordCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbConPasswordCheck.TabIndex = 111;
+            this.pbConPasswordCheck.TabStop = false;
+            // 
+            // lblConPassword
+            // 
+            this.lblConPassword.AutoSize = true;
+            this.lblConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblConPassword.Location = new System.Drawing.Point(406, 407);
+            this.lblConPassword.Name = "lblConPassword";
+            this.lblConPassword.Size = new System.Drawing.Size(192, 25);
+            this.lblConPassword.TabIndex = 110;
+            this.lblConPassword.Text = "Confirm Password:";
+            // 
+            // tbConPassword
+            // 
+            this.tbConPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbConPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbConPassword.Enabled = false;
+            this.tbConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbConPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbConPassword.Location = new System.Drawing.Point(611, 402);
+            this.tbConPassword.MaxLength = 13;
+            this.tbConPassword.Multiline = true;
+            this.tbConPassword.Name = "tbConPassword";
+            this.tbConPassword.Size = new System.Drawing.Size(229, 30);
+            this.tbConPassword.TabIndex = 109;
+            this.tbConPassword.TextChanged += new System.EventHandler(this.tbConPassword_TextChanged);
+            this.tbConPassword.Enter += new System.EventHandler(this.tbConPassword_Enter);
+            this.tbConPassword.Leave += new System.EventHandler(this.tbConPassword_Leave);
+            // 
+            // lblPasswordCheck
+            // 
+            this.lblPasswordCheck.AutoSize = true;
+            this.lblPasswordCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblPasswordCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblPasswordCheck.Location = new System.Drawing.Point(616, 331);
+            this.lblPasswordCheck.Name = "lblPasswordCheck";
+            this.lblPasswordCheck.Size = new System.Drawing.Size(94, 13);
+            this.lblPasswordCheck.TabIndex = 108;
+            this.lblPasswordCheck.Text = "lblPasswordCheck";
+            // 
+            // pbPasswordCheck
+            // 
+            this.pbPasswordCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbPasswordCheck.Image")));
+            this.pbPasswordCheck.Location = new System.Drawing.Point(842, 344);
+            this.pbPasswordCheck.Name = "pbPasswordCheck";
+            this.pbPasswordCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbPasswordCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPasswordCheck.TabIndex = 107;
+            this.pbPasswordCheck.TabStop = false;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblPassword.Location = new System.Drawing.Point(486, 347);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(112, 25);
+            this.lblPassword.TabIndex = 106;
+            this.lblPassword.Text = "Password:";
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPassword.Enabled = false;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbPassword.Location = new System.Drawing.Point(611, 344);
+            this.tbPassword.MaxLength = 13;
+            this.tbPassword.Multiline = true;
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(229, 30);
+            this.tbPassword.TabIndex = 105;
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
+            this.tbPassword.Enter += new System.EventHandler(this.tbPassword_Enter);
+            this.tbPassword.Leave += new System.EventHandler(this.tbPassword_Leave);
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUser.Location = new System.Drawing.Point(27, 285);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(252, 29);
+            this.lblUser.TabIndex = 104;
+            this.lblUser.Text = "Create User Account";
+            // 
+            // pnlDivider2
+            // 
+            this.pnlDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlDivider2.Location = new System.Drawing.Point(10, 274);
+            this.pnlDivider2.Name = "pnlDivider2";
+            this.pnlDivider2.Size = new System.Drawing.Size(863, 2);
+            this.pnlDivider2.TabIndex = 103;
+            // 
+            // cbLevel
+            // 
+            this.cbLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbLevel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbLevel.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbLevel.Location = new System.Drawing.Point(303, 193);
+            this.cbLevel.Name = "cbLevel";
+            this.cbLevel.Size = new System.Drawing.Size(229, 28);
+            this.cbLevel.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbLevel.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
+            this.cbLevel.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cbLevel.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbLevel.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbLevel.TabIndex = 102;
+            this.cbLevel.SelectedIndexChanged += new System.EventHandler(this.cbLevel_SelectedIndexChanged);
+            this.cbLevel.Leave += new System.EventHandler(this.cbLevel_Leave);
+            // 
+            // cbEmployee
+            // 
+            this.cbEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbEmployee.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbEmployee.Location = new System.Drawing.Point(303, 141);
+            this.cbEmployee.Name = "cbEmployee";
+            this.cbEmployee.Size = new System.Drawing.Size(229, 28);
+            this.cbEmployee.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbEmployee.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
+            this.cbEmployee.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cbEmployee.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbEmployee.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbEmployee.TabIndex = 101;
+            this.cbEmployee.SelectedIndexChanged += new System.EventHandler(this.cbEmployee_SelectedIndexChanged);
+            this.cbEmployee.Leave += new System.EventHandler(this.cbEmployee_Leave);
             // 
             // lblUsernameCheck
             // 
@@ -327,18 +520,18 @@ namespace PremierServiceSolutions.Pages
             this.lblUsernameCheck.Name = "lblUsernameCheck";
             this.lblUsernameCheck.Size = new System.Drawing.Size(96, 13);
             this.lblUsernameCheck.TabIndex = 91;
-            this.lblUsernameCheck.Text = "lblIDNumberCheck";
+            this.lblUsernameCheck.Text = "lblUsernameCheck";
             // 
-            // lblSurnameCheck
+            // lblLevelCheck
             // 
-            this.lblSurnameCheck.AutoSize = true;
-            this.lblSurnameCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblSurnameCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblSurnameCheck.Location = new System.Drawing.Point(308, 180);
-            this.lblSurnameCheck.Name = "lblSurnameCheck";
-            this.lblSurnameCheck.Size = new System.Drawing.Size(74, 13);
-            this.lblSurnameCheck.TabIndex = 90;
-            this.lblSurnameCheck.Text = "lblLevelCheck";
+            this.lblLevelCheck.AutoSize = true;
+            this.lblLevelCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblLevelCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblLevelCheck.Location = new System.Drawing.Point(308, 180);
+            this.lblLevelCheck.Name = "lblLevelCheck";
+            this.lblLevelCheck.Size = new System.Drawing.Size(74, 13);
+            this.lblLevelCheck.TabIndex = 90;
+            this.lblLevelCheck.Text = "lblLevelCheck";
             // 
             // lblEmployeeCheck
             // 
@@ -432,6 +625,7 @@ namespace PremierServiceSolutions.Pages
             this.chkCreateAccount.TabIndex = 68;
             this.chkCreateAccount.Text = "Create User Account";
             this.chkCreateAccount.ThemeName = "Metro";
+            this.chkCreateAccount.CheckStateChanged += new System.EventHandler(this.chkCreateAccount_CheckStateChanged);
             // 
             // pnlDivider4
             // 
@@ -440,6 +634,106 @@ namespace PremierServiceSolutions.Pages
             this.pnlDivider4.Name = "pnlDivider4";
             this.pnlDivider4.Size = new System.Drawing.Size(863, 2);
             this.pnlDivider4.TabIndex = 67;
+            // 
+            // pnlDivider3
+            // 
+            this.pnlDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlDivider3.Location = new System.Drawing.Point(10, 544);
+            this.pnlDivider3.Name = "pnlDivider3";
+            this.pnlDivider3.Size = new System.Drawing.Size(863, 2);
+            this.pnlDivider3.TabIndex = 61;
+            // 
+            // pnlDivider1
+            // 
+            this.pnlDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlDivider1.Location = new System.Drawing.Point(10, 64);
+            this.pnlDivider1.Name = "pnlDivider1";
+            this.pnlDivider1.Size = new System.Drawing.Size(863, 2);
+            this.pnlDivider1.TabIndex = 60;
+            // 
+            // lblNewTech
+            // 
+            this.lblNewTech.AutoSize = true;
+            this.lblNewTech.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewTech.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewTech.Location = new System.Drawing.Point(28, 21);
+            this.lblNewTech.Name = "lblNewTech";
+            this.lblNewTech.Size = new System.Drawing.Size(222, 31);
+            this.lblNewTech.TabIndex = 59;
+            this.lblNewTech.Text = "New Technician";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblUsername.Location = new System.Drawing.Point(28, 347);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(119, 25);
+            this.lblUsername.TabIndex = 32;
+            this.lblUsername.Text = "UserName:";
+            // 
+            // tbUsername
+            // 
+            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbUsername.Enabled = false;
+            this.tbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbUsername.Location = new System.Drawing.Point(153, 344);
+            this.tbUsername.MaxLength = 13;
+            this.tbUsername.Multiline = true;
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(199, 30);
+            this.tbUsername.TabIndex = 31;
+            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
+            this.tbUsername.Enter += new System.EventHandler(this.tbUsername_Enter);
+            this.tbUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUsername_KeyPress);
+            this.tbUsername.Leave += new System.EventHandler(this.tbUsername_Leave);
+            // 
+            // lblTechLevel
+            // 
+            this.lblTechLevel.AutoSize = true;
+            this.lblTechLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTechLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTechLevel.Location = new System.Drawing.Point(218, 196);
+            this.lblTechLevel.Name = "lblTechLevel";
+            this.lblTechLevel.Size = new System.Drawing.Size(76, 25);
+            this.lblTechLevel.TabIndex = 30;
+            this.lblTechLevel.Text = "Level :";
+            // 
+            // lblEmployeeID
+            // 
+            this.lblEmployeeID.AutoSize = true;
+            this.lblEmployeeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployeeID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblEmployeeID.Location = new System.Drawing.Point(175, 144);
+            this.lblEmployeeID.Name = "lblEmployeeID";
+            this.lblEmployeeID.Size = new System.Drawing.Size(119, 25);
+            this.lblEmployeeID.TabIndex = 28;
+            this.lblEmployeeID.Text = "Employee :";
+            // 
+            // btnCreateTechnician
+            // 
+            this.btnCreateTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateTechnician.FlatAppearance.BorderSize = 0;
+            this.btnCreateTechnician.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateTechnician.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateTechnician.Location = new System.Drawing.Point(658, 669);
+            this.btnCreateTechnician.Name = "btnCreateTechnician";
+            this.btnCreateTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateTechnician.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCreateTechnician.Size = new System.Drawing.Size(215, 38);
+            this.btnCreateTechnician.TabIndex = 100;
+            this.btnCreateTechnician.TabStop = false;
+            this.btnCreateTechnician.Text = "Create Technician";
+            this.btnCreateTechnician.TextColor = System.Drawing.Color.White;
+            this.btnCreateTechnician.UseVisualStyleBackColor = true;
+            this.btnCreateTechnician.Click += new System.EventHandler(this.btnCreateTechnician_Click);
             // 
             // btnCancel
             // 
@@ -482,310 +776,47 @@ namespace PremierServiceSolutions.Pages
             this.btnReset.Text = "Reset Fields";
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // pnlDivider3
+            // tBSearch
             // 
-            this.pnlDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnlDivider3.Location = new System.Drawing.Point(10, 544);
-            this.pnlDivider3.Name = "pnlDivider3";
-            this.pnlDivider3.Size = new System.Drawing.Size(863, 2);
-            this.pnlDivider3.TabIndex = 61;
+            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tBSearch.Location = new System.Drawing.Point(54, 20);
+            this.tBSearch.Multiline = true;
+            this.tBSearch.Name = "tBSearch";
+            this.tBSearch.Size = new System.Drawing.Size(419, 31);
+            this.tBSearch.TabIndex = 51;
+            this.tBSearch.Text = "Start Typing TechnicianID/Technician Name";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
             // 
-            // pnlDivider1
+            // btnAddTechnician
             // 
-            this.pnlDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnlDivider1.Location = new System.Drawing.Point(10, 64);
-            this.pnlDivider1.Name = "pnlDivider1";
-            this.pnlDivider1.Size = new System.Drawing.Size(863, 2);
-            this.pnlDivider1.TabIndex = 60;
-            // 
-            // lblNewTech
-            // 
-            this.lblNewTech.AutoSize = true;
-            this.lblNewTech.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewTech.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNewTech.Location = new System.Drawing.Point(28, 21);
-            this.lblNewTech.Name = "lblNewTech";
-            this.lblNewTech.Size = new System.Drawing.Size(222, 31);
-            this.lblNewTech.TabIndex = 59;
-            this.lblNewTech.Text = "New Technician";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUsername.Location = new System.Drawing.Point(28, 347);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(119, 25);
-            this.lblUsername.TabIndex = 32;
-            this.lblUsername.Text = "UserName:";
-            // 
-            // tbIDNumber
-            // 
-            this.tbIDNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbIDNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbIDNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbIDNumber.Location = new System.Drawing.Point(153, 344);
-            this.tbIDNumber.MaxLength = 13;
-            this.tbIDNumber.Multiline = true;
-            this.tbIDNumber.Name = "tbIDNumber";
-            this.tbIDNumber.Size = new System.Drawing.Size(199, 30);
-            this.tbIDNumber.TabIndex = 31;
-            // 
-            // lblTechLevel
-            // 
-            this.lblTechLevel.AutoSize = true;
-            this.lblTechLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTechLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTechLevel.Location = new System.Drawing.Point(218, 196);
-            this.lblTechLevel.Name = "lblTechLevel";
-            this.lblTechLevel.Size = new System.Drawing.Size(76, 25);
-            this.lblTechLevel.TabIndex = 30;
-            this.lblTechLevel.Text = "Level :";
-            // 
-            // lblEmployeeID
-            // 
-            this.lblEmployeeID.AutoSize = true;
-            this.lblEmployeeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEmployeeID.Location = new System.Drawing.Point(175, 144);
-            this.lblEmployeeID.Name = "lblEmployeeID";
-            this.lblEmployeeID.Size = new System.Drawing.Size(119, 25);
-            this.lblEmployeeID.TabIndex = 28;
-            this.lblEmployeeID.Text = "Employee :";
-            // 
-            // cbEmployee
-            // 
-            this.cbEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbEmployee.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbEmployee.Location = new System.Drawing.Point(303, 141);
-            this.cbEmployee.Name = "cbEmployee";
-            this.cbEmployee.Size = new System.Drawing.Size(229, 28);
-            this.cbEmployee.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbEmployee.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
-            this.cbEmployee.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.cbEmployee.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbEmployee.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbEmployee.TabIndex = 101;
-            // 
-            // cbLevel
-            // 
-            this.cbLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbLevel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbLevel.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbLevel.Location = new System.Drawing.Point(303, 193);
-            this.cbLevel.Name = "cbLevel";
-            this.cbLevel.Size = new System.Drawing.Size(229, 28);
-            this.cbLevel.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbLevel.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
-            this.cbLevel.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.cbLevel.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbLevel.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbLevel.TabIndex = 102;
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUser.Location = new System.Drawing.Point(27, 285);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(252, 29);
-            this.lblUser.TabIndex = 104;
-            this.lblUser.Text = "Create User Account";
-            // 
-            // pnlDivider2
-            // 
-            this.pnlDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnlDivider2.Location = new System.Drawing.Point(10, 274);
-            this.pnlDivider2.Name = "pnlDivider2";
-            this.pnlDivider2.Size = new System.Drawing.Size(863, 2);
-            this.pnlDivider2.TabIndex = 103;
-            // 
-            // lblPasswordCheck
-            // 
-            this.lblPasswordCheck.AutoSize = true;
-            this.lblPasswordCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblPasswordCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblPasswordCheck.Location = new System.Drawing.Point(616, 331);
-            this.lblPasswordCheck.Name = "lblPasswordCheck";
-            this.lblPasswordCheck.Size = new System.Drawing.Size(94, 13);
-            this.lblPasswordCheck.TabIndex = 108;
-            this.lblPasswordCheck.Text = "lblPasswordCheck";
-            // 
-            // pbPasswordCheck
-            // 
-            this.pbPasswordCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbPasswordCheck.Image")));
-            this.pbPasswordCheck.Location = new System.Drawing.Point(842, 344);
-            this.pbPasswordCheck.Name = "pbPasswordCheck";
-            this.pbPasswordCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbPasswordCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPasswordCheck.TabIndex = 107;
-            this.pbPasswordCheck.TabStop = false;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPassword.Location = new System.Drawing.Point(486, 347);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(112, 25);
-            this.lblPassword.TabIndex = 106;
-            this.lblPassword.Text = "Password:";
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbPassword.Location = new System.Drawing.Point(611, 344);
-            this.tbPassword.MaxLength = 13;
-            this.tbPassword.Multiline = true;
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(229, 30);
-            this.tbPassword.TabIndex = 105;
-            // 
-            // lblConPasswordCheck
-            // 
-            this.lblConPasswordCheck.AutoSize = true;
-            this.lblConPasswordCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblConPasswordCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblConPasswordCheck.Location = new System.Drawing.Point(616, 389);
-            this.lblConPasswordCheck.Name = "lblConPasswordCheck";
-            this.lblConPasswordCheck.Size = new System.Drawing.Size(113, 13);
-            this.lblConPasswordCheck.TabIndex = 112;
-            this.lblConPasswordCheck.Text = "lblConPasswordCheck";
-            // 
-            // pbConPasswordCheck
-            // 
-            this.pbConPasswordCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbConPasswordCheck.Image")));
-            this.pbConPasswordCheck.Location = new System.Drawing.Point(842, 402);
-            this.pbConPasswordCheck.Name = "pbConPasswordCheck";
-            this.pbConPasswordCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbConPasswordCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbConPasswordCheck.TabIndex = 111;
-            this.pbConPasswordCheck.TabStop = false;
-            // 
-            // lblConPassword
-            // 
-            this.lblConPassword.AutoSize = true;
-            this.lblConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblConPassword.Location = new System.Drawing.Point(406, 407);
-            this.lblConPassword.Name = "lblConPassword";
-            this.lblConPassword.Size = new System.Drawing.Size(192, 25);
-            this.lblConPassword.TabIndex = 110;
-            this.lblConPassword.Text = "Confirm Password:";
-            // 
-            // tbConPassword
-            // 
-            this.tbConPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbConPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbConPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbConPassword.Location = new System.Drawing.Point(611, 402);
-            this.tbConPassword.MaxLength = 13;
-            this.tbConPassword.Multiline = true;
-            this.tbConPassword.Name = "tbConPassword";
-            this.tbConPassword.Size = new System.Drawing.Size(229, 30);
-            this.tbConPassword.TabIndex = 109;
-            // 
-            // lblAccessCodeCheck
-            // 
-            this.lblAccessCodeCheck.AutoSize = true;
-            this.lblAccessCodeCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblAccessCodeCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblAccessCodeCheck.Location = new System.Drawing.Point(158, 389);
-            this.lblAccessCodeCheck.Name = "lblAccessCodeCheck";
-            this.lblAccessCodeCheck.Size = new System.Drawing.Size(108, 13);
-            this.lblAccessCodeCheck.TabIndex = 116;
-            this.lblAccessCodeCheck.Text = "lblAccessCodeCheck";
-            // 
-            // pbAccessCodeCheck
-            // 
-            this.pbAccessCodeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbAccessCodeCheck.Image")));
-            this.pbAccessCodeCheck.Location = new System.Drawing.Point(356, 402);
-            this.pbAccessCodeCheck.Name = "pbAccessCodeCheck";
-            this.pbAccessCodeCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbAccessCodeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbAccessCodeCheck.TabIndex = 115;
-            this.pbAccessCodeCheck.TabStop = false;
-            // 
-            // lblAdminsitrator
-            // 
-            this.lblAdminsitrator.AutoSize = true;
-            this.lblAdminsitrator.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminsitrator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAdminsitrator.Location = new System.Drawing.Point(2, 407);
-            this.lblAdminsitrator.Name = "lblAdminsitrator";
-            this.lblAdminsitrator.Size = new System.Drawing.Size(145, 25);
-            this.lblAdminsitrator.TabIndex = 114;
-            this.lblAdminsitrator.Text = "Access Code:";
-            // 
-            // tbAccessCode
-            // 
-            this.tbAccessCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbAccessCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbAccessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAccessCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbAccessCode.Location = new System.Drawing.Point(153, 402);
-            this.tbAccessCode.MaxLength = 13;
-            this.tbAccessCode.Multiline = true;
-            this.tbAccessCode.Name = "tbAccessCode";
-            this.tbAccessCode.Size = new System.Drawing.Size(199, 30);
-            this.tbAccessCode.TabIndex = 113;
-            // 
-            // cbbUserTypeCheck
-            // 
-            this.cbbUserTypeCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbbUserTypeCheck.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbbUserTypeCheck.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbbUserTypeCheck.Location = new System.Drawing.Point(153, 467);
-            this.cbbUserTypeCheck.Name = "cbbUserTypeCheck";
-            this.cbbUserTypeCheck.Size = new System.Drawing.Size(199, 28);
-            this.cbbUserTypeCheck.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbbUserTypeCheck.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
-            this.cbbUserTypeCheck.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.cbbUserTypeCheck.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbbUserTypeCheck.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbbUserTypeCheck.TabIndex = 120;
-            // 
-            // lblUserTypeCheck
-            // 
-            this.lblUserTypeCheck.AutoSize = true;
-            this.lblUserTypeCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserTypeCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblUserTypeCheck.Location = new System.Drawing.Point(158, 454);
-            this.lblUserTypeCheck.Name = "lblUserTypeCheck";
-            this.lblUserTypeCheck.Size = new System.Drawing.Size(94, 13);
-            this.lblUserTypeCheck.TabIndex = 119;
-            this.lblUserTypeCheck.Text = "lblUserTypeCheck";
-            // 
-            // pbUserTypeCheck
-            // 
-            this.pbUserTypeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbUserTypeCheck.Image")));
-            this.pbUserTypeCheck.Location = new System.Drawing.Point(356, 465);
-            this.pbUserTypeCheck.Name = "pbUserTypeCheck";
-            this.pbUserTypeCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbUserTypeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbUserTypeCheck.TabIndex = 118;
-            this.pbUserTypeCheck.TabStop = false;
-            // 
-            // lblUserType
-            // 
-            this.lblUserType.AutoSize = true;
-            this.lblUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUserType.Location = new System.Drawing.Point(24, 470);
-            this.lblUserType.Name = "lblUserType";
-            this.lblUserType.Size = new System.Drawing.Size(123, 25);
-            this.lblUserType.TabIndex = 117;
-            this.lblUserType.Text = "User Type :";
+            this.btnAddTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddTechnician.FlatAppearance.BorderSize = 0;
+            this.btnAddTechnician.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddTechnician.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTechnician.Location = new System.Drawing.Point(682, 14);
+            this.btnAddTechnician.Name = "btnAddTechnician";
+            this.btnAddTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnAddTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnAddTechnician.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddTechnician.Size = new System.Drawing.Size(185, 40);
+            this.btnAddTechnician.TabIndex = 53;
+            this.btnAddTechnician.TabStop = false;
+            this.btnAddTechnician.Text = "New Technician +";
+            this.btnAddTechnician.TextColor = System.Drawing.Color.White;
+            this.btnAddTechnician.UseVisualStyleBackColor = true;
+            this.btnAddTechnician.Click += new System.EventHandler(this.btnAddTechnician_Click);
             // 
             // frmTechnician
             // 
@@ -793,7 +824,7 @@ namespace PremierServiceSolutions.Pages
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.BackGround;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1829, 740);
+            this.ClientSize = new System.Drawing.Size(1386, 740);
             this.Controls.Add(this.pnlNewTech);
             this.Controls.Add(this.pnlSearchHeadings);
             this.Controls.Add(this.flpTechnician);
@@ -809,18 +840,18 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).EndInit();
             this.pnlNewTech.ResumeLayout(false);
             this.pnlNewTech.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbUserTypeCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAccessCodeCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConPasswordCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUsernameCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLevelCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmployeeCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCreateAccount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbConPasswordCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAccessCodeCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbUserTypeCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -841,7 +872,7 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Panel pnlNewTech;
         private CustomComponents.ButtonRound btnCreateTechnician;
         private System.Windows.Forms.Label lblUsernameCheck;
-        private System.Windows.Forms.Label lblSurnameCheck;
+        private System.Windows.Forms.Label lblLevelCheck;
         private System.Windows.Forms.Label lblEmployeeCheck;
         private System.Windows.Forms.PictureBox pbUsernameCheck;
         private System.Windows.Forms.PictureBox pbLevelCheck;
@@ -857,7 +888,7 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Panel pnlDivider1;
         private System.Windows.Forms.Label lblNewTech;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox tbIDNumber;
+        private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label lblTechLevel;
         private System.Windows.Forms.Label lblEmployeeID;
         private Syncfusion.WinForms.ListView.SfComboBox cbLevel;

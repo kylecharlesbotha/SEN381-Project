@@ -415,12 +415,19 @@ namespace PremierServiceSolutions.Pages
         private void btnReset_Click(object sender, EventArgs e)
         {
             //Boolean variables used for live Validation statuses.(Used to check if all information required are correct and filled in before commencing)
-            //CheckEmpNum = false;
-            //CheckUsername = false;
-            //CheckPassword = false;
-            //CheckConfirmPassword = false;
-            //CheckAdminCode = false;
-            //CheckUserType = false;
+             CheckFirstName = false;
+             CheckSurname = false;
+             CheckIdNumber = false;
+             CheckEmail = false;
+             CheckPhone = false;
+             CheckPriority = false;
+             CheckTitle = false;
+             CheckGender = false;
+             CheckAddress = false;
+             CheckAddress2 = false;
+             CheckCity = false;
+             CheckCountry = false;
+             CheckZip = false;
 
             //Clear all content in textboxes
             tbFirstName.Text = "";
