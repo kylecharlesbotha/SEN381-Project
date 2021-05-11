@@ -14,6 +14,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int statusID;
         private string statusName;
 
+        StatusDH objStatus = new StatusDH();
 
 
         public Status()
@@ -32,9 +33,17 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         public List<Status> GetAll()
         {
-            StatusDH objStatus = new StatusDH();
-            List<Status> lstStatus = objStatus.GetAll().ToList();
-            return lstStatus;
+            List<Status> lstStatus = new List<Status>();
+            try
+            {
+                lstStatus = objStatus.GetAll().ToList();
+                return lstStatus;
+            }
+            catch(Exception E)
+            {
+                System.Windows.Forms.MessageBox.Show(E.Message);
+                return lstStatus;
+            }
 
         }
     }
