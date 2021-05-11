@@ -1,4 +1,5 @@
 ﻿using PremierServiceSolutions.Business_Logic_Layer;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,22 +26,29 @@ namespace PremierServiceSolutions.Pages
         private string status ="";
         private int valid = 0;
         private int currenttech;
+        string Status = "";
+        int OldTechID = 0;
+        string OldTechName = "";
         public frmTickets()
         {
             InitializeComponent();
-            listTicket = objTicket.GetAllTicket();
+            
             lstFilterTicket = objTicket.GetAllTicket();
-            PopulateCbb();
-            PopulateTickets();
+            
             this.Width = 900;
             this.Height = 740;
             pnlTicketDetials.Left = 12;
-            
+            LoadTickets();
 
         }
         public void SetStuff(int Tech)
         {
             currenttech = Tech;
+        }
+        public void LoadTickets()
+        {
+            PopulateCbb();
+            PopulateTickets();
         }
 
         #region Populating CBB
@@ -67,11 +75,12 @@ namespace PremierServiceSolutions.Pages
                 cBTechnician.DataSource = lstTechnician;
                 cBTechnician.DisplayMember = "TechNameList";
 
-
+                //CB Status Types
                 Status objStatus = new Status();
                 lstStatus = objStatus.GetAll();
                 cBStatus.DataSource = lstStatus;
                 cBStatus.DisplayMember = "StatusName";
+
                 
             }
             catch (Exception ee)
@@ -87,6 +96,7 @@ namespace PremierServiceSolutions.Pages
         #region Creating of Tickets
         private void PopulateTickets()
         {
+            listTicket = objTicket.GetAllTicket();
             DateTime date = DateTime.Now;
             date.ToString("yyyy-MM-dd HH:mm:ss");
             date.ToString("yyyy-MM-dd");
@@ -488,8 +498,8 @@ namespace PremierServiceSolutions.Pages
         {
             Label lbl = sender as Label;
             int TechID = 0 ;
-            string TechName;
-            string Status;
+            
+            
             foreach (Ticket ticket in listTicket)
             {
                 if(lbl.Text == ticket.TicketID.ToString())
@@ -521,13 +531,25 @@ namespace PremierServiceSolutions.Pages
             sfTechCombo.DataSource = lstTechnician;
             sfTechCombo.DisplayMember = "TechNameList";
             sfTechCombo.SelectedIndex = select;
+            OldTechID = select;
+            OldTechName = sfTechCombo.Text;
+
+            sfTickStatus.DataSource = lstStatus;
+            sfTickStatus.DisplayMember = "StatusName";
+            sfTickStatus.Text = Status;
+
 
             pnlTicketDetials.Visible = true;
+            pnlTicketDetials.Focus();
+            pnlFiters.Enabled = false;
+            pnlButtions.Enabled = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             pnlTicketDetials.Visible = false;
+            pnlFiters.Enabled = true;
+            pnlButtions.Enabled = true;
         }
 
         #endregion
@@ -631,7 +653,6 @@ namespace PremierServiceSolutions.Pages
                                 if (ticket.TicketStatus == status) //Display Filter matching Status
                                 {
                                     lstFilterTicket.Add(ticket);
-                                    MessageBox.Show("Stats");
                                     valid = 1;
                                 }
                             }
@@ -876,6 +897,8 @@ namespace PremierServiceSolutions.Pages
         }
         #endregion
 
+        #region Tech Tickets Methods
+
         private void btnMyTickets_Click(object sender, EventArgs e)
         {
 
@@ -905,6 +928,124 @@ namespace PremierServiceSolutions.Pages
             }
             CreateHeading("#", "Title", "Customer", "Technician", "Issue Type", "Priority", "Status", "Date Logged");
             ResetCBB();
+        }
+        #endregion
+
+        private void btnEsculate_Click(object sender, EventArgs e)
+        {
+            //Method to Update Status
+            try
+            {
+                if (Status == "Esculation")
+                {
+                    MessageBox.Show("Ticket is already in Esculation phase");
+                }
+                else
+                {
+                    int TicketID = Convert.ToInt32(tbTicketID.Text);
+                    bool submited = objTicket.EsculateTicket(TicketID);
+                    if (submited == true)
+                    {
+                        MessageBox.Show("Ticket has been successfully Esculated");
+                        LoadTickets();
+                        pnlTicketDetials.Visible = false;
+
+                        pnlButtions.Enabled = true;
+                        pnlFiters.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error occured and Ticket could not be esculated");
+                    }
+                }
+                
+            }
+            catch(Exception E)
+            {
+
+            }
+            Email("esculation@premierservicesolutions.co.za", "Ticket has been Esculated", "SendEsculatedEmail", "Premier Service Solutions", tbTicketID.ToString(), tbTickTitle.ToString());
+
+
+        }
+
+        private void SendOldTech(int Technician,string TechName,string TicID, string TicTitle)
+        {
+            try
+            {
+                Employee objeEmp = new Employee();
+                string email = objeEmp.GetEmail(Technician);
+                Email(email, "Ticket has been Reassigned", "SendOldAsTech", TechName, TicID, TicTitle);
+            }
+            catch(Exception E)
+            {
+
+            }
+        }
+        private void SendNewTech(int Technician,string TechName, string TicID, string TicTitle)
+        {
+            try
+            {
+                Employee objeEmp = new Employee();
+                string email = objeEmp.GetEmail(Technician);
+                Email(email, "New Ticket Assigned", "SendNewAsTech", TechName, TicID, TicTitle);
+            }
+            catch (Exception E)
+            {
+
+            }
+        }
+
+        public void Email(string Email,string Subject,string Request,string TechName,string TicID,string TicTitle)
+        {
+            var client = new RestClient("http://flystudio.co.za:7341");
+            var request = new RestRequest(Request);
+            request.AddHeader("to", Email);
+            request.AddHeader("subject", Subject);
+            request.AddHeader("techname", TechName);
+            request.AddHeader("ticketid", TicID);
+            request.AddHeader("tickettitle", TicTitle);
+            var response = client.Post(request);
+        }
+
+        private void btnSaveChanged_Click(object sender, EventArgs e)
+        {
+            int TechID = 0;
+            string NewTechName = "";
+            int TicketID = 0;
+            try
+            {
+
+                TicketID = Convert.ToInt32(tbTicketID.Text);
+                TechID = sfTechCombo.SelectedIndex;
+                string TechStatus = sfTickStatus.Text;
+                NewTechName = sfTechCombo.Text;
+                bool submited = objTicket.ChangeTechnicianStatus(TicketID, TechID, TechStatus);
+                if (submited == true)
+                {
+                    MessageBox.Show("Ticket has been successfully Updated");
+                    LoadTickets();
+                    pnlTicketDetials.Visible = false;
+
+                    pnlButtions.Enabled = true;
+                    pnlFiters.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Error occured and Ticket could not be updated");
+                }
+
+            }
+            catch (Exception E)
+            {
+
+            }
+            if (OldTechID != TechID)
+            {
+                //Method to send Emails
+                SendOldTech(OldTechID,OldTechName,TicketID.ToString(),tbTickTitle.Text);
+                SendNewTech(TechID,NewTechName,TicketID.ToString(), tbTickTitle.Text);
+            }
         }
     }
 }

@@ -33,12 +33,12 @@ namespace PremierServiceSolutions.Pages
             this.flpTickets = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTechnician = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlButtions = new System.Windows.Forms.Panel();
             this.btnMyOpen = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnMyTickets = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnNewTickets = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlFiters = new System.Windows.Forms.Panel();
             this.btnFilter = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.cbPriority = new Syncfusion.WinForms.ListView.SfComboBox();
             this.cbIssueType = new Syncfusion.WinForms.ListView.SfComboBox();
@@ -78,8 +78,8 @@ namespace PremierServiceSolutions.Pages
             this.lblDes = new System.Windows.Forms.Label();
             this.lblClient = new System.Windows.Forms.Label();
             this.tbClientBusName = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlButtions.SuspendLayout();
+            this.pnlFiters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbIssueType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cBStatus)).BeginInit();
@@ -120,17 +120,17 @@ namespace PremierServiceSolutions.Pages
             this.lblStatus.TabIndex = 7;
             this.lblStatus.Text = "Status:";
             // 
-            // panel1
+            // pnlButtions
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnMyOpen);
-            this.panel1.Controls.Add(this.btnReset);
-            this.panel1.Controls.Add(this.btnMyTickets);
-            this.panel1.Controls.Add(this.btnNewTickets);
-            this.panel1.Location = new System.Drawing.Point(12, 107);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(685, 65);
-            this.panel1.TabIndex = 9;
+            this.pnlButtions.BackColor = System.Drawing.Color.White;
+            this.pnlButtions.Controls.Add(this.btnMyOpen);
+            this.pnlButtions.Controls.Add(this.btnReset);
+            this.pnlButtions.Controls.Add(this.btnMyTickets);
+            this.pnlButtions.Controls.Add(this.btnNewTickets);
+            this.pnlButtions.Location = new System.Drawing.Point(12, 107);
+            this.pnlButtions.Name = "pnlButtions";
+            this.pnlButtions.Size = new System.Drawing.Size(685, 65);
+            this.pnlButtions.TabIndex = 9;
             // 
             // btnMyOpen
             // 
@@ -212,21 +212,21 @@ namespace PremierServiceSolutions.Pages
             this.btnNewTickets.UseVisualStyleBackColor = true;
             this.btnNewTickets.Click += new System.EventHandler(this.btnNewTickets_Click);
             // 
-            // panel2
+            // pnlFiters
             // 
-            this.panel2.Controls.Add(this.btnFilter);
-            this.panel2.Controls.Add(this.cbPriority);
-            this.panel2.Controls.Add(this.cbIssueType);
-            this.panel2.Controls.Add(this.cBStatus);
-            this.panel2.Controls.Add(this.cBTechnician);
-            this.panel2.Controls.Add(this.lblPriority);
-            this.panel2.Controls.Add(this.lblIssueType);
-            this.panel2.Controls.Add(this.lblTechnician);
-            this.panel2.Controls.Add(this.lblStatus);
-            this.panel2.Location = new System.Drawing.Point(12, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(686, 89);
-            this.panel2.TabIndex = 10;
+            this.pnlFiters.Controls.Add(this.btnFilter);
+            this.pnlFiters.Controls.Add(this.cbPriority);
+            this.pnlFiters.Controls.Add(this.cbIssueType);
+            this.pnlFiters.Controls.Add(this.cBStatus);
+            this.pnlFiters.Controls.Add(this.cBTechnician);
+            this.pnlFiters.Controls.Add(this.lblPriority);
+            this.pnlFiters.Controls.Add(this.lblIssueType);
+            this.pnlFiters.Controls.Add(this.lblTechnician);
+            this.pnlFiters.Controls.Add(this.lblStatus);
+            this.pnlFiters.Location = new System.Drawing.Point(12, 12);
+            this.pnlFiters.Name = "pnlFiters";
+            this.pnlFiters.Size = new System.Drawing.Size(686, 89);
+            this.pnlFiters.TabIndex = 10;
             // 
             // btnFilter
             // 
@@ -474,6 +474,7 @@ namespace PremierServiceSolutions.Pages
             this.btnSaveChanged.Text = "Save Changes";
             this.btnSaveChanged.TextColor = System.Drawing.Color.White;
             this.btnSaveChanged.UseVisualStyleBackColor = true;
+            this.btnSaveChanged.Click += new System.EventHandler(this.btnSaveChanged_Click);
             // 
             // btnEsculate
             // 
@@ -492,6 +493,7 @@ namespace PremierServiceSolutions.Pages
             this.btnEsculate.Text = "Esculate Ticket";
             this.btnEsculate.TextColor = System.Drawing.Color.White;
             this.btnEsculate.UseVisualStyleBackColor = true;
+            this.btnEsculate.Click += new System.EventHandler(this.btnEsculate_Click);
             // 
             // btnClose
             // 
@@ -755,16 +757,16 @@ namespace PremierServiceSolutions.Pages
             this.ClientSize = new System.Drawing.Size(1871, 740);
             this.Controls.Add(this.pnlTicketDetials);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlButtions);
+            this.Controls.Add(this.pnlFiters);
             this.Controls.Add(this.flpTickets);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTickets";
             this.Text = "Tickets";
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.pnlButtions.ResumeLayout(false);
+            this.pnlFiters.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbPriority)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbIssueType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cBStatus)).EndInit();
@@ -783,8 +785,8 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.FlowLayoutPanel flpTickets;
         private System.Windows.Forms.Label lblTechnician;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlButtions;
+        private System.Windows.Forms.Panel pnlFiters;
         private System.Windows.Forms.Label lblPriority;
         private System.Windows.Forms.Label lblIssueType;
         private System.Windows.Forms.Panel panel3;
