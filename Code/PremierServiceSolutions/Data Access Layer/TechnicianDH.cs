@@ -410,9 +410,10 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     objRecord.TechnicianID = (int)sqlDataReader.GetValue(0);
                     objRecord.EmployeeID = (int)sqlDataReader.GetValue(1);
                     objRecord.TechNameList = (string)sqlDataReader.GetValue(2);
-                    objRecord.TechEmail = (string)sqlDataReader.GetValue(3);
-                    objRecord.EmployeeRole = (string)sqlDataReader.GetValue(4);
-                    objRecord.TechnicianLevel = (int)sqlDataReader.GetValue(5);
+                    objRecord.TechnicianStatus = (string)sqlDataReader.GetValue(3);
+                    objRecord.TechEmail = (string)sqlDataReader.GetValue(4);
+                    objRecord.EmployeeRole = (string)sqlDataReader.GetValue(5);
+                    objRecord.TechnicianLevel = (int)sqlDataReader.GetValue(6);
 
                 }
                 //Close connection to database
@@ -422,6 +423,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
             catch (SqlException SQLE)
             {
+                MessageBox.Show(SQLE.Message);
                 //Will catch any errors that occur and will display a error message. it will also return a empty list
                 MessageBox.Show("Error has occured");
                 return null;
