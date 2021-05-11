@@ -409,8 +409,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 {
                     objRecord.TechnicianID = (int)sqlDataReader.GetValue(0);
                     objRecord.EmployeeID = (int)sqlDataReader.GetValue(1);
-                    objRecord.EmployeeName = (string)sqlDataReader.GetValue(2);
-                    objRecord.EmployeeEmail = (string)sqlDataReader.GetValue(3);
+                    objRecord.TechNameList = (string)sqlDataReader.GetValue(2);
+                    objRecord.TechEmail = (string)sqlDataReader.GetValue(3);
                     objRecord.EmployeeRole = (string)sqlDataReader.GetValue(4);
                     objRecord.TechnicianLevel = (int)sqlDataReader.GetValue(5);
 
