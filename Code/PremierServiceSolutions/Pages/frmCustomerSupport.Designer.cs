@@ -29,34 +29,39 @@ namespace PremierServiceSolutions.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            this.wbSupport = new System.Windows.Forms.WebBrowser();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // wbSupport
+            // label1
             // 
-            this.wbSupport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wbSupport.Location = new System.Drawing.Point(0, 0);
-            this.wbSupport.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbSupport.Name = "wbSupport";
-            this.wbSupport.Size = new System.Drawing.Size(900, 740);
-            this.wbSupport.TabIndex = 0;
-            this.wbSupport.Url = new System.Uri("http://www.google.com", System.UriKind.Absolute);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(104, 308);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(735, 42);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Website Opened in Default Web Browser";
             // 
             // frmCustomerSupport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::PremierServiceSolutions.Properties.Resources.BackGround;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(900, 740);
-            this.Controls.Add(this.wbSupport);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCustomerSupport";
             this.Text = "frmCustomerSupport";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.WebBrowser wbSupport;
+        private System.Windows.Forms.Label label1;
     }
 }

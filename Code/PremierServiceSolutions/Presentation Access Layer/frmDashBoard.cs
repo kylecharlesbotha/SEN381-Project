@@ -151,7 +151,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnContracts.BackColor = Color.White;
             btnTechnicians.BackColor = Color.White;
             btnEmployees.BackColor = Color.White;
-            btnReports.BackColor = Color.White;
+
             btnAsset.BackColor = Color.White;
             btnTechnicians.BackColor = Color.White;
 
@@ -165,7 +165,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             btnContracts.ForeColor = Color.FromArgb(218, 0, 0);
             btnTechnicians.ForeColor = Color.FromArgb(218, 0, 0);
             btnEmployees.ForeColor = Color.FromArgb(218, 0, 0);
-            btnReports.ForeColor = Color.FromArgb(218, 0, 0);
+
             btnAsset.ForeColor = Color.FromArgb(218, 0, 0);
             btnTechnicians.ForeColor = Color.FromArgb(218, 0, 0);
 
@@ -180,7 +180,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             pbAssets.Image = Properties.Resources.AssestRed;
             pbContracts.Image = Properties.Resources.ContractRed;
             pbTechnician.Image = Properties.Resources.DashRed;
-            pbReports.Image = Properties.Resources.ReportsRed;
+
             pbEmployee.Image = Properties.Resources.EmployeeRed;
             pbTechnician.Image = Properties.Resources.TechnicianRed;
 
@@ -194,7 +194,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             pbAssets.BackColor = Color.White;
             pbContracts.BackColor = Color.White;
             pbTechnician.BackColor = Color.White;
-            pbReports.BackColor = Color.White;
+
             pbEmployee.BackColor = Color.White;
             frmTechnician.BackColor = Color.White;
 

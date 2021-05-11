@@ -191,6 +191,8 @@ namespace PremierServiceSolutions.Pages
             lID.Font = new Font("Arial", 10, FontStyle.Bold);
             lID.ForeColor = Color.White;
             lID.Click += new EventHandler(DisplayTickDetails);
+            lID.MouseEnter += new EventHandler(HoverEnter);
+            lID.MouseLeave += new EventHandler(HoverLeave);
 
             //Creating Label for tickettitle
             Label lTi = new Label();
@@ -204,6 +206,8 @@ namespace PremierServiceSolutions.Pages
             lTi.Left = (lID.Left + lID.Width  + 10);
             lTi.Font = new Font("Arial", 10, FontStyle.Bold);
             lTi.ForeColor = Color.White;
+            lTi.MouseEnter += new EventHandler(HoverEnter);
+            lTi.MouseLeave += new EventHandler(HoverLeave);
 
 
             //Creating Label for CustomerDetails
@@ -218,6 +222,8 @@ namespace PremierServiceSolutions.Pages
             lCus.Left = (lTi.Left + lTi.Width + 10);
             lCus.Font = new Font("Arial", 10, FontStyle.Bold);
             lCus.ForeColor = Color.White;
+            lCus.MouseEnter += new EventHandler(HoverEnter);
+            lCus.MouseLeave += new EventHandler(HoverLeave);
 
 
             string TechName = "";
@@ -240,6 +246,8 @@ namespace PremierServiceSolutions.Pages
             lTech.Left = (lCus.Left + lCus.Width + 10);
             lTech.Font = new Font("Arial", 10, FontStyle.Bold);
             lTech.ForeColor = Color.White;
+            lTech.MouseEnter += new EventHandler(HoverEnter);
+            lTech.MouseLeave += new EventHandler(HoverLeave);
 
 
 
@@ -255,6 +263,8 @@ namespace PremierServiceSolutions.Pages
             lIssue.Left = (lTech.Left + lTech.Width + 10);
             lIssue.Font = new Font("Arial", 10, FontStyle.Bold);
             lIssue.ForeColor = Color.White;
+            lIssue.MouseEnter += new EventHandler(HoverEnter);
+            lIssue.MouseLeave += new EventHandler(HoverLeave);
 
 
             //Creating Label for Priority
@@ -269,6 +279,8 @@ namespace PremierServiceSolutions.Pages
             lPriority.Left = (lIssue.Left + lIssue.Width + 10);
             lPriority.Font = new Font("Arial", 10, FontStyle.Bold);
             lPriority.ForeColor = Color.White;
+            lPriority.MouseEnter += new EventHandler(HoverEnter);
+            lPriority.MouseLeave += new EventHandler(HoverLeave);
 
 
 
@@ -284,6 +296,8 @@ namespace PremierServiceSolutions.Pages
             lStatus.Left = (lPriority.Left + lPriority.Width + 10);
             lStatus.Font = new Font("Arial", 10, FontStyle.Bold);
             lStatus.ForeColor = Color.White;
+            lStatus.MouseEnter += new EventHandler(HoverEnter);
+            lStatus.MouseLeave += new EventHandler(HoverLeave);
 
 
 
@@ -299,6 +313,8 @@ namespace PremierServiceSolutions.Pages
             lTime.Left = (lStatus.Left + lStatus.Width + 10);
             lTime.Font = new Font("Arial", 10, FontStyle.Bold);
             lTime.ForeColor = Color.White;
+            lTime.MouseEnter += new EventHandler(HoverEnter);
+            lTime.MouseLeave += new EventHandler(HoverLeave);
 
 
 
@@ -340,6 +356,7 @@ namespace PremierServiceSolutions.Pages
             lID.Left = 5;
             lID.Font = new Font("Arial", 10, FontStyle.Bold);
             lID.ForeColor = Color.FromArgb(218,0,0);
+            
 
             //Creating Label for tickettitle
             Label lTi = new Label();
@@ -353,6 +370,7 @@ namespace PremierServiceSolutions.Pages
             lTi.Left = (lID.Left + lID.Width + 10);
             lTi.Font = new Font("Arial", 10, FontStyle.Bold);
             lTi.ForeColor = Color.FromArgb(218, 0, 0);
+            
 
             //Creating Label for CustomerDetails
             Label lCus = new Label();
@@ -366,6 +384,7 @@ namespace PremierServiceSolutions.Pages
             lCus.Left = (lTi.Left + lTi.Width + 10);
             lCus.Font = new Font("Arial", 10, FontStyle.Bold);
             lCus.ForeColor = Color.FromArgb(218, 0, 0);
+            
 
             //Creating Label for CustomerDetails
             Label lTech = new Label();
@@ -379,6 +398,7 @@ namespace PremierServiceSolutions.Pages
             lTech.Left = (lCus.Left + lCus.Width + 10);
             lTech.Font = new Font("Arial", 10, FontStyle.Bold);
             lTech.ForeColor = Color.FromArgb(218, 0, 0);
+            
 
 
             //Creating Label for Issue Type
@@ -393,6 +413,7 @@ namespace PremierServiceSolutions.Pages
             lIssue.Left = (lTech.Left + lTech.Width + 10);
             lIssue.Font = new Font("Arial", 10, FontStyle.Bold);
             lIssue.ForeColor = Color.FromArgb(218, 0, 0);
+            
 
 
             //Creating Label for Priority
@@ -407,6 +428,7 @@ namespace PremierServiceSolutions.Pages
             lPriority.Left = (lIssue.Left + lIssue.Width + 10);
             lPriority.Font = new Font("Arial", 10, FontStyle.Bold);
             lPriority.ForeColor = Color.FromArgb(218, 0, 0);
+            
 
 
             //Creating Label for Status
@@ -421,6 +443,7 @@ namespace PremierServiceSolutions.Pages
             lStatus.Left = (lPriority.Left + lPriority.Width + 10);
             lStatus.Font = new Font("Arial", 10, FontStyle.Bold);
             lStatus.ForeColor = Color.FromArgb(218, 0, 0);
+            
 
 
             //Creating Label for Time Created
@@ -435,14 +458,27 @@ namespace PremierServiceSolutions.Pages
             lTime.Left = (lStatus.Left + lStatus.Width + 10);
             lTime.Font = new Font("Arial", 10, FontStyle.Bold);
             lTime.ForeColor = Color.FromArgb(218, 0, 0);
+            
 
             //Updating the Panel and forcing it to refresh its self
             flpTickets.Invalidate();
+        }
+        protected void HoverEnter(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            lbl.ForeColor = Color.FromArgb(218, 0, 0);
+        }
+        protected void HoverLeave(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            lbl.ForeColor = Color.White;
         }
 
 
         #endregion
 
+
+        #region Ticket Details
         protected void btnTicketView(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -493,6 +529,8 @@ namespace PremierServiceSolutions.Pages
         {
             pnlTicketDetials.Visible = false;
         }
+
+        #endregion
 
         private void btnNewTickets_Click(object sender, EventArgs e)
         {
