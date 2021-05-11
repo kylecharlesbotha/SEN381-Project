@@ -26,6 +26,9 @@ namespace PremierServiceSolutions.Pages
         {
             InitializeComponent();
             LoadTech();
+            this.Width = 900;
+            this.Height = 740;
+            pnlNewTech.Left = 5;
         }
 
 
