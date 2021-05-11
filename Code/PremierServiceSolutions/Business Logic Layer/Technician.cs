@@ -16,6 +16,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int employeeID;
         private string techName;
         private string techEmail;
+        private string employeeRole;
         TechnicianDH objTech = new TechnicianDH();
         public Technician(int technicianID, int technicianLevel, string technicianStatus, int employeeid,int technicianstate )
         {
@@ -64,6 +65,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string TechName { get => objTech.GetTechName(this); set => techName = value; }
         public string TechNameList { get => techName; set => techName = value; }
         public string TechEmail { get => techEmail; set => techEmail = value; }
+        public string EmployeeRole { get => employeeRole; set => employeeRole = value; }
 
         public override string ToString()
         {
@@ -138,12 +140,13 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             Technician newTech = new Technician();
             try
             {
-
+                newTech = objTech.GetTechDetails(TechID);
 
                 return newTech;
             }
             catch(Exception E)
             {
+                System.Windows.Forms.MessageBox.Show(E.Message);
                 return newTech;
             }
         }
