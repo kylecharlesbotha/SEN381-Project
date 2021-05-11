@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 
 namespace PremierServiceSolutions.Business_Logic_Layer
 {
-    class Contract
+    class Contract : IComparable<Contract>
     {
         private string contractID;
         private string contractType;
         private string contractDescription;
         private string contractState;
+        private string clientID;
+        private DateTime startDate;
+        private DateTime endDate;
+        private string contractStatus;
 
         public Contract(string contractID, string contractDescription, string contractType, string contractState)
         {
@@ -20,6 +24,15 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.contractDescription = contractDescription;
             this.contractType = contractType;
             this.contractState = contractState;
+        }
+        public Contract(string contractid, string clientid,string contracttype,DateTime startdate, DateTime enddate, string contractstatus)
+        {
+            this.ContractID = contractid;
+            this.clientID = clientid;
+            this.contractType = contracttype;
+            this.startDate = startdate;
+            this.endDate = enddate;
+            this.contractStatus = contractstatus;
         }
         public Contract()
         {
@@ -30,6 +43,11 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string ContractDescription { get => contractDescription; set => contractDescription = value; }
         public string ContractType { get => contractType; set => contractType = value; }
         public string ContractState { get => contractState; set => contractState = value; }
+        public string ClientID { get => clientID; set => clientID = value; }
+        public DateTime StartDate { get => startDate; set => startDate = value; }
+        public DateTime EndDate { get => endDate; set => endDate = value; }
+        public string ContractStatus { get => contractStatus; set => contractStatus = value; }
+
         ContractType objConType = new ContractType();
         ContractDH objConDH = new ContractDH();
 
@@ -117,6 +135,27 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             return null;
 
 
+        }
+
+        public List<Contract> GetContractRecords()
+        {
+            List<Contract> newList = new List<Contract>();
+            try
+            {
+                newList = objConDH.GetContractRecords().ToList();
+                return newList;
+            }
+            catch
+            {
+                return newList;
+            }
+        }
+
+        public int CompareTo(Contract other)
+        {
+            string oldid = this.ContractID;
+            string newid = other.ContractID;
+            return oldid.CompareTo(newid);
         }
     }
     

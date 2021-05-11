@@ -204,6 +204,43 @@ namespace PremierServiceSolutions.Data_Access_Layer
             throw new NotImplementedException();
         }
 
+        public ICollection<Contract> GetContractRecords()
+        {
+
+            try
+            {
+                //List of type Contract which will store all the records and then return that list
+                List<Contract> allCon = new List<Contract>();
+                //New SQL Connection which the query will use to perform the Select of tblContract
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Contract
+                string SelectQuery = "SELECT C.ContractID,CC.ClientID, CT.ContractType,CC.StartDate,CC.EndDate,CC.CustomerContractStatus FROM tblContract AS C INNER JOIN tblCustomerContract AS CC ON CC.ContractID = C.ContractID INNER JOIN tblContractType AS CT ON CT.ContractChar = C.ContractType";
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    allCon.Add(new Contract((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (DateTime)sqlDataReader.GetValue(3), (DateTime)sqlDataReader.GetValue(4), (string)sqlDataReader.GetValue(5)));
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Contract
+                return allCon;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+            throw new NotImplementedException();
+        }
+
         public bool CheckTables(Contract objCon)
         {
             throw new NotImplementedException();
