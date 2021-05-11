@@ -90,11 +90,11 @@ namespace PremierServiceSolutions.Pages
             this.pnlDivider = new System.Windows.Forms.Panel();
             this.lblTechDetails = new System.Windows.Forms.Label();
             this.lblTechID = new System.Windows.Forms.Label();
-            this.tbTicketID = new System.Windows.Forms.TextBox();
+            this.tbDetailsTechID = new System.Windows.Forms.TextBox();
             this.lblDetailsEmpID = new System.Windows.Forms.Label();
             this.tbDetailsEmpID = new System.Windows.Forms.TextBox();
             this.lblTechRole = new System.Windows.Forms.Label();
-            this.tbTechRole = new System.Windows.Forms.TextBox();
+            this.tbDetailsTechRole = new System.Windows.Forms.TextBox();
             this.lblTechEmail = new System.Windows.Forms.Label();
             this.tbDetailsTechEmail = new System.Windows.Forms.TextBox();
             this.btnSaveChanged = new PremierServiceSolutions.CustomComponents.ButtonRound();
@@ -744,7 +744,7 @@ namespace PremierServiceSolutions.Pages
             this.pnlTechnicianDetials.Controls.Add(this.lblTechEmail);
             this.pnlTechnicianDetials.Controls.Add(this.tbDetailsTechEmail);
             this.pnlTechnicianDetials.Controls.Add(this.lblTechRole);
-            this.pnlTechnicianDetials.Controls.Add(this.tbTechRole);
+            this.pnlTechnicianDetials.Controls.Add(this.tbDetailsTechRole);
             this.pnlTechnicianDetials.Controls.Add(this.lblDetailsEmpID);
             this.pnlTechnicianDetials.Controls.Add(this.tbDetailsEmpID);
             this.pnlTechnicianDetials.Controls.Add(this.lblDetailsTechName);
@@ -761,7 +761,7 @@ namespace PremierServiceSolutions.Pages
             this.pnlTechnicianDetials.Controls.Add(this.pnlDivider);
             this.pnlTechnicianDetials.Controls.Add(this.lblTechDetails);
             this.pnlTechnicianDetials.Controls.Add(this.lblTechID);
-            this.pnlTechnicianDetials.Controls.Add(this.tbTicketID);
+            this.pnlTechnicianDetials.Controls.Add(this.tbDetailsTechID);
             this.pnlTechnicianDetials.Location = new System.Drawing.Point(1825, 132);
             this.pnlTechnicianDetials.Name = "pnlTechnicianDetials";
             this.pnlTechnicianDetials.Size = new System.Drawing.Size(884, 596);
@@ -888,18 +888,18 @@ namespace PremierServiceSolutions.Pages
             this.lblTechID.TabIndex = 35;
             this.lblTechID.Text = "Technician ID:";
             // 
-            // tbTicketID
+            // tbDetailsTechID
             // 
-            this.tbTicketID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbTicketID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbTicketID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTicketID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbTicketID.Location = new System.Drawing.Point(224, 126);
-            this.tbTicketID.Multiline = true;
-            this.tbTicketID.Name = "tbTicketID";
-            this.tbTicketID.ReadOnly = true;
-            this.tbTicketID.Size = new System.Drawing.Size(161, 30);
-            this.tbTicketID.TabIndex = 34;
+            this.tbDetailsTechID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsTechID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsTechID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsTechID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsTechID.Location = new System.Drawing.Point(224, 126);
+            this.tbDetailsTechID.Multiline = true;
+            this.tbDetailsTechID.Name = "tbDetailsTechID";
+            this.tbDetailsTechID.ReadOnly = true;
+            this.tbDetailsTechID.Size = new System.Drawing.Size(161, 30);
+            this.tbDetailsTechID.TabIndex = 34;
             // 
             // lblDetailsEmpID
             // 
@@ -936,18 +936,18 @@ namespace PremierServiceSolutions.Pages
             this.lblTechRole.TabIndex = 86;
             this.lblTechRole.Text = "Role :";
             // 
-            // tbTechRole
+            // tbDetailsTechRole
             // 
-            this.tbTechRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbTechRole.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbTechRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTechRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbTechRole.Location = new System.Drawing.Point(593, 289);
-            this.tbTechRole.Multiline = true;
-            this.tbTechRole.Name = "tbTechRole";
-            this.tbTechRole.ReadOnly = true;
-            this.tbTechRole.Size = new System.Drawing.Size(218, 30);
-            this.tbTechRole.TabIndex = 85;
+            this.tbDetailsTechRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsTechRole.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsTechRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsTechRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsTechRole.Location = new System.Drawing.Point(593, 289);
+            this.tbDetailsTechRole.Multiline = true;
+            this.tbDetailsTechRole.Name = "tbDetailsTechRole";
+            this.tbDetailsTechRole.ReadOnly = true;
+            this.tbDetailsTechRole.Size = new System.Drawing.Size(218, 30);
+            this.tbDetailsTechRole.TabIndex = 85;
             // 
             // lblTechEmail
             // 
@@ -1246,11 +1246,11 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Panel pnlDivider;
         private System.Windows.Forms.Label lblTechDetails;
         private System.Windows.Forms.Label lblTechID;
-        private System.Windows.Forms.TextBox tbTicketID;
+        private System.Windows.Forms.TextBox tbDetailsTechID;
         private System.Windows.Forms.Label lblDetailsEmpID;
         private System.Windows.Forms.TextBox tbDetailsEmpID;
         private System.Windows.Forms.Label lblTechRole;
-        private System.Windows.Forms.TextBox tbTechRole;
+        private System.Windows.Forms.TextBox tbDetailsTechRole;
         private System.Windows.Forms.Label lblTechEmail;
         private System.Windows.Forms.TextBox tbDetailsTechEmail;
     }

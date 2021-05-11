@@ -260,7 +260,8 @@ namespace PremierServiceSolutions.Pages
         protected void TechDetails(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            int Techid = Convert.ToInt32(lbl.Text);
+            int Techid = Convert.ToInt32(lbl.Text);         
+            GetTechDetails(Techid);
             pnlTechnicianDetials.Visible = true;
         }
         protected void HoverEnter(object sender, EventArgs e)
@@ -276,7 +277,21 @@ namespace PremierServiceSolutions.Pages
 
         private void GetTechDetails(int TechID)
         {
+            try
+            {
+                Technician newObject = objTechnician.GetTechDetails(TechID);
+                tbDetailsEmpID.Text = newObject.EmployeeID.ToString();
+                tbDetailsTechID.Text = newObject.TechnicianID.ToString();
+                tbDetailsTechName.Text = newObject.TechName;
+                tbDetailsTechEmail.Text = newObject.TechEmail;
+                tbDetailsTechRole.Text = newObject.EmployeeRole;
+                tbDetailsTechStatus.Text = newObject.TechnicianStatus;
+                sfTechLevel.Text = newObject.TechnicianLevel.ToString();
+            }
+            catch(Exception E)
+            {
 
+            }
         }
         #endregion
 
