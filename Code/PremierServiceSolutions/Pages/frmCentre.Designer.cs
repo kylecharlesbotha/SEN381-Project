@@ -412,6 +412,7 @@ namespace PremierServiceSolutions.Pages
             this.rtbAddress.Size = new System.Drawing.Size(246, 91);
             this.rtbAddress.TabIndex = 31;
             this.rtbAddress.Text = "";
+            this.rtbAddress.TextChanged += new System.EventHandler(this.rtbAddress_TextChanged);
             // 
             // lblContract
             // 

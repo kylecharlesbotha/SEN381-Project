@@ -487,6 +487,22 @@ namespace PremierServiceSolutions.Pages
                 bool foundvalid = false;
                 tbClientBusName.Text = ce.PersonName;
                 tbContact.Text = ce.ClientCell;
+                if (ce.ClientPriority==1)
+                {
+                    cbPriority.Text = "Low";
+                }
+                if (ce.ClientPriority == 2)
+                {
+                    cbPriority.Text = "Medium";
+                }
+                if (ce.ClientPriority == 3)
+                {
+                    cbPriority.Text = "High";
+                }
+                if (ce.ClientPriority == 4)
+                {
+                    cbPriority.Text = "Urgent";
+                }
                 rtbAddress.Text = ce.ClientAddress;
                 
 
@@ -680,6 +696,7 @@ namespace PremierServiceSolutions.Pages
                 objCall2.CallStartTime = time;
                 objCall2.CallEndTime = time;
                 objCall2.CallState = 1;
+                objCall2.CallID = 0;
                 objCall2.Callstatus = "In-Progress";
 
 
@@ -728,6 +745,7 @@ namespace PremierServiceSolutions.Pages
             {
                 CallProgress = false;
                 Answer = false;
+                resetAll();
                 objCall2.CallState = 1;
                 objCall2.CallEndTime = DateTime.Now;
                 objCall2.CallRecording = objCall2.ClientID + " " + Convert.ToString(objCall2.CallStartTime);
@@ -755,6 +773,26 @@ namespace PremierServiceSolutions.Pages
 
         }
 
-        
+        public void resetAll()
+        {
+            
+            lblTimeStarted.Text = "Time Started:";
+            lblCellNumber.Text = "Phone Number:";
+            lblTime.Text = "Call Duration:";
+            tbClientBusName.Clear();
+            tbContact.Clear();
+            tbContract.Clear();
+            rtbAddress.Clear();
+            tbConType.Clear();
+            tbConStatus.Clear();
+            Reset();
+        }
+
+        private void rtbAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
+    
 }
