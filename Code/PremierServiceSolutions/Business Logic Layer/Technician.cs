@@ -121,5 +121,17 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             }
         }
 
+        public bool GetTechEmpID(int EmpID)
+        {
+            try
+            {
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }
