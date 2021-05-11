@@ -98,8 +98,17 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         }
 
-        public void EsculateTicket()
+        public bool EsculateTicket(int ticketID)
         {
+            try
+            {
+                objTicketDH.UpdateStatus(ticketID, "Esculation");
+                return true;
+            }
+            catch(Exception E)
+            {
+                return false;
+            }
 
         }
 
@@ -118,9 +127,17 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         }
 
-        public void ChangeTechnician()
+        public bool ChangeTechnicianStatus(int ticketID, int techID, string status)
         {
-
+            try
+            {
+                objTicketDH.UpdateTechnician(ticketID, techID, status);
+                return true;
+            }
+            catch (Exception E)
+            {
+                return false;
+            }
         }
 
         public void NotifyTechnician()
@@ -129,11 +146,6 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         }
 
         public void GetEmployeeTickets()
-        {
-
-        }
-
-        public void GetTotalTickets()
         {
 
         }
