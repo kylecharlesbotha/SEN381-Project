@@ -35,8 +35,8 @@ namespace PremierServiceSolutions.Pages
             this.Width = 900;
             this.Height = 740;
             pnlNewTech.Left = 5;
-           // pnlTechnicianDetials.Left = 5;
-           // pnlTechnicianDetials.Top = 132;
+            pnlTechnicianDetials.Left = 5;
+            pnlTechnicianDetials.Top = 132;
         }
 
         #region Populate Methods
@@ -856,5 +856,10 @@ namespace PremierServiceSolutions.Pages
             }
         }
         #endregion
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlTechnicianDetials.Visible = false;
+        }
     }
 }
