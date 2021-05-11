@@ -85,7 +85,7 @@ namespace PremierServiceSolutions.Pages
             }
         }
 
-        #region Asset Panel
+        #region Technician Panel
         private void CreateEntry(string ID, string TecName, string TecLevel, string TechStatus, string TecEmail)
         {
             //Create Panel Dynamically for each ticket Record
@@ -127,6 +127,7 @@ namespace PremierServiceSolutions.Pages
             lAssName.ForeColor = Color.White;
             lAssName.MouseEnter += new EventHandler(HoverEnter);
             lAssName.MouseLeave += new EventHandler(HoverLeave);
+            lAssName.Click += new EventHandler(TechDetails);
             //lAssName.BackColor = Color.Red;            
 
 
@@ -255,6 +256,13 @@ namespace PremierServiceSolutions.Pages
             Label lbl = sender as Label;
             System.Diagnostics.Process.Start("mailto:" + lbl.Text);
         }
+
+        protected void TechDetails(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            int Techid = Convert.ToInt32(lbl.Text);
+            pnlTechnicianDetials.Visible = true;
+        }
         protected void HoverEnter(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
@@ -264,6 +272,11 @@ namespace PremierServiceSolutions.Pages
         {
             Label lbl = sender as Label;
             lbl.ForeColor = Color.White;
+        }
+
+        private void GetTechDetails(int TechID)
+        {
+
         }
         #endregion
 

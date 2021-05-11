@@ -133,5 +133,20 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             }
         }
 
+        public Technician GetTechDetails(int TechID)
+        {
+            Technician newTech = new Technician();
+            try
+            {
+
+
+                return newTech;
+            }
+            catch(Exception E)
+            {
+                return newTech;
+            }
+        }
+
     }
 }
