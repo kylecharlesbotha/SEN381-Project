@@ -20,6 +20,13 @@ namespace PremierServiceSolutions.Pages
         #endregion
 
         #region Variables
+        bool CheckEmployee = false;
+        bool CheckLevel = false;
+        bool CheckUsername = false;
+        bool CheckAccessCode = false;
+        bool CheckUserType = false;
+        bool CheckPassword = false;
+        bool CheckConfirmPassword = false;
 
         int AdminCode = 1234;
         List<Technician> lstTechnician = new List<Technician>();
@@ -384,13 +391,13 @@ namespace PremierServiceSolutions.Pages
                 found = objTechnician.GetTechEmpID(cbEmployee.SelectedIndex);
                 if (found==true)
                 {
-                    //CheckEmployee = true;
+                    CheckEmployee = true;
                     lblEmployeeCheck.Text = "";
                     pbEmployeeCheck.Image = Properties.Resources.checkmark;
                 }
                 else
                 {
-                    //CheckEmployee = false;
+                    CheckEmployee = false;
                     lblEmployeeCheck.Text = "Already a technician linked to employee";
                     pbEmployeeCheck.Image = Properties.Resources.DeleteMark;
                 }
@@ -398,7 +405,7 @@ namespace PremierServiceSolutions.Pages
             }
             else
             {
-                //CheckEmployee = false;
+                CheckEmployee = false;
                 lblEmployeeCheck.Text = "Please select option below";
                 pbEmployeeCheck.Image = Properties.Resources.DeleteMark;
 
@@ -409,13 +416,13 @@ namespace PremierServiceSolutions.Pages
         {
             if (cbEmployee.SelectedIndex > -1)//if something is selected
             {
-                //CheckEmployee = true;
+                CheckEmployee = true;
                 lblEmployeeCheck.Text = "";
                 pbEmployeeCheck.Image = Properties.Resources.checkmark;
             }
             else
             {
-                //CheckEmployee = false;
+                CheckEmployee = false;
                 lblEmployeeCheck.Text = "Please select option below";
                 pbEmployeeCheck.Image = Properties.Resources.DeleteMark;
 
@@ -429,13 +436,13 @@ namespace PremierServiceSolutions.Pages
         {
             if (cbLevel.SelectedIndex > -1)//if something is selected
             {
-                //CheckLevel = true;
+                CheckLevel = true;
                 lblLevelCheck.Text = "";
                 pbLevelCheck.Image = Properties.Resources.checkmark;
             }
             else
             {
-                //CheckLevel = false;
+                CheckLevel = false;
                 lblLevelCheck.Text = "Please select option below";
                 pbLevelCheck.Image = Properties.Resources.DeleteMark;
 
@@ -446,13 +453,13 @@ namespace PremierServiceSolutions.Pages
         {
             if (cbLevel.SelectedIndex > -1)//if something is selected
             {
-                //CheckLevel = true;
+                CheckLevel = true;
                 lblLevelCheck.Text = "";
                 pbLevelCheck.Image = Properties.Resources.checkmark;
             }
             else
             {
-                //CheckLevel = false;
+                CheckLevel = false;
                 lblLevelCheck.Text = "Please select option below";
                 pbLevelCheck.Image = Properties.Resources.DeleteMark;
 
@@ -551,7 +558,7 @@ namespace PremierServiceSolutions.Pages
             {
                 tbUsername.Text = "";
                 pbUsernameCheck.Image = Properties.Resources.DeleteMark;
-                //CheckUsername = false;
+                CheckUsername = false;
                 pbUsernameCheck.Hide();
             }
         }
@@ -584,19 +591,19 @@ namespace PremierServiceSolutions.Pages
                     if (uservalue.UserName.ToLower() == username)
                     {
                         pbUsernameCheck.Image = Properties.Resources.DeleteMark;
-                       // CheckUsername = false;
+                       CheckUsername = false;
                     }
                     else
                     {
                         pbUsernameCheck.Image = Properties.Resources.checkmark;
-                       // CheckUsername = true;
+                       CheckUsername = true;
                     }
                 }
             }
             else
             {
                 pbUsernameCheck.Image = Properties.Resources.DeleteMark;
-               // CheckUsername = false;
+               CheckUsername = false;
             }
         }
 
@@ -617,7 +624,7 @@ namespace PremierServiceSolutions.Pages
                 pbAccessCodeCheck.Hide();
                 tbAccessCode.Text = "";
                 pbAccessCodeCheck.Image = Properties.Resources.DeleteMark;
-                //CheckAccessCode = false;
+                CheckAccessCode = false;
             }
         }
 
@@ -643,19 +650,19 @@ namespace PremierServiceSolutions.Pages
                 if (AdminCode == Convert.ToInt32(tbAccessCode.Text))
                 {
                     pbAccessCodeCheck.Image = Properties.Resources.checkmark;
-                    //CheckAdminCode = true;
+                    CheckAccessCode = true;
                 }
                 else
                 {
                     pbAccessCodeCheck.Image = Properties.Resources.DeleteMark;
-                    //CheckAdminCode = false;
+                    CheckAccessCode = false;
                 }
 
             }
             else
             {
                 pbAccessCodeCheck.Image = Properties.Resources.DeleteMark;
-                //CheckAdminCode = false;
+                CheckAccessCode = false;
             }
         }
         #endregion
@@ -666,13 +673,13 @@ namespace PremierServiceSolutions.Pages
         {
             if (cbbUserTypeCheck.SelectedIndex > -1)//if something is selected
             {
-                //CheckUserType = true;
+                CheckUserType = true;
                 lblUserTypeCheck.Text = "";
                 pbUserTypeCheck.Image = Properties.Resources.checkmark;
             }
             else
             {
-                //CheckUserType = false;
+                CheckUserType = false;
                 lblUserTypeCheck.Text = "Please select option below";
                 pbUserTypeCheck.Image = Properties.Resources.DeleteMark;
 
@@ -683,13 +690,13 @@ namespace PremierServiceSolutions.Pages
         {
             if (cbbUserTypeCheck.SelectedIndex > -1)//if something is selected do following
             {
-                //CheckUserType = true;
+                CheckUserType = true;
                 lblUserTypeCheck.Text = "";
                 pbUserTypeCheck.Image = Properties.Resources.checkmark;
             }
             else
             {
-                //CheckUserType = false;
+                CheckUserType = false;
                 lblUserTypeCheck.Text = "Please select option below";
                 pbUserTypeCheck.Image = Properties.Resources.DeleteMark;
             }
@@ -710,9 +717,9 @@ namespace PremierServiceSolutions.Pages
                 tbPassword.Text = "";
                 tbPassword.PasswordChar = '\0';
                 pbPasswordCheck.Image = Properties.Resources.DeleteMark;
-                //CheckPassword = false;
+                CheckPassword = false;
                 pbConPasswordCheck.Image = Properties.Resources.DeleteMark;
-                //CheckConfirmPassword = false;
+                CheckConfirmPassword = false;
                 pbPasswordCheck.Hide();
             }
         }
@@ -723,12 +730,12 @@ namespace PremierServiceSolutions.Pages
             {
                 pbPasswordCheck.Show();
                 pbPasswordCheck.Image = Properties.Resources.checkmark;
-                //CheckPassword = true;
+                CheckPassword = true;
             }
             else
             {
                 pbPasswordCheck.Image = Properties.Resources.DeleteMark;
-                //CheckPassword = false;
+                CheckPassword = false;
             }
             //code to update confirm password if it contains edited information
             if (!String.IsNullOrEmpty(tbConPassword.Text))//If valid information are given do following
@@ -738,7 +745,7 @@ namespace PremierServiceSolutions.Pages
                 {
                     lblConPasswordCheck.Text = "";
                     pbConPasswordCheck.Image = Properties.Resources.checkmark;
-                    //CheckConfirmPassword = true;
+                    CheckConfirmPassword = true;
                 }
                 else
                 {
@@ -746,13 +753,13 @@ namespace PremierServiceSolutions.Pages
                     {
                         lblConPasswordCheck.Text = "Passwords not matching";
                         pbConPasswordCheck.Image = Properties.Resources.DeleteMark;
-                        //CheckConfirmPassword = false;
+                        CheckConfirmPassword = false;
                     }
                     else
                     {
                         lblConPasswordCheck.Text = "Please fill in password above";
                         pbConPasswordCheck.Image = Properties.Resources.DeleteMark;
-                        //CheckConfirmPassword = false;
+                        CheckConfirmPassword = false;
                     }
                 }
             }
@@ -760,7 +767,7 @@ namespace PremierServiceSolutions.Pages
             {
                 lblConPasswordCheck.Text = "";
                 pbConPasswordCheck.Image = Properties.Resources.DeleteMark;
-                //CheckConfirmPassword = false;
+                CheckConfirmPassword = false;
             }
         }
 
