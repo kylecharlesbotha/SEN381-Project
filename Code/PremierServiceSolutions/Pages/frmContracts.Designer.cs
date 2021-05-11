@@ -31,16 +31,17 @@ namespace PremierServiceSolutions.Pages
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContracts));
             this.pnlSearchHeadings = new System.Windows.Forms.Panel();
-            this.lblSerial = new System.Windows.Forms.Label();
-            this.lblModel = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblStart = new System.Windows.Forms.Label();
+            this.lblContract = new System.Windows.Forms.Label();
             this.lblCustomerHeading = new System.Windows.Forms.Label();
-            this.lblMan = new System.Windows.Forms.Label();
+            this.lblContractType = new System.Windows.Forms.Label();
             this.flpContracts = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlTopContracts = new System.Windows.Forms.Panel();
             this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
             this.btnAddContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.lblEndDate = new System.Windows.Forms.Label();
             this.pnlSearchHeadings.SuspendLayout();
             this.pnlTopContracts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
@@ -49,51 +50,52 @@ namespace PremierServiceSolutions.Pages
             // pnlSearchHeadings
             // 
             this.pnlSearchHeadings.BackColor = System.Drawing.Color.White;
-            this.pnlSearchHeadings.Controls.Add(this.lblSerial);
-            this.pnlSearchHeadings.Controls.Add(this.lblModel);
-            this.pnlSearchHeadings.Controls.Add(this.lblName);
+            this.pnlSearchHeadings.Controls.Add(this.lblEndDate);
+            this.pnlSearchHeadings.Controls.Add(this.lblStatus);
+            this.pnlSearchHeadings.Controls.Add(this.lblStart);
+            this.pnlSearchHeadings.Controls.Add(this.lblContract);
             this.pnlSearchHeadings.Controls.Add(this.lblCustomerHeading);
-            this.pnlSearchHeadings.Controls.Add(this.lblMan);
+            this.pnlSearchHeadings.Controls.Add(this.lblContractType);
             this.pnlSearchHeadings.Location = new System.Drawing.Point(9, 83);
             this.pnlSearchHeadings.Name = "pnlSearchHeadings";
             this.pnlSearchHeadings.Size = new System.Drawing.Size(883, 35);
             this.pnlSearchHeadings.TabIndex = 26;
             // 
-            // lblSerial
+            // lblStatus
             // 
-            this.lblSerial.AutoSize = true;
-            this.lblSerial.BackColor = System.Drawing.Color.White;
-            this.lblSerial.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSerial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSerial.Location = new System.Drawing.Point(755, 8);
-            this.lblSerial.Name = "lblSerial";
-            this.lblSerial.Size = new System.Drawing.Size(56, 19);
-            this.lblSerial.TabIndex = 16;
-            this.lblSerial.Text = "Serial";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.BackColor = System.Drawing.Color.White;
+            this.lblStatus.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblStatus.Location = new System.Drawing.Point(755, 8);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(62, 19);
+            this.lblStatus.TabIndex = 16;
+            this.lblStatus.Text = "Status";
             // 
-            // lblModel
+            // lblStart
             // 
-            this.lblModel.AutoSize = true;
-            this.lblModel.BackColor = System.Drawing.Color.White;
-            this.lblModel.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblModel.Location = new System.Drawing.Point(555, 8);
-            this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(59, 19);
-            this.lblModel.TabIndex = 15;
-            this.lblModel.Text = "Model";
+            this.lblStart.AutoSize = true;
+            this.lblStart.BackColor = System.Drawing.Color.White;
+            this.lblStart.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblStart.Location = new System.Drawing.Point(489, 8);
+            this.lblStart.Name = "lblStart";
+            this.lblStart.Size = new System.Drawing.Size(92, 19);
+            this.lblStart.TabIndex = 15;
+            this.lblStart.Text = "Start Date";
             // 
-            // lblName
+            // lblContract
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.White;
-            this.lblName.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblName.Location = new System.Drawing.Point(32, 8);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(55, 19);
-            this.lblName.TabIndex = 12;
-            this.lblName.Text = "Name";
+            this.lblContract.AutoSize = true;
+            this.lblContract.BackColor = System.Drawing.Color.White;
+            this.lblContract.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContract.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblContract.Location = new System.Drawing.Point(12, 8);
+            this.lblContract.Name = "lblContract";
+            this.lblContract.Size = new System.Drawing.Size(80, 19);
+            this.lblContract.TabIndex = 12;
+            this.lblContract.Text = "Contract";
             // 
             // lblCustomerHeading
             // 
@@ -101,23 +103,23 @@ namespace PremierServiceSolutions.Pages
             this.lblCustomerHeading.BackColor = System.Drawing.Color.White;
             this.lblCustomerHeading.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerHeading.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCustomerHeading.Location = new System.Drawing.Point(170, 8);
+            this.lblCustomerHeading.Location = new System.Drawing.Point(143, 8);
             this.lblCustomerHeading.Name = "lblCustomerHeading";
             this.lblCustomerHeading.Size = new System.Drawing.Size(89, 19);
             this.lblCustomerHeading.TabIndex = 13;
             this.lblCustomerHeading.Text = "Customer";
             // 
-            // lblMan
+            // lblContractType
             // 
-            this.lblMan.AutoSize = true;
-            this.lblMan.BackColor = System.Drawing.Color.White;
-            this.lblMan.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblMan.Location = new System.Drawing.Point(344, 8);
-            this.lblMan.Name = "lblMan";
-            this.lblMan.Size = new System.Drawing.Size(119, 19);
-            this.lblMan.TabIndex = 14;
-            this.lblMan.Text = "Manufacturer";
+            this.lblContractType.AutoSize = true;
+            this.lblContractType.BackColor = System.Drawing.Color.White;
+            this.lblContractType.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContractType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblContractType.Location = new System.Drawing.Point(301, 8);
+            this.lblContractType.Name = "lblContractType";
+            this.lblContractType.Size = new System.Drawing.Size(49, 19);
+            this.lblContractType.TabIndex = 14;
+            this.lblContractType.Text = "Type";
             // 
             // flpContracts
             // 
@@ -153,6 +155,10 @@ namespace PremierServiceSolutions.Pages
             this.tBSearch.Size = new System.Drawing.Size(419, 31);
             this.tBSearch.TabIndex = 51;
             this.tBSearch.Text = "Start Typing ContractID/CustomerID";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
             // 
             // iPBSearch
             // 
@@ -188,6 +194,18 @@ namespace PremierServiceSolutions.Pages
             this.btnAddContract.TextColor = System.Drawing.Color.White;
             this.btnAddContract.UseVisualStyleBackColor = true;
             // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.BackColor = System.Drawing.Color.White;
+            this.lblEndDate.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblEndDate.Location = new System.Drawing.Point(611, 8);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(81, 19);
+            this.lblEndDate.TabIndex = 17;
+            this.lblEndDate.Text = "End Date";
+            // 
             // frmContracts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,15 +232,16 @@ namespace PremierServiceSolutions.Pages
         #endregion
 
         private System.Windows.Forms.Panel pnlSearchHeadings;
-        private System.Windows.Forms.Label lblSerial;
-        private System.Windows.Forms.Label lblModel;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblStart;
+        private System.Windows.Forms.Label lblContract;
         private System.Windows.Forms.Label lblCustomerHeading;
-        private System.Windows.Forms.Label lblMan;
+        private System.Windows.Forms.Label lblContractType;
         private System.Windows.Forms.FlowLayoutPanel flpContracts;
         private System.Windows.Forms.Panel pnlTopContracts;
         private CustomComponents.Round_TextBox tBSearch;
         private FontAwesome.Sharp.IconPictureBox iPBSearch;
         private CustomComponents.ButtonRound btnAddContract;
+        private System.Windows.Forms.Label lblEndDate;
     }
 }
