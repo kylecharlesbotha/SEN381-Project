@@ -387,5 +387,46 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
+        public Technician GetTechDetails(int TechID)
+        {
+            Technician objRecord = new Technician();
+            try
+            {
+
+                //New SQL Connection which the query will use to perform the Select of tblTechnician
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Technicains
+                string SelectQuery = string.Format("SELECT T.TechnicianID, E.EmployeeID,E.EmployeeName, T.TechnicianStatus ,E.EmployeeEmail, E.EmployeeRole, T.TechnicianLevel FROM tblTechnician AS T INNER JOIN tblEmployee AS E ON E.EmployeeID = T.EmployeeID WHERE T.TechnicianID = '{0}'",);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    objRecord.TechnicianID = (int)sqlDataReader.GetValue(0);
+                    objRecord.EmployeeID = (int)sqlDataReader.GetValue(1);
+                    objRecord.EmployeeName = (string)sqlDataReader.GetValue(2);
+                    objRecord.EmployeeEmail = (string)sqlDataReader.GetValue(3);
+                    objRecord.EmployeeRole = (string)sqlDataReader.GetValue(4);
+                    objRecord.TechnicianLevel = (int)sqlDataReader.GetValue(5);
+
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Technicians
+                return objRecord;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+        }
+
     }
 }
