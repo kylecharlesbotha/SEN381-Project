@@ -15,11 +15,14 @@ namespace PremierServiceSolutions.Pages
     {
         #region Class Objects
         Technician objTechnician = new Technician();
+        Employee objEmployee = new Employee();
         #endregion
 
         #region Variables
         List<Technician> lstTechnician = new List<Technician>();
         List<Technician> lstSearchTechnician = new List<Technician>();
+
+        List<Employee> lstEmployee = new List<Employee>();
         #endregion
 
         public frmTechnician()
@@ -29,6 +32,15 @@ namespace PremierServiceSolutions.Pages
             this.Width = 900;
             this.Height = 740;
             pnlNewTech.Left = 5;
+            pnlTechnicianDetials.Left = 5;
+            pnlTechnicianDetials.Top = 132;
+        }
+
+        private void PopulateCBB()
+        {
+            lstEmployee = objEmployee.GetEmployees().ToList();
+            cbEmployee.DataSource = lstEmployee;
+            cbEmployee.DisplayMember = "EmployeeName";
         }
 
 
@@ -37,6 +49,7 @@ namespace PremierServiceSolutions.Pages
             lstTechnician = objTechnician.GetTechRecords();
             lstTechnician.Sort();
             PopulateTechnicians();
+            PopulateCBB();
         }
 
         public void PopulateTechnicians()
@@ -329,6 +342,23 @@ namespace PremierServiceSolutions.Pages
                     flpTechnician.Visible = true;
                 }
 
+        }
+
+        private void btnAddTechnician_Click(object sender, EventArgs e)
+        {
+            pnlNewTech.Visible = true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlNewTech.Visible = false;
+        }
+
+        private void cbEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool found = objTechnician.GetTechEmpID(cbEmployee.SelectedIndex);
+            //if true you can create 
+            //if false meanse there is already tech linked to that employee
         }
     }
 }
