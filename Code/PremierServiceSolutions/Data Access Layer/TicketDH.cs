@@ -81,6 +81,58 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 return false;
             }
         }
+        public bool UpdateStatus(int TicketID, string Status)
+        {
+            try
+            {
+                //New SQL Connection which the query will use to perform the update of tblTicket
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Update Query which will store the SQL Query to be used when the connection is open
+                string UpdateQuery = string.Format(@"UPDATE tblTicket SET TicketStatus ='{1}' WHERE TicketID ='{0}'",TicketID, Status);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Perform the Update Query
+                UpdateCommand.ExecuteNonQuery();
+                //Close the connection to the database
+                sqlCon.Close();
+                //If it all works it will then return true to indicate update successful
+                return true;
+            }
+            catch (SqlException SQLE)
+            {
+                //If any error has to occur during the try phase it will display a Error message and will return false to indicate it was unsuccessful
+                MessageBox.Show("Error has occured please try again");
+                return false;
+            }
+        }
+        public bool UpdateTechnician(int TicketID, int TechID, string TicStatus)
+        {
+            try
+            {
+                //New SQL Connection which the query will use to perform the update of tblTicket
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Update Query which will store the SQL Query to be used when the connection is open
+                string UpdateQuery = string.Format(@"UPDATE tblTicket SET TechnicianID ='{1}',TicketStatus ='{2}' WHERE TicketID ='{0}'", TicketID, TechID,TicStatus);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Perform the Update Query
+                UpdateCommand.ExecuteNonQuery();
+                //Close the connection to the database
+                sqlCon.Close();
+                //If it all works it will then return true to indicate update successful
+                return true;
+            }
+            catch (SqlException SQLE)
+            {
+                //If any error has to occur during the try phase it will display a Error message and will return false to indicate it was unsuccessful
+                MessageBox.Show("Error has occured please try again");
+                return false;
+            }
+        }
 
         public bool Delete(Ticket objTic)
         {
