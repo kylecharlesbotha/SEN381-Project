@@ -100,6 +100,20 @@ namespace PremierServiceSolutions.Business_Logic_Layer
                 return null;
             }
         }
+
+        public string GetEmail(int TechID)
+        {
+            string Email = "";
+            try
+            {
+                Email = objEmpDH.GetEmployeeEmail(TechID);
+                return Email;
+            }
+            catch(Exception E)
+            {
+                return Email;
+            }
+        }
     }
         
 }
