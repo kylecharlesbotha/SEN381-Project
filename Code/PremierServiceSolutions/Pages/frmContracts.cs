@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +22,26 @@ namespace PremierServiceSolutions.Pages
         #region Variables
         List<Contract> lstContract = new List<Contract>();
         List<Contract> lstSearchContract = new List<Contract>();
+        byte[] ContractPath;
+        private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
+        private string FullPath;
         #endregion
 
         public frmContracts()
         {
             InitializeComponent();
             LoadCon();
+            pnlContractDetails.Left = 9;
+            pnlContractDetails.Top = 126;
+            FullPath = GetTemporaryDirectory();
+            FullPath += @"\Temp.pdf";
+            pdfContractViewer.Left = 9;
+            pdfContractViewer.Top = 8;
+        }
+        private string GetTemporaryDirectory()
+        {
+            string tempDirectory = Path.Combine(Path.GetTempPath(), DirectoryPath);
+            return tempDirectory;
         }
 
 
@@ -87,6 +102,7 @@ namespace PremierServiceSolutions.Pages
             lAssName.ForeColor = Color.White;
             lAssName.MouseEnter += new EventHandler(HoverEnter);
             lAssName.MouseLeave += new EventHandler(HoverLeave);
+            lAssName.Click += new EventHandler(ShowContractDetails);
             //lAssName.BackColor = Color.Red;            
 
 
@@ -238,6 +254,26 @@ namespace PremierServiceSolutions.Pages
             Label lbl = sender as Label;
             lbl.ForeColor = Color.White;
         }
+        protected void ShowContractDetails(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            Contract newCont = objContract.GetContractDetails(lbl.Text);
+            PopulateDetails(newCont);
+            pnlContractDetails.Visible = true;
+            tBSearch.Enabled = false;
+        }
+
+        private void PopulateDetails(Contract cont)
+        {
+            tbDetailsContractID.Text = cont.ContractID;
+            tbDetailsClientID.Text = cont.ClientID;
+            tbDetailsContractDescription.Text = cont.ContractDescription;
+            tbDetailsConStart.Text = cont.StartDate.ToString("yyyy-MM-dd");
+            tbDetailsConEnd.Text = cont.EndDate.ToString("yyyy-MM-dd");
+            tbDetailsContractType.Text = cont.ContractType;
+            ContractPath = cont.ContractFilePath;
+        }
+
         #endregion
 
 
@@ -340,8 +376,50 @@ namespace PremierServiceSolutions.Pages
 
         }
 
+
         #endregion
 
+        #region Panel Contract Details
+        private void btnDeleteContract_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void btnActiveContract_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlContractDetails.Visible = false;
+        }
+
+        private void btnSaveChanged_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnViewContractPDF_Click(object sender, EventArgs e)
+        {
+            File.WriteAllBytes(FullPath, ContractPath);
+            pdfContractViewer.BringToFront();
+            pdfContractViewer.Load(FullPath);
+            pdfContractViewer.Visible = true;
+            btnCloseContract.Visible = true;
+            btnDeleteContract.Visible = false;
+            btnClose.Visible = false;
+            btnSaveChanged.Visible = false;
+        }
+        private void btnCloseContract_Click(object sender, EventArgs e)
+        {
+            pdfContractViewer.Visible = false;
+            btnCloseContract.Visible = false;
+            btnDeleteContract.Visible = true;
+            btnClose.Visible = true;
+            btnSaveChanged.Visible = true;
+        }
     }
+
+        #endregion
+    
 }
