@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PremierServiceSolutions.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace PremierServiceSolutions.Business_Logic_Layer
 {
-    class Service
+    class Service : IComparable<Service>
     {
+        ServiceDH objServiceDH = new ServiceDH();
+
         private int serviceID;
         private string serviceName;
         private string serviceDescription;
-        private int serviceLevel;
+        private string serviceLevel;
         private int serviceState;
 
-        public Service(int serviceID, string serviceDescription, int serviceLevel, string serviceName, int serviceState)
+        public Service(int serviceID, string serviceDescription, string serviceLevel, string serviceName, int serviceState)
         {
             this.serviceID = serviceID;
             this.serviceName = serviceName;
@@ -30,12 +33,33 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public int ServiceID { get => serviceID; set => serviceID = value; }
         public string ServiceName { get => serviceName; set => serviceName = value; }
         public string ServiceDescription { get => serviceDescription; set => serviceDescription = value; }
-        public int ServiceLevel { get => serviceLevel; set => serviceLevel = value; }
+        public string ServiceLevel { get => serviceLevel; set => serviceLevel = value; }
         public int ServiceState { get => serviceState; set => serviceState = value; }
 
         public void EditService()
         {
 
+        }
+        public List<Service> GetService()
+        {
+            List<Service> newList = new List<Service>();
+            try
+            {
+                newList = objServiceDH.GetAll().ToList();
+                return newList;
+            }
+            catch(Exception E)
+            {
+
+                return newList;
+            }
+
+        }
+        public int CompareTo(Service other)
+        {
+            string oldid = this.ServiceLevel;
+            string newid = other.ServiceLevel;
+            return newid.CompareTo(oldid);
         }
 
         public override bool Equals(object obj)
