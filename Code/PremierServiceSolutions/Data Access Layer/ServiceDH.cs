@@ -124,7 +124,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allService.Add(new Service((int)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (int)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (int)sqlDataReader.GetValue(4)));
+                    allService.Add(new Service((int)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3), (int)sqlDataReader.GetValue(4)));
                 }
                 //Close connection to database
                 sqlCon.Close();
