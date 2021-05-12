@@ -17,11 +17,15 @@ namespace PremierServiceSolutions.Pages
 
         #region Class Objects
         Contract objContract = new Contract();
+        Service objService = new Service();
+        Client objClient = new Client();
         #endregion
 
         #region Variables
         List<Contract> lstContract = new List<Contract>();
+        List<Client> lstClient = new List<Client>();
         List<Contract> lstSearchContract = new List<Contract>();
+        List<Service> lstService = new List<Service>();
         byte[] ContractPath;
         private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
         private string FullPath;
@@ -39,10 +43,73 @@ namespace PremierServiceSolutions.Pages
             pdfContractViewer.Top = 8;
             pnlNewContract.Left = 9;
             pnlNewContract.Top = 8;
+            LoadNewContracts();
+            lstClient = objClient.GetAll();
+        }
+        #region Loading Data for New Contracts
+        private void LoadNewContracts()
+        {
+            lstService = objService.GetService();
+            lstService.Sort();
             DateTime now = new DateTime();
             now = DateTime.Now;
             dtpConEndDate.Value = now.AddMonths(3);
+            foreach (Service seritem in lstService)
+            {
+                CreateService(seritem.ServiceName + " " +seritem.ServiceLevel);
+            }
+
         }
+
+        private void CreateService(string Text)
+        {
+            //Create Panel Dynamically for each ticket Record
+            Panel p = new Panel();
+            p.Name = "Service Panel" + (flpNewConServices.Controls.Count + 1);
+
+            //Statement to alternate the colors of the panels
+            if (flpNewConServices.Controls.Count % 2 == 0)
+            {
+                p.BackColor = Color.FromArgb(179, 179, 179);
+            }
+            else
+            {
+                p.BackColor = Color.FromArgb(209, 209, 209);
+            }
+
+            //Setting the Size of Panel and adding it to the main panel
+            p.Size = new Size(flpNewConServices.ClientSize.Width-20, 50);
+            flpNewConServices.Controls.Add(p);
+
+            //Setting new panel to insert at the top and move rest down
+            flpNewConServices.Controls.SetChildIndex(p, 0);
+
+
+            CheckBox CB = new CheckBox();
+            CB.Name = "lblService" + flpContracts.Controls.Count;
+            CB.Text = Text;
+            CB.AutoSize = false;
+            CB.Size = new Size(p.Width - 10, 30);
+            p.Controls.Add(CB);
+            CB.Top = 10;
+            CB.TextAlign = ContentAlignment.MiddleLeft;
+            CB.Left = 10;
+            CB.Font = new Font("Arial", 10, FontStyle.Bold);
+            CB.ForeColor = Color.White;
+            CB.Click += new EventHandler(ServiceClick);
+
+
+            //Updating the Panel and forcing it to refresh its self
+            flpNewConServices.Invalidate();
+        }
+
+        protected void ServiceClick(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+
+        }
+
+        #endregion
         private string GetTemporaryDirectory()
         {
             string tempDirectory = Path.Combine(Path.GetTempPath(), DirectoryPath);
@@ -445,6 +512,229 @@ namespace PremierServiceSolutions.Pages
         {
             pnlNewContract.Visible = false;
         }
+        #endregion
+
+
+        #region Search Methods
+        private void tbNewConCusSearc_TextChanged(object sender, EventArgs e)
+        {
+            if (tbNewConCusSearc.Text == "Start Typing CustomerID/Name")
+            {
+
+            }
+            else
+            {
+                bool found = false;
+                if (String.IsNullOrWhiteSpace(tbNewConCusSearc.Text))
+                {
+                    ResetSearchNew();
+                }
+                else
+                {
+
+                    ResetSearchNew();
+                    flpSearchResults.Visible = true;
+                    string Text = tbNewConCusSearc.Text.ToLower();
+
+
+
+                    foreach (Client item in lstClient)
+                    {
+                        if ((item.ClientIDNumber.ToLower().StartsWith(Text)) || (item.PersonName.ToLower().StartsWith(Text)))
+                        {
+                            CreateSearchEntry(item.PersonName, item.ClientIDNumber);
+                            found = true;
+                        }
+                    }
+                    if (found == false)
+                    {
+                        CreateNullEntrySearch("CLIENT NOT FOUND! Please clear search and try again.");
+                    }
+                    flpSearchResults.Visible = true;
+
+                }
+            }
+        }
+
+        private void ResetSearchNew()
+        {
+            for (int i = flpSearchResults.Controls.Count - 1; i >= 0; i--)
+            {
+                flpSearchResults.Controls[i].Dispose();
+            }
+            flpSearchResults.Visible = false;
+        }
+
+        private void tbNewConCusSearc_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbNewConCusSearc.Text == "Start Typing CustomerID/Name")
+                {
+                    tbNewConCusSearc.Clear();
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void tbNewConCusSearc_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(tbNewConCusSearc.Text))
+                {
+                    tbNewConCusSearc.Text = "Start Typing CustomerID/Name";
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void CreateSearchEntry(string CusName, string CusID)
+        {
+            //Create Panel Dynamically for each Client Record
+            Panel p = new Panel();
+            p.Name = "ClientPanel" + (flpSearchResults.Controls.Count);
+
+            //Statement to alternate the colors of the panels
+            if (flpSearchResults.Controls.Count % 2 == 0)
+            {
+                p.BackColor = Color.FromArgb(179, 179, 179);
+            }
+            else
+            {
+                p.BackColor = Color.FromArgb(209, 209, 209);
+            }
+
+            //Setting the Size of Panel and adding it to the main panel
+            p.Size = new Size(flpSearchResults.ClientSize.Width - 6, 50);
+            flpSearchResults.Controls.Add(p);
+
+            //Setting new panel to insert at the top and move rest down
+            flpSearchResults.Controls.SetChildIndex(p, 0);
+
+            //Painting the name on the panel
+            p.Paint += (ss, ee) => { ee.Graphics.DrawString(p.Name, Font, Brushes.White, 22, 11); };
+
+
+            //Creating Label for Customer Name
+            Label lID = new Label();
+            lID.Name = "lblCusName" + flpSearchResults.Controls.Count;
+            lID.Text = CusName;
+            lID.AutoSize = false;
+            lID.Size = new Size(p.Width / 2 - 20, 30);
+            p.Controls.Add(lID);
+            lID.Top = 10;
+            lID.TextAlign = ContentAlignment.MiddleLeft;
+            lID.Left = 10;
+            lID.Font = new Font("Arial", 16, FontStyle.Bold);
+            lID.ForeColor = Color.White;
+            lID.BackColor = Color.FromArgb(218, 0, 0);
+            if (flpSearchResults.Controls.Count % 2 == 0)
+            {
+                lID.BackColor = Color.FromArgb(209, 209, 209);
+            }
+            else
+            {
+                lID.BackColor = Color.FromArgb(179, 179, 179);
+            }
+            lID.MouseEnter += new EventHandler(HoverEnter);
+            lID.MouseLeave += new EventHandler(HoverLeave);
+
+
+
+            //Creating Label for CustomerDetails
+            Label lCus = new Label();
+            lCus.Name = "lblCustomerID" + flpSearchResults.Controls.Count;
+            lCus.Text = CusID;
+            lCus.AutoSize = false;
+            lCus.Size = new Size(p.Width / 2 - 10, 30);
+            p.Controls.Add(lCus);
+            lCus.Top = 10;
+            lCus.TextAlign = ContentAlignment.MiddleCenter;
+            lCus.Left = p.Width / 2;
+            lCus.Font = new Font("Arial", 16, FontStyle.Bold);
+            lCus.ForeColor = Color.White;
+            if (flpSearchResults.Controls.Count % 2 == 0)
+            {
+                lCus.BackColor = Color.FromArgb(209, 209, 209);
+            }
+            else
+            {
+                lCus.BackColor = Color.FromArgb(179, 179, 179);
+            }
+            lCus.Click += new EventHandler(lblSearchClicked);
+            lCus.MouseEnter += new EventHandler(HoverEnter);
+            lCus.MouseLeave += new EventHandler(HoverLeave);
+
+            //Updating the Panel and forcing it to refresh its self
+            flpSearchResults.Height = flpSearchResults.Controls.Count * p.Height + (8 * flpSearchResults.Controls.Count);
+            flpSearchResults.Invalidate();
+        }
+        private void CreateNullEntrySearch(string CusName)
+        {
+            //Create Panel Dynamically for each Client Record
+            Panel p = new Panel();
+            p.Name = "ClientPanel" + (flpSearchResults.Controls.Count);
+
+            //Statement to alternate the colors of the panels
+            if (flpSearchResults.Controls.Count % 2 == 0)
+            {
+                p.BackColor = Color.FromArgb(179, 179, 179);
+            }
+            else
+            {
+                p.BackColor = Color.FromArgb(209, 209, 209);
+            }
+
+            //Setting the Size of Panel and adding it to the main panel
+            p.Size = new Size(flpSearchResults.ClientSize.Width - 6, 50);
+            flpSearchResults.Controls.Add(p);
+
+            //Setting new panel to insert at the top and move rest down
+            flpSearchResults.Controls.SetChildIndex(p, 0);
+
+            //Painting the name on the panel
+            p.Paint += (ss, ee) => { ee.Graphics.DrawString(p.Name, Font, Brushes.White, 22, 11); };
+
+
+            //Creating Label for Customer Name
+            Label lID = new Label();
+            lID.Name = "lblCusName" + flpSearchResults.Controls.Count;
+            lID.Text = CusName;
+            lID.AutoSize = false;
+            lID.Size = new Size(p.Width - 5, 30);
+            p.Controls.Add(lID);
+            lID.Top = 10;
+            lID.TextAlign = ContentAlignment.MiddleCenter;
+            lID.Left = 15;
+            lID.Font = new Font("Arial", 12, FontStyle.Bold);
+            lID.ForeColor = Color.White;
+            lID.BackColor = Color.FromArgb(179, 179, 179);
+
+            //Updating the Panel and forcing it to refresh its self
+            flpSearchResults.Height = (flpSearchResults.Controls.Count) * p.Height + 8;
+            flpSearchResults.Invalidate();
+        }
+
+        protected void lblSearchClicked(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            string name = lbl.Text;
+            tbNewContCus.Text = name;
+            tbNewConCusSearc.Text = "Start Typing CustomerID/Name";
+            flpSearchResults.Visible = false;
+            ResetSearchNew();
+            tbNewContCus.Focus();
+
+
+        }
+
         #endregion
     }
 

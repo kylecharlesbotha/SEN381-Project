@@ -29,9 +29,9 @@ namespace PremierServiceSolutions.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
-            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
-            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
+            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings13 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
+            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings13 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
+            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings13 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContracts));
             this.pnlSearchHeadings = new System.Windows.Forms.Panel();
             this.lblEndDate = new System.Windows.Forms.Label();
@@ -117,6 +117,7 @@ namespace PremierServiceSolutions.Pages
             this.lblNewConCusInfo = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.flpSearchResults = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlSearchHeadings.SuspendLayout();
             this.pnlTopContracts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
@@ -256,6 +257,7 @@ namespace PremierServiceSolutions.Pages
             // pnlNewContract
             // 
             this.pnlNewContract.BackColor = System.Drawing.Color.White;
+            this.pnlNewContract.Controls.Add(this.flpSearchResults);
             this.pnlNewContract.Controls.Add(this.lblNewContCus);
             this.pnlNewContract.Controls.Add(this.lblNewContServices);
             this.pnlNewContract.Controls.Add(this.lblNewConCusCheck);
@@ -361,7 +363,7 @@ namespace PremierServiceSolutions.Pages
             // pbNewContDesc
             // 
             this.pbNewContDesc.Image = ((System.Drawing.Image)(resources.GetObject("pbNewContDesc.Image")));
-            this.pbNewContDesc.Location = new System.Drawing.Point(408, 291);
+            this.pbNewContDesc.Location = new System.Drawing.Point(428, 291);
             this.pbNewContDesc.Name = "pbNewContDesc";
             this.pbNewContDesc.Size = new System.Drawing.Size(30, 30);
             this.pbNewContDesc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -372,14 +374,14 @@ namespace PremierServiceSolutions.Pages
             // 
             this.tbContractDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.tbContractDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbContractDescription.Enabled = false;
             this.tbContractDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbContractDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.tbContractDescription.Location = new System.Drawing.Point(177, 291);
-            this.tbContractDescription.MaxLength = 13;
+            this.tbContractDescription.MaxLength = 255;
             this.tbContractDescription.Multiline = true;
             this.tbContractDescription.Name = "tbContractDescription";
-            this.tbContractDescription.Size = new System.Drawing.Size(229, 84);
+            this.tbContractDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbContractDescription.Size = new System.Drawing.Size(245, 84);
             this.tbContractDescription.TabIndex = 121;
             // 
             // cbContractType
@@ -389,7 +391,7 @@ namespace PremierServiceSolutions.Pages
             this.cbContractType.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
             this.cbContractType.Location = new System.Drawing.Point(177, 240);
             this.cbContractType.Name = "cbContractType";
-            this.cbContractType.Size = new System.Drawing.Size(229, 28);
+            this.cbContractType.Size = new System.Drawing.Size(245, 28);
             this.cbContractType.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cbContractType.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
             this.cbContractType.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
@@ -411,7 +413,7 @@ namespace PremierServiceSolutions.Pages
             // pbContractTypeCheck
             // 
             this.pbContractTypeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbContractTypeCheck.Image")));
-            this.pbContractTypeCheck.Location = new System.Drawing.Point(408, 240);
+            this.pbContractTypeCheck.Location = new System.Drawing.Point(428, 240);
             this.pbContractTypeCheck.Name = "pbContractTypeCheck";
             this.pbContractTypeCheck.Size = new System.Drawing.Size(30, 30);
             this.pbContractTypeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -794,16 +796,16 @@ namespace PremierServiceSolutions.Pages
             this.pdfContractViewer.IsTextSearchEnabled = true;
             this.pdfContractViewer.IsTextSelectionEnabled = true;
             this.pdfContractViewer.Location = new System.Drawing.Point(1894, 8);
-            messageBoxSettings1.EnableNotification = true;
-            this.pdfContractViewer.MessageBoxSettings = messageBoxSettings1;
+            messageBoxSettings13.EnableNotification = true;
+            this.pdfContractViewer.MessageBoxSettings = messageBoxSettings13;
             this.pdfContractViewer.MinimumZoomPercentage = 50;
             this.pdfContractViewer.Name = "pdfContractViewer";
             this.pdfContractViewer.PageBorderThickness = 1;
-            pdfViewerPrinterSettings1.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings1.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings1.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings1.PrintLocation")));
-            pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
-            this.pdfContractViewer.PrinterSettings = pdfViewerPrinterSettings1;
+            pdfViewerPrinterSettings13.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings13.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings13.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings13.PrintLocation")));
+            pdfViewerPrinterSettings13.ShowPrintStatusDialog = true;
+            this.pdfContractViewer.PrinterSettings = pdfViewerPrinterSettings13;
             this.pdfContractViewer.ReferencePath = null;
             this.pdfContractViewer.ScrollDisplacementValue = 0;
             this.pdfContractViewer.ShowHorizontalScrollBar = true;
@@ -811,10 +813,10 @@ namespace PremierServiceSolutions.Pages
             this.pdfContractViewer.Size = new System.Drawing.Size(884, 596);
             this.pdfContractViewer.SpaceBetweenPages = 8;
             this.pdfContractViewer.TabIndex = 33;
-            textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
-            textSearchSettings1.HighlightAllInstance = true;
-            textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.pdfContractViewer.TextSearchSettings = textSearchSettings1;
+            textSearchSettings13.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
+            textSearchSettings13.HighlightAllInstance = true;
+            textSearchSettings13.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.pdfContractViewer.TextSearchSettings = textSearchSettings13;
             this.pdfContractViewer.ThemeName = "Default";
             this.pdfContractViewer.VerticalScrollOffset = 0;
             this.pdfContractViewer.Visible = false;
@@ -1151,9 +1153,11 @@ namespace PremierServiceSolutions.Pages
             // 
             // flpNewConServices
             // 
-            this.flpNewConServices.Location = new System.Drawing.Point(144, 408);
+            this.flpNewConServices.AutoScroll = true;
+            this.flpNewConServices.BackColor = System.Drawing.Color.Gainsboro;
+            this.flpNewConServices.Location = new System.Drawing.Point(144, 398);
             this.flpNewConServices.Name = "flpNewConServices";
-            this.flpNewConServices.Size = new System.Drawing.Size(259, 153);
+            this.flpNewConServices.Size = new System.Drawing.Size(280, 188);
             this.flpNewConServices.TabIndex = 138;
             // 
             // flowLayoutPanel2
@@ -1210,13 +1214,13 @@ namespace PremierServiceSolutions.Pages
             // 
             this.tbNewContCus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.tbNewContCus.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbNewContCus.Enabled = false;
             this.tbNewContCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNewContCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.tbNewContCus.Location = new System.Drawing.Point(579, 115);
             this.tbNewContCus.MaxLength = 13;
             this.tbNewContCus.Multiline = true;
             this.tbNewContCus.Name = "tbNewContCus";
+            this.tbNewContCus.ReadOnly = true;
             this.tbNewContCus.Size = new System.Drawing.Size(252, 30);
             this.tbNewContCus.TabIndex = 165;
             // 
@@ -1233,6 +1237,9 @@ namespace PremierServiceSolutions.Pages
             this.tbNewConCusSearc.Size = new System.Drawing.Size(318, 31);
             this.tbNewConCusSearc.TabIndex = 164;
             this.tbNewConCusSearc.Text = "Start Typing CustomerID/Name";
+            this.tbNewConCusSearc.TextChanged += new System.EventHandler(this.tbNewConCusSearc_TextChanged);
+            this.tbNewConCusSearc.Enter += new System.EventHandler(this.tbNewConCusSearc_Enter);
+            this.tbNewConCusSearc.Leave += new System.EventHandler(this.tbNewConCusSearc_Leave);
             // 
             // ipbNewContSearch
             // 
@@ -1274,6 +1281,16 @@ namespace PremierServiceSolutions.Pages
             this.panel6.Size = new System.Drawing.Size(863, 2);
             this.panel6.TabIndex = 160;
             // 
+            // flpSearchResults
+            // 
+            this.flpSearchResults.AutoScroll = true;
+            this.flpSearchResults.BackColor = System.Drawing.Color.White;
+            this.flpSearchResults.Location = new System.Drawing.Point(72, 152);
+            this.flpSearchResults.Name = "flpSearchResults";
+            this.flpSearchResults.Size = new System.Drawing.Size(440, 301);
+            this.flpSearchResults.TabIndex = 169;
+            this.flpSearchResults.Visible = false;
+            // 
             // frmContracts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1287,6 +1304,7 @@ namespace PremierServiceSolutions.Pages
             this.Controls.Add(this.flpContracts);
             this.Controls.Add(this.pnlTopContracts);
             this.Controls.Add(this.pdfContractViewer);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmContracts";
@@ -1399,5 +1417,6 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Label lblNewConCusInfo;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.FlowLayoutPanel flpSearchResults;
     }
 }
