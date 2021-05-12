@@ -29,10 +29,10 @@ namespace PremierServiceSolutions.Pages
         /// </summary>
         private void InitializeComponent()
         {
+            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
+            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
+            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContracts));
-            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings2 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
-            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings2 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
-            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings2 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
             this.pnlSearchHeadings = new System.Windows.Forms.Panel();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -43,46 +43,31 @@ namespace PremierServiceSolutions.Pages
             this.flpContracts = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlTopContracts = new System.Windows.Forms.Panel();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
-            this.pnlNewTech = new System.Windows.Forms.Panel();
-            this.cbbUserTypeCheck = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.lblUserTypeCheck = new System.Windows.Forms.Label();
-            this.pbUserTypeCheck = new System.Windows.Forms.PictureBox();
-            this.lblUserType = new System.Windows.Forms.Label();
-            this.lblAccessCodeCheck = new System.Windows.Forms.Label();
-            this.pbAccessCodeCheck = new System.Windows.Forms.PictureBox();
-            this.lblAdminsitrator = new System.Windows.Forms.Label();
-            this.tbAccessCode = new System.Windows.Forms.TextBox();
-            this.lblConPasswordCheck = new System.Windows.Forms.Label();
-            this.pbConPasswordCheck = new System.Windows.Forms.PictureBox();
-            this.lblConPassword = new System.Windows.Forms.Label();
-            this.tbConPassword = new System.Windows.Forms.TextBox();
-            this.lblPasswordCheck = new System.Windows.Forms.Label();
-            this.pbPasswordCheck = new System.Windows.Forms.PictureBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.tbPassword = new System.Windows.Forms.TextBox();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.pnlDivider2 = new System.Windows.Forms.Panel();
-            this.cbLevel = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.cbEmployee = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.lblUsernameCheck = new System.Windows.Forms.Label();
-            this.lblLevelCheck = new System.Windows.Forms.Label();
-            this.lblEmployeeCheck = new System.Windows.Forms.Label();
-            this.pbUsernameCheck = new System.Windows.Forms.PictureBox();
-            this.pbLevelCheck = new System.Windows.Forms.PictureBox();
-            this.pbEmployeeCheck = new System.Windows.Forms.PictureBox();
-            this.lblAdditional = new System.Windows.Forms.Label();
+            this.pnlNewContract = new System.Windows.Forms.Panel();
+            this.lblNewContFile = new System.Windows.Forms.Label();
+            this.lblNewConFileCheck = new System.Windows.Forms.Label();
+            this.pbNewContFile = new System.Windows.Forms.PictureBox();
+            this.tbNewContFile = new System.Windows.Forms.TextBox();
+            this.lblContractDescriptionCheck = new System.Windows.Forms.Label();
+            this.pbNewContDesc = new System.Windows.Forms.PictureBox();
+            this.tbContractDescription = new System.Windows.Forms.TextBox();
+            this.cbContractType = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.lblContractTypeCheck = new System.Windows.Forms.Label();
+            this.pbContractTypeCheck = new System.Windows.Forms.PictureBox();
             this.lblBasicInfo = new System.Windows.Forms.Label();
-            this.chkSendEmail = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
-            this.chkCreateAccount = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.pnlDivider4 = new System.Windows.Forms.Panel();
-            this.pnlDivider3 = new System.Windows.Forms.Panel();
-            this.pnlDivider1 = new System.Windows.Forms.Panel();
             this.lblNewCont = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.tbUsername = new System.Windows.Forms.TextBox();
-            this.lblTechLevel = new System.Windows.Forms.Label();
-            this.lblEmployeeID = new System.Windows.Forms.Label();
+            this.lblNewConDesc = new System.Windows.Forms.Label();
+            this.lblNewConType = new System.Windows.Forms.Label();
             this.pnlContractDetails = new System.Windows.Forms.Panel();
+            this.lblDetailsContractEnd = new System.Windows.Forms.Label();
+            this.tbDetailsConEnd = new System.Windows.Forms.TextBox();
+            this.lblDetailsContractStart = new System.Windows.Forms.Label();
+            this.tbDetailsConStart = new System.Windows.Forms.TextBox();
+            this.lblDetailsSLADesc = new System.Windows.Forms.Label();
+            this.tbDetailsSLADescription = new System.Windows.Forms.TextBox();
+            this.lblDetailsContractSLA = new System.Windows.Forms.Label();
+            this.tbDetailsContractSLA = new System.Windows.Forms.TextBox();
             this.lblDetailsContDes = new System.Windows.Forms.Label();
             this.tbDetailsContractDescription = new System.Windows.Forms.TextBox();
             this.lblDetailsClientID = new System.Windows.Forms.Label();
@@ -99,44 +84,53 @@ namespace PremierServiceSolutions.Pages
             this.lblContractDetails = new System.Windows.Forms.Label();
             this.lblDetailsContractID = new System.Windows.Forms.Label();
             this.tbDetailsContractID = new System.Windows.Forms.TextBox();
-            this.lblDetailsContractSLA = new System.Windows.Forms.Label();
-            this.tbDetailsContractSLA = new System.Windows.Forms.TextBox();
-            this.lblDetailsSLADesc = new System.Windows.Forms.Label();
-            this.tbDetailsSLADescription = new System.Windows.Forms.TextBox();
-            this.lblDetailsContractStart = new System.Windows.Forms.Label();
-            this.tbDetailsConStart = new System.Windows.Forms.TextBox();
-            this.lblDetailsContractEnd = new System.Windows.Forms.Label();
-            this.tbDetailsConEnd = new System.Windows.Forms.TextBox();
             this.pdfContractViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView();
+            this.lblNewContStartCheck = new System.Windows.Forms.Label();
+            this.pnNewContStartCheck = new System.Windows.Forms.PictureBox();
+            this.lblNewConStart = new System.Windows.Forms.Label();
+            this.lblNewContEndCheck = new System.Windows.Forms.Label();
+            this.pbNewContEndCheck = new System.Windows.Forms.PictureBox();
+            this.lblNewContEnd = new System.Windows.Forms.Label();
+            this.dtpConEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpConStart = new System.Windows.Forms.DateTimePicker();
+            this.btnCloseContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnViewContractPDF = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnActiveContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnSaveChanged = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnDeleteContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnClose = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnUpLoadCont = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnCreateTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.btnAddContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCloseContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.flpNewConServices = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblNewContServices = new System.Windows.Forms.Label();
+            this.lblNewContCus = new System.Windows.Forms.Label();
+            this.lblNewConCusCheck = new System.Windows.Forms.Label();
+            this.pbNewConCusCheck = new System.Windows.Forms.PictureBox();
+            this.tbNewContCus = new System.Windows.Forms.TextBox();
+            this.tbNewConCusSearc = new PremierServiceSolutions.CustomComponents.Round_TextBox();
+            this.ipbNewContSearch = new FontAwesome.Sharp.IconPictureBox();
+            this.lblNewConCusInfo = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pnlSearchHeadings.SuspendLayout();
             this.pnlTopContracts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
-            this.pnlNewTech.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbUserTypeCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAccessCodeCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbConPasswordCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUsernameCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLevelCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEmployeeCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkCreateAccount)).BeginInit();
+            this.pnlNewContract.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewContFile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewContDesc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbContractType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbContractTypeCheck)).BeginInit();
             this.pnlContractDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfContractServices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnNewContStartCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewContEndCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewConCusCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ipbNewContSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSearchHeadings
@@ -259,407 +253,181 @@ namespace PremierServiceSolutions.Pages
             this.iPBSearch.TabIndex = 52;
             this.iPBSearch.TabStop = false;
             // 
-            // pnlNewTech
+            // pnlNewContract
             // 
-            this.pnlNewTech.BackColor = System.Drawing.Color.White;
-            this.pnlNewTech.Controls.Add(this.cbbUserTypeCheck);
-            this.pnlNewTech.Controls.Add(this.lblUserTypeCheck);
-            this.pnlNewTech.Controls.Add(this.pbUserTypeCheck);
-            this.pnlNewTech.Controls.Add(this.lblUserType);
-            this.pnlNewTech.Controls.Add(this.lblAccessCodeCheck);
-            this.pnlNewTech.Controls.Add(this.pbAccessCodeCheck);
-            this.pnlNewTech.Controls.Add(this.lblAdminsitrator);
-            this.pnlNewTech.Controls.Add(this.tbAccessCode);
-            this.pnlNewTech.Controls.Add(this.lblConPasswordCheck);
-            this.pnlNewTech.Controls.Add(this.pbConPasswordCheck);
-            this.pnlNewTech.Controls.Add(this.lblConPassword);
-            this.pnlNewTech.Controls.Add(this.tbConPassword);
-            this.pnlNewTech.Controls.Add(this.lblPasswordCheck);
-            this.pnlNewTech.Controls.Add(this.pbPasswordCheck);
-            this.pnlNewTech.Controls.Add(this.lblPassword);
-            this.pnlNewTech.Controls.Add(this.tbPassword);
-            this.pnlNewTech.Controls.Add(this.lblUser);
-            this.pnlNewTech.Controls.Add(this.pnlDivider2);
-            this.pnlNewTech.Controls.Add(this.cbLevel);
-            this.pnlNewTech.Controls.Add(this.cbEmployee);
-            this.pnlNewTech.Controls.Add(this.btnCreateTechnician);
-            this.pnlNewTech.Controls.Add(this.lblUsernameCheck);
-            this.pnlNewTech.Controls.Add(this.lblLevelCheck);
-            this.pnlNewTech.Controls.Add(this.lblEmployeeCheck);
-            this.pnlNewTech.Controls.Add(this.pbUsernameCheck);
-            this.pnlNewTech.Controls.Add(this.pbLevelCheck);
-            this.pnlNewTech.Controls.Add(this.pbEmployeeCheck);
-            this.pnlNewTech.Controls.Add(this.lblAdditional);
-            this.pnlNewTech.Controls.Add(this.lblBasicInfo);
-            this.pnlNewTech.Controls.Add(this.chkSendEmail);
-            this.pnlNewTech.Controls.Add(this.chkCreateAccount);
-            this.pnlNewTech.Controls.Add(this.pnlDivider4);
-            this.pnlNewTech.Controls.Add(this.btnCancel);
-            this.pnlNewTech.Controls.Add(this.btnReset);
-            this.pnlNewTech.Controls.Add(this.pnlDivider3);
-            this.pnlNewTech.Controls.Add(this.pnlDivider1);
-            this.pnlNewTech.Controls.Add(this.lblNewCont);
-            this.pnlNewTech.Controls.Add(this.lblUsername);
-            this.pnlNewTech.Controls.Add(this.tbUsername);
-            this.pnlNewTech.Controls.Add(this.lblTechLevel);
-            this.pnlNewTech.Controls.Add(this.lblEmployeeID);
-            this.pnlNewTech.Location = new System.Drawing.Point(957, 8);
-            this.pnlNewTech.Name = "pnlNewTech";
-            this.pnlNewTech.Size = new System.Drawing.Size(883, 725);
-            this.pnlNewTech.TabIndex = 31;
-            this.pnlNewTech.Visible = false;
+            this.pnlNewContract.BackColor = System.Drawing.Color.White;
+            this.pnlNewContract.Controls.Add(this.lblNewContCus);
+            this.pnlNewContract.Controls.Add(this.lblNewContServices);
+            this.pnlNewContract.Controls.Add(this.lblNewConCusCheck);
+            this.pnlNewContract.Controls.Add(this.flowLayoutPanel2);
+            this.pnlNewContract.Controls.Add(this.pbNewConCusCheck);
+            this.pnlNewContract.Controls.Add(this.flpNewConServices);
+            this.pnlNewContract.Controls.Add(this.tbNewContCus);
+            this.pnlNewContract.Controls.Add(this.dtpConStart);
+            this.pnlNewContract.Controls.Add(this.tbNewConCusSearc);
+            this.pnlNewContract.Controls.Add(this.dtpConEndDate);
+            this.pnlNewContract.Controls.Add(this.ipbNewContSearch);
+            this.pnlNewContract.Controls.Add(this.lblNewContEndCheck);
+            this.pnlNewContract.Controls.Add(this.lblNewConCusInfo);
+            this.pnlNewContract.Controls.Add(this.pbNewContEndCheck);
+            this.pnlNewContract.Controls.Add(this.panel5);
+            this.pnlNewContract.Controls.Add(this.lblNewContEnd);
+            this.pnlNewContract.Controls.Add(this.panel6);
+            this.pnlNewContract.Controls.Add(this.lblNewContStartCheck);
+            this.pnlNewContract.Controls.Add(this.pnNewContStartCheck);
+            this.pnlNewContract.Controls.Add(this.lblNewConStart);
+            this.pnlNewContract.Controls.Add(this.lblNewContFile);
+            this.pnlNewContract.Controls.Add(this.lblNewConFileCheck);
+            this.pnlNewContract.Controls.Add(this.pbNewContFile);
+            this.pnlNewContract.Controls.Add(this.tbNewContFile);
+            this.pnlNewContract.Controls.Add(this.btnUpLoadCont);
+            this.pnlNewContract.Controls.Add(this.lblContractDescriptionCheck);
+            this.pnlNewContract.Controls.Add(this.pbNewContDesc);
+            this.pnlNewContract.Controls.Add(this.tbContractDescription);
+            this.pnlNewContract.Controls.Add(this.cbContractType);
+            this.pnlNewContract.Controls.Add(this.btnCreateTechnician);
+            this.pnlNewContract.Controls.Add(this.lblContractTypeCheck);
+            this.pnlNewContract.Controls.Add(this.pbContractTypeCheck);
+            this.pnlNewContract.Controls.Add(this.lblBasicInfo);
+            this.pnlNewContract.Controls.Add(this.pnlDivider4);
+            this.pnlNewContract.Controls.Add(this.btnCancel);
+            this.pnlNewContract.Controls.Add(this.btnReset);
+            this.pnlNewContract.Controls.Add(this.lblNewCont);
+            this.pnlNewContract.Controls.Add(this.lblNewConDesc);
+            this.pnlNewContract.Controls.Add(this.lblNewConType);
+            this.pnlNewContract.Location = new System.Drawing.Point(957, 8);
+            this.pnlNewContract.Name = "pnlNewContract";
+            this.pnlNewContract.Size = new System.Drawing.Size(883, 725);
+            this.pnlNewContract.TabIndex = 31;
+            this.pnlNewContract.Visible = false;
             // 
-            // cbbUserTypeCheck
+            // lblNewContFile
             // 
-            this.cbbUserTypeCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbbUserTypeCheck.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbbUserTypeCheck.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbbUserTypeCheck.Enabled = false;
-            this.cbbUserTypeCheck.Location = new System.Drawing.Point(153, 467);
-            this.cbbUserTypeCheck.MaxDropDownItems = 3;
-            this.cbbUserTypeCheck.Name = "cbbUserTypeCheck";
-            this.cbbUserTypeCheck.Size = new System.Drawing.Size(199, 28);
-            this.cbbUserTypeCheck.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbbUserTypeCheck.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
-            this.cbbUserTypeCheck.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.cbbUserTypeCheck.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbbUserTypeCheck.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbbUserTypeCheck.TabIndex = 120;
-            this.cbbUserTypeCheck.ValueMember = "";
+            this.lblNewContFile.AutoSize = true;
+            this.lblNewContFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewContFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewContFile.Location = new System.Drawing.Point(506, 240);
+            this.lblNewContFile.Name = "lblNewContFile";
+            this.lblNewContFile.Size = new System.Drawing.Size(59, 25);
+            this.lblNewContFile.TabIndex = 128;
+            this.lblNewContFile.Text = "File :";
             // 
-            // lblUserTypeCheck
+            // lblNewConFileCheck
             // 
-            this.lblUserTypeCheck.AutoSize = true;
-            this.lblUserTypeCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserTypeCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblUserTypeCheck.Location = new System.Drawing.Point(158, 454);
-            this.lblUserTypeCheck.Name = "lblUserTypeCheck";
-            this.lblUserTypeCheck.Size = new System.Drawing.Size(94, 13);
-            this.lblUserTypeCheck.TabIndex = 119;
-            this.lblUserTypeCheck.Text = "lblUserTypeCheck";
+            this.lblNewConFileCheck.AutoSize = true;
+            this.lblNewConFileCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblNewConFileCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblNewConFileCheck.Location = new System.Drawing.Point(579, 227);
+            this.lblNewConFileCheck.Name = "lblNewConFileCheck";
+            this.lblNewConFileCheck.Size = new System.Drawing.Size(105, 13);
+            this.lblNewConFileCheck.TabIndex = 127;
+            this.lblNewConFileCheck.Text = "lblNewConFileCheck";
             // 
-            // pbUserTypeCheck
+            // pbNewContFile
             // 
-            this.pbUserTypeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbUserTypeCheck.Image")));
-            this.pbUserTypeCheck.Location = new System.Drawing.Point(356, 465);
-            this.pbUserTypeCheck.Name = "pbUserTypeCheck";
-            this.pbUserTypeCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbUserTypeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbUserTypeCheck.TabIndex = 118;
-            this.pbUserTypeCheck.TabStop = false;
+            this.pbNewContFile.Image = ((System.Drawing.Image)(resources.GetObject("pbNewContFile.Image")));
+            this.pbNewContFile.Location = new System.Drawing.Point(827, 240);
+            this.pbNewContFile.Name = "pbNewContFile";
+            this.pbNewContFile.Size = new System.Drawing.Size(30, 30);
+            this.pbNewContFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNewContFile.TabIndex = 126;
+            this.pbNewContFile.TabStop = false;
             // 
-            // lblUserType
+            // tbNewContFile
             // 
-            this.lblUserType.AutoSize = true;
-            this.lblUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUserType.Location = new System.Drawing.Point(24, 470);
-            this.lblUserType.Name = "lblUserType";
-            this.lblUserType.Size = new System.Drawing.Size(123, 25);
-            this.lblUserType.TabIndex = 117;
-            this.lblUserType.Text = "User Type :";
+            this.tbNewContFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbNewContFile.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbNewContFile.Enabled = false;
+            this.tbNewContFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNewContFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbNewContFile.Location = new System.Drawing.Point(571, 240);
+            this.tbNewContFile.MaxLength = 13;
+            this.tbNewContFile.Multiline = true;
+            this.tbNewContFile.Name = "tbNewContFile";
+            this.tbNewContFile.Size = new System.Drawing.Size(252, 30);
+            this.tbNewContFile.TabIndex = 125;
             // 
-            // lblAccessCodeCheck
+            // lblContractDescriptionCheck
             // 
-            this.lblAccessCodeCheck.AutoSize = true;
-            this.lblAccessCodeCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblAccessCodeCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblAccessCodeCheck.Location = new System.Drawing.Point(158, 389);
-            this.lblAccessCodeCheck.Name = "lblAccessCodeCheck";
-            this.lblAccessCodeCheck.Size = new System.Drawing.Size(108, 13);
-            this.lblAccessCodeCheck.TabIndex = 116;
-            this.lblAccessCodeCheck.Text = "lblAccessCodeCheck";
+            this.lblContractDescriptionCheck.AutoSize = true;
+            this.lblContractDescriptionCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblContractDescriptionCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblContractDescriptionCheck.Location = new System.Drawing.Point(182, 278);
+            this.lblContractDescriptionCheck.Name = "lblContractDescriptionCheck";
+            this.lblContractDescriptionCheck.Size = new System.Drawing.Size(141, 13);
+            this.lblContractDescriptionCheck.TabIndex = 123;
+            this.lblContractDescriptionCheck.Text = "lblContractDescriptionCheck";
             // 
-            // pbAccessCodeCheck
+            // pbNewContDesc
             // 
-            this.pbAccessCodeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbAccessCodeCheck.Image")));
-            this.pbAccessCodeCheck.Location = new System.Drawing.Point(356, 402);
-            this.pbAccessCodeCheck.Name = "pbAccessCodeCheck";
-            this.pbAccessCodeCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbAccessCodeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbAccessCodeCheck.TabIndex = 115;
-            this.pbAccessCodeCheck.TabStop = false;
+            this.pbNewContDesc.Image = ((System.Drawing.Image)(resources.GetObject("pbNewContDesc.Image")));
+            this.pbNewContDesc.Location = new System.Drawing.Point(408, 291);
+            this.pbNewContDesc.Name = "pbNewContDesc";
+            this.pbNewContDesc.Size = new System.Drawing.Size(30, 30);
+            this.pbNewContDesc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNewContDesc.TabIndex = 122;
+            this.pbNewContDesc.TabStop = false;
             // 
-            // lblAdminsitrator
+            // tbContractDescription
             // 
-            this.lblAdminsitrator.AutoSize = true;
-            this.lblAdminsitrator.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminsitrator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAdminsitrator.Location = new System.Drawing.Point(2, 407);
-            this.lblAdminsitrator.Name = "lblAdminsitrator";
-            this.lblAdminsitrator.Size = new System.Drawing.Size(145, 25);
-            this.lblAdminsitrator.TabIndex = 114;
-            this.lblAdminsitrator.Text = "Access Code:";
+            this.tbContractDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbContractDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbContractDescription.Enabled = false;
+            this.tbContractDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbContractDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbContractDescription.Location = new System.Drawing.Point(177, 291);
+            this.tbContractDescription.MaxLength = 13;
+            this.tbContractDescription.Multiline = true;
+            this.tbContractDescription.Name = "tbContractDescription";
+            this.tbContractDescription.Size = new System.Drawing.Size(229, 84);
+            this.tbContractDescription.TabIndex = 121;
             // 
-            // tbAccessCode
+            // cbContractType
             // 
-            this.tbAccessCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbAccessCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbAccessCode.Enabled = false;
-            this.tbAccessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAccessCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbAccessCode.Location = new System.Drawing.Point(153, 402);
-            this.tbAccessCode.MaxLength = 13;
-            this.tbAccessCode.Multiline = true;
-            this.tbAccessCode.Name = "tbAccessCode";
-            this.tbAccessCode.Size = new System.Drawing.Size(199, 30);
-            this.tbAccessCode.TabIndex = 113;
+            this.cbContractType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbContractType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbContractType.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.cbContractType.Location = new System.Drawing.Point(177, 240);
+            this.cbContractType.Name = "cbContractType";
+            this.cbContractType.Size = new System.Drawing.Size(229, 28);
+            this.cbContractType.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbContractType.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
+            this.cbContractType.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cbContractType.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.cbContractType.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbContractType.TabIndex = 101;
             // 
-            // lblConPasswordCheck
+            // lblContractTypeCheck
             // 
-            this.lblConPasswordCheck.AutoSize = true;
-            this.lblConPasswordCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblConPasswordCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblConPasswordCheck.Location = new System.Drawing.Point(616, 389);
-            this.lblConPasswordCheck.Name = "lblConPasswordCheck";
-            this.lblConPasswordCheck.Size = new System.Drawing.Size(113, 13);
-            this.lblConPasswordCheck.TabIndex = 112;
-            this.lblConPasswordCheck.Text = "lblConPasswordCheck";
+            this.lblContractTypeCheck.AutoSize = true;
+            this.lblContractTypeCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblContractTypeCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblContractTypeCheck.Location = new System.Drawing.Point(182, 227);
+            this.lblContractTypeCheck.Name = "lblContractTypeCheck";
+            this.lblContractTypeCheck.Size = new System.Drawing.Size(112, 13);
+            this.lblContractTypeCheck.TabIndex = 89;
+            this.lblContractTypeCheck.Text = "lblContractTypeCheck";
             // 
-            // pbConPasswordCheck
+            // pbContractTypeCheck
             // 
-            this.pbConPasswordCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbConPasswordCheck.Image")));
-            this.pbConPasswordCheck.Location = new System.Drawing.Point(842, 402);
-            this.pbConPasswordCheck.Name = "pbConPasswordCheck";
-            this.pbConPasswordCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbConPasswordCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbConPasswordCheck.TabIndex = 111;
-            this.pbConPasswordCheck.TabStop = false;
-            // 
-            // lblConPassword
-            // 
-            this.lblConPassword.AutoSize = true;
-            this.lblConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblConPassword.Location = new System.Drawing.Point(406, 407);
-            this.lblConPassword.Name = "lblConPassword";
-            this.lblConPassword.Size = new System.Drawing.Size(192, 25);
-            this.lblConPassword.TabIndex = 110;
-            this.lblConPassword.Text = "Confirm Password:";
-            // 
-            // tbConPassword
-            // 
-            this.tbConPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbConPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbConPassword.Enabled = false;
-            this.tbConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbConPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbConPassword.Location = new System.Drawing.Point(611, 402);
-            this.tbConPassword.MaxLength = 13;
-            this.tbConPassword.Multiline = true;
-            this.tbConPassword.Name = "tbConPassword";
-            this.tbConPassword.Size = new System.Drawing.Size(229, 30);
-            this.tbConPassword.TabIndex = 109;
-            // 
-            // lblPasswordCheck
-            // 
-            this.lblPasswordCheck.AutoSize = true;
-            this.lblPasswordCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblPasswordCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblPasswordCheck.Location = new System.Drawing.Point(616, 331);
-            this.lblPasswordCheck.Name = "lblPasswordCheck";
-            this.lblPasswordCheck.Size = new System.Drawing.Size(94, 13);
-            this.lblPasswordCheck.TabIndex = 108;
-            this.lblPasswordCheck.Text = "lblPasswordCheck";
-            // 
-            // pbPasswordCheck
-            // 
-            this.pbPasswordCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbPasswordCheck.Image")));
-            this.pbPasswordCheck.Location = new System.Drawing.Point(842, 344);
-            this.pbPasswordCheck.Name = "pbPasswordCheck";
-            this.pbPasswordCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbPasswordCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPasswordCheck.TabIndex = 107;
-            this.pbPasswordCheck.TabStop = false;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPassword.Location = new System.Drawing.Point(486, 347);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(112, 25);
-            this.lblPassword.TabIndex = 106;
-            this.lblPassword.Text = "Password:";
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPassword.Enabled = false;
-            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbPassword.Location = new System.Drawing.Point(611, 344);
-            this.tbPassword.MaxLength = 13;
-            this.tbPassword.Multiline = true;
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(229, 30);
-            this.tbPassword.TabIndex = 105;
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUser.Location = new System.Drawing.Point(27, 285);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(252, 29);
-            this.lblUser.TabIndex = 104;
-            this.lblUser.Text = "Create User Account";
-            // 
-            // pnlDivider2
-            // 
-            this.pnlDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnlDivider2.Location = new System.Drawing.Point(10, 274);
-            this.pnlDivider2.Name = "pnlDivider2";
-            this.pnlDivider2.Size = new System.Drawing.Size(863, 2);
-            this.pnlDivider2.TabIndex = 103;
-            // 
-            // cbLevel
-            // 
-            this.cbLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbLevel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbLevel.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbLevel.Location = new System.Drawing.Point(303, 193);
-            this.cbLevel.Name = "cbLevel";
-            this.cbLevel.Size = new System.Drawing.Size(229, 28);
-            this.cbLevel.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbLevel.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
-            this.cbLevel.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.cbLevel.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbLevel.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbLevel.TabIndex = 102;
-            // 
-            // cbEmployee
-            // 
-            this.cbEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbEmployee.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.cbEmployee.Location = new System.Drawing.Point(303, 141);
-            this.cbEmployee.Name = "cbEmployee";
-            this.cbEmployee.Size = new System.Drawing.Size(229, 28);
-            this.cbEmployee.Style.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbEmployee.Style.ClearButtonStyle.BackColor = System.Drawing.Color.White;
-            this.cbEmployee.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.cbEmployee.Style.EditorStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbEmployee.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbEmployee.TabIndex = 101;
-            // 
-            // lblUsernameCheck
-            // 
-            this.lblUsernameCheck.AutoSize = true;
-            this.lblUsernameCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsernameCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblUsernameCheck.Location = new System.Drawing.Point(158, 331);
-            this.lblUsernameCheck.Name = "lblUsernameCheck";
-            this.lblUsernameCheck.Size = new System.Drawing.Size(96, 13);
-            this.lblUsernameCheck.TabIndex = 91;
-            this.lblUsernameCheck.Text = "lblUsernameCheck";
-            // 
-            // lblLevelCheck
-            // 
-            this.lblLevelCheck.AutoSize = true;
-            this.lblLevelCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblLevelCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblLevelCheck.Location = new System.Drawing.Point(308, 180);
-            this.lblLevelCheck.Name = "lblLevelCheck";
-            this.lblLevelCheck.Size = new System.Drawing.Size(74, 13);
-            this.lblLevelCheck.TabIndex = 90;
-            this.lblLevelCheck.Text = "lblLevelCheck";
-            // 
-            // lblEmployeeCheck
-            // 
-            this.lblEmployeeCheck.AutoSize = true;
-            this.lblEmployeeCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmployeeCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblEmployeeCheck.Location = new System.Drawing.Point(308, 128);
-            this.lblEmployeeCheck.Name = "lblEmployeeCheck";
-            this.lblEmployeeCheck.Size = new System.Drawing.Size(94, 13);
-            this.lblEmployeeCheck.TabIndex = 89;
-            this.lblEmployeeCheck.Text = "lblEmployeeCheck";
-            // 
-            // pbUsernameCheck
-            // 
-            this.pbUsernameCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbUsernameCheck.Image")));
-            this.pbUsernameCheck.Location = new System.Drawing.Point(356, 344);
-            this.pbUsernameCheck.Name = "pbUsernameCheck";
-            this.pbUsernameCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbUsernameCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbUsernameCheck.TabIndex = 78;
-            this.pbUsernameCheck.TabStop = false;
-            // 
-            // pbLevelCheck
-            // 
-            this.pbLevelCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbLevelCheck.Image")));
-            this.pbLevelCheck.Location = new System.Drawing.Point(534, 193);
-            this.pbLevelCheck.Name = "pbLevelCheck";
-            this.pbLevelCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbLevelCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLevelCheck.TabIndex = 77;
-            this.pbLevelCheck.TabStop = false;
-            // 
-            // pbEmployeeCheck
-            // 
-            this.pbEmployeeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbEmployeeCheck.Image")));
-            this.pbEmployeeCheck.Location = new System.Drawing.Point(534, 141);
-            this.pbEmployeeCheck.Name = "pbEmployeeCheck";
-            this.pbEmployeeCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbEmployeeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbEmployeeCheck.TabIndex = 76;
-            this.pbEmployeeCheck.TabStop = false;
-            // 
-            // lblAdditional
-            // 
-            this.lblAdditional.AutoSize = true;
-            this.lblAdditional.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdditional.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAdditional.Location = new System.Drawing.Point(11, 549);
-            this.lblAdditional.Name = "lblAdditional";
-            this.lblAdditional.Size = new System.Drawing.Size(267, 29);
-            this.lblAdditional.TabIndex = 73;
-            this.lblAdditional.Text = "Additional Information";
+            this.pbContractTypeCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbContractTypeCheck.Image")));
+            this.pbContractTypeCheck.Location = new System.Drawing.Point(408, 240);
+            this.pbContractTypeCheck.Name = "pbContractTypeCheck";
+            this.pbContractTypeCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbContractTypeCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbContractTypeCheck.TabIndex = 76;
+            this.pbContractTypeCheck.TabStop = false;
             // 
             // lblBasicInfo
             // 
             this.lblBasicInfo.AutoSize = true;
             this.lblBasicInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBasicInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblBasicInfo.Location = new System.Drawing.Point(27, 75);
+            this.lblBasicInfo.Location = new System.Drawing.Point(19, 186);
             this.lblBasicInfo.Name = "lblBasicInfo";
             this.lblBasicInfo.Size = new System.Drawing.Size(214, 29);
             this.lblBasicInfo.TabIndex = 72;
             this.lblBasicInfo.Text = "Basic Information";
-            // 
-            // chkSendEmail
-            // 
-            this.chkSendEmail.BeforeTouchSize = new System.Drawing.Size(217, 34);
-            this.chkSendEmail.Border3DStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.chkSendEmail.BorderSingle = System.Windows.Forms.ButtonBorderStyle.None;
-            this.chkSendEmail.DrawFocusRectangle = false;
-            this.chkSendEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkSendEmail.Location = new System.Drawing.Point(489, 581);
-            this.chkSendEmail.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkSendEmail.Name = "chkSendEmail";
-            this.chkSendEmail.Size = new System.Drawing.Size(217, 34);
-            this.chkSendEmail.Style = Syncfusion.Windows.Forms.Tools.CheckBoxAdvStyle.Metro;
-            this.chkSendEmail.TabIndex = 69;
-            this.chkSendEmail.Text = "Send Login Information";
-            this.chkSendEmail.ThemeName = "Metro";
-            // 
-            // chkCreateAccount
-            // 
-            this.chkCreateAccount.BeforeTouchSize = new System.Drawing.Size(217, 34);
-            this.chkCreateAccount.DrawFocusRectangle = false;
-            this.chkCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkCreateAccount.Location = new System.Drawing.Point(48, 581);
-            this.chkCreateAccount.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkCreateAccount.Name = "chkCreateAccount";
-            this.chkCreateAccount.Size = new System.Drawing.Size(217, 34);
-            this.chkCreateAccount.Style = Syncfusion.Windows.Forms.Tools.CheckBoxAdvStyle.Metro;
-            this.chkCreateAccount.TabIndex = 68;
-            this.chkCreateAccount.Text = "Create User Account";
-            this.chkCreateAccount.ThemeName = "Metro";
             // 
             // pnlDivider4
             // 
@@ -668,22 +436,6 @@ namespace PremierServiceSolutions.Pages
             this.pnlDivider4.Name = "pnlDivider4";
             this.pnlDivider4.Size = new System.Drawing.Size(863, 2);
             this.pnlDivider4.TabIndex = 67;
-            // 
-            // pnlDivider3
-            // 
-            this.pnlDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnlDivider3.Location = new System.Drawing.Point(10, 544);
-            this.pnlDivider3.Name = "pnlDivider3";
-            this.pnlDivider3.Size = new System.Drawing.Size(863, 2);
-            this.pnlDivider3.TabIndex = 61;
-            // 
-            // pnlDivider1
-            // 
-            this.pnlDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnlDivider1.Location = new System.Drawing.Point(10, 64);
-            this.pnlDivider1.Name = "pnlDivider1";
-            this.pnlDivider1.Size = new System.Drawing.Size(863, 2);
-            this.pnlDivider1.TabIndex = 60;
             // 
             // lblNewCont
             // 
@@ -696,52 +448,27 @@ namespace PremierServiceSolutions.Pages
             this.lblNewCont.TabIndex = 59;
             this.lblNewCont.Text = "New Contract";
             // 
-            // lblUsername
+            // lblNewConDesc
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblUsername.Location = new System.Drawing.Point(28, 347);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(119, 25);
-            this.lblUsername.TabIndex = 32;
-            this.lblUsername.Text = "UserName:";
+            this.lblNewConDesc.AutoSize = true;
+            this.lblNewConDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewConDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewConDesc.Location = new System.Drawing.Point(12, 291);
+            this.lblNewConDesc.Name = "lblNewConDesc";
+            this.lblNewConDesc.Size = new System.Drawing.Size(132, 25);
+            this.lblNewConDesc.TabIndex = 30;
+            this.lblNewConDesc.Text = "Description :";
             // 
-            // tbUsername
+            // lblNewConType
             // 
-            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbUsername.Enabled = false;
-            this.tbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbUsername.Location = new System.Drawing.Point(153, 344);
-            this.tbUsername.MaxLength = 13;
-            this.tbUsername.Multiline = true;
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(199, 30);
-            this.tbUsername.TabIndex = 31;
-            // 
-            // lblTechLevel
-            // 
-            this.lblTechLevel.AutoSize = true;
-            this.lblTechLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTechLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTechLevel.Location = new System.Drawing.Point(218, 196);
-            this.lblTechLevel.Name = "lblTechLevel";
-            this.lblTechLevel.Size = new System.Drawing.Size(76, 25);
-            this.lblTechLevel.TabIndex = 30;
-            this.lblTechLevel.Text = "Level :";
-            // 
-            // lblEmployeeID
-            // 
-            this.lblEmployeeID.AutoSize = true;
-            this.lblEmployeeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEmployeeID.Location = new System.Drawing.Point(175, 144);
-            this.lblEmployeeID.Name = "lblEmployeeID";
-            this.lblEmployeeID.Size = new System.Drawing.Size(119, 25);
-            this.lblEmployeeID.TabIndex = 28;
-            this.lblEmployeeID.Text = "Employee :";
+            this.lblNewConType.AutoSize = true;
+            this.lblNewConType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewConType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewConType.Location = new System.Drawing.Point(12, 240);
+            this.lblNewConType.Name = "lblNewConType";
+            this.lblNewConType.Size = new System.Drawing.Size(159, 25);
+            this.lblNewConType.TabIndex = 28;
+            this.lblNewConType.Text = "Contract Type :";
             // 
             // pnlContractDetails
             // 
@@ -782,6 +509,100 @@ namespace PremierServiceSolutions.Pages
             this.pnlContractDetails.Size = new System.Drawing.Size(884, 596);
             this.pnlContractDetails.TabIndex = 32;
             this.pnlContractDetails.Visible = false;
+            // 
+            // lblDetailsContractEnd
+            // 
+            this.lblDetailsContractEnd.AutoSize = true;
+            this.lblDetailsContractEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailsContractEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDetailsContractEnd.Location = new System.Drawing.Point(35, 434);
+            this.lblDetailsContractEnd.Name = "lblDetailsContractEnd";
+            this.lblDetailsContractEnd.Size = new System.Drawing.Size(113, 25);
+            this.lblDetailsContractEnd.TabIndex = 99;
+            this.lblDetailsContractEnd.Text = "End Date :";
+            // 
+            // tbDetailsConEnd
+            // 
+            this.tbDetailsConEnd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsConEnd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsConEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsConEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsConEnd.Location = new System.Drawing.Point(173, 434);
+            this.tbDetailsConEnd.Multiline = true;
+            this.tbDetailsConEnd.Name = "tbDetailsConEnd";
+            this.tbDetailsConEnd.ReadOnly = true;
+            this.tbDetailsConEnd.Size = new System.Drawing.Size(212, 30);
+            this.tbDetailsConEnd.TabIndex = 98;
+            // 
+            // lblDetailsContractStart
+            // 
+            this.lblDetailsContractStart.AutoSize = true;
+            this.lblDetailsContractStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailsContractStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDetailsContractStart.Location = new System.Drawing.Point(35, 373);
+            this.lblDetailsContractStart.Name = "lblDetailsContractStart";
+            this.lblDetailsContractStart.Size = new System.Drawing.Size(120, 25);
+            this.lblDetailsContractStart.TabIndex = 97;
+            this.lblDetailsContractStart.Text = "Start Date :";
+            // 
+            // tbDetailsConStart
+            // 
+            this.tbDetailsConStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsConStart.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsConStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsConStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsConStart.Location = new System.Drawing.Point(173, 373);
+            this.tbDetailsConStart.Multiline = true;
+            this.tbDetailsConStart.Name = "tbDetailsConStart";
+            this.tbDetailsConStart.ReadOnly = true;
+            this.tbDetailsConStart.Size = new System.Drawing.Size(212, 30);
+            this.tbDetailsConStart.TabIndex = 96;
+            // 
+            // lblDetailsSLADesc
+            // 
+            this.lblDetailsSLADesc.AutoSize = true;
+            this.lblDetailsSLADesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailsSLADesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDetailsSLADesc.Location = new System.Drawing.Point(498, 372);
+            this.lblDetailsSLADesc.Name = "lblDetailsSLADesc";
+            this.lblDetailsSLADesc.Size = new System.Drawing.Size(132, 25);
+            this.lblDetailsSLADesc.TabIndex = 95;
+            this.lblDetailsSLADesc.Text = "Description :";
+            // 
+            // tbDetailsSLADescription
+            // 
+            this.tbDetailsSLADescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsSLADescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsSLADescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsSLADescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsSLADescription.Location = new System.Drawing.Point(650, 368);
+            this.tbDetailsSLADescription.Multiline = true;
+            this.tbDetailsSLADescription.Name = "tbDetailsSLADescription";
+            this.tbDetailsSLADescription.Size = new System.Drawing.Size(214, 30);
+            this.tbDetailsSLADescription.TabIndex = 94;
+            // 
+            // lblDetailsContractSLA
+            // 
+            this.lblDetailsContractSLA.AutoSize = true;
+            this.lblDetailsContractSLA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailsContractSLA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDetailsContractSLA.Location = new System.Drawing.Point(498, 298);
+            this.lblDetailsContractSLA.Name = "lblDetailsContractSLA";
+            this.lblDetailsContractSLA.Size = new System.Drawing.Size(64, 25);
+            this.lblDetailsContractSLA.TabIndex = 93;
+            this.lblDetailsContractSLA.Text = "SLA :";
+            // 
+            // tbDetailsContractSLA
+            // 
+            this.tbDetailsContractSLA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsContractSLA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsContractSLA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsContractSLA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsContractSLA.Location = new System.Drawing.Point(650, 299);
+            this.tbDetailsContractSLA.Multiline = true;
+            this.tbDetailsContractSLA.Name = "tbDetailsContractSLA";
+            this.tbDetailsContractSLA.Size = new System.Drawing.Size(214, 30);
+            this.tbDetailsContractSLA.TabIndex = 92;
             // 
             // lblDetailsContDes
             // 
@@ -963,100 +784,6 @@ namespace PremierServiceSolutions.Pages
             this.tbDetailsContractID.Size = new System.Drawing.Size(212, 30);
             this.tbDetailsContractID.TabIndex = 34;
             // 
-            // lblDetailsContractSLA
-            // 
-            this.lblDetailsContractSLA.AutoSize = true;
-            this.lblDetailsContractSLA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailsContractSLA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDetailsContractSLA.Location = new System.Drawing.Point(498, 298);
-            this.lblDetailsContractSLA.Name = "lblDetailsContractSLA";
-            this.lblDetailsContractSLA.Size = new System.Drawing.Size(64, 25);
-            this.lblDetailsContractSLA.TabIndex = 93;
-            this.lblDetailsContractSLA.Text = "SLA :";
-            // 
-            // tbDetailsContractSLA
-            // 
-            this.tbDetailsContractSLA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbDetailsContractSLA.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDetailsContractSLA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDetailsContractSLA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbDetailsContractSLA.Location = new System.Drawing.Point(650, 299);
-            this.tbDetailsContractSLA.Multiline = true;
-            this.tbDetailsContractSLA.Name = "tbDetailsContractSLA";
-            this.tbDetailsContractSLA.Size = new System.Drawing.Size(214, 30);
-            this.tbDetailsContractSLA.TabIndex = 92;
-            // 
-            // lblDetailsSLADesc
-            // 
-            this.lblDetailsSLADesc.AutoSize = true;
-            this.lblDetailsSLADesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailsSLADesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDetailsSLADesc.Location = new System.Drawing.Point(498, 372);
-            this.lblDetailsSLADesc.Name = "lblDetailsSLADesc";
-            this.lblDetailsSLADesc.Size = new System.Drawing.Size(132, 25);
-            this.lblDetailsSLADesc.TabIndex = 95;
-            this.lblDetailsSLADesc.Text = "Description :";
-            // 
-            // tbDetailsSLADescription
-            // 
-            this.tbDetailsSLADescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbDetailsSLADescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDetailsSLADescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDetailsSLADescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbDetailsSLADescription.Location = new System.Drawing.Point(650, 368);
-            this.tbDetailsSLADescription.Multiline = true;
-            this.tbDetailsSLADescription.Name = "tbDetailsSLADescription";
-            this.tbDetailsSLADescription.Size = new System.Drawing.Size(214, 30);
-            this.tbDetailsSLADescription.TabIndex = 94;
-            // 
-            // lblDetailsContractStart
-            // 
-            this.lblDetailsContractStart.AutoSize = true;
-            this.lblDetailsContractStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailsContractStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDetailsContractStart.Location = new System.Drawing.Point(35, 373);
-            this.lblDetailsContractStart.Name = "lblDetailsContractStart";
-            this.lblDetailsContractStart.Size = new System.Drawing.Size(120, 25);
-            this.lblDetailsContractStart.TabIndex = 97;
-            this.lblDetailsContractStart.Text = "Start Date :";
-            // 
-            // tbDetailsConStart
-            // 
-            this.tbDetailsConStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbDetailsConStart.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDetailsConStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDetailsConStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbDetailsConStart.Location = new System.Drawing.Point(173, 373);
-            this.tbDetailsConStart.Multiline = true;
-            this.tbDetailsConStart.Name = "tbDetailsConStart";
-            this.tbDetailsConStart.ReadOnly = true;
-            this.tbDetailsConStart.Size = new System.Drawing.Size(212, 30);
-            this.tbDetailsConStart.TabIndex = 96;
-            // 
-            // lblDetailsContractEnd
-            // 
-            this.lblDetailsContractEnd.AutoSize = true;
-            this.lblDetailsContractEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailsContractEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDetailsContractEnd.Location = new System.Drawing.Point(35, 434);
-            this.lblDetailsContractEnd.Name = "lblDetailsContractEnd";
-            this.lblDetailsContractEnd.Size = new System.Drawing.Size(113, 25);
-            this.lblDetailsContractEnd.TabIndex = 99;
-            this.lblDetailsContractEnd.Text = "End Date :";
-            // 
-            // tbDetailsConEnd
-            // 
-            this.tbDetailsConEnd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbDetailsConEnd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDetailsConEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDetailsConEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbDetailsConEnd.Location = new System.Drawing.Point(173, 434);
-            this.tbDetailsConEnd.Multiline = true;
-            this.tbDetailsConEnd.Name = "tbDetailsConEnd";
-            this.tbDetailsConEnd.ReadOnly = true;
-            this.tbDetailsConEnd.Size = new System.Drawing.Size(212, 30);
-            this.tbDetailsConEnd.TabIndex = 98;
-            // 
             // pdfContractViewer
             // 
             this.pdfContractViewer.AutoScroll = true;
@@ -1067,16 +794,16 @@ namespace PremierServiceSolutions.Pages
             this.pdfContractViewer.IsTextSearchEnabled = true;
             this.pdfContractViewer.IsTextSelectionEnabled = true;
             this.pdfContractViewer.Location = new System.Drawing.Point(1894, 8);
-            messageBoxSettings2.EnableNotification = true;
-            this.pdfContractViewer.MessageBoxSettings = messageBoxSettings2;
+            messageBoxSettings1.EnableNotification = true;
+            this.pdfContractViewer.MessageBoxSettings = messageBoxSettings1;
             this.pdfContractViewer.MinimumZoomPercentage = 50;
             this.pdfContractViewer.Name = "pdfContractViewer";
             this.pdfContractViewer.PageBorderThickness = 1;
-            pdfViewerPrinterSettings2.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings2.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings2.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings2.PrintLocation")));
-            pdfViewerPrinterSettings2.ShowPrintStatusDialog = true;
-            this.pdfContractViewer.PrinterSettings = pdfViewerPrinterSettings2;
+            pdfViewerPrinterSettings1.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings1.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings1.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings1.PrintLocation")));
+            pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
+            this.pdfContractViewer.PrinterSettings = pdfViewerPrinterSettings1;
             this.pdfContractViewer.ReferencePath = null;
             this.pdfContractViewer.ScrollDisplacementValue = 0;
             this.pdfContractViewer.ShowHorizontalScrollBar = true;
@@ -1084,15 +811,120 @@ namespace PremierServiceSolutions.Pages
             this.pdfContractViewer.Size = new System.Drawing.Size(884, 596);
             this.pdfContractViewer.SpaceBetweenPages = 8;
             this.pdfContractViewer.TabIndex = 33;
-            textSearchSettings2.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
-            textSearchSettings2.HighlightAllInstance = true;
-            textSearchSettings2.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.pdfContractViewer.TextSearchSettings = textSearchSettings2;
+            textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
+            textSearchSettings1.HighlightAllInstance = true;
+            textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.pdfContractViewer.TextSearchSettings = textSearchSettings1;
             this.pdfContractViewer.ThemeName = "Default";
             this.pdfContractViewer.VerticalScrollOffset = 0;
             this.pdfContractViewer.Visible = false;
             this.pdfContractViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Default;
             this.pdfContractViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
+            // 
+            // lblNewContStartCheck
+            // 
+            this.lblNewContStartCheck.AutoSize = true;
+            this.lblNewContStartCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblNewContStartCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblNewContStartCheck.Location = new System.Drawing.Point(182, 589);
+            this.lblNewContStartCheck.Name = "lblNewContStartCheck";
+            this.lblNewContStartCheck.Size = new System.Drawing.Size(114, 13);
+            this.lblNewContStartCheck.TabIndex = 131;
+            this.lblNewContStartCheck.Text = "lblNewContStartCheck";
+            // 
+            // pnNewContStartCheck
+            // 
+            this.pnNewContStartCheck.Image = ((System.Drawing.Image)(resources.GetObject("pnNewContStartCheck.Image")));
+            this.pnNewContStartCheck.Location = new System.Drawing.Point(408, 602);
+            this.pnNewContStartCheck.Name = "pnNewContStartCheck";
+            this.pnNewContStartCheck.Size = new System.Drawing.Size(30, 30);
+            this.pnNewContStartCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pnNewContStartCheck.TabIndex = 130;
+            this.pnNewContStartCheck.TabStop = false;
+            // 
+            // lblNewConStart
+            // 
+            this.lblNewConStart.AutoSize = true;
+            this.lblNewConStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewConStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewConStart.Location = new System.Drawing.Point(12, 602);
+            this.lblNewConStart.Name = "lblNewConStart";
+            this.lblNewConStart.Size = new System.Drawing.Size(149, 25);
+            this.lblNewConStart.TabIndex = 129;
+            this.lblNewConStart.Text = "Starting Date: ";
+            // 
+            // lblNewContEndCheck
+            // 
+            this.lblNewContEndCheck.AutoSize = true;
+            this.lblNewContEndCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblNewContEndCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblNewContEndCheck.Location = new System.Drawing.Point(610, 589);
+            this.lblNewContEndCheck.Name = "lblNewContEndCheck";
+            this.lblNewContEndCheck.Size = new System.Drawing.Size(111, 13);
+            this.lblNewContEndCheck.TabIndex = 134;
+            this.lblNewContEndCheck.Text = "lblNewContEndCheck";
+            // 
+            // pbNewContEndCheck
+            // 
+            this.pbNewContEndCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbNewContEndCheck.Image")));
+            this.pbNewContEndCheck.Location = new System.Drawing.Point(834, 602);
+            this.pbNewContEndCheck.Name = "pbNewContEndCheck";
+            this.pbNewContEndCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbNewContEndCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNewContEndCheck.TabIndex = 133;
+            this.pbNewContEndCheck.TabStop = false;
+            // 
+            // lblNewContEnd
+            // 
+            this.lblNewContEnd.AutoSize = true;
+            this.lblNewContEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewContEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewContEnd.Location = new System.Drawing.Point(471, 604);
+            this.lblNewContEnd.Name = "lblNewContEnd";
+            this.lblNewContEnd.Size = new System.Drawing.Size(119, 25);
+            this.lblNewContEnd.TabIndex = 132;
+            this.lblNewContEnd.Text = "End Date : ";
+            // 
+            // dtpConEndDate
+            // 
+            this.dtpConEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConEndDate.Location = new System.Drawing.Point(596, 605);
+            this.dtpConEndDate.Name = "dtpConEndDate";
+            this.dtpConEndDate.Size = new System.Drawing.Size(236, 24);
+            this.dtpConEndDate.TabIndex = 136;
+            // 
+            // dtpConStart
+            // 
+            this.dtpConStart.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConStart.Location = new System.Drawing.Point(167, 605);
+            this.dtpConStart.Name = "dtpConStart";
+            this.dtpConStart.Size = new System.Drawing.Size(239, 24);
+            this.dtpConStart.TabIndex = 137;
+            this.dtpConStart.ValueChanged += new System.EventHandler(this.dtpConStart_ValueChanged);
+            // 
+            // btnCloseContract
+            // 
+            this.btnCloseContract.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseContract.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCloseContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCloseContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCloseContract.FlatAppearance.BorderSize = 0;
+            this.btnCloseContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseContract.Location = new System.Drawing.Point(389, 514);
+            this.btnCloseContract.Name = "btnCloseContract";
+            this.btnCloseContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnCloseContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnCloseContract.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCloseContract.Size = new System.Drawing.Size(154, 36);
+            this.btnCloseContract.TabIndex = 101;
+            this.btnCloseContract.Text = "Close Contract";
+            this.btnCloseContract.TextColor = System.Drawing.Color.White;
+            this.btnCloseContract.UseVisualStyleBackColor = false;
+            this.btnCloseContract.Visible = false;
+            this.btnCloseContract.Click += new System.EventHandler(this.btnCloseContract_Click);
             // 
             // btnViewContractPDF
             // 
@@ -1192,6 +1024,27 @@ namespace PremierServiceSolutions.Pages
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnUpLoadCont
+            // 
+            this.btnUpLoadCont.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUpLoadCont.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUpLoadCont.FlatAppearance.BorderSize = 0;
+            this.btnUpLoadCont.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUpLoadCont.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnUpLoadCont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpLoadCont.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpLoadCont.Location = new System.Drawing.Point(595, 284);
+            this.btnUpLoadCont.Name = "btnUpLoadCont";
+            this.btnUpLoadCont.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnUpLoadCont.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnUpLoadCont.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnUpLoadCont.Size = new System.Drawing.Size(215, 38);
+            this.btnUpLoadCont.TabIndex = 124;
+            this.btnUpLoadCont.TabStop = false;
+            this.btnUpLoadCont.Text = "Upload Contract";
+            this.btnUpLoadCont.TextColor = System.Drawing.Color.White;
+            this.btnUpLoadCont.UseVisualStyleBackColor = true;
+            // 
             // btnCreateTechnician
             // 
             this.btnCreateTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -1233,6 +1086,7 @@ namespace PremierServiceSolutions.Pages
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnReset
             // 
@@ -1293,28 +1147,132 @@ namespace PremierServiceSolutions.Pages
             this.btnAddContract.Text = "New Contract +";
             this.btnAddContract.TextColor = System.Drawing.Color.White;
             this.btnAddContract.UseVisualStyleBackColor = true;
+            this.btnAddContract.Click += new System.EventHandler(this.btnAddContract_Click);
             // 
-            // btnCloseContract
+            // flpNewConServices
             // 
-            this.btnCloseContract.BackColor = System.Drawing.Color.Transparent;
-            this.btnCloseContract.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCloseContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCloseContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCloseContract.FlatAppearance.BorderSize = 0;
-            this.btnCloseContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseContract.Location = new System.Drawing.Point(389, 514);
-            this.btnCloseContract.Name = "btnCloseContract";
-            this.btnCloseContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnCloseContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnCloseContract.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCloseContract.Size = new System.Drawing.Size(154, 36);
-            this.btnCloseContract.TabIndex = 101;
-            this.btnCloseContract.Text = "Close Contract";
-            this.btnCloseContract.TextColor = System.Drawing.Color.White;
-            this.btnCloseContract.UseVisualStyleBackColor = false;
-            this.btnCloseContract.Visible = false;
-            this.btnCloseContract.Click += new System.EventHandler(this.btnCloseContract_Click);
+            this.flpNewConServices.Location = new System.Drawing.Point(144, 408);
+            this.flpNewConServices.Name = "flpNewConServices";
+            this.flpNewConServices.Size = new System.Drawing.Size(259, 153);
+            this.flpNewConServices.TabIndex = 138;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(571, 417);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(226, 153);
+            this.flowLayoutPanel2.TabIndex = 139;
+            // 
+            // lblNewContServices
+            // 
+            this.lblNewContServices.AutoSize = true;
+            this.lblNewContServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewContServices.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewContServices.Location = new System.Drawing.Point(12, 417);
+            this.lblNewContServices.Name = "lblNewContServices";
+            this.lblNewContServices.Size = new System.Drawing.Size(107, 25);
+            this.lblNewContServices.TabIndex = 140;
+            this.lblNewContServices.Text = "Services :";
+            // 
+            // lblNewContCus
+            // 
+            this.lblNewContCus.AutoSize = true;
+            this.lblNewContCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewContCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewContCus.Location = new System.Drawing.Point(457, 115);
+            this.lblNewContCus.Name = "lblNewContCus";
+            this.lblNewContCus.Size = new System.Drawing.Size(116, 25);
+            this.lblNewContCus.TabIndex = 168;
+            this.lblNewContCus.Text = "Customer :";
+            // 
+            // lblNewConCusCheck
+            // 
+            this.lblNewConCusCheck.AutoSize = true;
+            this.lblNewConCusCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblNewConCusCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblNewConCusCheck.Location = new System.Drawing.Point(587, 102);
+            this.lblNewConCusCheck.Name = "lblNewConCusCheck";
+            this.lblNewConCusCheck.Size = new System.Drawing.Size(107, 13);
+            this.lblNewConCusCheck.TabIndex = 167;
+            this.lblNewConCusCheck.Text = "lblNewConCusCheck";
+            // 
+            // pbNewConCusCheck
+            // 
+            this.pbNewConCusCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbNewConCusCheck.Image")));
+            this.pbNewConCusCheck.Location = new System.Drawing.Point(835, 115);
+            this.pbNewConCusCheck.Name = "pbNewConCusCheck";
+            this.pbNewConCusCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbNewConCusCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNewConCusCheck.TabIndex = 166;
+            this.pbNewConCusCheck.TabStop = false;
+            // 
+            // tbNewContCus
+            // 
+            this.tbNewContCus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbNewContCus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbNewContCus.Enabled = false;
+            this.tbNewContCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNewContCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbNewContCus.Location = new System.Drawing.Point(579, 115);
+            this.tbNewContCus.MaxLength = 13;
+            this.tbNewContCus.Multiline = true;
+            this.tbNewContCus.Name = "tbNewContCus";
+            this.tbNewContCus.Size = new System.Drawing.Size(252, 30);
+            this.tbNewContCus.TabIndex = 165;
+            // 
+            // tbNewConCusSearc
+            // 
+            this.tbNewConCusSearc.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbNewConCusSearc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tbNewConCusSearc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbNewConCusSearc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNewConCusSearc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tbNewConCusSearc.Location = new System.Drawing.Point(72, 115);
+            this.tbNewConCusSearc.Multiline = true;
+            this.tbNewConCusSearc.Name = "tbNewConCusSearc";
+            this.tbNewConCusSearc.Size = new System.Drawing.Size(318, 31);
+            this.tbNewConCusSearc.TabIndex = 164;
+            this.tbNewConCusSearc.Text = "Start Typing CustomerID/Name";
+            // 
+            // ipbNewContSearch
+            // 
+            this.ipbNewContSearch.BackColor = System.Drawing.Color.White;
+            this.ipbNewContSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
+            this.ipbNewContSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.ipbNewContSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
+            this.ipbNewContSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ipbNewContSearch.Location = new System.Drawing.Point(34, 115);
+            this.ipbNewContSearch.Name = "ipbNewContSearch";
+            this.ipbNewContSearch.Size = new System.Drawing.Size(32, 40);
+            this.ipbNewContSearch.TabIndex = 163;
+            this.ipbNewContSearch.TabStop = false;
+            // 
+            // lblNewConCusInfo
+            // 
+            this.lblNewConCusInfo.AutoSize = true;
+            this.lblNewConCusInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewConCusInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewConCusInfo.Location = new System.Drawing.Point(27, 72);
+            this.lblNewConCusInfo.Name = "lblNewConCusInfo";
+            this.lblNewConCusInfo.Size = new System.Drawing.Size(218, 29);
+            this.lblNewConCusInfo.TabIndex = 162;
+            this.lblNewConCusInfo.Text = "Client Information";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel5.Location = new System.Drawing.Point(10, 169);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(863, 2);
+            this.panel5.TabIndex = 161;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel6.Location = new System.Drawing.Point(10, 67);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(863, 2);
+            this.panel6.TabIndex = 160;
             // 
             // frmContracts
             // 
@@ -1324,7 +1282,7 @@ namespace PremierServiceSolutions.Pages
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(2806, 740);
             this.Controls.Add(this.pnlContractDetails);
-            this.Controls.Add(this.pnlNewTech);
+            this.Controls.Add(this.pnlNewContract);
             this.Controls.Add(this.pnlSearchHeadings);
             this.Controls.Add(this.flpContracts);
             this.Controls.Add(this.pnlTopContracts);
@@ -1338,23 +1296,19 @@ namespace PremierServiceSolutions.Pages
             this.pnlTopContracts.ResumeLayout(false);
             this.pnlTopContracts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).EndInit();
-            this.pnlNewTech.ResumeLayout(false);
-            this.pnlNewTech.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbUserTypeCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserTypeCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAccessCodeCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbConPasswordCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPasswordCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUsernameCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLevelCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEmployeeCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSendEmail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkCreateAccount)).EndInit();
+            this.pnlNewContract.ResumeLayout(false);
+            this.pnlNewContract.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewContFile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewContDesc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbContractType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbContractTypeCheck)).EndInit();
             this.pnlContractDetails.ResumeLayout(false);
             this.pnlContractDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfContractServices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnNewContStartCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewContEndCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewConCusCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ipbNewContSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1373,48 +1327,18 @@ namespace PremierServiceSolutions.Pages
         private FontAwesome.Sharp.IconPictureBox iPBSearch;
         private CustomComponents.ButtonRound btnAddContract;
         private System.Windows.Forms.Label lblEndDate;
-        private System.Windows.Forms.Panel pnlNewTech;
-        private Syncfusion.WinForms.ListView.SfComboBox cbbUserTypeCheck;
-        private System.Windows.Forms.Label lblUserTypeCheck;
-        private System.Windows.Forms.PictureBox pbUserTypeCheck;
-        private System.Windows.Forms.Label lblUserType;
-        private System.Windows.Forms.Label lblAccessCodeCheck;
-        private System.Windows.Forms.PictureBox pbAccessCodeCheck;
-        private System.Windows.Forms.Label lblAdminsitrator;
-        private System.Windows.Forms.TextBox tbAccessCode;
-        private System.Windows.Forms.Label lblConPasswordCheck;
-        private System.Windows.Forms.PictureBox pbConPasswordCheck;
-        private System.Windows.Forms.Label lblConPassword;
-        private System.Windows.Forms.TextBox tbConPassword;
-        private System.Windows.Forms.Label lblPasswordCheck;
-        private System.Windows.Forms.PictureBox pbPasswordCheck;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.Panel pnlDivider2;
-        private Syncfusion.WinForms.ListView.SfComboBox cbLevel;
-        private Syncfusion.WinForms.ListView.SfComboBox cbEmployee;
+        private System.Windows.Forms.Panel pnlNewContract;
+        private Syncfusion.WinForms.ListView.SfComboBox cbContractType;
         private CustomComponents.ButtonRound btnCreateTechnician;
-        private System.Windows.Forms.Label lblUsernameCheck;
-        private System.Windows.Forms.Label lblLevelCheck;
-        private System.Windows.Forms.Label lblEmployeeCheck;
-        private System.Windows.Forms.PictureBox pbUsernameCheck;
-        private System.Windows.Forms.PictureBox pbLevelCheck;
-        private System.Windows.Forms.PictureBox pbEmployeeCheck;
-        private System.Windows.Forms.Label lblAdditional;
+        private System.Windows.Forms.Label lblContractTypeCheck;
+        private System.Windows.Forms.PictureBox pbContractTypeCheck;
         private System.Windows.Forms.Label lblBasicInfo;
-        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv chkSendEmail;
-        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv chkCreateAccount;
         private System.Windows.Forms.Panel pnlDivider4;
         private CustomComponents.ButtonRound btnCancel;
         private CustomComponents.ButtonRound btnReset;
-        private System.Windows.Forms.Panel pnlDivider3;
-        private System.Windows.Forms.Panel pnlDivider1;
         private System.Windows.Forms.Label lblNewCont;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox tbUsername;
-        private System.Windows.Forms.Label lblTechLevel;
-        private System.Windows.Forms.Label lblEmployeeID;
+        private System.Windows.Forms.Label lblNewConDesc;
+        private System.Windows.Forms.Label lblNewConType;
         private System.Windows.Forms.Panel pnlContractDetails;
         private CustomComponents.ButtonRound btnActiveContract;
         private System.Windows.Forms.Label lblDetailsContDes;
@@ -1447,5 +1371,33 @@ namespace PremierServiceSolutions.Pages
         private CustomComponents.ButtonRound btnViewContractPDF;
         private Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView pdfContractViewer;
         private CustomComponents.ButtonRound btnCloseContract;
+        private System.Windows.Forms.Label lblContractDescriptionCheck;
+        private System.Windows.Forms.PictureBox pbNewContDesc;
+        private System.Windows.Forms.TextBox tbContractDescription;
+        private System.Windows.Forms.Label lblNewContFile;
+        private System.Windows.Forms.Label lblNewConFileCheck;
+        private System.Windows.Forms.PictureBox pbNewContFile;
+        private System.Windows.Forms.TextBox tbNewContFile;
+        private CustomComponents.ButtonRound btnUpLoadCont;
+        private System.Windows.Forms.DateTimePicker dtpConStart;
+        private System.Windows.Forms.DateTimePicker dtpConEndDate;
+        private System.Windows.Forms.Label lblNewContEndCheck;
+        private System.Windows.Forms.PictureBox pbNewContEndCheck;
+        private System.Windows.Forms.Label lblNewContEnd;
+        private System.Windows.Forms.Label lblNewContStartCheck;
+        private System.Windows.Forms.PictureBox pnNewContStartCheck;
+        private System.Windows.Forms.Label lblNewConStart;
+        private System.Windows.Forms.Label lblNewContServices;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flpNewConServices;
+        private System.Windows.Forms.Label lblNewContCus;
+        private System.Windows.Forms.Label lblNewConCusCheck;
+        private System.Windows.Forms.PictureBox pbNewConCusCheck;
+        private System.Windows.Forms.TextBox tbNewContCus;
+        private CustomComponents.Round_TextBox tbNewConCusSearc;
+        private FontAwesome.Sharp.IconPictureBox ipbNewContSearch;
+        private System.Windows.Forms.Label lblNewConCusInfo;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }

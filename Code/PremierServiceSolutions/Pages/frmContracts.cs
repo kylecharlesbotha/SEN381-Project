@@ -37,6 +37,11 @@ namespace PremierServiceSolutions.Pages
             FullPath += @"\Temp.pdf";
             pdfContractViewer.Left = 9;
             pdfContractViewer.Top = 8;
+            pnlNewContract.Left = 9;
+            pnlNewContract.Top = 8;
+            DateTime now = new DateTime();
+            now = DateTime.Now;
+            dtpConEndDate.Value = now.AddMonths(3);
         }
         private string GetTemporaryDirectory()
         {
@@ -44,7 +49,7 @@ namespace PremierServiceSolutions.Pages
             return tempDirectory;
         }
 
-
+        #region Loading Contracts
         private void LoadCon()
         {
             lstContract = objContract.GetContractRecords();
@@ -59,6 +64,7 @@ namespace PremierServiceSolutions.Pages
                 CreateEntry(conitem.ContractID, conitem.ClientID, conitem.ContractType, conitem.StartDate , conitem.EndDate, conitem.ContractStatus);
             }
         }
+        #endregion
 
         #region Asset Panel
         private void CreateEntry(string ID, string ClientID, string ContractType, DateTime StartDate, DateTime EndDate, string ContractStats)
@@ -418,8 +424,30 @@ namespace PremierServiceSolutions.Pages
             btnClose.Visible = true;
             btnSaveChanged.Visible = true;
         }
-    }
+
+        private void btnAddContract_Click(object sender, EventArgs e)
+        {
+            pnlNewContract.Visible = true;
+        }
 
         #endregion
-    
+
+
+        #region New Contract methods
+        private void dtpConStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime setDate = dtpConStart.Value;
+            setDate = setDate.AddMonths(3);
+            dtpConEndDate.MinDate = setDate;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlNewContract.Visible = false;
+        }
+        #endregion
+    }
+
+
+
 }
