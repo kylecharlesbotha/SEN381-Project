@@ -170,7 +170,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         {
             string oldid = this.ContractID;
             string newid = other.ContractID;
-            return oldid.CompareTo(newid);
+            return newid.CompareTo(newid);
         }
 
         public Contract GetContractDetails(string ContractID)
