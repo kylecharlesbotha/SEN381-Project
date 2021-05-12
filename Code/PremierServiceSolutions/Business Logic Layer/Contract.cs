@@ -17,6 +17,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private DateTime startDate;
         private DateTime endDate;
         private string contractStatus;
+        private byte[] contractFilePath;
 
         public Contract(string contractID, string contractDescription, string contractType, string contractState)
         {
@@ -34,6 +35,19 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.endDate = enddate;
             this.contractStatus = contractstatus;
         }
+
+        public Contract(string contractid, string clientid, string contractdes, DateTime startdate, DateTime enddate, string contracttype, byte[] contractfilepath)
+        {
+            this.ContractID = contractid;
+            this.clientID = clientid;
+            this.ContractDescription = contractdes;
+            this.contractType = contracttype;
+            this.startDate = startdate;
+            this.endDate = enddate;
+            this.contractFilePath = contractfilepath;
+        }
+
+
         public Contract()
         {
 
@@ -47,6 +61,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime EndDate { get => endDate; set => endDate = value; }
         public string ContractStatus { get => contractStatus; set => contractStatus = value; }
+        public byte[] ContractFilePath { get => contractFilePath; set => contractFilePath = value; }
 
         ContractType objConType = new ContractType();
         ContractDH objConDH = new ContractDH();
@@ -156,6 +171,20 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             string oldid = this.ContractID;
             string newid = other.ContractID;
             return oldid.CompareTo(newid);
+        }
+
+        public Contract GetContractDetails(string ContractID)
+        {
+            Contract newCont = new Contract();
+            try
+            {
+                newCont = objConDH.GetContractDetails(ContractID);
+                return newCont;
+            }
+            catch(Exception E)
+            {
+                return newCont;
+            }
         }
     }
     
