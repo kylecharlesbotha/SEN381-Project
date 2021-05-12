@@ -266,6 +266,7 @@ namespace PremierServiceSolutions.Pages
             Label lbl = sender as Label;
             int Techid = Convert.ToInt32(lbl.Text);
             GetTechDetails(Techid);
+            tBSearch.Enabled = false;
             pnlTechnicianDetials.Visible = true;
         }
         protected void HoverEnter(object sender, EventArgs e)
@@ -911,6 +912,7 @@ namespace PremierServiceSolutions.Pages
         private void btnClose_Click(object sender, EventArgs e)
         {
             pnlTechnicianDetials.Visible = false;
+            tBSearch.Enabled = true;
         }
 
         private void btnDeleteTech_Click(object sender, EventArgs e)
