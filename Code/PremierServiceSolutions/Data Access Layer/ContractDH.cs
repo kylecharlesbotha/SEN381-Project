@@ -285,5 +285,49 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
             throw new NotImplementedException();
         }
+
+        public Contract GetContractDetails(string ContractID)
+        {
+            Contract objRecord = new Contract();
+            try
+            {
+                //List of type Contract which will store all the records and then return that list
+                List<Contract> allContract = new List<Contract>();
+                //New SQL Connection which the query will use to perform the Select of tblContract
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Contract
+                string SelectQuery = string.Format("SELECT C.ContractID,CC.ClientID,C.ContractDescription,CC.StartDate,CC.EndDate,CT.ContractType,CF.FilePath  FROM tblContract AS C INNER JOIN tblCustomerContract AS CC ON C.ContractID = CC.ContractID INNER JOIN tblContractFiles AS CF ON CF.ContractID = C.ContractID INNER JOIN tblContractType AS CT ON CT.ContractChar = C.ContractType WHERE C.ContractID = '{0}'", ContractID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    objRecord.ContractID = (string)sqlDataReader.GetValue(0);
+                    objRecord.ClientID = (string)sqlDataReader.GetValue(1);
+                    objRecord.ContractDescription = (string)sqlDataReader.GetValue(2);
+                    objRecord.StartDate = (DateTime)sqlDataReader.GetValue(3);
+                    objRecord.EndDate = (DateTime)sqlDataReader.GetValue(4);
+                    objRecord.ContractType = (string)sqlDataReader.GetValue(5);
+                    objRecord.ContractFilePath = (byte[])sqlDataReader.GetValue(6);
+
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Contract
+                return objRecord;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+            throw new NotImplementedException();
+        }
     }
 }
