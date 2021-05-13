@@ -19,6 +19,8 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private int clientState;
         private DateTime clientCreationDate;
         private int clientPriority;
+        private string clientContract;
+        private byte[] clientContractPath;
 
         public Client(string clientIdNumber, string clientiD, string clientname, string clientsurname, string clienttitle, string clientgender,string clientaddress, string clientcell, DateTime clientCreationdate,string clientemail, int clientPriority,int clientstate)
         {
@@ -40,9 +42,6 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         }
 
-        
-
-
         ClientDH objClientDH = new ClientDH();
 
         public string ClientID { get => clientID; set => clientID = value; }
@@ -55,6 +54,8 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public int ClientState { get => clientState; set => clientState = value; }
         public DateTime ClientCreationDate { get => clientCreationDate; set => clientCreationDate = value; }
         public int ClientPriority { get => clientPriority; set => clientPriority = value; }
+        public string ClientContract { get => clientContract; set => clientContract = value; }
+        public byte[] ClientContractPath { get => clientContractPath; set => clientContractPath = value; }
 
         public int CompareTo(Client other)
         {
@@ -63,9 +64,20 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             return newname.CompareTo(current);
         }
 
-        public void GetClientDetails()
+        public Client GetClientDetails(string ClientID)
         {
-
+            Client newobj = new Client();
+            try
+            {
+                newobj = objClientDH.GetClientDetails(ClientID);
+                return newobj;
+            }
+            catch(Exception E)
+            {
+                
+                System.Windows.Forms.MessageBox.Show(E.Message);
+                return newobj;
+            }
         }
         public bool InsertClient(Client objNewClient)
         {
