@@ -123,6 +123,45 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
+        public ICollection<ServiceLevelAgreement> GetConSLA(string ContractID)
+        {
+            try
+            {
+                //List of type Client which will store all the records and then return that list
+                List<ServiceLevelAgreement> allSLAs = new List<ServiceLevelAgreement>();
+                //New SQL Connection which the query will use to perform the Select of tblClients
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Clients
+                string SelectQuery = String.Format("SELECT SLA.SLAID,SLADescription,SLATitle FROM tblServiceLevelAgreement AS SLA INNER JOIN tblPackage AS P ON P.SLAID = SLA.SLAID INNER JOIN tblContract AS C ON C.ContractID = P.ContractID WHERE C.ContractID = '{0}'",ContractID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    allSLAs.Add(new ServiceLevelAgreement(
+                                (int)sqlDataReader.GetValue(0),
+                                (string)sqlDataReader.GetValue(1),
+                                (string)sqlDataReader.GetValue(2)
+                                ));
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Clients
+                return allSLAs;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+        }
+
         public int Find(ServiceLevelAgreement objSLA)
         {
             int RecordCount;
