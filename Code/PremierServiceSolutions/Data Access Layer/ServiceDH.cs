@@ -139,6 +139,41 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
         }
 
+        public ICollection<Service> GetConService(string ContractID)
+        {
+            try
+            {
+                //List of type Services which will store all the records and then return that list
+                List<Service> allService = new List<Service>();
+                //New SQL Connection which the query will use to perform the Select of tblService
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Services
+                string SelectQuery = string.Format("SELECT S.ServiceName,S.ServiceDescription FROM tblService AS S INNER JOIN tblPackage AS P ON P.ServiceID = S.ServiceID INNER JOIN tblContract AS C ON C.ContractID = P.ContractID WHERE P.ContractID = '{0}'",ContractID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    allService.Add(new Service((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1)));
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Services
+                return allService;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+        }
+
         public int Find(Service objSer)
         {
             int RecordCount;
