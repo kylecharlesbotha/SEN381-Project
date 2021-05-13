@@ -12,21 +12,21 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         private string contractID;
         private string contractType;
         private string contractDescription;
-        private string contractState;
+        private int contractState;
         private string clientID;
         private DateTime startDate;
         private DateTime endDate;
         private string contractStatus;
         private byte[] contractFilePath;
 
-        public Contract(string contractID, string contractDescription, string contractType, string contractState)
+        public Contract(string contractID, string contractDescription, string contractType, int contractState)
         {
             this.contractID = contractID;
             this.contractDescription = contractDescription;
             this.contractType = contractType;
             this.contractState = contractState;
         }
-        public Contract(string contractid, string clientid,string contracttype,DateTime startdate, DateTime enddate, string contractstatus)
+        public Contract(string contractid, string clientid,string contracttype,DateTime startdate, DateTime enddate, string contractstatus, int contractState)
         {
             this.ContractID = contractid;
             this.clientID = clientid;
@@ -34,9 +34,10 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.startDate = startdate;
             this.endDate = enddate;
             this.contractStatus = contractstatus;
+            this.contractState = contractState;
         }
 
-        public Contract(string contractid, string clientid, string contractdes, DateTime startdate, DateTime enddate, string contracttype, byte[] contractfilepath)
+        public Contract(string contractid, string clientid, string contractdes, DateTime startdate, DateTime enddate, string contracttype, byte[] contractfilepath,int contractState)
         {
             this.ContractID = contractid;
             this.clientID = clientid;
@@ -45,6 +46,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.startDate = startdate;
             this.endDate = enddate;
             this.contractFilePath = contractfilepath;
+            this.contractState = contractState;
         }
 
 
@@ -56,7 +58,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
         public string ContractID { get => contractID; set => contractID = value; }
         public string ContractDescription { get => contractDescription; set => contractDescription = value; }
         public string ContractType { get => contractType; set => contractType = value; }
-        public string ContractState { get => contractState; set => contractState = value; }
+        public int ContractState { get => contractState; set => contractState = value; }
         public string ClientID { get => clientID; set => clientID = value; }
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime EndDate { get => endDate; set => endDate = value; }
@@ -160,8 +162,9 @@ namespace PremierServiceSolutions.Business_Logic_Layer
                 newList = objConDH.GetContractRecords().ToList();
                 return newList;
             }
-            catch
+            catch(Exception E)
             {
+                System.Windows.Forms.MessageBox.Show(E.Message);
                 return newList;
             }
         }
@@ -184,6 +187,37 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             catch(Exception E)
             {
                 return newCont;
+            }
+        }
+
+        public bool ActivateContract(string ContractID)
+        {
+            bool value = false;
+            try
+            {
+                Contract obj = new Contract();
+                obj.contractID = ContractID;
+                value = objConDH.Activate(obj);
+                return value;
+            }
+            catch(Exception E)
+            {
+                return value;
+            }
+        }
+        public bool DeleteContract(string ContractID)
+        {
+            bool value = false;
+            try
+            {
+                Contract obj = new Contract();
+                obj.contractID = ContractID;
+                value = objConDH.Delete(obj);
+                return value;
+            }
+            catch (Exception E)
+            {
+                return value;
             }
         }
     }
