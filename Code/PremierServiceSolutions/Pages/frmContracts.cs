@@ -19,11 +19,16 @@ namespace PremierServiceSolutions.Pages
         Contract objContract = new Contract();
         ContractType objContractType = new ContractType();
         Service objService = new Service();
+        ServiceLevelAgreement objSLA = new ServiceLevelAgreement();
         Client objClient = new Client();
         #endregion
 
         #region Variables
+        public BindingSource TsDataSource;
+        public BindingSource TslaDataSource;
+
         List<Contract> lstContract = new List<Contract>();
+        List<ServiceLevelAgreement> lstSLA = new List<ServiceLevelAgreement>();
         List<Client> lstClient = new List<Client>();
         List<ContractType> lstNewContractType = new List<ContractType>();
         List<Service> lstService = new List<Service>();
@@ -336,6 +341,7 @@ namespace PremierServiceSolutions.Pages
             Label lbl = sender as Label;
             Contract newCont = objContract.GetContractDetails(lbl.Text);
             lstContractService = objService.GetContractService(lbl.Text);
+            lstSLA = objSLA.GetConSLA(lbl.Text);
             PopulateDetails(newCont);
             pnlContractDetails.Visible = true;
             tBSearch.Enabled = false;
@@ -343,9 +349,28 @@ namespace PremierServiceSolutions.Pages
 
         private void PopulateDetails(Contract cont)
         {
-            sfContractServices.DataSource = lstContractService;
-            sfContractServices.DisplayMember = "ServiceDescription";
+            //Binding Service CBB to TextBox
+            TsDataSource = new BindingSource();
+            TsDataSource.DataSource = lstContractService;
+            sfContractServices.DataSource = TsDataSource;
+            sfContractServices.DisplayMember = "ServiceName";
+            sfContractServices.ValueMember = "ServiceID";
             sfContractServices.SelectedIndex = 0;
+            tbDetailsServiceDes.DataBindings.Add(new Binding("Text", TsDataSource, "ServiceDescription"));
+
+
+            //Binding SLA CBB to TextBox
+            TslaDataSource = new BindingSource();
+            TslaDataSource.DataSource = lstSLA;
+            sfContractSLA.DataSource = TslaDataSource;
+            sfContractSLA.DisplayMember = "SlaTitle";
+            sfContractSLA.ValueMember = "SlaID";
+            sfContractSLA.SelectedIndex = 0;
+            tbDetailsSLADescription.DataBindings.Add(new Binding("Text", TslaDataSource, "SlaDescription"));
+
+
+
+            //Populating TextBoxes
             tbDetailsContractID.Text = cont.ContractID;
             tbDetailsClientID.Text = cont.ClientID;
             tbDetailsContractDescription.Text = cont.ContractDescription;
