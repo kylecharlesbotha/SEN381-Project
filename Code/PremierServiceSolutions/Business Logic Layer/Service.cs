@@ -30,6 +30,12 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         }
 
+        public Service(string servicedes, string serviceLevel)
+        {
+            this.serviceDescription = servicedes;
+            this.serviceLevel = serviceLevel;
+        }
+
         public int ServiceID { get => serviceID; set => serviceID = value; }
         public string ServiceName { get => serviceName; set => serviceName = value; }
         public string ServiceDescription { get => serviceDescription; set => serviceDescription = value; }
@@ -55,11 +61,27 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             }
 
         }
+
+        public List<Service> GetContractService(string ContractID)
+        {
+            List<Service> newList = new List<Service>();
+            try
+            {
+                newList = objServiceDH.GetConService(ContractID).ToList();
+                return newList;
+            }
+            catch (Exception E)
+            {
+
+                return newList;
+            }
+
+        }
         public int CompareTo(Service other)
         {
             string oldid = this.ServiceLevel;
             string newid = other.ServiceLevel;
-            return newid.CompareTo(oldid);
+            return oldid.CompareTo(newid);
         }
 
         public override bool Equals(object obj)
