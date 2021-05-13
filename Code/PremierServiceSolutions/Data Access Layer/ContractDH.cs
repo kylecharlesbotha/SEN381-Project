@@ -136,6 +136,33 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
             throw new NotImplementedException();
         }
+        public bool Activate(Contract objCon)
+        {
+            try
+            {
+                //New SQL Connection which the query will use to perform the update of tblContract to change the state of the record to indicate that it is deleted but we still keep it
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Update Query which will store the SQL Query to be used when the connection is open
+                string UpdateQuery = string.Format(@"UPDATE tblContract SET ContractState = 1 WHERE ContractID ='{0}'", objCon.ContractID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Perform the Update Query
+                UpdateCommand.ExecuteNonQuery();
+                //Close the connection to the database
+                sqlCon.Close();
+                //If it all works it will then return true to indicate update successful
+                return true;
+            }
+            catch (SqlException SQLE)
+            {
+                //If any error has to occur during the try phase it will display a Error message and will return false to indicate it was unsuccessful
+                MessageBox.Show("Error has occured please try again");
+                return false;
+            }
+            throw new NotImplementedException();
+        }
 
         public ICollection<Contract> GetAll()
         {
@@ -158,7 +185,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allCon.Add(new Contract((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (string)sqlDataReader.GetValue(3)));
+                    allCon.Add(new Contract((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (int)sqlDataReader.GetValue(3)));
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -214,7 +241,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblContract
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Contract
-                string SelectQuery = "SELECT C.ContractID,CC.ClientID, CT.ContractType,CC.StartDate,CC.EndDate,CC.CustomerContractStatus FROM tblContract AS C INNER JOIN tblCustomerContract AS CC ON CC.ContractID = C.ContractID INNER JOIN tblContractType AS CT ON CT.ContractChar = C.ContractType";
+                string SelectQuery = "SELECT C.ContractID,CC.ClientID, CT.ContractType,CC.StartDate,CC.EndDate,CC.CustomerContractStatus, C.ContractState FROM tblContract AS C INNER JOIN tblCustomerContract AS CC ON CC.ContractID = C.ContractID INNER JOIN tblContractType AS CT ON CT.ContractChar = C.ContractType";
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
@@ -225,7 +252,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allCon.Add(new Contract((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (DateTime)sqlDataReader.GetValue(3), (DateTime)sqlDataReader.GetValue(4), (string)sqlDataReader.GetValue(5)));
+                    allCon.Add(new Contract((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2), (DateTime)sqlDataReader.GetValue(3), (DateTime)sqlDataReader.GetValue(4), (string)sqlDataReader.GetValue(5), (int)sqlDataReader.GetValue(6)));
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -270,7 +297,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     objRecord.ContractID = (string)sqlDataReader.GetValue(0);
                     objRecord.ContractDescription = (string)sqlDataReader.GetValue(1);
                     objRecord.ContractType = (string)sqlDataReader.GetValue(2);
-                    objRecord.ContractState = (string)sqlDataReader.GetValue(3);
+                    objRecord.ContractState = (int)sqlDataReader.GetValue(3);
                 }
                 //Close connection to database
                 sqlCon.Close();
@@ -296,7 +323,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblContract
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Contract
-                string SelectQuery = string.Format("SELECT C.ContractID,CC.ClientID,C.ContractDescription,CC.StartDate,CC.EndDate,CT.ContractType,CF.FilePath  FROM tblContract AS C INNER JOIN tblCustomerContract AS CC ON C.ContractID = CC.ContractID INNER JOIN tblContractFiles AS CF ON CF.ContractID = C.ContractID INNER JOIN tblContractType AS CT ON CT.ContractChar = C.ContractType WHERE C.ContractID = '{0}'", ContractID);
+                string SelectQuery = string.Format("SELECT C.ContractID,CC.ClientID,C.ContractDescription,CC.StartDate,CC.EndDate,CT.ContractType,CF.FilePath,C.ContractState  FROM tblContract AS C INNER JOIN tblCustomerContract AS CC ON C.ContractID = CC.ContractID INNER JOIN tblContractFiles AS CF ON CF.ContractID = C.ContractID INNER JOIN tblContractType AS CT ON CT.ContractChar = C.ContractType WHERE C.ContractID = '{0}'", ContractID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
@@ -314,6 +341,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     objRecord.EndDate = (DateTime)sqlDataReader.GetValue(4);
                     objRecord.ContractType = (string)sqlDataReader.GetValue(5);
                     objRecord.ContractFilePath = (byte[])sqlDataReader.GetValue(6);
+                    objRecord.ContractState = (int)sqlDataReader.GetValue(7);
 
                 }
                 //Close connection to database
