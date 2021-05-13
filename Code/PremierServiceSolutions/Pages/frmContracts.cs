@@ -354,6 +354,8 @@ namespace PremierServiceSolutions.Pages
             PopulateDetails(newCont);
             pnlContractDetails.Visible = true;
             tBSearch.Enabled = false;
+            tBSearch.Text = "Start Typing ContractID/CustomerID";
+            tbDetailsClientID.Focus();
         }
 
         private void PopulateDetails(Contract cont)
@@ -526,19 +528,18 @@ namespace PremierServiceSolutions.Pages
             bool submitted = objContract.DeleteContract(tbDetailsContractID.Text);
             if (submitted == true)
             {
-                MessageBox.Show("Contract has been successfully de-activated");
-                ResetSearch();
-                LoadCon();
-                PopulateContracts();
-                pnlContractDetails.Visible = false;
+                MessageBox.Show(tbDetailsContractID.Text + " has been successfully de-activated");
                 tbContractDescription.Focus();
                 tBSearch.Text = "Start Typing ContractID/CustomerID";
                 tBSearch.Enabled = true;
+                ResetSearch();
+                LoadCon();
+                pnlContractDetails.Visible = false;
                 flpContracts.Visible = true;
             }
             else
             {
-                MessageBox.Show("Error occured! Contract could not be de-activated");
+                MessageBox.Show("Error occured! "+tbDetailsContractID.Text + "could not be de-activated");
             }
         }
 
@@ -547,19 +548,18 @@ namespace PremierServiceSolutions.Pages
             bool submitted = objContract.ActivateContract(tbDetailsContractID.Text);
             if(submitted == true)
             {
-                MessageBox.Show("Contract has been successfully re-activated");
-                ResetSearch();
-                LoadCon();
-                PopulateContracts();
-                pnlContractDetails.Visible = false;
+                MessageBox.Show(tbDetailsContractID.Text + " has been successfully re-activated");
                 tbContractDescription.Focus();
                 tBSearch.Text = "Start Typing ContractID/CustomerID";
                 tBSearch.Enabled = true;
+                ResetSearch();
+                LoadCon();
+                pnlContractDetails.Visible = false;
                 flpContracts.Visible = true;
             }
             else
             {
-                MessageBox.Show("Error occured! Contract could not be re-activated");
+                MessageBox.Show("Error occured! "+ tbDetailsContractID.Text +" could not be re-activated");
             }
         }
 
