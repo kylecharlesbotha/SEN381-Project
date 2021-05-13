@@ -18,12 +18,14 @@ namespace PremierServiceSolutions.Pages
         #region Class Objects
         Client objclient = new Client();
         Client objInsertClient = new Client();
+        Client objClientDetails = new Client();
 
         #endregion
 
         #region Variables
         List<Client> lstClients = new List<Client>();
         List<Client> lstSearchClients = new List<Client>();
+        byte[] ContractPath;
         #endregion
         public frmCustomers()
         {
@@ -34,6 +36,9 @@ namespace PremierServiceSolutions.Pages
             pnlNewClient.Left = 9;
             pnlNewClient.Top = 11;
             LoadCus();
+
+            pnlCustomerDetails.Left = 9;
+            pnlCustomerDetails.Top = 129;
         }
         private void LoadCus()
         {
@@ -143,6 +148,7 @@ namespace PremierServiceSolutions.Pages
             lID.ForeColor = Color.White;
             lID.MouseEnter += new EventHandler(HoverEnter);
             lID.MouseLeave += new EventHandler(HoverLeave);
+            lID.Click += new EventHandler(CustomerDetails);
             //lID.BackColor = Color.Red;            
             
             
@@ -281,6 +287,64 @@ namespace PremierServiceSolutions.Pages
         {
             Label lbl = sender as Label;
             lbl.ForeColor = Color.White;
+        }
+
+        protected void CustomerDetails(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            pnlCustomerDetails.Visible = true;
+            MessageBox.Show(lbl.Text);
+            objClientDetails = objClientDetails.GetClientDetails(lbl.Text);
+            PopulateClientDetails(objClientDetails);
+        }
+
+        private void PopulateClientDetails(Client obj)
+        {
+            tbDetailsClientIDNumber.Text = obj.ClientIDNumber;
+            tbDetailsClientID.Text = obj.ClientID;
+            tbDetailsCustomerFirstName.Text = obj.PersonName;
+            tbDetailsCustomerSurname.Text = obj.PersonSurname;
+            tbDetailsCustomerTitle.Text = obj.ClientTitle;
+            tbDetailsCustomerCell.Text = obj.ClientCell;
+            tbDetailsCustomerEmail.Text = obj.ClientEmail;
+            tbDetailsCustomerAddress.Text = obj.ClientAddress;
+            switch (obj.ClientPriority)
+            {
+                case 1:
+                    {
+                        tbDetailsCustomerPriority.Text = "LOW";
+                        break;
+                    }
+                case 2:
+                    {
+                        tbDetailsCustomerPriority.Text = "MEDIUM";
+                        break;
+                    }
+                case 3:
+                    {
+                        tbDetailsCustomerPriority.Text = "HIGH";
+                        break;
+                    }
+                case 4:
+                    {
+                        tbDetailsCustomerPriority.Text = "VIP";
+                        break;
+                    }
+                default:
+                    break;
+            }
+            if(obj.ClientState==1)
+            {
+                btnDeleteCustomer.Visible = true;
+                btnActiveCustomer.Visible = false;
+            }
+            else
+            {
+                btnDeleteCustomer.Visible = false;
+                btnActiveCustomer.Visible = true;
+            }
+            tbDetailsCustomerContract.Text = obj.ClientContract;
+            ContractPath = obj.ClientContractPath;
         }
         #endregion
 
@@ -1213,5 +1277,24 @@ namespace PremierServiceSolutions.Pages
 
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlCustomerDetails.Visible = false;
+        }
+
+        private void btnCloseContract_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnActiveCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
