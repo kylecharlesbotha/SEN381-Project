@@ -29,10 +29,10 @@ namespace PremierServiceSolutions.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings13 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
-            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings13 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
-            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings13 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContracts));
+            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings4 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
+            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings4 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
+            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings4 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
             this.pnlSearchHeadings = new System.Windows.Forms.Panel();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -42,24 +42,53 @@ namespace PremierServiceSolutions.Pages
             this.lblContractType = new System.Windows.Forms.Label();
             this.flpContracts = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlTopContracts = new System.Windows.Forms.Panel();
+            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
+            this.btnAddContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlNewContract = new System.Windows.Forms.Panel();
+            this.lblNewContCus = new System.Windows.Forms.Label();
+            this.lblNewContServices = new System.Windows.Forms.Label();
+            this.lblNewConCusCheck = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pbNewConCusCheck = new System.Windows.Forms.PictureBox();
+            this.flpNewConServices = new System.Windows.Forms.FlowLayoutPanel();
+            this.tbNewContCus = new System.Windows.Forms.TextBox();
+            this.dtpConStart = new System.Windows.Forms.DateTimePicker();
+            this.tbNewConCusSearc = new PremierServiceSolutions.CustomComponents.Round_TextBox();
+            this.dtpConEndDate = new System.Windows.Forms.DateTimePicker();
+            this.ipbNewContSearch = new FontAwesome.Sharp.IconPictureBox();
+            this.lblNewContEndCheck = new System.Windows.Forms.Label();
+            this.lblNewConCusInfo = new System.Windows.Forms.Label();
+            this.pbNewContEndCheck = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblNewContEnd = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblNewContStartCheck = new System.Windows.Forms.Label();
+            this.pnNewContStartCheck = new System.Windows.Forms.PictureBox();
+            this.lblNewConStart = new System.Windows.Forms.Label();
             this.lblNewContFile = new System.Windows.Forms.Label();
             this.lblNewConFileCheck = new System.Windows.Forms.Label();
             this.pbNewContFile = new System.Windows.Forms.PictureBox();
             this.tbNewContFile = new System.Windows.Forms.TextBox();
+            this.btnUpLoadCont = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.lblContractDescriptionCheck = new System.Windows.Forms.Label();
             this.pbNewContDesc = new System.Windows.Forms.PictureBox();
             this.tbContractDescription = new System.Windows.Forms.TextBox();
             this.cbContractType = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.btnCreateContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.lblContractTypeCheck = new System.Windows.Forms.Label();
             this.pbContractTypeCheck = new System.Windows.Forms.PictureBox();
             this.lblBasicInfo = new System.Windows.Forms.Label();
             this.pnlDivider4 = new System.Windows.Forms.Panel();
+            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.lblNewCont = new System.Windows.Forms.Label();
             this.lblNewConDesc = new System.Windows.Forms.Label();
             this.lblNewConType = new System.Windows.Forms.Label();
+            this.flpSearchResults = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlContractDetails = new System.Windows.Forms.Panel();
+            this.btnCloseContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnViewContractPDF = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.lblDetailsContractEnd = new System.Windows.Forms.Label();
             this.tbDetailsConEnd = new System.Windows.Forms.TextBox();
             this.lblDetailsContractStart = new System.Windows.Forms.Label();
@@ -68,12 +97,16 @@ namespace PremierServiceSolutions.Pages
             this.tbDetailsSLADescription = new System.Windows.Forms.TextBox();
             this.lblDetailsContractSLA = new System.Windows.Forms.Label();
             this.tbDetailsContractSLA = new System.Windows.Forms.TextBox();
+            this.btnActiveContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.lblDetailsContDes = new System.Windows.Forms.Label();
             this.tbDetailsContractDescription = new System.Windows.Forms.TextBox();
             this.lblDetailsClientID = new System.Windows.Forms.Label();
             this.tbDetailsClientID = new System.Windows.Forms.TextBox();
             this.lblDetailsContractType = new System.Windows.Forms.Label();
             this.tbDetailsContractType = new System.Windows.Forms.TextBox();
+            this.btnSaveChanged = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnDeleteContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnClose = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblDetailsServiceDesc = new System.Windows.Forms.Label();
             this.tbDetailsServiceDes = new System.Windows.Forms.TextBox();
@@ -85,53 +118,21 @@ namespace PremierServiceSolutions.Pages
             this.lblDetailsContractID = new System.Windows.Forms.Label();
             this.tbDetailsContractID = new System.Windows.Forms.TextBox();
             this.pdfContractViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView();
-            this.lblNewContStartCheck = new System.Windows.Forms.Label();
-            this.pnNewContStartCheck = new System.Windows.Forms.PictureBox();
-            this.lblNewConStart = new System.Windows.Forms.Label();
-            this.lblNewContEndCheck = new System.Windows.Forms.Label();
-            this.pbNewContEndCheck = new System.Windows.Forms.PictureBox();
-            this.lblNewContEnd = new System.Windows.Forms.Label();
-            this.dtpConEndDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpConStart = new System.Windows.Forms.DateTimePicker();
-            this.btnCloseContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnViewContractPDF = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnActiveContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnSaveChanged = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnDeleteContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnClose = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnUpLoadCont = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCreateTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
-            this.btnAddContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.flpNewConServices = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblNewContServices = new System.Windows.Forms.Label();
-            this.lblNewContCus = new System.Windows.Forms.Label();
-            this.lblNewConCusCheck = new System.Windows.Forms.Label();
-            this.pbNewConCusCheck = new System.Windows.Forms.PictureBox();
-            this.tbNewContCus = new System.Windows.Forms.TextBox();
-            this.tbNewConCusSearc = new PremierServiceSolutions.CustomComponents.Round_TextBox();
-            this.ipbNewContSearch = new FontAwesome.Sharp.IconPictureBox();
-            this.lblNewConCusInfo = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.flpSearchResults = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlSearchHeadings.SuspendLayout();
             this.pnlTopContracts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
             this.pnlNewContract.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewConCusCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ipbNewContSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewContEndCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnNewContStartCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewContFile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewContDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbContractType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbContractTypeCheck)).BeginInit();
             this.pnlContractDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfContractServices)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnNewContStartCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewContEndCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewConCusCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ipbNewContSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSearchHeadings
@@ -154,7 +155,7 @@ namespace PremierServiceSolutions.Pages
             this.lblEndDate.BackColor = System.Drawing.Color.White;
             this.lblEndDate.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEndDate.Location = new System.Drawing.Point(611, 8);
+            this.lblEndDate.Location = new System.Drawing.Point(528, 8);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(81, 19);
             this.lblEndDate.TabIndex = 17;
@@ -166,7 +167,7 @@ namespace PremierServiceSolutions.Pages
             this.lblStatus.BackColor = System.Drawing.Color.White;
             this.lblStatus.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblStatus.Location = new System.Drawing.Point(755, 8);
+            this.lblStatus.Location = new System.Drawing.Point(678, 8);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(62, 19);
             this.lblStatus.TabIndex = 16;
@@ -178,7 +179,7 @@ namespace PremierServiceSolutions.Pages
             this.lblStart.BackColor = System.Drawing.Color.White;
             this.lblStart.Font = new System.Drawing.Font("SF Pro Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblStart.Location = new System.Drawing.Point(489, 8);
+            this.lblStart.Location = new System.Drawing.Point(396, 8);
             this.lblStart.Name = "lblStart";
             this.lblStart.Size = new System.Drawing.Size(92, 19);
             this.lblStart.TabIndex = 15;
@@ -241,6 +242,24 @@ namespace PremierServiceSolutions.Pages
             this.pnlTopContracts.Size = new System.Drawing.Size(883, 69);
             this.pnlTopContracts.TabIndex = 24;
             // 
+            // tBSearch
+            // 
+            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tBSearch.Location = new System.Drawing.Point(54, 20);
+            this.tBSearch.Multiline = true;
+            this.tBSearch.Name = "tBSearch";
+            this.tBSearch.Size = new System.Drawing.Size(419, 31);
+            this.tBSearch.TabIndex = 51;
+            this.tBSearch.Text = "Start Typing ContractID/CustomerID";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
+            // 
             // iPBSearch
             // 
             this.iPBSearch.BackColor = System.Drawing.Color.White;
@@ -254,10 +273,32 @@ namespace PremierServiceSolutions.Pages
             this.iPBSearch.TabIndex = 52;
             this.iPBSearch.TabStop = false;
             // 
+            // btnAddContract
+            // 
+            this.btnAddContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddContract.FlatAppearance.BorderSize = 0;
+            this.btnAddContract.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddContract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddContract.Location = new System.Drawing.Point(682, 14);
+            this.btnAddContract.Name = "btnAddContract";
+            this.btnAddContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnAddContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnAddContract.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddContract.Size = new System.Drawing.Size(185, 40);
+            this.btnAddContract.TabIndex = 53;
+            this.btnAddContract.TabStop = false;
+            this.btnAddContract.Text = "New Contract +";
+            this.btnAddContract.TextColor = System.Drawing.Color.White;
+            this.btnAddContract.UseVisualStyleBackColor = true;
+            this.btnAddContract.Click += new System.EventHandler(this.btnAddContract_Click);
+            // 
             // pnlNewContract
             // 
             this.pnlNewContract.BackColor = System.Drawing.Color.White;
-            this.pnlNewContract.Controls.Add(this.flpSearchResults);
+            this.pnlNewContract.Controls.Add(this.button1);
             this.pnlNewContract.Controls.Add(this.lblNewContCus);
             this.pnlNewContract.Controls.Add(this.lblNewContServices);
             this.pnlNewContract.Controls.Add(this.lblNewConCusCheck);
@@ -287,7 +328,7 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewContract.Controls.Add(this.pbNewContDesc);
             this.pnlNewContract.Controls.Add(this.tbContractDescription);
             this.pnlNewContract.Controls.Add(this.cbContractType);
-            this.pnlNewContract.Controls.Add(this.btnCreateTechnician);
+            this.pnlNewContract.Controls.Add(this.btnCreateContract);
             this.pnlNewContract.Controls.Add(this.lblContractTypeCheck);
             this.pnlNewContract.Controls.Add(this.pbContractTypeCheck);
             this.pnlNewContract.Controls.Add(this.lblBasicInfo);
@@ -297,11 +338,225 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewContract.Controls.Add(this.lblNewCont);
             this.pnlNewContract.Controls.Add(this.lblNewConDesc);
             this.pnlNewContract.Controls.Add(this.lblNewConType);
+            this.pnlNewContract.Controls.Add(this.flpSearchResults);
             this.pnlNewContract.Location = new System.Drawing.Point(957, 8);
             this.pnlNewContract.Name = "pnlNewContract";
             this.pnlNewContract.Size = new System.Drawing.Size(883, 725);
             this.pnlNewContract.TabIndex = 31;
             this.pnlNewContract.Visible = false;
+            // 
+            // lblNewContCus
+            // 
+            this.lblNewContCus.AutoSize = true;
+            this.lblNewContCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewContCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewContCus.Location = new System.Drawing.Point(457, 115);
+            this.lblNewContCus.Name = "lblNewContCus";
+            this.lblNewContCus.Size = new System.Drawing.Size(116, 25);
+            this.lblNewContCus.TabIndex = 168;
+            this.lblNewContCus.Text = "Customer :";
+            // 
+            // lblNewContServices
+            // 
+            this.lblNewContServices.AutoSize = true;
+            this.lblNewContServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewContServices.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewContServices.Location = new System.Drawing.Point(12, 417);
+            this.lblNewContServices.Name = "lblNewContServices";
+            this.lblNewContServices.Size = new System.Drawing.Size(107, 25);
+            this.lblNewContServices.TabIndex = 140;
+            this.lblNewContServices.Text = "Services :";
+            // 
+            // lblNewConCusCheck
+            // 
+            this.lblNewConCusCheck.AutoSize = true;
+            this.lblNewConCusCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblNewConCusCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblNewConCusCheck.Location = new System.Drawing.Point(587, 102);
+            this.lblNewConCusCheck.Name = "lblNewConCusCheck";
+            this.lblNewConCusCheck.Size = new System.Drawing.Size(107, 13);
+            this.lblNewConCusCheck.TabIndex = 167;
+            this.lblNewConCusCheck.Text = "lblNewConCusCheck";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(571, 417);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(226, 153);
+            this.flowLayoutPanel2.TabIndex = 139;
+            // 
+            // pbNewConCusCheck
+            // 
+            this.pbNewConCusCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbNewConCusCheck.Image")));
+            this.pbNewConCusCheck.Location = new System.Drawing.Point(835, 115);
+            this.pbNewConCusCheck.Name = "pbNewConCusCheck";
+            this.pbNewConCusCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbNewConCusCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNewConCusCheck.TabIndex = 166;
+            this.pbNewConCusCheck.TabStop = false;
+            // 
+            // flpNewConServices
+            // 
+            this.flpNewConServices.AutoScroll = true;
+            this.flpNewConServices.BackColor = System.Drawing.Color.Gainsboro;
+            this.flpNewConServices.Location = new System.Drawing.Point(144, 398);
+            this.flpNewConServices.Name = "flpNewConServices";
+            this.flpNewConServices.Size = new System.Drawing.Size(280, 188);
+            this.flpNewConServices.TabIndex = 138;
+            // 
+            // tbNewContCus
+            // 
+            this.tbNewContCus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbNewContCus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbNewContCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNewContCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbNewContCus.Location = new System.Drawing.Point(579, 115);
+            this.tbNewContCus.MaxLength = 13;
+            this.tbNewContCus.Multiline = true;
+            this.tbNewContCus.Name = "tbNewContCus";
+            this.tbNewContCus.ReadOnly = true;
+            this.tbNewContCus.Size = new System.Drawing.Size(252, 30);
+            this.tbNewContCus.TabIndex = 165;
+            // 
+            // dtpConStart
+            // 
+            this.dtpConStart.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConStart.Location = new System.Drawing.Point(167, 605);
+            this.dtpConStart.Name = "dtpConStart";
+            this.dtpConStart.Size = new System.Drawing.Size(239, 24);
+            this.dtpConStart.TabIndex = 137;
+            this.dtpConStart.ValueChanged += new System.EventHandler(this.dtpConStart_ValueChanged);
+            // 
+            // tbNewConCusSearc
+            // 
+            this.tbNewConCusSearc.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbNewConCusSearc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tbNewConCusSearc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbNewConCusSearc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNewConCusSearc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tbNewConCusSearc.Location = new System.Drawing.Point(72, 115);
+            this.tbNewConCusSearc.Multiline = true;
+            this.tbNewConCusSearc.Name = "tbNewConCusSearc";
+            this.tbNewConCusSearc.Size = new System.Drawing.Size(318, 31);
+            this.tbNewConCusSearc.TabIndex = 164;
+            this.tbNewConCusSearc.Text = "Start Typing CustomerID/Name";
+            this.tbNewConCusSearc.TextChanged += new System.EventHandler(this.tbNewConCusSearc_TextChanged);
+            this.tbNewConCusSearc.Enter += new System.EventHandler(this.tbNewConCusSearc_Enter);
+            this.tbNewConCusSearc.Leave += new System.EventHandler(this.tbNewConCusSearc_Leave);
+            // 
+            // dtpConEndDate
+            // 
+            this.dtpConEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpConEndDate.Location = new System.Drawing.Point(596, 605);
+            this.dtpConEndDate.Name = "dtpConEndDate";
+            this.dtpConEndDate.Size = new System.Drawing.Size(236, 24);
+            this.dtpConEndDate.TabIndex = 136;
+            // 
+            // ipbNewContSearch
+            // 
+            this.ipbNewContSearch.BackColor = System.Drawing.Color.White;
+            this.ipbNewContSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
+            this.ipbNewContSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.ipbNewContSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
+            this.ipbNewContSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ipbNewContSearch.Location = new System.Drawing.Point(34, 115);
+            this.ipbNewContSearch.Name = "ipbNewContSearch";
+            this.ipbNewContSearch.Size = new System.Drawing.Size(32, 40);
+            this.ipbNewContSearch.TabIndex = 163;
+            this.ipbNewContSearch.TabStop = false;
+            // 
+            // lblNewContEndCheck
+            // 
+            this.lblNewContEndCheck.AutoSize = true;
+            this.lblNewContEndCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblNewContEndCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblNewContEndCheck.Location = new System.Drawing.Point(610, 589);
+            this.lblNewContEndCheck.Name = "lblNewContEndCheck";
+            this.lblNewContEndCheck.Size = new System.Drawing.Size(111, 13);
+            this.lblNewContEndCheck.TabIndex = 134;
+            this.lblNewContEndCheck.Text = "lblNewContEndCheck";
+            // 
+            // lblNewConCusInfo
+            // 
+            this.lblNewConCusInfo.AutoSize = true;
+            this.lblNewConCusInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewConCusInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewConCusInfo.Location = new System.Drawing.Point(27, 72);
+            this.lblNewConCusInfo.Name = "lblNewConCusInfo";
+            this.lblNewConCusInfo.Size = new System.Drawing.Size(218, 29);
+            this.lblNewConCusInfo.TabIndex = 162;
+            this.lblNewConCusInfo.Text = "Client Information";
+            // 
+            // pbNewContEndCheck
+            // 
+            this.pbNewContEndCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbNewContEndCheck.Image")));
+            this.pbNewContEndCheck.Location = new System.Drawing.Point(834, 602);
+            this.pbNewContEndCheck.Name = "pbNewContEndCheck";
+            this.pbNewContEndCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbNewContEndCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNewContEndCheck.TabIndex = 133;
+            this.pbNewContEndCheck.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel5.Location = new System.Drawing.Point(10, 169);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(863, 2);
+            this.panel5.TabIndex = 161;
+            // 
+            // lblNewContEnd
+            // 
+            this.lblNewContEnd.AutoSize = true;
+            this.lblNewContEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewContEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewContEnd.Location = new System.Drawing.Point(471, 604);
+            this.lblNewContEnd.Name = "lblNewContEnd";
+            this.lblNewContEnd.Size = new System.Drawing.Size(119, 25);
+            this.lblNewContEnd.TabIndex = 132;
+            this.lblNewContEnd.Text = "End Date : ";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel6.Location = new System.Drawing.Point(10, 67);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(863, 2);
+            this.panel6.TabIndex = 160;
+            // 
+            // lblNewContStartCheck
+            // 
+            this.lblNewContStartCheck.AutoSize = true;
+            this.lblNewContStartCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lblNewContStartCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblNewContStartCheck.Location = new System.Drawing.Point(182, 589);
+            this.lblNewContStartCheck.Name = "lblNewContStartCheck";
+            this.lblNewContStartCheck.Size = new System.Drawing.Size(114, 13);
+            this.lblNewContStartCheck.TabIndex = 131;
+            this.lblNewContStartCheck.Text = "lblNewContStartCheck";
+            // 
+            // pnNewContStartCheck
+            // 
+            this.pnNewContStartCheck.Image = ((System.Drawing.Image)(resources.GetObject("pnNewContStartCheck.Image")));
+            this.pnNewContStartCheck.Location = new System.Drawing.Point(408, 602);
+            this.pnNewContStartCheck.Name = "pnNewContStartCheck";
+            this.pnNewContStartCheck.Size = new System.Drawing.Size(30, 30);
+            this.pnNewContStartCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pnNewContStartCheck.TabIndex = 130;
+            this.pnNewContStartCheck.TabStop = false;
+            // 
+            // lblNewConStart
+            // 
+            this.lblNewConStart.AutoSize = true;
+            this.lblNewConStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewConStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNewConStart.Location = new System.Drawing.Point(12, 602);
+            this.lblNewConStart.Name = "lblNewConStart";
+            this.lblNewConStart.Size = new System.Drawing.Size(149, 25);
+            this.lblNewConStart.TabIndex = 129;
+            this.lblNewConStart.Text = "Starting Date: ";
             // 
             // lblNewContFile
             // 
@@ -328,7 +583,7 @@ namespace PremierServiceSolutions.Pages
             // pbNewContFile
             // 
             this.pbNewContFile.Image = ((System.Drawing.Image)(resources.GetObject("pbNewContFile.Image")));
-            this.pbNewContFile.Location = new System.Drawing.Point(827, 240);
+            this.pbNewContFile.Location = new System.Drawing.Point(801, 291);
             this.pbNewContFile.Name = "pbNewContFile";
             this.pbNewContFile.Size = new System.Drawing.Size(30, 30);
             this.pbNewContFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -339,15 +594,37 @@ namespace PremierServiceSolutions.Pages
             // 
             this.tbNewContFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.tbNewContFile.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbNewContFile.Enabled = false;
-            this.tbNewContFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNewContFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNewContFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.tbNewContFile.Location = new System.Drawing.Point(571, 240);
-            this.tbNewContFile.MaxLength = 13;
+            this.tbNewContFile.MaxLength = 255;
             this.tbNewContFile.Multiline = true;
             this.tbNewContFile.Name = "tbNewContFile";
-            this.tbNewContFile.Size = new System.Drawing.Size(252, 30);
+            this.tbNewContFile.ReadOnly = true;
+            this.tbNewContFile.Size = new System.Drawing.Size(297, 40);
             this.tbNewContFile.TabIndex = 125;
+            // 
+            // btnUpLoadCont
+            // 
+            this.btnUpLoadCont.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUpLoadCont.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUpLoadCont.FlatAppearance.BorderSize = 0;
+            this.btnUpLoadCont.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUpLoadCont.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnUpLoadCont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpLoadCont.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpLoadCont.Location = new System.Drawing.Point(571, 291);
+            this.btnUpLoadCont.Name = "btnUpLoadCont";
+            this.btnUpLoadCont.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnUpLoadCont.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnUpLoadCont.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnUpLoadCont.Size = new System.Drawing.Size(215, 38);
+            this.btnUpLoadCont.TabIndex = 124;
+            this.btnUpLoadCont.TabStop = false;
+            this.btnUpLoadCont.Text = "Upload Contract";
+            this.btnUpLoadCont.TextColor = System.Drawing.Color.White;
+            this.btnUpLoadCont.UseVisualStyleBackColor = true;
+            this.btnUpLoadCont.Click += new System.EventHandler(this.btnUpLoadCont_Click);
             // 
             // lblContractDescriptionCheck
             // 
@@ -399,6 +676,27 @@ namespace PremierServiceSolutions.Pages
             this.cbContractType.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbContractType.TabIndex = 101;
             // 
+            // btnCreateContract
+            // 
+            this.btnCreateContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateContract.FlatAppearance.BorderSize = 0;
+            this.btnCreateContract.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateContract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateContract.Location = new System.Drawing.Point(658, 669);
+            this.btnCreateContract.Name = "btnCreateContract";
+            this.btnCreateContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateContract.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCreateContract.Size = new System.Drawing.Size(215, 38);
+            this.btnCreateContract.TabIndex = 100;
+            this.btnCreateContract.TabStop = false;
+            this.btnCreateContract.Text = "Create Contract";
+            this.btnCreateContract.TextColor = System.Drawing.Color.White;
+            this.btnCreateContract.UseVisualStyleBackColor = true;
+            // 
             // lblContractTypeCheck
             // 
             this.lblContractTypeCheck.AutoSize = true;
@@ -439,6 +737,49 @@ namespace PremierServiceSolutions.Pages
             this.pnlDivider4.Size = new System.Drawing.Size(863, 2);
             this.pnlDivider4.TabIndex = 67;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(16, 669);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancel.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancel.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCancel.Size = new System.Drawing.Size(155, 38);
+            this.btnCancel.TabIndex = 66;
+            this.btnCancel.TabStop = false;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(713, 16);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReset.Size = new System.Drawing.Size(155, 38);
+            this.btnReset.TabIndex = 65;
+            this.btnReset.TabStop = false;
+            this.btnReset.Text = "Reset Fields";
+            this.btnReset.TextColor = System.Drawing.Color.White;
+            this.btnReset.UseVisualStyleBackColor = true;
+            // 
             // lblNewCont
             // 
             this.lblNewCont.AutoSize = true;
@@ -471,6 +812,16 @@ namespace PremierServiceSolutions.Pages
             this.lblNewConType.Size = new System.Drawing.Size(159, 25);
             this.lblNewConType.TabIndex = 28;
             this.lblNewConType.Text = "Contract Type :";
+            // 
+            // flpSearchResults
+            // 
+            this.flpSearchResults.AutoScroll = true;
+            this.flpSearchResults.BackColor = System.Drawing.Color.White;
+            this.flpSearchResults.Location = new System.Drawing.Point(72, 152);
+            this.flpSearchResults.Name = "flpSearchResults";
+            this.flpSearchResults.Size = new System.Drawing.Size(440, 301);
+            this.flpSearchResults.TabIndex = 169;
+            this.flpSearchResults.Visible = false;
             // 
             // pnlContractDetails
             // 
@@ -511,6 +862,48 @@ namespace PremierServiceSolutions.Pages
             this.pnlContractDetails.Size = new System.Drawing.Size(884, 596);
             this.pnlContractDetails.TabIndex = 32;
             this.pnlContractDetails.Visible = false;
+            // 
+            // btnCloseContract
+            // 
+            this.btnCloseContract.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseContract.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCloseContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCloseContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCloseContract.FlatAppearance.BorderSize = 0;
+            this.btnCloseContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseContract.Location = new System.Drawing.Point(389, 514);
+            this.btnCloseContract.Name = "btnCloseContract";
+            this.btnCloseContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnCloseContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnCloseContract.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCloseContract.Size = new System.Drawing.Size(154, 36);
+            this.btnCloseContract.TabIndex = 101;
+            this.btnCloseContract.Text = "Close Contract";
+            this.btnCloseContract.TextColor = System.Drawing.Color.White;
+            this.btnCloseContract.UseVisualStyleBackColor = false;
+            this.btnCloseContract.Visible = false;
+            this.btnCloseContract.Click += new System.EventHandler(this.btnCloseContract_Click);
+            // 
+            // btnViewContractPDF
+            // 
+            this.btnViewContractPDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnViewContractPDF.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnViewContractPDF.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnViewContractPDF.FlatAppearance.BorderSize = 0;
+            this.btnViewContractPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewContractPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewContractPDF.Location = new System.Drawing.Point(680, 434);
+            this.btnViewContractPDF.Name = "btnViewContractPDF";
+            this.btnViewContractPDF.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnViewContractPDF.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnViewContractPDF.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnViewContractPDF.Size = new System.Drawing.Size(154, 36);
+            this.btnViewContractPDF.TabIndex = 100;
+            this.btnViewContractPDF.Text = "View Contract";
+            this.btnViewContractPDF.TextColor = System.Drawing.Color.White;
+            this.btnViewContractPDF.UseVisualStyleBackColor = true;
+            this.btnViewContractPDF.Click += new System.EventHandler(this.btnViewContractPDF_Click);
             // 
             // lblDetailsContractEnd
             // 
@@ -606,6 +999,26 @@ namespace PremierServiceSolutions.Pages
             this.tbDetailsContractSLA.Size = new System.Drawing.Size(214, 30);
             this.tbDetailsContractSLA.TabIndex = 92;
             // 
+            // btnActiveContract
+            // 
+            this.btnActiveContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnActiveContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnActiveContract.FlatAppearance.BorderSize = 0;
+            this.btnActiveContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActiveContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActiveContract.Location = new System.Drawing.Point(364, 514);
+            this.btnActiveContract.Name = "btnActiveContract";
+            this.btnActiveContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnActiveContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnActiveContract.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnActiveContract.Size = new System.Drawing.Size(196, 36);
+            this.btnActiveContract.TabIndex = 91;
+            this.btnActiveContract.Text = "Activate Contract";
+            this.btnActiveContract.TextColor = System.Drawing.Color.White;
+            this.btnActiveContract.UseVisualStyleBackColor = true;
+            this.btnActiveContract.Visible = false;
+            this.btnActiveContract.Click += new System.EventHandler(this.btnActiveContract_Click);
+            // 
             // lblDetailsContDes
             // 
             this.lblDetailsContDes.AutoSize = true;
@@ -677,6 +1090,64 @@ namespace PremierServiceSolutions.Pages
             this.tbDetailsContractType.ReadOnly = true;
             this.tbDetailsContractType.Size = new System.Drawing.Size(212, 30);
             this.tbDetailsContractType.TabIndex = 79;
+            // 
+            // btnSaveChanged
+            // 
+            this.btnSaveChanged.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnSaveChanged.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnSaveChanged.FlatAppearance.BorderSize = 0;
+            this.btnSaveChanged.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChanged.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveChanged.Location = new System.Drawing.Point(691, 514);
+            this.btnSaveChanged.Name = "btnSaveChanged";
+            this.btnSaveChanged.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSaveChanged.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSaveChanged.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSaveChanged.Size = new System.Drawing.Size(154, 36);
+            this.btnSaveChanged.TabIndex = 78;
+            this.btnSaveChanged.Text = "Save Changes";
+            this.btnSaveChanged.TextColor = System.Drawing.Color.White;
+            this.btnSaveChanged.UseVisualStyleBackColor = true;
+            this.btnSaveChanged.Click += new System.EventHandler(this.btnSaveChanged_Click);
+            // 
+            // btnDeleteContract
+            // 
+            this.btnDeleteContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnDeleteContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnDeleteContract.FlatAppearance.BorderSize = 0;
+            this.btnDeleteContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteContract.Location = new System.Drawing.Point(363, 514);
+            this.btnDeleteContract.Name = "btnDeleteContract";
+            this.btnDeleteContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteContract.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnDeleteContract.Size = new System.Drawing.Size(196, 36);
+            this.btnDeleteContract.TabIndex = 77;
+            this.btnDeleteContract.Text = "Delete Contract";
+            this.btnDeleteContract.TextColor = System.Drawing.Color.White;
+            this.btnDeleteContract.UseVisualStyleBackColor = true;
+            this.btnDeleteContract.Click += new System.EventHandler(this.btnDeleteContract_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnClose.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(40, 514);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnClose.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnClose.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnClose.Size = new System.Drawing.Size(154, 36);
+            this.btnClose.TabIndex = 76;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextColor = System.Drawing.Color.White;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panel4
             // 
@@ -796,16 +1267,16 @@ namespace PremierServiceSolutions.Pages
             this.pdfContractViewer.IsTextSearchEnabled = true;
             this.pdfContractViewer.IsTextSelectionEnabled = true;
             this.pdfContractViewer.Location = new System.Drawing.Point(1894, 8);
-            messageBoxSettings13.EnableNotification = true;
-            this.pdfContractViewer.MessageBoxSettings = messageBoxSettings13;
+            messageBoxSettings4.EnableNotification = true;
+            this.pdfContractViewer.MessageBoxSettings = messageBoxSettings4;
             this.pdfContractViewer.MinimumZoomPercentage = 50;
             this.pdfContractViewer.Name = "pdfContractViewer";
             this.pdfContractViewer.PageBorderThickness = 1;
-            pdfViewerPrinterSettings13.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings13.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings13.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings13.PrintLocation")));
-            pdfViewerPrinterSettings13.ShowPrintStatusDialog = true;
-            this.pdfContractViewer.PrinterSettings = pdfViewerPrinterSettings13;
+            pdfViewerPrinterSettings4.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings4.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings4.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings4.PrintLocation")));
+            pdfViewerPrinterSettings4.ShowPrintStatusDialog = true;
+            this.pdfContractViewer.PrinterSettings = pdfViewerPrinterSettings4;
             this.pdfContractViewer.ReferencePath = null;
             this.pdfContractViewer.ScrollDisplacementValue = 0;
             this.pdfContractViewer.ShowHorizontalScrollBar = true;
@@ -813,483 +1284,25 @@ namespace PremierServiceSolutions.Pages
             this.pdfContractViewer.Size = new System.Drawing.Size(884, 596);
             this.pdfContractViewer.SpaceBetweenPages = 8;
             this.pdfContractViewer.TabIndex = 33;
-            textSearchSettings13.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
-            textSearchSettings13.HighlightAllInstance = true;
-            textSearchSettings13.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.pdfContractViewer.TextSearchSettings = textSearchSettings13;
+            textSearchSettings4.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
+            textSearchSettings4.HighlightAllInstance = true;
+            textSearchSettings4.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.pdfContractViewer.TextSearchSettings = textSearchSettings4;
             this.pdfContractViewer.ThemeName = "Default";
             this.pdfContractViewer.VerticalScrollOffset = 0;
             this.pdfContractViewer.Visible = false;
             this.pdfContractViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Default;
             this.pdfContractViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
             // 
-            // lblNewContStartCheck
-            // 
-            this.lblNewContStartCheck.AutoSize = true;
-            this.lblNewContStartCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblNewContStartCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblNewContStartCheck.Location = new System.Drawing.Point(182, 589);
-            this.lblNewContStartCheck.Name = "lblNewContStartCheck";
-            this.lblNewContStartCheck.Size = new System.Drawing.Size(114, 13);
-            this.lblNewContStartCheck.TabIndex = 131;
-            this.lblNewContStartCheck.Text = "lblNewContStartCheck";
-            // 
-            // pnNewContStartCheck
-            // 
-            this.pnNewContStartCheck.Image = ((System.Drawing.Image)(resources.GetObject("pnNewContStartCheck.Image")));
-            this.pnNewContStartCheck.Location = new System.Drawing.Point(408, 602);
-            this.pnNewContStartCheck.Name = "pnNewContStartCheck";
-            this.pnNewContStartCheck.Size = new System.Drawing.Size(30, 30);
-            this.pnNewContStartCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pnNewContStartCheck.TabIndex = 130;
-            this.pnNewContStartCheck.TabStop = false;
-            // 
-            // lblNewConStart
-            // 
-            this.lblNewConStart.AutoSize = true;
-            this.lblNewConStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewConStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNewConStart.Location = new System.Drawing.Point(12, 602);
-            this.lblNewConStart.Name = "lblNewConStart";
-            this.lblNewConStart.Size = new System.Drawing.Size(149, 25);
-            this.lblNewConStart.TabIndex = 129;
-            this.lblNewConStart.Text = "Starting Date: ";
-            // 
-            // lblNewContEndCheck
-            // 
-            this.lblNewContEndCheck.AutoSize = true;
-            this.lblNewContEndCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblNewContEndCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblNewContEndCheck.Location = new System.Drawing.Point(610, 589);
-            this.lblNewContEndCheck.Name = "lblNewContEndCheck";
-            this.lblNewContEndCheck.Size = new System.Drawing.Size(111, 13);
-            this.lblNewContEndCheck.TabIndex = 134;
-            this.lblNewContEndCheck.Text = "lblNewContEndCheck";
-            // 
-            // pbNewContEndCheck
-            // 
-            this.pbNewContEndCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbNewContEndCheck.Image")));
-            this.pbNewContEndCheck.Location = new System.Drawing.Point(834, 602);
-            this.pbNewContEndCheck.Name = "pbNewContEndCheck";
-            this.pbNewContEndCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbNewContEndCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNewContEndCheck.TabIndex = 133;
-            this.pbNewContEndCheck.TabStop = false;
-            // 
-            // lblNewContEnd
-            // 
-            this.lblNewContEnd.AutoSize = true;
-            this.lblNewContEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewContEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNewContEnd.Location = new System.Drawing.Point(471, 604);
-            this.lblNewContEnd.Name = "lblNewContEnd";
-            this.lblNewContEnd.Size = new System.Drawing.Size(119, 25);
-            this.lblNewContEnd.TabIndex = 132;
-            this.lblNewContEnd.Text = "End Date : ";
-            // 
-            // dtpConEndDate
-            // 
-            this.dtpConEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpConEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpConEndDate.Location = new System.Drawing.Point(596, 605);
-            this.dtpConEndDate.Name = "dtpConEndDate";
-            this.dtpConEndDate.Size = new System.Drawing.Size(236, 24);
-            this.dtpConEndDate.TabIndex = 136;
-            // 
-            // dtpConStart
-            // 
-            this.dtpConStart.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpConStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpConStart.Location = new System.Drawing.Point(167, 605);
-            this.dtpConStart.Name = "dtpConStart";
-            this.dtpConStart.Size = new System.Drawing.Size(239, 24);
-            this.dtpConStart.TabIndex = 137;
-            this.dtpConStart.ValueChanged += new System.EventHandler(this.dtpConStart_ValueChanged);
-            // 
-            // btnCloseContract
-            // 
-            this.btnCloseContract.BackColor = System.Drawing.Color.Transparent;
-            this.btnCloseContract.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCloseContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCloseContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCloseContract.FlatAppearance.BorderSize = 0;
-            this.btnCloseContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseContract.Location = new System.Drawing.Point(389, 514);
-            this.btnCloseContract.Name = "btnCloseContract";
-            this.btnCloseContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnCloseContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnCloseContract.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCloseContract.Size = new System.Drawing.Size(154, 36);
-            this.btnCloseContract.TabIndex = 101;
-            this.btnCloseContract.Text = "Close Contract";
-            this.btnCloseContract.TextColor = System.Drawing.Color.White;
-            this.btnCloseContract.UseVisualStyleBackColor = false;
-            this.btnCloseContract.Visible = false;
-            this.btnCloseContract.Click += new System.EventHandler(this.btnCloseContract_Click);
-            // 
-            // btnViewContractPDF
-            // 
-            this.btnViewContractPDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnViewContractPDF.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnViewContractPDF.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnViewContractPDF.FlatAppearance.BorderSize = 0;
-            this.btnViewContractPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewContractPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewContractPDF.Location = new System.Drawing.Point(680, 434);
-            this.btnViewContractPDF.Name = "btnViewContractPDF";
-            this.btnViewContractPDF.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnViewContractPDF.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnViewContractPDF.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnViewContractPDF.Size = new System.Drawing.Size(154, 36);
-            this.btnViewContractPDF.TabIndex = 100;
-            this.btnViewContractPDF.Text = "View Contract";
-            this.btnViewContractPDF.TextColor = System.Drawing.Color.White;
-            this.btnViewContractPDF.UseVisualStyleBackColor = true;
-            this.btnViewContractPDF.Click += new System.EventHandler(this.btnViewContractPDF_Click);
-            // 
-            // btnActiveContract
-            // 
-            this.btnActiveContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnActiveContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnActiveContract.FlatAppearance.BorderSize = 0;
-            this.btnActiveContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActiveContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActiveContract.Location = new System.Drawing.Point(364, 514);
-            this.btnActiveContract.Name = "btnActiveContract";
-            this.btnActiveContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnActiveContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnActiveContract.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnActiveContract.Size = new System.Drawing.Size(196, 36);
-            this.btnActiveContract.TabIndex = 91;
-            this.btnActiveContract.Text = "Activate Contract";
-            this.btnActiveContract.TextColor = System.Drawing.Color.White;
-            this.btnActiveContract.UseVisualStyleBackColor = true;
-            this.btnActiveContract.Visible = false;
-            this.btnActiveContract.Click += new System.EventHandler(this.btnActiveContract_Click);
-            // 
-            // btnSaveChanged
-            // 
-            this.btnSaveChanged.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnSaveChanged.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnSaveChanged.FlatAppearance.BorderSize = 0;
-            this.btnSaveChanged.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveChanged.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanged.Location = new System.Drawing.Point(691, 514);
-            this.btnSaveChanged.Name = "btnSaveChanged";
-            this.btnSaveChanged.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSaveChanged.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSaveChanged.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnSaveChanged.Size = new System.Drawing.Size(154, 36);
-            this.btnSaveChanged.TabIndex = 78;
-            this.btnSaveChanged.Text = "Save Changes";
-            this.btnSaveChanged.TextColor = System.Drawing.Color.White;
-            this.btnSaveChanged.UseVisualStyleBackColor = true;
-            this.btnSaveChanged.Click += new System.EventHandler(this.btnSaveChanged_Click);
-            // 
-            // btnDeleteContract
-            // 
-            this.btnDeleteContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnDeleteContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnDeleteContract.FlatAppearance.BorderSize = 0;
-            this.btnDeleteContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteContract.Location = new System.Drawing.Point(363, 514);
-            this.btnDeleteContract.Name = "btnDeleteContract";
-            this.btnDeleteContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnDeleteContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnDeleteContract.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnDeleteContract.Size = new System.Drawing.Size(196, 36);
-            this.btnDeleteContract.TabIndex = 77;
-            this.btnDeleteContract.Text = "Delete Contract";
-            this.btnDeleteContract.TextColor = System.Drawing.Color.White;
-            this.btnDeleteContract.UseVisualStyleBackColor = true;
-            this.btnDeleteContract.Click += new System.EventHandler(this.btnDeleteContract_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnClose.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(40, 514);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnClose.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnClose.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnClose.Size = new System.Drawing.Size(154, 36);
-            this.btnClose.TabIndex = 76;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextColor = System.Drawing.Color.White;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnUpLoadCont
-            // 
-            this.btnUpLoadCont.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnUpLoadCont.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnUpLoadCont.FlatAppearance.BorderSize = 0;
-            this.btnUpLoadCont.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnUpLoadCont.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnUpLoadCont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpLoadCont.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpLoadCont.Location = new System.Drawing.Point(595, 284);
-            this.btnUpLoadCont.Name = "btnUpLoadCont";
-            this.btnUpLoadCont.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnUpLoadCont.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnUpLoadCont.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnUpLoadCont.Size = new System.Drawing.Size(215, 38);
-            this.btnUpLoadCont.TabIndex = 124;
-            this.btnUpLoadCont.TabStop = false;
-            this.btnUpLoadCont.Text = "Upload Contract";
-            this.btnUpLoadCont.TextColor = System.Drawing.Color.White;
-            this.btnUpLoadCont.UseVisualStyleBackColor = true;
-            // 
-            // btnCreateTechnician
-            // 
-            this.btnCreateTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateTechnician.FlatAppearance.BorderSize = 0;
-            this.btnCreateTechnician.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateTechnician.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateTechnician.Location = new System.Drawing.Point(658, 669);
-            this.btnCreateTechnician.Name = "btnCreateTechnician";
-            this.btnCreateTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateTechnician.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCreateTechnician.Size = new System.Drawing.Size(215, 38);
-            this.btnCreateTechnician.TabIndex = 100;
-            this.btnCreateTechnician.TabStop = false;
-            this.btnCreateTechnician.Text = "Create Technician";
-            this.btnCreateTechnician.TextColor = System.Drawing.Color.White;
-            this.btnCreateTechnician.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(16, 669);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancel.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancel.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCancel.Size = new System.Drawing.Size(155, 38);
-            this.btnCancel.TabIndex = 66;
-            this.btnCancel.TabStop = false;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(713, 16);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnReset.Size = new System.Drawing.Size(155, 38);
-            this.btnReset.TabIndex = 65;
-            this.btnReset.TabStop = false;
-            this.btnReset.Text = "Reset Fields";
-            this.btnReset.TextColor = System.Drawing.Color.White;
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // tBSearch
-            // 
-            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tBSearch.Location = new System.Drawing.Point(54, 20);
-            this.tBSearch.Multiline = true;
-            this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(419, 31);
-            this.tBSearch.TabIndex = 51;
-            this.tBSearch.Text = "Start Typing ContractID/CustomerID";
-            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
-            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
-            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
-            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
-            // 
-            // btnAddContract
-            // 
-            this.btnAddContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddContract.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddContract.FlatAppearance.BorderSize = 0;
-            this.btnAddContract.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAddContract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAddContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddContract.Location = new System.Drawing.Point(682, 14);
-            this.btnAddContract.Name = "btnAddContract";
-            this.btnAddContract.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnAddContract.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnAddContract.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddContract.Size = new System.Drawing.Size(185, 40);
-            this.btnAddContract.TabIndex = 53;
-            this.btnAddContract.TabStop = false;
-            this.btnAddContract.Text = "New Contract +";
-            this.btnAddContract.TextColor = System.Drawing.Color.White;
-            this.btnAddContract.UseVisualStyleBackColor = true;
-            this.btnAddContract.Click += new System.EventHandler(this.btnAddContract_Click);
-            // 
-            // flpNewConServices
-            // 
-            this.flpNewConServices.AutoScroll = true;
-            this.flpNewConServices.BackColor = System.Drawing.Color.Gainsboro;
-            this.flpNewConServices.Location = new System.Drawing.Point(144, 398);
-            this.flpNewConServices.Name = "flpNewConServices";
-            this.flpNewConServices.Size = new System.Drawing.Size(280, 188);
-            this.flpNewConServices.TabIndex = 138;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(571, 417);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(226, 153);
-            this.flowLayoutPanel2.TabIndex = 139;
-            // 
-            // lblNewContServices
-            // 
-            this.lblNewContServices.AutoSize = true;
-            this.lblNewContServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewContServices.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNewContServices.Location = new System.Drawing.Point(12, 417);
-            this.lblNewContServices.Name = "lblNewContServices";
-            this.lblNewContServices.Size = new System.Drawing.Size(107, 25);
-            this.lblNewContServices.TabIndex = 140;
-            this.lblNewContServices.Text = "Services :";
-            // 
-            // lblNewContCus
-            // 
-            this.lblNewContCus.AutoSize = true;
-            this.lblNewContCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewContCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNewContCus.Location = new System.Drawing.Point(457, 115);
-            this.lblNewContCus.Name = "lblNewContCus";
-            this.lblNewContCus.Size = new System.Drawing.Size(116, 25);
-            this.lblNewContCus.TabIndex = 168;
-            this.lblNewContCus.Text = "Customer :";
-            // 
-            // lblNewConCusCheck
-            // 
-            this.lblNewConCusCheck.AutoSize = true;
-            this.lblNewConCusCheck.BackColor = System.Drawing.Color.Transparent;
-            this.lblNewConCusCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblNewConCusCheck.Location = new System.Drawing.Point(587, 102);
-            this.lblNewConCusCheck.Name = "lblNewConCusCheck";
-            this.lblNewConCusCheck.Size = new System.Drawing.Size(107, 13);
-            this.lblNewConCusCheck.TabIndex = 167;
-            this.lblNewConCusCheck.Text = "lblNewConCusCheck";
-            // 
-            // pbNewConCusCheck
-            // 
-            this.pbNewConCusCheck.Image = ((System.Drawing.Image)(resources.GetObject("pbNewConCusCheck.Image")));
-            this.pbNewConCusCheck.Location = new System.Drawing.Point(835, 115);
-            this.pbNewConCusCheck.Name = "pbNewConCusCheck";
-            this.pbNewConCusCheck.Size = new System.Drawing.Size(30, 30);
-            this.pbNewConCusCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNewConCusCheck.TabIndex = 166;
-            this.pbNewConCusCheck.TabStop = false;
-            // 
-            // tbNewContCus
-            // 
-            this.tbNewContCus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbNewContCus.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbNewContCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNewContCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbNewContCus.Location = new System.Drawing.Point(579, 115);
-            this.tbNewContCus.MaxLength = 13;
-            this.tbNewContCus.Multiline = true;
-            this.tbNewContCus.Name = "tbNewContCus";
-            this.tbNewContCus.ReadOnly = true;
-            this.tbNewContCus.Size = new System.Drawing.Size(252, 30);
-            this.tbNewContCus.TabIndex = 165;
-            // 
-            // tbNewConCusSearc
-            // 
-            this.tbNewConCusSearc.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbNewConCusSearc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tbNewConCusSearc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbNewConCusSearc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNewConCusSearc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tbNewConCusSearc.Location = new System.Drawing.Point(72, 115);
-            this.tbNewConCusSearc.Multiline = true;
-            this.tbNewConCusSearc.Name = "tbNewConCusSearc";
-            this.tbNewConCusSearc.Size = new System.Drawing.Size(318, 31);
-            this.tbNewConCusSearc.TabIndex = 164;
-            this.tbNewConCusSearc.Text = "Start Typing CustomerID/Name";
-            this.tbNewConCusSearc.TextChanged += new System.EventHandler(this.tbNewConCusSearc_TextChanged);
-            this.tbNewConCusSearc.Enter += new System.EventHandler(this.tbNewConCusSearc_Enter);
-            this.tbNewConCusSearc.Leave += new System.EventHandler(this.tbNewConCusSearc_Leave);
-            // 
-            // ipbNewContSearch
-            // 
-            this.ipbNewContSearch.BackColor = System.Drawing.Color.White;
-            this.ipbNewContSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
-            this.ipbNewContSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.ipbNewContSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(159)))), ((int)(((byte)(159)))));
-            this.ipbNewContSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ipbNewContSearch.Location = new System.Drawing.Point(34, 115);
-            this.ipbNewContSearch.Name = "ipbNewContSearch";
-            this.ipbNewContSearch.Size = new System.Drawing.Size(32, 40);
-            this.ipbNewContSearch.TabIndex = 163;
-            this.ipbNewContSearch.TabStop = false;
-            // 
-            // lblNewConCusInfo
-            // 
-            this.lblNewConCusInfo.AutoSize = true;
-            this.lblNewConCusInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewConCusInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNewConCusInfo.Location = new System.Drawing.Point(27, 72);
-            this.lblNewConCusInfo.Name = "lblNewConCusInfo";
-            this.lblNewConCusInfo.Size = new System.Drawing.Size(218, 29);
-            this.lblNewConCusInfo.TabIndex = 162;
-            this.lblNewConCusInfo.Text = "Client Information";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel5.Location = new System.Drawing.Point(10, 169);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(863, 2);
-            this.panel5.TabIndex = 161;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel6.Location = new System.Drawing.Point(10, 67);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(863, 2);
-            this.panel6.TabIndex = 160;
-            // 
-            // flpSearchResults
-            // 
-            this.flpSearchResults.AutoScroll = true;
-            this.flpSearchResults.BackColor = System.Drawing.Color.White;
-            this.flpSearchResults.Location = new System.Drawing.Point(72, 152);
-            this.flpSearchResults.Name = "flpSearchResults";
-            this.flpSearchResults.Size = new System.Drawing.Size(440, 301);
-            this.flpSearchResults.TabIndex = 169;
-            this.flpSearchResults.Visible = false;
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(642, 380);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(78, 27);
+            this.button1.TabIndex = 170;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmContracts
             // 
@@ -1316,6 +1329,10 @@ namespace PremierServiceSolutions.Pages
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).EndInit();
             this.pnlNewContract.ResumeLayout(false);
             this.pnlNewContract.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewConCusCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ipbNewContSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNewContEndCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnNewContStartCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewContFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNewContDesc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbContractType)).EndInit();
@@ -1323,10 +1340,6 @@ namespace PremierServiceSolutions.Pages
             this.pnlContractDetails.ResumeLayout(false);
             this.pnlContractDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfContractServices)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnNewContStartCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewContEndCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNewConCusCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ipbNewContSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1347,7 +1360,7 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.Panel pnlNewContract;
         private Syncfusion.WinForms.ListView.SfComboBox cbContractType;
-        private CustomComponents.ButtonRound btnCreateTechnician;
+        private CustomComponents.ButtonRound btnCreateContract;
         private System.Windows.Forms.Label lblContractTypeCheck;
         private System.Windows.Forms.PictureBox pbContractTypeCheck;
         private System.Windows.Forms.Label lblBasicInfo;
@@ -1418,5 +1431,6 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.FlowLayoutPanel flpSearchResults;
+        private System.Windows.Forms.Button button1;
     }
 }
