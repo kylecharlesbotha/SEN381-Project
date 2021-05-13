@@ -30,10 +30,11 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         }
 
-        public Service(string servicedes, string serviceLevel)
+        public Service(int serviceID, string serviceName, string servicedes)
         {
+            this.serviceID = serviceID;
             this.serviceDescription = servicedes;
-            this.serviceLevel = serviceLevel;
+            this.serviceName = serviceName;
         }
 
         public int ServiceID { get => serviceID; set => serviceID = value; }
