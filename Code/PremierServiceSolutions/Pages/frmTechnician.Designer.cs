@@ -38,7 +38,9 @@ namespace PremierServiceSolutions.Pages
             this.lblLevel = new System.Windows.Forms.Label();
             this.flpTechnician = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlTopTechnician = new System.Windows.Forms.Panel();
+            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
+            this.btnAddTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlNewTech = new System.Windows.Forms.Panel();
             this.cbbUserTypeCheck = new Syncfusion.WinForms.ListView.SfComboBox();
             this.lblUserTypeCheck = new System.Windows.Forms.Label();
@@ -60,6 +62,7 @@ namespace PremierServiceSolutions.Pages
             this.pnlDivider2 = new System.Windows.Forms.Panel();
             this.cbLevel = new Syncfusion.WinForms.ListView.SfComboBox();
             this.cbEmployee = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.btnCreateTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.lblUsernameCheck = new System.Windows.Forms.Label();
             this.lblLevelCheck = new System.Windows.Forms.Label();
             this.lblEmployeeCheck = new System.Windows.Forms.Label();
@@ -71,6 +74,8 @@ namespace PremierServiceSolutions.Pages
             this.chkSendEmail = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.chkCreateAccount = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.pnlDivider4 = new System.Windows.Forms.Panel();
+            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlDivider3 = new System.Windows.Forms.Panel();
             this.pnlDivider1 = new System.Windows.Forms.Panel();
             this.lblNewTech = new System.Windows.Forms.Label();
@@ -79,8 +84,20 @@ namespace PremierServiceSolutions.Pages
             this.lblTechLevel = new System.Windows.Forms.Label();
             this.lblEmployeeID = new System.Windows.Forms.Label();
             this.pnlTechnicianDetials = new System.Windows.Forms.Panel();
+            this.btnActiveTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.lblDetailsState = new System.Windows.Forms.Label();
+            this.tbDetailsState = new System.Windows.Forms.TextBox();
+            this.lblTechEmail = new System.Windows.Forms.Label();
+            this.tbDetailsTechEmail = new System.Windows.Forms.TextBox();
+            this.lblTechRole = new System.Windows.Forms.Label();
+            this.tbDetailsTechRole = new System.Windows.Forms.TextBox();
+            this.lblDetailsEmpID = new System.Windows.Forms.Label();
+            this.tbDetailsEmpID = new System.Windows.Forms.TextBox();
             this.lblDetailsTechName = new System.Windows.Forms.Label();
             this.tbDetailsTechName = new System.Windows.Forms.TextBox();
+            this.btnSaveChanged = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnDeleteTech = new PremierServiceSolutions.CustomComponents.ButtonRound();
+            this.btnClose = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblDetailsTecStatus = new System.Windows.Forms.Label();
             this.tbDetailsTechStatus = new System.Windows.Forms.TextBox();
@@ -91,23 +108,6 @@ namespace PremierServiceSolutions.Pages
             this.lblTechDetails = new System.Windows.Forms.Label();
             this.lblTechID = new System.Windows.Forms.Label();
             this.tbDetailsTechID = new System.Windows.Forms.TextBox();
-            this.lblDetailsEmpID = new System.Windows.Forms.Label();
-            this.tbDetailsEmpID = new System.Windows.Forms.TextBox();
-            this.lblTechRole = new System.Windows.Forms.Label();
-            this.tbDetailsTechRole = new System.Windows.Forms.TextBox();
-            this.lblTechEmail = new System.Windows.Forms.Label();
-            this.tbDetailsTechEmail = new System.Windows.Forms.TextBox();
-            this.btnSaveChanged = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnDeleteTech = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnClose = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCreateTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnCancel = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.btnReset = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.tBSearch = new PremierServiceSolutions.CustomComponents.Round_TextBox();
-            this.btnAddTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
-            this.lblDetailsState = new System.Windows.Forms.Label();
-            this.tbDetailsState = new System.Windows.Forms.TextBox();
-            this.btnActiveTechnician = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlSearchHeadings.SuspendLayout();
             this.pnlTopTechnician.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iPBSearch)).BeginInit();
@@ -222,6 +222,24 @@ namespace PremierServiceSolutions.Pages
             this.pnlTopTechnician.Size = new System.Drawing.Size(883, 69);
             this.pnlTopTechnician.TabIndex = 27;
             // 
+            // tBSearch
+            // 
+            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.tBSearch.Location = new System.Drawing.Point(54, 20);
+            this.tBSearch.Multiline = true;
+            this.tBSearch.Name = "tBSearch";
+            this.tBSearch.Size = new System.Drawing.Size(419, 31);
+            this.tBSearch.TabIndex = 51;
+            this.tBSearch.Text = "Start Typing TechnicianID/Technician Name";
+            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
+            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
+            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
+            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
+            // 
             // iPBSearch
             // 
             this.iPBSearch.BackColor = System.Drawing.Color.White;
@@ -234,6 +252,28 @@ namespace PremierServiceSolutions.Pages
             this.iPBSearch.Size = new System.Drawing.Size(32, 40);
             this.iPBSearch.TabIndex = 52;
             this.iPBSearch.TabStop = false;
+            // 
+            // btnAddTechnician
+            // 
+            this.btnAddTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddTechnician.FlatAppearance.BorderSize = 0;
+            this.btnAddTechnician.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddTechnician.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTechnician.Location = new System.Drawing.Point(682, 14);
+            this.btnAddTechnician.Name = "btnAddTechnician";
+            this.btnAddTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnAddTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnAddTechnician.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddTechnician.Size = new System.Drawing.Size(185, 40);
+            this.btnAddTechnician.TabIndex = 53;
+            this.btnAddTechnician.TabStop = false;
+            this.btnAddTechnician.Text = "New Technician +";
+            this.btnAddTechnician.TextColor = System.Drawing.Color.White;
+            this.btnAddTechnician.UseVisualStyleBackColor = true;
+            this.btnAddTechnician.Click += new System.EventHandler(this.btnAddTechnician_Click);
             // 
             // pnlNewTech
             // 
@@ -538,6 +578,28 @@ namespace PremierServiceSolutions.Pages
             this.cbEmployee.SelectedIndexChanged += new System.EventHandler(this.cbEmployee_SelectedIndexChanged);
             this.cbEmployee.Leave += new System.EventHandler(this.cbEmployee_Leave);
             // 
+            // btnCreateTechnician
+            // 
+            this.btnCreateTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCreateTechnician.FlatAppearance.BorderSize = 0;
+            this.btnCreateTechnician.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateTechnician.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCreateTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateTechnician.Location = new System.Drawing.Point(658, 669);
+            this.btnCreateTechnician.Name = "btnCreateTechnician";
+            this.btnCreateTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCreateTechnician.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCreateTechnician.Size = new System.Drawing.Size(215, 38);
+            this.btnCreateTechnician.TabIndex = 100;
+            this.btnCreateTechnician.TabStop = false;
+            this.btnCreateTechnician.Text = "Create Technician";
+            this.btnCreateTechnician.TextColor = System.Drawing.Color.White;
+            this.btnCreateTechnician.UseVisualStyleBackColor = true;
+            this.btnCreateTechnician.Click += new System.EventHandler(this.btnCreateTechnician_Click);
+            // 
             // lblUsernameCheck
             // 
             this.lblUsernameCheck.AutoSize = true;
@@ -662,6 +724,50 @@ namespace PremierServiceSolutions.Pages
             this.pnlDivider4.Size = new System.Drawing.Size(863, 2);
             this.pnlDivider4.TabIndex = 67;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(16, 669);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancel.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancel.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCancel.Size = new System.Drawing.Size(155, 38);
+            this.btnCancel.TabIndex = 66;
+            this.btnCancel.TabStop = false;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
+            // 
+            // btnReset
+            // 
+            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(713, 16);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReset.Size = new System.Drawing.Size(155, 38);
+            this.btnReset.TabIndex = 65;
+            this.btnReset.TabStop = false;
+            this.btnReset.Text = "Reset Fields";
+            this.btnReset.TextColor = System.Drawing.Color.White;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // pnlDivider3
             // 
             this.pnlDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -774,6 +880,122 @@ namespace PremierServiceSolutions.Pages
             this.pnlTechnicianDetials.TabIndex = 31;
             this.pnlTechnicianDetials.Visible = false;
             // 
+            // btnActiveTechnician
+            // 
+            this.btnActiveTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnActiveTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnActiveTechnician.FlatAppearance.BorderSize = 0;
+            this.btnActiveTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActiveTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActiveTechnician.Location = new System.Drawing.Point(364, 514);
+            this.btnActiveTechnician.Name = "btnActiveTechnician";
+            this.btnActiveTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnActiveTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnActiveTechnician.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnActiveTechnician.Size = new System.Drawing.Size(196, 36);
+            this.btnActiveTechnician.TabIndex = 91;
+            this.btnActiveTechnician.Text = "Activate Technician";
+            this.btnActiveTechnician.TextColor = System.Drawing.Color.White;
+            this.btnActiveTechnician.UseVisualStyleBackColor = true;
+            this.btnActiveTechnician.Visible = false;
+            this.btnActiveTechnician.Click += new System.EventHandler(this.btnActiveTechnician_Click);
+            // 
+            // lblDetailsState
+            // 
+            this.lblDetailsState.AutoSize = true;
+            this.lblDetailsState.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailsState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDetailsState.Location = new System.Drawing.Point(486, 375);
+            this.lblDetailsState.Name = "lblDetailsState";
+            this.lblDetailsState.Size = new System.Drawing.Size(74, 25);
+            this.lblDetailsState.TabIndex = 90;
+            this.lblDetailsState.Text = "State :";
+            // 
+            // tbDetailsState
+            // 
+            this.tbDetailsState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsState.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsState.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsState.Location = new System.Drawing.Point(593, 373);
+            this.tbDetailsState.Multiline = true;
+            this.tbDetailsState.Name = "tbDetailsState";
+            this.tbDetailsState.ReadOnly = true;
+            this.tbDetailsState.Size = new System.Drawing.Size(218, 30);
+            this.tbDetailsState.TabIndex = 89;
+            // 
+            // lblTechEmail
+            // 
+            this.lblTechEmail.AutoSize = true;
+            this.lblTechEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTechEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTechEmail.Location = new System.Drawing.Point(58, 293);
+            this.lblTechEmail.Name = "lblTechEmail";
+            this.lblTechEmail.Size = new System.Drawing.Size(77, 25);
+            this.lblTechEmail.TabIndex = 88;
+            this.lblTechEmail.Text = "Email :";
+            // 
+            // tbDetailsTechEmail
+            // 
+            this.tbDetailsTechEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsTechEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsTechEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsTechEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsTechEmail.Location = new System.Drawing.Point(143, 291);
+            this.tbDetailsTechEmail.Multiline = true;
+            this.tbDetailsTechEmail.Name = "tbDetailsTechEmail";
+            this.tbDetailsTechEmail.ReadOnly = true;
+            this.tbDetailsTechEmail.Size = new System.Drawing.Size(242, 30);
+            this.tbDetailsTechEmail.TabIndex = 87;
+            // 
+            // lblTechRole
+            // 
+            this.lblTechRole.AutoSize = true;
+            this.lblTechRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTechRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTechRole.Location = new System.Drawing.Point(486, 291);
+            this.lblTechRole.Name = "lblTechRole";
+            this.lblTechRole.Size = new System.Drawing.Size(68, 25);
+            this.lblTechRole.TabIndex = 86;
+            this.lblTechRole.Text = "Role :";
+            // 
+            // tbDetailsTechRole
+            // 
+            this.tbDetailsTechRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsTechRole.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsTechRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsTechRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsTechRole.Location = new System.Drawing.Point(593, 289);
+            this.tbDetailsTechRole.Multiline = true;
+            this.tbDetailsTechRole.Name = "tbDetailsTechRole";
+            this.tbDetailsTechRole.ReadOnly = true;
+            this.tbDetailsTechRole.Size = new System.Drawing.Size(218, 30);
+            this.tbDetailsTechRole.TabIndex = 85;
+            // 
+            // lblDetailsEmpID
+            // 
+            this.lblDetailsEmpID.AutoSize = true;
+            this.lblDetailsEmpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailsEmpID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDetailsEmpID.Location = new System.Drawing.Point(60, 211);
+            this.lblDetailsEmpID.Name = "lblDetailsEmpID";
+            this.lblDetailsEmpID.Size = new System.Drawing.Size(145, 25);
+            this.lblDetailsEmpID.TabIndex = 84;
+            this.lblDetailsEmpID.Text = "Employee ID :";
+            // 
+            // tbDetailsEmpID
+            // 
+            this.tbDetailsEmpID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbDetailsEmpID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDetailsEmpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDetailsEmpID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.tbDetailsEmpID.Location = new System.Drawing.Point(224, 206);
+            this.tbDetailsEmpID.Multiline = true;
+            this.tbDetailsEmpID.Name = "tbDetailsEmpID";
+            this.tbDetailsEmpID.ReadOnly = true;
+            this.tbDetailsEmpID.Size = new System.Drawing.Size(161, 30);
+            this.tbDetailsEmpID.TabIndex = 83;
+            // 
             // lblDetailsTechName
             // 
             this.lblDetailsTechName.AutoSize = true;
@@ -797,6 +1019,64 @@ namespace PremierServiceSolutions.Pages
             this.tbDetailsTechName.ReadOnly = true;
             this.tbDetailsTechName.Size = new System.Drawing.Size(229, 30);
             this.tbDetailsTechName.TabIndex = 79;
+            // 
+            // btnSaveChanged
+            // 
+            this.btnSaveChanged.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnSaveChanged.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnSaveChanged.FlatAppearance.BorderSize = 0;
+            this.btnSaveChanged.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChanged.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveChanged.Location = new System.Drawing.Point(708, 514);
+            this.btnSaveChanged.Name = "btnSaveChanged";
+            this.btnSaveChanged.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSaveChanged.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSaveChanged.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSaveChanged.Size = new System.Drawing.Size(154, 36);
+            this.btnSaveChanged.TabIndex = 78;
+            this.btnSaveChanged.Text = "Save Changes";
+            this.btnSaveChanged.TextColor = System.Drawing.Color.White;
+            this.btnSaveChanged.UseVisualStyleBackColor = true;
+            this.btnSaveChanged.Click += new System.EventHandler(this.btnSaveChanged_Click);
+            // 
+            // btnDeleteTech
+            // 
+            this.btnDeleteTech.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnDeleteTech.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnDeleteTech.FlatAppearance.BorderSize = 0;
+            this.btnDeleteTech.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteTech.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTech.Location = new System.Drawing.Point(363, 514);
+            this.btnDeleteTech.Name = "btnDeleteTech";
+            this.btnDeleteTech.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteTech.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteTech.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnDeleteTech.Size = new System.Drawing.Size(196, 36);
+            this.btnDeleteTech.TabIndex = 77;
+            this.btnDeleteTech.Text = "Delete Technician";
+            this.btnDeleteTech.TextColor = System.Drawing.Color.White;
+            this.btnDeleteTech.UseVisualStyleBackColor = true;
+            this.btnDeleteTech.Click += new System.EventHandler(this.btnDeleteTech_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnClose.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(15, 514);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnClose.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
+            this.btnClose.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnClose.Size = new System.Drawing.Size(154, 36);
+            this.btnClose.TabIndex = 76;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextColor = System.Drawing.Color.White;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panel4
             // 
@@ -905,285 +1185,6 @@ namespace PremierServiceSolutions.Pages
             this.tbDetailsTechID.ReadOnly = true;
             this.tbDetailsTechID.Size = new System.Drawing.Size(161, 30);
             this.tbDetailsTechID.TabIndex = 34;
-            // 
-            // lblDetailsEmpID
-            // 
-            this.lblDetailsEmpID.AutoSize = true;
-            this.lblDetailsEmpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailsEmpID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDetailsEmpID.Location = new System.Drawing.Point(60, 211);
-            this.lblDetailsEmpID.Name = "lblDetailsEmpID";
-            this.lblDetailsEmpID.Size = new System.Drawing.Size(145, 25);
-            this.lblDetailsEmpID.TabIndex = 84;
-            this.lblDetailsEmpID.Text = "Employee ID :";
-            // 
-            // tbDetailsEmpID
-            // 
-            this.tbDetailsEmpID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbDetailsEmpID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDetailsEmpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDetailsEmpID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbDetailsEmpID.Location = new System.Drawing.Point(224, 206);
-            this.tbDetailsEmpID.Multiline = true;
-            this.tbDetailsEmpID.Name = "tbDetailsEmpID";
-            this.tbDetailsEmpID.ReadOnly = true;
-            this.tbDetailsEmpID.Size = new System.Drawing.Size(161, 30);
-            this.tbDetailsEmpID.TabIndex = 83;
-            // 
-            // lblTechRole
-            // 
-            this.lblTechRole.AutoSize = true;
-            this.lblTechRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTechRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTechRole.Location = new System.Drawing.Point(486, 291);
-            this.lblTechRole.Name = "lblTechRole";
-            this.lblTechRole.Size = new System.Drawing.Size(68, 25);
-            this.lblTechRole.TabIndex = 86;
-            this.lblTechRole.Text = "Role :";
-            // 
-            // tbDetailsTechRole
-            // 
-            this.tbDetailsTechRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbDetailsTechRole.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDetailsTechRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDetailsTechRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbDetailsTechRole.Location = new System.Drawing.Point(593, 289);
-            this.tbDetailsTechRole.Multiline = true;
-            this.tbDetailsTechRole.Name = "tbDetailsTechRole";
-            this.tbDetailsTechRole.ReadOnly = true;
-            this.tbDetailsTechRole.Size = new System.Drawing.Size(218, 30);
-            this.tbDetailsTechRole.TabIndex = 85;
-            // 
-            // lblTechEmail
-            // 
-            this.lblTechEmail.AutoSize = true;
-            this.lblTechEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTechEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTechEmail.Location = new System.Drawing.Point(58, 293);
-            this.lblTechEmail.Name = "lblTechEmail";
-            this.lblTechEmail.Size = new System.Drawing.Size(77, 25);
-            this.lblTechEmail.TabIndex = 88;
-            this.lblTechEmail.Text = "Email :";
-            // 
-            // tbDetailsTechEmail
-            // 
-            this.tbDetailsTechEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbDetailsTechEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDetailsTechEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDetailsTechEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbDetailsTechEmail.Location = new System.Drawing.Point(143, 291);
-            this.tbDetailsTechEmail.Multiline = true;
-            this.tbDetailsTechEmail.Name = "tbDetailsTechEmail";
-            this.tbDetailsTechEmail.ReadOnly = true;
-            this.tbDetailsTechEmail.Size = new System.Drawing.Size(242, 30);
-            this.tbDetailsTechEmail.TabIndex = 87;
-            // 
-            // btnSaveChanged
-            // 
-            this.btnSaveChanged.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnSaveChanged.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnSaveChanged.FlatAppearance.BorderSize = 0;
-            this.btnSaveChanged.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveChanged.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanged.Location = new System.Drawing.Point(708, 514);
-            this.btnSaveChanged.Name = "btnSaveChanged";
-            this.btnSaveChanged.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSaveChanged.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSaveChanged.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnSaveChanged.Size = new System.Drawing.Size(154, 36);
-            this.btnSaveChanged.TabIndex = 78;
-            this.btnSaveChanged.Text = "Save Changes";
-            this.btnSaveChanged.TextColor = System.Drawing.Color.White;
-            this.btnSaveChanged.UseVisualStyleBackColor = true;
-            this.btnSaveChanged.Click += new System.EventHandler(this.btnSaveChanged_Click);
-            // 
-            // btnDeleteTech
-            // 
-            this.btnDeleteTech.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnDeleteTech.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnDeleteTech.FlatAppearance.BorderSize = 0;
-            this.btnDeleteTech.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteTech.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteTech.Location = new System.Drawing.Point(363, 514);
-            this.btnDeleteTech.Name = "btnDeleteTech";
-            this.btnDeleteTech.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnDeleteTech.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnDeleteTech.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnDeleteTech.Size = new System.Drawing.Size(196, 36);
-            this.btnDeleteTech.TabIndex = 77;
-            this.btnDeleteTech.Text = "Delete Technician";
-            this.btnDeleteTech.TextColor = System.Drawing.Color.White;
-            this.btnDeleteTech.UseVisualStyleBackColor = true;
-            this.btnDeleteTech.Click += new System.EventHandler(this.btnDeleteTech_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnClose.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(15, 514);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnClose.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnClose.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnClose.Size = new System.Drawing.Size(154, 36);
-            this.btnClose.TabIndex = 76;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextColor = System.Drawing.Color.White;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnCreateTechnician
-            // 
-            this.btnCreateTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCreateTechnician.FlatAppearance.BorderSize = 0;
-            this.btnCreateTechnician.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateTechnician.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCreateTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateTechnician.Location = new System.Drawing.Point(658, 669);
-            this.btnCreateTechnician.Name = "btnCreateTechnician";
-            this.btnCreateTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCreateTechnician.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCreateTechnician.Size = new System.Drawing.Size(215, 38);
-            this.btnCreateTechnician.TabIndex = 100;
-            this.btnCreateTechnician.TabStop = false;
-            this.btnCreateTechnician.Text = "Create Technician";
-            this.btnCreateTechnician.TextColor = System.Drawing.Color.White;
-            this.btnCreateTechnician.UseVisualStyleBackColor = true;
-            this.btnCreateTechnician.Click += new System.EventHandler(this.btnCreateTechnician_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(16, 669);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancel.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancel.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCancel.Size = new System.Drawing.Size(155, 38);
-            this.btnCancel.TabIndex = 66;
-            this.btnCancel.TabStop = false;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(713, 16);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReset.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnReset.Size = new System.Drawing.Size(155, 38);
-            this.btnReset.TabIndex = 65;
-            this.btnReset.TabStop = false;
-            this.btnReset.Text = "Reset Fields";
-            this.btnReset.TextColor = System.Drawing.Color.White;
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // tBSearch
-            // 
-            this.tBSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tBSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.tBSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.tBSearch.Location = new System.Drawing.Point(54, 20);
-            this.tBSearch.Multiline = true;
-            this.tBSearch.Name = "tBSearch";
-            this.tBSearch.Size = new System.Drawing.Size(419, 31);
-            this.tBSearch.TabIndex = 51;
-            this.tBSearch.Text = "Start Typing TechnicianID/Technician Name";
-            this.tBSearch.TextChanged += new System.EventHandler(this.tBSearch_TextChanged);
-            this.tBSearch.Enter += new System.EventHandler(this.tBSearch_Enter);
-            this.tBSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBSearch_KeyDown);
-            this.tBSearch.Leave += new System.EventHandler(this.tBSearch_Leave);
-            // 
-            // btnAddTechnician
-            // 
-            this.btnAddTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddTechnician.FlatAppearance.BorderSize = 0;
-            this.btnAddTechnician.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAddTechnician.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAddTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTechnician.Location = new System.Drawing.Point(682, 14);
-            this.btnAddTechnician.Name = "btnAddTechnician";
-            this.btnAddTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnAddTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnAddTechnician.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAddTechnician.Size = new System.Drawing.Size(185, 40);
-            this.btnAddTechnician.TabIndex = 53;
-            this.btnAddTechnician.TabStop = false;
-            this.btnAddTechnician.Text = "New Technician +";
-            this.btnAddTechnician.TextColor = System.Drawing.Color.White;
-            this.btnAddTechnician.UseVisualStyleBackColor = true;
-            this.btnAddTechnician.Click += new System.EventHandler(this.btnAddTechnician_Click);
-            // 
-            // lblDetailsState
-            // 
-            this.lblDetailsState.AutoSize = true;
-            this.lblDetailsState.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailsState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDetailsState.Location = new System.Drawing.Point(486, 375);
-            this.lblDetailsState.Name = "lblDetailsState";
-            this.lblDetailsState.Size = new System.Drawing.Size(74, 25);
-            this.lblDetailsState.TabIndex = 90;
-            this.lblDetailsState.Text = "State :";
-            // 
-            // tbDetailsState
-            // 
-            this.tbDetailsState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbDetailsState.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDetailsState.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDetailsState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.tbDetailsState.Location = new System.Drawing.Point(593, 373);
-            this.tbDetailsState.Multiline = true;
-            this.tbDetailsState.Name = "tbDetailsState";
-            this.tbDetailsState.ReadOnly = true;
-            this.tbDetailsState.Size = new System.Drawing.Size(218, 30);
-            this.tbDetailsState.TabIndex = 89;
-            // 
-            // btnActiveTechnician
-            // 
-            this.btnActiveTechnician.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnActiveTechnician.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnActiveTechnician.FlatAppearance.BorderSize = 0;
-            this.btnActiveTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActiveTechnician.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActiveTechnician.Location = new System.Drawing.Point(364, 514);
-            this.btnActiveTechnician.Name = "btnActiveTechnician";
-            this.btnActiveTechnician.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnActiveTechnician.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnActiveTechnician.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnActiveTechnician.Size = new System.Drawing.Size(196, 36);
-            this.btnActiveTechnician.TabIndex = 91;
-            this.btnActiveTechnician.Text = "Activate Technician";
-            this.btnActiveTechnician.TextColor = System.Drawing.Color.White;
-            this.btnActiveTechnician.UseVisualStyleBackColor = true;
-            this.btnActiveTechnician.Visible = false;
-            this.btnActiveTechnician.Click += new System.EventHandler(this.btnActiveTechnician_Click);
             // 
             // frmTechnician
             // 
