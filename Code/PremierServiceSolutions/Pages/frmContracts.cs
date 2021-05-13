@@ -17,6 +17,7 @@ namespace PremierServiceSolutions.Pages
 
         #region Class Objects
         Contract objContract = new Contract();
+        ContractType objContractType = new ContractType();
         Service objService = new Service();
         Client objClient = new Client();
         #endregion
@@ -24,8 +25,10 @@ namespace PremierServiceSolutions.Pages
         #region Variables
         List<Contract> lstContract = new List<Contract>();
         List<Client> lstClient = new List<Client>();
-        List<Contract> lstSearchContract = new List<Contract>();
+        List<ContractType> lstNewContractType = new List<ContractType>();
         List<Service> lstService = new List<Service>();
+        List<Service> lstContractService = new List<Service>();
+        List<bool> BoolServices = new List<bool>();
         byte[] ContractPath;
         private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
         private string FullPath;
@@ -45,18 +48,22 @@ namespace PremierServiceSolutions.Pages
             pnlNewContract.Top = 8;
             LoadNewContracts();
             lstClient = objClient.GetAll();
+            flpSearchResults.BringToFront();
         }
         #region Loading Data for New Contracts
         private void LoadNewContracts()
         {
             lstService = objService.GetService();
             lstService.Sort();
+            lstNewContractType = objContractType.GetAllContractTypes();
+            cbContractType.DataSource = lstNewContractType;
+            cbContractType.DisplayMember = "ContractName";
             DateTime now = new DateTime();
             now = DateTime.Now;
             dtpConEndDate.Value = now.AddMonths(3);
             foreach (Service seritem in lstService)
             {
-                CreateService(seritem.ServiceName + " " +seritem.ServiceLevel);
+                CreateService(seritem.ServiceDescription);
             }
 
         }
@@ -81,12 +88,8 @@ namespace PremierServiceSolutions.Pages
             p.Size = new Size(flpNewConServices.ClientSize.Width-20, 50);
             flpNewConServices.Controls.Add(p);
 
-            //Setting new panel to insert at the top and move rest down
-            flpNewConServices.Controls.SetChildIndex(p, 0);
-
-
             CheckBox CB = new CheckBox();
-            CB.Name = "lblService" + flpContracts.Controls.Count;
+            CB.Name = flpNewConServices.Controls.Count.ToString();
             CB.Text = Text;
             CB.AutoSize = false;
             CB.Size = new Size(p.Width - 10, 30);
@@ -98,15 +101,16 @@ namespace PremierServiceSolutions.Pages
             CB.ForeColor = Color.White;
             CB.Click += new EventHandler(ServiceClick);
 
-
+            BoolServices.Add(false);
             //Updating the Panel and forcing it to refresh its self
             flpNewConServices.Invalidate();
         }
 
         protected void ServiceClick(object sender, EventArgs e)
         {
-            Label lbl = sender as Label;
-
+             CheckBox CB = sender as CheckBox;
+            int count = Convert.ToInt32(CB.Name);
+            BoolServices[count-1] = !BoolServices[count-1];
         }
 
         #endregion
@@ -331,6 +335,7 @@ namespace PremierServiceSolutions.Pages
         {
             Label lbl = sender as Label;
             Contract newCont = objContract.GetContractDetails(lbl.Text);
+            lstContractService = objService.GetContractService(lbl.Text);
             PopulateDetails(newCont);
             pnlContractDetails.Visible = true;
             tBSearch.Enabled = false;
@@ -338,6 +343,9 @@ namespace PremierServiceSolutions.Pages
 
         private void PopulateDetails(Contract cont)
         {
+            sfContractServices.DataSource = lstContractService;
+            sfContractServices.DisplayMember = "ServiceDescription";
+            sfContractServices.SelectedIndex = 0;
             tbDetailsContractID.Text = cont.ContractID;
             tbDetailsClientID.Text = cont.ClientID;
             tbDetailsContractDescription.Text = cont.ContractDescription;
@@ -351,7 +359,7 @@ namespace PremierServiceSolutions.Pages
 
 
 
-        #region Search for Employee Methods
+        #region Search for Contract Methods
         private void tBSearch_TextChanged(object sender, EventArgs e)
         {
             if (tBSearch.Text == "Start Typing ContractID/CustomerID")
@@ -466,23 +474,14 @@ namespace PremierServiceSolutions.Pages
         private void btnClose_Click(object sender, EventArgs e)
         {
             pnlContractDetails.Visible = false;
+            tBSearch.Enabled = true;
         }
 
         private void btnSaveChanged_Click(object sender, EventArgs e)
         {
 
         }
-        private void btnViewContractPDF_Click(object sender, EventArgs e)
-        {
-            File.WriteAllBytes(FullPath, ContractPath);
-            pdfContractViewer.BringToFront();
-            pdfContractViewer.Load(FullPath);
-            pdfContractViewer.Visible = true;
-            btnCloseContract.Visible = true;
-            btnDeleteContract.Visible = false;
-            btnClose.Visible = false;
-            btnSaveChanged.Visible = false;
-        }
+        
         private void btnCloseContract_Click(object sender, EventArgs e)
         {
             pdfContractViewer.Visible = false;
@@ -501,9 +500,24 @@ namespace PremierServiceSolutions.Pages
 
 
         #region New Contract methods
+        private void btnViewContractPDF_Click(object sender, EventArgs e)
+        {
+            File.WriteAllBytes(FullPath, ContractPath);
+            pdfContractViewer.BringToFront();
+            pdfContractViewer.Load(FullPath);
+            pdfContractViewer.Visible = true;
+            btnCloseContract.Visible = true;
+            btnDeleteContract.Visible = false;
+            btnClose.Visible = false;
+            btnSaveChanged.Visible = false;
+        }
+
         private void dtpConStart_ValueChanged(object sender, EventArgs e)
         {
             DateTime setDate = dtpConStart.Value;
+            DateTime currentdate = new DateTime();
+            currentdate = DateTime.Now;
+            dtpConStart.MinDate = currentdate;
             setDate = setDate.AddMonths(3);
             dtpConEndDate.MinDate = setDate;
         }
@@ -512,10 +526,41 @@ namespace PremierServiceSolutions.Pages
         {
             pnlNewContract.Visible = false;
         }
+
+        private void btnUpLoadCont_Click(object sender, EventArgs e)
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "Pdf Files|*.pdf";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
+            }
+
+            tbNewContFile.Text = filePath;
+        }
+
         #endregion
 
 
-        #region Search Methods
+        #region Search Methods new Contract
         private void tbNewConCusSearc_TextChanged(object sender, EventArgs e)
         {
             if (tbNewConCusSearc.Text == "Start Typing CustomerID/Name")
@@ -735,7 +780,18 @@ namespace PremierServiceSolutions.Pages
 
         }
 
-        #endregion
+
+        #endregion new Co
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            foreach (bool item in BoolServices)
+            {
+                MessageBox.Show(item.ToString()+ " " + lstService[count].ServiceDescription);
+                count++;
+            }
+        }
     }
 
 
