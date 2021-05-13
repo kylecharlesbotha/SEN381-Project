@@ -148,7 +148,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblService
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Services
-                string SelectQuery = string.Format("SELECT S.ServiceName,S.ServiceDescription FROM tblService AS S INNER JOIN tblPackage AS P ON P.ServiceID = S.ServiceID INNER JOIN tblContract AS C ON C.ContractID = P.ContractID WHERE P.ContractID = '{0}'",ContractID);
+                string SelectQuery = string.Format("SELECT S.ServiceID,S.ServiceName,S.ServiceDescription FROM tblService AS S INNER JOIN tblPackage AS P ON P.ServiceID = S.ServiceID INNER JOIN tblContract AS C ON C.ContractID = P.ContractID WHERE P.ContractID = '{0}'",ContractID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //SQL Datareader which will be used to pull specific fields from the Select Return statement
@@ -159,7 +159,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    allService.Add(new Service((string)sqlDataReader.GetValue(0), (string)sqlDataReader.GetValue(1)));
+                    allService.Add(new Service((int)sqlDataReader.GetValue(0),(string)sqlDataReader.GetValue(1), (string)sqlDataReader.GetValue(2)));
                 }
                 //Close connection to database
                 sqlCon.Close();
