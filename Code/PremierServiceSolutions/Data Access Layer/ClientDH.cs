@@ -255,6 +255,71 @@ namespace PremierServiceSolutions.Data_Access_Layer
             throw new NotImplementedException();
         }
 
+        public Client GetClientDetails(string ClientID)
+        {
+            try
+            {
+                //List of type Client which will store all the records and then return that list
+                Client allClients = new Client();
+                //New SQL Connection which the query will use to perform the Select of tblClients
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Select Query which will store the SQL qeury needed to return all the Clients
+                string SelectQuery = String.Format("SELECT C.ClientID,C.ClientIDNumber,C.ClientName,C.ClientSurname,C.ClientTitle,C.ClientAddress,C.ClientCell,C.ClientEmail,C.ClientPriority,C.ClientState,CF.ContractID,CF.FilePath FROM tblClient AS C LEFT OUTER JOIN tblCustomerContract AS CC ON CC.ClientID = C.ClientID LEFT OUTER JOIN tblContractFiles AS CF ON CF.ContractID = CC.ContractID WHERE C.ClientID = '{0}'",ClientID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
+                //SQL Datareader which will be used to pull specific fields from the Select Return statement
+                SqlDataReader sqlDataReader;
+                //Open the connection to the database
+                sqlCon.Open();
+                //
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    allClients.ClientID = (string)sqlDataReader.GetValue(0);
+                    allClients.ClientIDNumber = (string)sqlDataReader.GetValue(1);
+                    allClients.PersonName = (string)sqlDataReader.GetValue(2);
+                    allClients.PersonSurname = (string)sqlDataReader.GetValue(3);
+                    allClients.ClientTitle = (string)sqlDataReader.GetValue(4);
+                    allClients.ClientAddress = (string)sqlDataReader.GetValue(5);
+                    allClients.ClientCell = (string)sqlDataReader.GetValue(6);
+                    allClients.ClientEmail = (string)sqlDataReader.GetValue(7);
+                    allClients.ClientPriority = (int)sqlDataReader.GetValue(8);
+                    allClients.ClientState = (int)sqlDataReader.GetValue(9);
+                    object o = sqlDataReader["ContractID"];
+                    if(o == DBNull.Value)
+                    {
+                        allClients.ClientContract = "";
+                    }
+                    else
+                    {
+                        allClients.ClientContract = (string)sqlDataReader.GetValue(10);
+                    }
+                    object p = sqlDataReader["FilePath"];
+                    if (p == DBNull.Value)
+                    {
+                        var sevenItems = new byte[] { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
+                        allClients.ClientContractPath = sevenItems;
+                    }
+                    else
+                    {
+                        allClients.ClientContractPath = (byte[])sqlDataReader.GetValue(11);
+                    }
+
+                }
+                //Close connection to database
+                sqlCon.Close();
+                //Return List of Clients
+                return allClients;
+            }
+            catch (SqlException SQLE)
+            {
+                //Will catch any errors that occur and will display a error message. it will also return a empty list
+                MessageBox.Show("Error has occured");
+                return null;
+            }
+            throw new NotImplementedException();
+        }
+
         public int Find(Client objClient)
         {
             int RecordCount;
