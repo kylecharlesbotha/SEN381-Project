@@ -37,6 +37,15 @@ namespace PremierServiceSolutions.Pages
         byte[] ContractPath;
         private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
         private string FullPath;
+
+        //Variables for frmNewContract
+        bool CheckNewConCus = false;
+        bool CheckContractType = false;
+        bool CheckFile = false;
+        bool CheckDescription = false;
+        bool CheckDateStart = false;
+        bool CheckDateEnd = false;
+
         #endregion
 
         public frmContracts()
@@ -90,7 +99,7 @@ namespace PremierServiceSolutions.Pages
             }
 
             //Setting the Size of Panel and adding it to the main panel
-            p.Size = new Size(flpNewConServices.ClientSize.Width-20, 50);
+            p.Size = new Size(flpNewConServices.ClientSize.Width - 20, 50);
             flpNewConServices.Controls.Add(p);
 
             CheckBox CB = new CheckBox();
@@ -113,9 +122,9 @@ namespace PremierServiceSolutions.Pages
 
         protected void ServiceClick(object sender, EventArgs e)
         {
-             CheckBox CB = sender as CheckBox;
+            CheckBox CB = sender as CheckBox;
             int count = Convert.ToInt32(CB.Name);
-            BoolServices[count-1] = !BoolServices[count-1];
+            BoolServices[count - 1] = !BoolServices[count - 1];
         }
 
         #endregion
@@ -360,7 +369,7 @@ namespace PremierServiceSolutions.Pages
 
         private void PopulateDetails(Contract cont)
         {
-            if(cont.ContractState == 1)
+            if (cont.ContractState == 1)
             {
                 btnActiveContract.Visible = false;
                 btnDeleteContract.Visible = true;
@@ -539,14 +548,14 @@ namespace PremierServiceSolutions.Pages
             }
             else
             {
-                MessageBox.Show("Error occured! "+tbDetailsContractID.Text + "could not be de-activated");
+                MessageBox.Show("Error occured! " + tbDetailsContractID.Text + "could not be de-activated");
             }
         }
 
         private void btnActiveContract_Click(object sender, EventArgs e)
         {
             bool submitted = objContract.ActivateContract(tbDetailsContractID.Text);
-            if(submitted == true)
+            if (submitted == true)
             {
                 MessageBox.Show(tbDetailsContractID.Text + " has been successfully re-activated");
                 tbContractDescription.Focus();
@@ -559,7 +568,7 @@ namespace PremierServiceSolutions.Pages
             }
             else
             {
-                MessageBox.Show("Error occured! "+ tbDetailsContractID.Text +" could not be re-activated");
+                MessageBox.Show("Error occured! " + tbDetailsContractID.Text + " could not be re-activated");
             }
         }
 
@@ -581,6 +590,7 @@ namespace PremierServiceSolutions.Pages
         private void btnAddContract_Click(object sender, EventArgs e)
         {
             pnlNewContract.Visible = true;
+            btnReset_Click(null,null);
         }
 
         #endregion
@@ -596,18 +606,10 @@ namespace PremierServiceSolutions.Pages
             btnCloseContract.Visible = true;
             btnDeleteContract.Visible = false;
             btnClose.Visible = false;
- 
+
         }
 
-        private void dtpConStart_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime setDate = dtpConStart.Value;
-            DateTime currentdate = new DateTime();
-            currentdate = DateTime.Now;
-            dtpConStart.MinDate = currentdate;
-            setDate = setDate.AddMonths(3);
-            dtpConEndDate.MinDate = setDate;
-        }
+        
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -875,12 +877,194 @@ namespace PremierServiceSolutions.Pages
             int count = 0;
             foreach (bool item in BoolServices)
             {
-                MessageBox.Show(item.ToString()+ " " + lstService[count].ServiceDescription);
+                MessageBox.Show(item.ToString() + " " + lstService[count].ServiceDescription);
                 count++;
             }
         }
+
+        #region Customer Methods
+        private void tbNewContCus_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            if (!String.IsNullOrEmpty(tbNewContCus.Text))//If valid information are given do following
+            {
+                lblNewConCusCheck.Text = "";
+                pbNewConCusCheck.Show();
+                pbNewConCusCheck.Image = Properties.Resources.checkmark;
+                CheckNewConCus = true;
+            }
+            else
+            {
+                lblNewConCusCheck.Text = "Please choose customer from searchbar on left";
+                pbNewConCusCheck.Image = Properties.Resources.DeleteMark;
+                CheckNewConCus = false;
+            }
+        }
+
+
+        #endregion
+
+        #region ComboBoxList Contract Type Methods
+        private void cbContractType_Leave(object sender, EventArgs e) //On leaving, if no index selected, reset combobox (And live validation labels/PB's) to default state
+        {
+            if (cbContractType.SelectedIndex > -1)//if something is selected
+            {
+                CheckContractType = true;
+                lblContractTypeCheck.Text = "";
+                pbContractTypeCheck.Image = Properties.Resources.checkmark;
+            }
+            else
+            {
+                CheckContractType = false;
+                lblContractTypeCheck.Text = "Please select option below";
+                pbContractTypeCheck.Image = Properties.Resources.DeleteMark;
+
+            }
+        }
+
+        private void cbContractType_SelectedIndexChanged(object sender, EventArgs e) //On combobox selection change
+        {
+            if (cbContractType.SelectedIndex > -1)//if something is selected
+            {
+                CheckContractType = true;
+                lblContractTypeCheck.Text = "";
+                pbContractTypeCheck.Image = Properties.Resources.checkmark;
+            }
+            else
+            {
+                CheckContractType = false;
+                lblContractTypeCheck.Text = "Please select option below";
+                pbContractTypeCheck.Image = Properties.Resources.DeleteMark;
+
+            }
+        }
+
+        #endregion
+
+        #region File Methods
+        private void tbNewContFile_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            if (!String.IsNullOrEmpty(tbNewContFile.Text))//If valid information are given do following
+            {
+                lblNewConFileCheck.Text = "";
+                pbNewContFile.Show();
+                pbNewContFile.Image = Properties.Resources.checkmark;
+                CheckFile = true;
+            }
+            else
+            {
+                lblNewConFileCheck.Text = "Please upload a file below";
+                pbNewContFile.Image = Properties.Resources.DeleteMark;
+                CheckFile = false;
+            }
+        }
+
+        #endregion
+
+        #region Contract Description Methods
+        private void tbContractDescription_Leave(object sender, EventArgs e)//On leaving, if No information given, reset textbox to default state
+        {
+            if (String.IsNullOrEmpty(tbContractDescription.Text))
+            {
+                pbNewContDesc.Image = Properties.Resources.DeleteMark;
+                CheckDescription = false;
+                lblContractDescriptionCheck.Text = "Please enter description below";
+            }
+            else
+            {
+                pbNewContDesc.Image = Properties.Resources.checkmark;
+                CheckDescription = true;
+                pbNewContDesc.Show();
+                lblContractDescriptionCheck.Text = "";
+
+            }
+        }
+
+        private void tbContractDescription_TextChanged(object sender, EventArgs e)//If textbox text change, check for the following below
+        {
+            if (!String.IsNullOrEmpty(tbContractDescription.Text))//If valid information are given do following
+            {
+                pbNewContDesc.Image = Properties.Resources.checkmark;
+                CheckDescription = true;
+                pbNewContDesc.Show();
+                lblContractDescriptionCheck.Text = "";
+            }
+            else
+            {
+                pbNewContDesc.Image = Properties.Resources.DeleteMark;
+                CheckDescription = false;
+                pbNewContDesc.Hide();
+                lblContractDescriptionCheck.Text = "Please enter description below";
+            }
+        }
+
+        #endregion
+
+        #region DateTimePickers Start/End Methods
+        private void dtpConEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            CheckDateEnd = true;
+            lblNewContEndCheck.Text = "";
+            pbNewContEndCheck.Image = Properties.Resources.checkmark;
+        }
+
+        private void dtpConStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime setDate = dtpConStart.Value;
+            DateTime currentdate = new DateTime();
+            currentdate = DateTime.Now;
+            dtpConStart.MinDate = currentdate;
+            setDate = setDate.AddMonths(3);
+            dtpConEndDate.MinDate = setDate;
+
+            CheckDateStart = true;
+            lblNewContStartCheck.Text = "";
+            pbNewContStartCheck.Image = Properties.Resources.checkmark;
+        }
+
+        #endregion
+
+        #region Button Reset Methods
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            //reset fields to default state
+            tbNewConCusSearc.Text = "Start Typing CustomerID/Name";
+            tbNewContCus.Text = "";
+            tbNewContFile.Text = "";
+            tbContractDescription.Text = "";
+            cbContractType.SelectedIndex = -1;
+
+            //Reset labels to default states
+            lblNewConCusCheck.Text = "Please choose customer from searchbar on left";
+            lblContractTypeCheck.Text = "Please select option below";
+            lblNewConFileCheck.Text = "Please upload a file below";
+            lblContractDescriptionCheck.Text = "Please enter description below";
+            lblNewContEndCheck.Text = "Please choose date below";
+            lblNewContStartCheck.Text = "Please choose date below";
+
+            //Reset all Validation images to incorrect
+            pbNewConCusCheck.Image = Properties.Resources.DeleteMark;
+            pbContractTypeCheck.Image = Properties.Resources.DeleteMark;
+            pbNewContFile.Image = Properties.Resources.DeleteMark;
+            pbNewContDesc.Image = Properties.Resources.DeleteMark;
+            pbNewContStartCheck.Image = Properties.Resources.DeleteMark;
+            pbNewContEndCheck.Image = Properties.Resources.DeleteMark;
+
+            //reset datetimepickers value to default
+            DateTime setDate = dtpConStart.Value;
+            DateTime currentdate = new DateTime();
+            currentdate = DateTime.Now;
+            dtpConStart.MinDate = currentdate;
+            setDate = setDate.AddMonths(3);
+            dtpConEndDate.MinDate = setDate;
+
+            //Reset Validation Variables for frmNewContract to default state
+            bool CheckNewConCus = false;
+            bool CheckContractType = false;
+            bool CheckFile = false;
+            bool CheckDescription = false;
+            bool CheckDateStart = false;
+            bool CheckDateEnd = false;
+        }
+        #endregion
     }
-
-
-
 }
