@@ -30,9 +30,9 @@ namespace PremierServiceSolutions.Pages
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContracts));
-            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings5 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
-            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings5 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
-            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings5 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
+            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings6 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
+            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings6 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
+            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings6 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
             this.pnlSearchHeadings = new System.Windows.Forms.Panel();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -103,7 +103,6 @@ namespace PremierServiceSolutions.Pages
             this.tbDetailsClientID = new System.Windows.Forms.TextBox();
             this.lblDetailsContractType = new System.Windows.Forms.Label();
             this.tbDetailsContractType = new System.Windows.Forms.TextBox();
-            this.btnSaveChanged = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnDeleteContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.btnClose = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -845,7 +844,6 @@ namespace PremierServiceSolutions.Pages
             this.pnlContractDetails.Controls.Add(this.tbDetailsClientID);
             this.pnlContractDetails.Controls.Add(this.lblDetailsContractType);
             this.pnlContractDetails.Controls.Add(this.tbDetailsContractType);
-            this.pnlContractDetails.Controls.Add(this.btnSaveChanged);
             this.pnlContractDetails.Controls.Add(this.btnDeleteContract);
             this.pnlContractDetails.Controls.Add(this.btnClose);
             this.pnlContractDetails.Controls.Add(this.panel4);
@@ -894,7 +892,7 @@ namespace PremierServiceSolutions.Pages
             this.btnViewContractPDF.FlatAppearance.BorderSize = 0;
             this.btnViewContractPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewContractPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewContractPDF.Location = new System.Drawing.Point(680, 434);
+            this.btnViewContractPDF.Location = new System.Drawing.Point(697, 514);
             this.btnViewContractPDF.Name = "btnViewContractPDF";
             this.btnViewContractPDF.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
             this.btnViewContractPDF.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
@@ -1080,25 +1078,6 @@ namespace PremierServiceSolutions.Pages
             this.tbDetailsContractType.Size = new System.Drawing.Size(212, 30);
             this.tbDetailsContractType.TabIndex = 79;
             // 
-            // btnSaveChanged
-            // 
-            this.btnSaveChanged.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnSaveChanged.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
-            this.btnSaveChanged.FlatAppearance.BorderSize = 0;
-            this.btnSaveChanged.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveChanged.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanged.Location = new System.Drawing.Point(691, 514);
-            this.btnSaveChanged.Name = "btnSaveChanged";
-            this.btnSaveChanged.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSaveChanged.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSaveChanged.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnSaveChanged.Size = new System.Drawing.Size(154, 36);
-            this.btnSaveChanged.TabIndex = 78;
-            this.btnSaveChanged.Text = "Save Changes";
-            this.btnSaveChanged.TextColor = System.Drawing.Color.White;
-            this.btnSaveChanged.UseVisualStyleBackColor = true;
-            this.btnSaveChanged.Click += new System.EventHandler(this.btnSaveChanged_Click);
-            // 
             // btnDeleteContract
             // 
             this.btnDeleteContract.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(179)))));
@@ -1256,16 +1235,16 @@ namespace PremierServiceSolutions.Pages
             this.pdfContractViewer.IsTextSearchEnabled = true;
             this.pdfContractViewer.IsTextSelectionEnabled = true;
             this.pdfContractViewer.Location = new System.Drawing.Point(1894, 8);
-            messageBoxSettings5.EnableNotification = true;
-            this.pdfContractViewer.MessageBoxSettings = messageBoxSettings5;
+            messageBoxSettings6.EnableNotification = true;
+            this.pdfContractViewer.MessageBoxSettings = messageBoxSettings6;
             this.pdfContractViewer.MinimumZoomPercentage = 50;
             this.pdfContractViewer.Name = "pdfContractViewer";
             this.pdfContractViewer.PageBorderThickness = 1;
-            pdfViewerPrinterSettings5.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings5.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings5.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings5.PrintLocation")));
-            pdfViewerPrinterSettings5.ShowPrintStatusDialog = true;
-            this.pdfContractViewer.PrinterSettings = pdfViewerPrinterSettings5;
+            pdfViewerPrinterSettings6.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings6.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings6.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings6.PrintLocation")));
+            pdfViewerPrinterSettings6.ShowPrintStatusDialog = true;
+            this.pdfContractViewer.PrinterSettings = pdfViewerPrinterSettings6;
             this.pdfContractViewer.ReferencePath = null;
             this.pdfContractViewer.ScrollDisplacementValue = 0;
             this.pdfContractViewer.ShowHorizontalScrollBar = true;
@@ -1273,10 +1252,10 @@ namespace PremierServiceSolutions.Pages
             this.pdfContractViewer.Size = new System.Drawing.Size(884, 596);
             this.pdfContractViewer.SpaceBetweenPages = 8;
             this.pdfContractViewer.TabIndex = 33;
-            textSearchSettings5.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
-            textSearchSettings5.HighlightAllInstance = true;
-            textSearchSettings5.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.pdfContractViewer.TextSearchSettings = textSearchSettings5;
+            textSearchSettings6.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
+            textSearchSettings6.HighlightAllInstance = true;
+            textSearchSettings6.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.pdfContractViewer.TextSearchSettings = textSearchSettings6;
             this.pdfContractViewer.ThemeName = "Default";
             this.pdfContractViewer.VerticalScrollOffset = 0;
             this.pdfContractViewer.Visible = false;
@@ -1383,7 +1362,6 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.TextBox tbDetailsClientID;
         private System.Windows.Forms.Label lblDetailsContractType;
         private System.Windows.Forms.TextBox tbDetailsContractType;
-        private CustomComponents.ButtonRound btnSaveChanged;
         private CustomComponents.ButtonRound btnDeleteContract;
         private CustomComponents.ButtonRound btnClose;
         private System.Windows.Forms.Panel panel4;

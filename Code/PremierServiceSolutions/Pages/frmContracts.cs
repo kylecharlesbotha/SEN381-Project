@@ -130,14 +130,17 @@ namespace PremierServiceSolutions.Pages
         {
             lstContract = objContract.GetContractRecords();
             lstContract.Sort();
-            PopulateTechnicians();
+            PopulateContracts();
         }
 
-        public void PopulateTechnicians()
+        public void PopulateContracts()
         {
             foreach (Contract conitem in lstContract)
             {
-                CreateEntry(conitem.ContractID, conitem.ClientID, conitem.ContractType, conitem.StartDate , conitem.EndDate, conitem.ContractStatus);
+                if (conitem.ContractState == 1)
+                {
+                    CreateEntry(conitem.ContractID, conitem.ClientID, conitem.ContractType, conitem.StartDate, conitem.EndDate, conitem.ContractStatus);
+                }
             }
         }
         #endregion
@@ -336,10 +339,16 @@ namespace PremierServiceSolutions.Pages
             Label lbl = sender as Label;
             lbl.ForeColor = Color.White;
         }
+
+
+        #endregion
+
+        #region Contract Details Methods
         protected void ShowContractDetails(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            Contract newCont = objContract.GetContractDetails(lbl.Text);
+            Contract newCont = new Contract();
+            newCont = objContract.GetContractDetails(lbl.Text);
             lstContractService = objService.GetContractService(lbl.Text);
             lstSLA = objSLA.GetConSLA(lbl.Text);
             PopulateDetails(newCont);
@@ -349,24 +358,51 @@ namespace PremierServiceSolutions.Pages
 
         private void PopulateDetails(Contract cont)
         {
-            //Binding Service CBB to TextBox
-            TsDataSource = new BindingSource();
-            TsDataSource.DataSource = lstContractService;
-            sfContractServices.DataSource = TsDataSource;
-            sfContractServices.DisplayMember = "ServiceName";
-            sfContractServices.ValueMember = "ServiceID";
-            sfContractServices.SelectedIndex = 0;
-            tbDetailsServiceDes.DataBindings.Add(new Binding("Text", TsDataSource, "ServiceDescription"));
+            if(cont.ContractState == 1)
+            {
+                btnActiveContract.Visible = false;
+                btnDeleteContract.Visible = true;
+            }
+            else
+            {
+                btnActiveContract.Visible = true;
+                btnDeleteContract.Visible = false;
+            }
+            if (lstContractService.Count > 0)
+            {
+                //Binding Service CBB to TextBox
+                TsDataSource = new BindingSource();
+                TsDataSource.DataSource = lstContractService;
+                sfContractServices.DataSource = TsDataSource;
+                sfContractServices.DisplayMember = "ServiceName";
+                sfContractServices.ValueMember = "ServiceID";
+                sfContractServices.SelectedIndex = 0;
+                tbDetailsServiceDes.DataBindings.Clear();
+                tbDetailsServiceDes.DataBindings.Add(new Binding("Text", TsDataSource, "ServiceDescription"));
+            }
+            else
+            {
+                sfContractServices.Text = "No Service Found";
+                tbDetailsServiceDes.Text = "No Description";
+            }
 
-
-            //Binding SLA CBB to TextBox
-            TslaDataSource = new BindingSource();
-            TslaDataSource.DataSource = lstSLA;
-            sfContractSLA.DataSource = TslaDataSource;
-            sfContractSLA.DisplayMember = "SlaTitle";
-            sfContractSLA.ValueMember = "SlaID";
-            sfContractSLA.SelectedIndex = 0;
-            tbDetailsSLADescription.DataBindings.Add(new Binding("Text", TslaDataSource, "SlaDescription"));
+            if (lstSLA.Count > 0)
+            {
+                //Binding SLA CBB to TextBox
+                TslaDataSource = new BindingSource();
+                TslaDataSource.DataSource = lstSLA;
+                sfContractSLA.DataSource = TslaDataSource;
+                sfContractSLA.DisplayMember = "SlaTitle";
+                sfContractSLA.ValueMember = "SlaID";
+                sfContractSLA.SelectedIndex = 0;
+                tbDetailsSLADescription.DataBindings.Clear();
+                tbDetailsSLADescription.DataBindings.Add(new Binding("Text", TslaDataSource, "SlaDescription"));
+            }
+            else
+            {
+                sfContractSLA.Text = "No SLA Found";
+                tbDetailsSLADescription.Text = "No Description";
+            }
 
 
 
@@ -379,7 +415,6 @@ namespace PremierServiceSolutions.Pages
             tbDetailsContractType.Text = cont.ContractType;
             ContractPath = cont.ContractFilePath;
         }
-
         #endregion
 
 
@@ -398,7 +433,7 @@ namespace PremierServiceSolutions.Pages
                 if (String.IsNullOrWhiteSpace(tBSearch.Text))
                 {
                     ResetSearch();
-                    PopulateTechnicians();
+                    PopulateContracts();
                     flpContracts.Visible = true;
                 }
                 else
@@ -476,7 +511,7 @@ namespace PremierServiceSolutions.Pages
                 pnlTopContracts.Focus();
                 flpContracts.Visible = false;
                 ResetSearch();
-                PopulateTechnicians();
+                PopulateContracts();
                 flpContracts.Visible = true;
             }
 
@@ -488,12 +523,44 @@ namespace PremierServiceSolutions.Pages
         #region Panel Contract Details
         private void btnDeleteContract_Click(object sender, EventArgs e)
         {
-
+            bool submitted = objContract.DeleteContract(tbDetailsContractID.Text);
+            if (submitted == true)
+            {
+                MessageBox.Show("Contract has been successfully de-activated");
+                ResetSearch();
+                LoadCon();
+                PopulateContracts();
+                pnlContractDetails.Visible = false;
+                tbContractDescription.Focus();
+                tBSearch.Text = "Start Typing ContractID/CustomerID";
+                tBSearch.Enabled = true;
+                flpContracts.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Error occured! Contract could not be de-activated");
+            }
         }
 
         private void btnActiveContract_Click(object sender, EventArgs e)
         {
-
+            bool submitted = objContract.ActivateContract(tbDetailsContractID.Text);
+            if(submitted == true)
+            {
+                MessageBox.Show("Contract has been successfully re-activated");
+                ResetSearch();
+                LoadCon();
+                PopulateContracts();
+                pnlContractDetails.Visible = false;
+                tbContractDescription.Focus();
+                tBSearch.Text = "Start Typing ContractID/CustomerID";
+                tBSearch.Enabled = true;
+                flpContracts.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Error occured! Contract could not be re-activated");
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -502,18 +569,13 @@ namespace PremierServiceSolutions.Pages
             tBSearch.Enabled = true;
         }
 
-        private void btnSaveChanged_Click(object sender, EventArgs e)
-        {
-
-        }
-        
         private void btnCloseContract_Click(object sender, EventArgs e)
         {
             pdfContractViewer.Visible = false;
             btnCloseContract.Visible = false;
             btnDeleteContract.Visible = true;
             btnClose.Visible = true;
-            btnSaveChanged.Visible = true;
+
         }
 
         private void btnAddContract_Click(object sender, EventArgs e)
@@ -534,7 +596,7 @@ namespace PremierServiceSolutions.Pages
             btnCloseContract.Visible = true;
             btnDeleteContract.Visible = false;
             btnClose.Visible = false;
-            btnSaveChanged.Visible = false;
+ 
         }
 
         private void dtpConStart_ValueChanged(object sender, EventArgs e)
