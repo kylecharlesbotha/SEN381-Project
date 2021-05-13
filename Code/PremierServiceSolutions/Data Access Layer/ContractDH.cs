@@ -163,7 +163,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //Close connection to database
                 sqlCon.Close();
                 //Return List of Contract
-                return allCon;
+                return allCon.ToList();
             }
             catch (SqlException SQLE)
             {
