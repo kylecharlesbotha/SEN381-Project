@@ -5,8 +5,11 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Logo from "../../../assets/images/PSSLogo.png";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const Forgot = (props) => {
+function Forgot({ props }) {
+  const browhistory = useHistory();
+  console.log(browhistory);
   return (
     <Aux>
       <Typography component="div">
@@ -18,15 +21,18 @@ const Forgot = (props) => {
               </a>
               <NavLink
                 className="fa fa-arrow-left"
-                to="/Home"
-                href="/Home"
+                onClick={() => {
+                  browhistory.goBack();
+                }}
+                to="/history"
               ></NavLink>
             </div>
           </nav>
         </Box>
+        <p></p>
       </Typography>
     </Aux>
   );
-};
+}
 
 export default Forgot;

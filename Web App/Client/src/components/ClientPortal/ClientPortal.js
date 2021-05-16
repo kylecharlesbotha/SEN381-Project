@@ -10,6 +10,9 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import { useState, useEffect } from "react";
 import axios from "axios";
+
+import { useHistory } from "react-router-dom";
+
 const RedCheckbox = withStyles({
   root: {
     color: red[400],
@@ -42,40 +45,42 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-const ClientPortal = ({history}) => { 
+const ClientPortal = ({ history }) => {
+  const browhistory = useHistory();
+
   const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-	const [error, setError] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-	useEffect(() => {
-		if (localStorage.getItem("authToken")) {
-			history.push("/ClientPortal/Dashboard");
-		}
-	}, [history]);
-	const loginHandler = async (e) => {
-		e.preventDefault();
-		const config = {
-			header: {
-				"Content-Type": "application/json",
-			},
-		};
+  useEffect(() => {
+    if (localStorage.getItem("authToken")) {
+      history.push("/ClientPortal/Dashboard");
+    }
+  }, [history]);
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
 
-		try {
-			const { data } = await axios.post(
-				"http://41.1.129.59:3001/api/auth/loginClient",
-				{ UserName: username, UserPassword: password },
-				config,
-			);
-			localStorage.setItem("authToken", data.token);
-			history.push("/ClientPortalDashboard");
-		} catch (error) {
-		 console.dir(error);
-			setError(error.response.data.error);
-			setTimeout(() => {
-				setError("");
-			}, 5000);
-		}
-	};
+    try {
+      const { data } = await axios.post(
+        "http://41.1.129.59:3001/api/auth/loginClient",
+        { UserName: username, UserPassword: password },
+        config
+      );
+      localStorage.setItem("authToken", data.token);
+      history.push("/ClientPortalDashboard");
+    } catch (error) {
+      console.dir(error);
+      setError(error.response.data.error);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    }
+  };
   return (
     <Aux>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-2 mb-2 bg-white rounded">
@@ -94,58 +99,62 @@ const ClientPortal = ({history}) => {
         <div className="row justify-content-center">
           <div className="col-md-8 text-center bg-light shadow-lg p-2 mb-2 bg-white rounded">
             <form onSubmit={loginHandler}>
-            <h5>Client Portal Login</h5>
-            <div className="input-group mb-3">
-              <div className="input-group-prepend formin"></div>
-              <CssTextField
-                id="filled-basic"
-                label="Username"
-                variant="outlined"
-                className="lblHeader inputboxes"
-                size="medium"
-                required
-                onChange={(e) => setUsername(e.target.value)}
-                color="secondary"
-              />
-            </div>
-            <div className="input-group mb-0">
-              <div className="input-group-prepend formin"></div>
-              <CssTextField
-                className="lblHeader inputboxes"
-                label="Password"
-                variant="outlined"
-                size="medium"
-                required
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-                id="custom-css-outlined-input"
-              />
-            </div>
-            <div className="input-group mb-0">
-              <div className="input-group-prepend formin"></div>
-              <FormControlLabel
-                control={<RedCheckbox name="chkRemeberme" />}
-                label="Remember Me"
-                className="chk"
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn btnsignin justify-content-center"
-              color="#ff5c5c"
-            >
-              Login
-            </button>
-            <div className="input-group justify-content-center">
-              <div className="input-group-prepend"></div>
-              <a
-                href="https://google.com"
-                variant="body2"
-                className="forgotlink"
+              <h5>Client Portal Login</h5>
+              <div className="input-group mb-3">
+                <div className="input-group-prepend formin"></div>
+                <CssTextField
+                  id="filled-basic"
+                  label="Username"
+                  variant="outlined"
+                  className="lblHeader inputboxes"
+                  size="medium"
+                  required
+                  onChange={(e) => setUsername(e.target.value)}
+                  color="secondary"
+                />
+              </div>
+              <div className="input-group mb-0">
+                <div className="input-group-prepend formin"></div>
+                <CssTextField
+                  className="lblHeader inputboxes"
+                  label="Password"
+                  variant="outlined"
+                  size="medium"
+                  required
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  id="custom-css-outlined-input"
+                />
+              </div>
+              <div className="input-group mb-0">
+                <div className="input-group-prepend formin"></div>
+                <FormControlLabel
+                  control={<RedCheckbox name="chkRemeberme" />}
+                  label="Remember Me"
+                  className="chk"
+                />
+              </div>
+              <button
+                type="submit"
+                className="btn btnsignin justify-content-center"
+                color="#ff5c5c"
               >
-                Forgot password?
-              </a>
-            </div>
+                Login
+              </button>
+              <div className="input-group justify-content-center">
+                <div className="input-group-prepend"></div>
+                <a
+                  onClick={() =>
+                    browhistory.push("/Password/Forgot/Email", {
+                      from: "ClientPortal",
+                    })
+                  }
+                  variant="body2"
+                  className="forgotlink"
+                >
+                  Forgot password?
+                </a>
+              </div>
             </form>
           </div>
         </div>
