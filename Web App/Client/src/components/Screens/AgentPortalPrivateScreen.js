@@ -26,7 +26,7 @@ const PrivateScreen = ({ history }) => {
 				},
 			};
 			try {           
-				const { data } = await axios.get("http://41.1.129.59:3001/api/private/", config);
+				const { data } = await axios.get("http://41.1.129.59:3001/api/private/employeeData", config);
 				setPrivateData(data.data);
 			} catch (error) {
                 
