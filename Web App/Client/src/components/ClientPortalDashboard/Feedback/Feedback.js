@@ -5,136 +5,269 @@ import { Box } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 
-const marks = [
-  {
-    value: 0,
-    label: "0",
-  },
-  {
-    value: 1,
-    label: "1",
-  },
-  {
-    value: 2,
-    label: "2",
-  },
-  {
-    value: 3,
-    label: "3",
-  },
-  {
-    value: 4,
-    label: "4",
-  },
-  {
-    value: 5,
-    label: "5",
-  },
-  {
-    value: 6,
-    label: "6",
-  },
-  {
-    value: 7,
-    label: "7",
-  },
-  {
-    value: 8,
-    label: "8",
-  },
-  {
-    value: 9,
-    label: "9",
-  },
-  {
-    value: 10,
-    label: "10",
-  },
-];
-
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 
 class Feedback extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-        value: 0
+      service: 1,
+      technician: 1,
+      quality: 1,
     };
-}
+  }
 
-onChange(e) {
-  const newVal = (e.target.value);
-  this.setState({value: newVal});
-  console.log(newVal)
-}
+  handleServiceChange = (e) => {
+    e.preventDefault();
+    let { value } = e.target;
+    this.state.service = value;
+    console.log("service : " + value);
+  };
 
+  handleTechnicianChange = (e) => {
+    e.preventDefault();
+    let { value } = e.target;
+    this.state.technician = value;
+    console.log("technician:" + value);
+  };
+
+  handleQualityChange = (e) => {
+    e.preventDefault();
+    let { value } = e.target;
+    this.state.quality = value;
+    console.log("quality:" + value);
+  };
   render() {
     return (
       <Aux>
         <p>Feedback</p>
         <div className="container feedback">
-          <div className="row shadow-lg p-0 mb-5 bg-light rounded justify-content-center">
-            <div className="col-md-10  mt-2 HeadingSection">
+          <div className="row justify-content-center">
+            <div className="col-md-7  mt-2 HeadingSection">
               <h2>Ticket Feedback Form</h2>
               <p>
                 Please feel free to rate our service so we can improve our
                 day-to-day services
               </p>
             </div>
-            <Box className="redDivider col-md-11"></Box>
-            <div className="col-md-10 mt-3 OverallSection">
+            
+            <Box className="redDivider col-md-8"></Box>
+            <div className="col-md-7 mt-3 OverallSection">
               <h3>Please rate our Overall Service</h3>
               <div>
-                <Typography id="discrete-slider-custom" gutterBottom>
-                  Rate from 1 to 10. 1 Being Terrible and 10 Being Perfect
-                </Typography>
-                <Slider
-                  defaultValue={0}
-                  aria-labelledby="discrete-slider-custom"
-                  step={1}
-                  marks={marks}
-                  max={10}
-                />
+                <div className="container justify-content-center">
+                  <div className="row justify-content-center">
+                    <FormControl
+                      component="fieldset"
+                      className="justify-content-center"
+                    >
+                      <RadioGroup
+                        className="justify-content-center"
+                        row
+                        onChange={this.handleServiceChange}
+                        aria-label="position"
+                        name="position"
+                        defaultValue="1"
+                      >
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="1"
+                            control={<Radio color="primary" />}
+                            label="1"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="2"
+                            control={<Radio color="primary" />}
+                            label="2"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="3"
+                            control={<Radio color="primary" />}
+                            label="3"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="4"
+                            control={<Radio color="primary" />}
+                            label="4"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="5"
+                            control={<Radio color="primary" />}
+                            label="5"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                      </RadioGroup>
+                    </FormControl>
+                  </div>
+                </div>
               </div>
             </div>
-            <Box className="blackDivider col-md-11"></Box>
-            <div className="col-md-10 mt-3 TecSection">
+
+            <div className="col-md-7 mt-3 TecSection">
               <h3>Please rate the Technician Service</h3>
               <div>
-                <Typography id="discrete-slider-custom" gutterBottom>
-                  Rate from 1 to 10. 1 Being Terrible and 10 Being Perfect
-                </Typography>
-                <Slider
-                  defaultValue={0}
-                  aria-labelledby="discrete-slider-custom"
-                  step={1}
-                  marks={marks}
-                  max={10}
-                />
+                <div className="container justify-content-center">
+                  <div className="row justify-content-center">
+                    <FormControl
+                      component="fieldset"
+                      className="justify-content-center"
+                    >
+                      <RadioGroup
+                        className="justify-content-center"
+                        row
+                        onChange={this.handleTechnicianChange}
+                        aria-label="position"
+                        name="position"
+                        defaultValue="1"
+                      >
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="1"
+                            control={<Radio color="primary" />}
+                            label="1"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="2"
+                            control={<Radio color="primary" />}
+                            label="2"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="3"
+                            control={<Radio color="primary" />}
+                            label="3"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="4"
+                            control={<Radio color="primary" />}
+                            label="4"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="5"
+                            control={<Radio color="primary" />}
+                            label="5"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                      </RadioGroup>
+                    </FormControl>
+                  </div>
+                </div>
               </div>
             </div>
-            <Box className="blackDivider col-md-11"></Box>
-            <div className="col-md-10 mt-3 QualitySection">
+
+            <div className="col-md-7 mt-3 QualitySection justify-content-center">
               <h3>Please rate the level of Quality Recieved</h3>
               <div>
-                <Typography id="discrete-slider-custom" gutterBottom>
-                  Rate from 1 to 10. 1 Being Terrible and 10 Being Perfect
-                </Typography>
-                <Slider
-                  defaultValue={0}
-                  aria-labelledby="discrete-slider-custom"
-                  step={1}
-                  max={10}
-                  marks={marks}
-                />
+                <div className="container justify-content-center">
+                  <div className="row justify-content-center">
+                    <FormControl
+                      component="fieldset"
+                      className="justify-content-center"
+                    >
+                      <RadioGroup
+                        className="justify-content-center"
+                        row
+                        onChange={this.handleQualityChange}
+                        aria-label="position"
+                        name="position"
+                        defaultValue="1"
+                      >
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="1"
+                            control={<Radio color="primary" />}
+                            label="1"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="2"
+                            control={<Radio color="primary" />}
+                            label="2"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="3"
+                            control={<Radio color="primary" />}
+                            label="3"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="4"
+                            control={<Radio color="primary" />}
+                            label="4"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                        <div className="col-md-2 justify-content-center text-center">
+                          <FormControlLabel
+                            className="test"
+                            value="5"
+                            control={<Radio color="primary" />}
+                            label="5"
+                            labelPlacement="bottom"
+                          />
+                        </div>
+                      </RadioGroup>
+                    </FormControl>
+                  </div>
+                </div>
               </div>
             </div>
-            <Box className="blackDivider col-md-11"></Box>
-            <div className="col-md-10 mt-3 CommentSection">
+            <Box className="redDivider col-md-7"></Box>
+            <div className="col-md-7 mt-3 CommentSection">
               <p>Rate Quality of service</p>
             </div>
-            <Box className="redDivider col-md-11"></Box>
-            <div className="col-md-10 mt-3 ButtonSection">
+            <Box className="redDivider col-md-7"></Box>
+            <div className="col-md-7 mt-3 ButtonSection">
               <p>Button Section</p>
             </div>
           </div>
