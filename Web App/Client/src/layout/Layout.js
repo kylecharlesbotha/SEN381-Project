@@ -9,6 +9,7 @@ import Home from "../components/Home/Home";
 import "font-awesome/css/font-awesome.min.css";
 import AgentPortalPrivateRoute from "../components/Routes/AgentPortalPrivateRoute";
 import AgentPortalPrivateScreen from "../components/Screens/AgentPortalPrivateScreen";
+import ForgotPassword from "../components/Password/Forgot/Forgot";
 class Layout extends Component {
   render() {
     return (
@@ -28,6 +29,7 @@ class Layout extends Component {
               path="/ClientPortalDashboard"
               component={ClientPortalDashboard}
             />
+            <Route path="/Password/Forgot/Email" component={ForgotPassword} />
             <Route path="/Feedback" component={Feedback} />
           </Switch>
         </Aux>

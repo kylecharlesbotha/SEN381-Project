@@ -2,14 +2,15 @@ import React from "react";
 import Aux from "../../../hoc/Auxillary";
 import "./Feedback.css";
 import { Box } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import Slider from "@material-ui/core/Slider";
+import TextField from "@material-ui/core/TextField";
 
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
+
+import Arrow from "../../../assets/images/arrow.png";
 
 class Feedback extends React.Component {
   constructor(props) {
@@ -44,7 +45,6 @@ class Feedback extends React.Component {
   render() {
     return (
       <Aux>
-        <p>Feedback</p>
         <div className="container feedback">
           <div className="row justify-content-center">
             <div className="col-md-7  mt-2 HeadingSection">
@@ -54,10 +54,10 @@ class Feedback extends React.Component {
                 day-to-day services
               </p>
             </div>
-            
+
             <Box className="redDivider col-md-8"></Box>
             <div className="col-md-7 mt-3 OverallSection">
-              <h3>Please rate our Overall Service</h3>
+              <h4>Please rate our Overall Service</h4>
               <div>
                 <div className="container justify-content-center">
                   <div className="row justify-content-center">
@@ -126,7 +126,7 @@ class Feedback extends React.Component {
             </div>
 
             <div className="col-md-7 mt-3 TecSection">
-              <h3>Please rate the Technician Service</h3>
+              <h4>Please rate the Technician Service</h4>
               <div>
                 <div className="container justify-content-center">
                   <div className="row justify-content-center">
@@ -195,7 +195,7 @@ class Feedback extends React.Component {
             </div>
 
             <div className="col-md-7 mt-3 QualitySection justify-content-center">
-              <h3>Please rate the level of Quality Recieved</h3>
+              <h4>Please rate the level of Quality Recieved</h4>
               <div>
                 <div className="container justify-content-center">
                   <div className="row justify-content-center">
@@ -262,13 +262,33 @@ class Feedback extends React.Component {
                 </div>
               </div>
             </div>
-            <Box className="redDivider col-md-7"></Box>
+            <Box className="redDivider col-md-7 mt-3"></Box>
             <div className="col-md-7 mt-3 CommentSection">
-              <p>Rate Quality of service</p>
+              <h4>Please provide a comment</h4>
+              <TextField
+                id="standard-multiline-static Message"
+                label="Comment"
+                multiline
+                required
+                name="Message"
+                variant="outlined"
+                className="form-control lblHeader"
+                size="small"
+                rowsMax={3}
+                color="secondary"
+              />
             </div>
-            <Box className="redDivider col-md-7"></Box>
-            <div className="col-md-7 mt-3 ButtonSection">
-              <p>Button Section</p>
+            <Box className="redDivider col-md-7 mt-3 "></Box>
+            <div className="col-md-7 mt-3 ButtonSection text-center">
+              <button
+                type="submit"
+                value="submit"
+                className="btn btn-dark btnsendfeedback btn-rounded"
+                onClick={this.handleSubmit}
+              >
+                Submit Feed Back
+                <img src={Arrow} className="sendfeedbackimage" alt="arrow" />
+              </button>
             </div>
           </div>
         </div>
