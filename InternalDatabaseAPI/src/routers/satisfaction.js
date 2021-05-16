@@ -3,6 +3,7 @@ const Crud = require("../models/crud");
 SatisfactionCrud = new Crud("tblSatisfaction", "SatisfactionID");
 router.get("/db/satisfaction/getSatisfactions",async(req,res,next)=>{
     try{
+        
         res.send(await SatisfactionCrud.readAll()); 
     }catch (error){
         next(error);
