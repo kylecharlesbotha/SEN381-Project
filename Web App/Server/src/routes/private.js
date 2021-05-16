@@ -1,7 +1,10 @@
 const express = require("express"); 
 const router = express.Router(); 
-const {getPrivateData, getTickets} = require("../controllers/private"); 
-const {protect} = require("../middleware/auth");
-router.route("/").get(protect,getPrivateData); 
-router.route("/data/tickets").get(protect,getTickets); 
+const {getPrivateEmployeeData, getTickets, getTicket, getSatisfactions,getClient} = require("../controllers/private"); 
+const {protectEmployeeData} = require("../middleware/auth");
+router.route("/employeeData").get(protectEmployeeData,getPrivateEmployeeData); 
+router.route("/data/tickets").get(protectEmployeeData,getTickets); 
+router.route("/data/ticket").post(protectEmployeeData,getTicket); 
+router.route("/data/satisfactions").get(protectEmployeeData,getSatisfactions); 
+router.route("/data/client").post(protectEmployeeData,getClient);
 module.exports = router;
