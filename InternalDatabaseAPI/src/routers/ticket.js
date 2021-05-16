@@ -12,7 +12,7 @@ router.get("/db/tickets/getTickets",async(req,res,next)=>{
 })
 router.post("/db/tickets/getTicket",async(req,res,next)=>{  
     try{
-        res.send(await TicketCrud.readOne(req.headers.ticketid)); 
+        res.send(await TicketCrud.readOne(req.body.ticketid)); 
     }catch (error){
         next(error);
     }
