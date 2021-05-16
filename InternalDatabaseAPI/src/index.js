@@ -8,6 +8,9 @@ const userRouter = require("./routers/user");
 const ticketRouter = require("./routers/ticket");
 const dbRouter = require("./routers/db");
 const employeeUserRouter = require("./routers/employeeUser");
+const satisfactionRouter = require("./routers/satisfaction");
+const clientUserRouter = require("./routers/clientUser");
+const clientRouter = require("./routers/client");
 require("dotenv").config({ path: __dirname + "/../.env" });
 const port = process.env.PORT || 9999;
 const con = require("./db/db.js");
@@ -18,11 +21,14 @@ app.use(morgan("dev"));
 app.use(helmet());
 app.use(express.json());
 //app.use(errMW());
+
 app.use(userRouter);
 app.use(ticketRouter);
 app.use(dbRouter);
 app.use(employeeUserRouter);
-
+app.use(satisfactionRouter);
+app.use(clientUserRouter);
+app.use(clientRouter);
 app.get("/", (req, res, next) => {
     try {
       //throw new Error("Error");
