@@ -13,4 +13,18 @@ const getAllTickets = async() => {
         return error;
     }
 }
-module.exports = getAllTickets; 
+const getTicketByID = async(TicketID) => {
+    const config = {
+        header: {
+            "Content-Type": "application/json",
+        },
+    };
+    try{
+        const { data } = await axios.post("http://localhost:9999/db/tickets/getTicket",{ticketid:TicketID}, config);
+        return data; 
+    }catch(error){
+        console.log(error);
+        return error;
+    } 
+}
+module.exports = {getAllTickets, getTicketByID}; 
