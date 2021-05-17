@@ -1080,14 +1080,16 @@ namespace PremierServiceSolutions.Pages
             CustomerContract objNewCusCon = new CustomerContract();
             try
             {
+                if((CheckNewConCus == true) && (CheckContractType == true) && (CheckFile == true) && (CheckDescription == true) && (CheckDateStart == true) && (CheckDateEnd == true))
+                    //Create Record for tblContract
                 objNewContract.ContractDescription = tbContractDescription.Text;
                 objNewContract.ContractType = lstNewContractType[cbContractType.SelectedIndex].ContractChar;
                 objNewContract.ContractState = 1;
                 objNewContract.ContractID = objNewContract.CreateContractID(objNewContract.ContractType, clientpriority);
-                MessageBox.Show(objNewContract.ContractID);
-                objNewContract.CreateContract(objNewContract); //Will send the Contract Data through, Create ID then will insert it
+                bool valcon = objNewContract.CreateContract(objNewContract); //Will send the Contract Data through, Create ID then will insert it
 
-                MessageBox.Show(tbNewContCus.Text);
+
+                //Create Record for tblCustomerRecord
                 objNewCusCon.BusinessID = 0;
                 objNewCusCon.ClientID = clientID;
                 objNewCusCon.ContractID = objNewContract.ContractID;
@@ -1095,9 +1097,8 @@ namespace PremierServiceSolutions.Pages
                 objNewCusCon.StartDate = dtpConStart.Value;
                 objNewCusCon.EndDate = dtpConEndDate.Value;
                 objNewCusCon.CustomerState = 1;
+                bool valcuscon = objNewCusCon.InsertCustomerContract(objNewCusCon);
 
-                bool valu = objNewCusCon.InsertCustomerContract(objNewCusCon);
-                MessageBox.Show(Convert.ToString(valu));
             }
             catch(Exception E)
             {
