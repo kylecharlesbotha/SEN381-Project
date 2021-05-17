@@ -30,8 +30,9 @@ class User{
             if (result.rowsAffected[0] > 1){
                 return resetToken;
             }
-            console.log("DLAKJDAWOLJDLAKDJNAKL:WDNaw");
+            
             console.dir(this.UserObj);
+            console.log(this.UserObj.resetPasswordToken, resetToken);
             saveClientPasswordResetToken(this.UserObj.ClientUserName,this.UserObj.resetPasswordToken);
             return resetToken;
         }catch{
@@ -70,6 +71,105 @@ const saveClientPasswordResetToken = async(username, token) => {
         const { data } = await axios.post(
             "http://localhost:9999/db/ClientUsers/saveUserToken",
             { UserName: username, PasswordResetToken:token},
+            config,
+        );
+        return data; 
+    }catch(error){
+        console.log(error);
+        return error;
+    }
+}
+const findOneByPasswordResetToken = async(token) => {
+    let user = null;
+    const resultFromClient = await findOneClientByPRT(token); 
+    const resultFromEmployee = await findOneEmployeeByPRT(token); 
+    if (resultFromClient.length != undefined || resultFromClient.length === 0 ){
+        user = resultFromEmployee
+    }else{
+        user = resultFromClient; 
+    }
+    return user; 
+}
+const setPassword = async (username, password) => {
+    console.log("still working")
+    let user = null;
+    const config = {
+        header: {
+            "Content-Type": "application/json",
+        },
+    };
+    
+    const resultFromClient = await findOneClient(username); 
+    const resultFromEmployee = await findOneEmployee(username); 
+    const salt = await bcrypt.genSalt(8); 
+    let pwd = await bcrypt.hash(password, salt);
+       
+    
+    
+    
+   
+    if (resultFromClient.length != undefined || resultFromClient.length === 0 ){
+        try{
+        console.log("EMP")
+
+            const { data } = await axios.post(
+                "http://localhost:9999/db/EmployeeUsers/setPassword",
+                { username, password:pwd },
+                config,
+            );
+            console.log("still going")
+            return data; 
+        }catch(error){
+            console.log(error);
+            return error;
+        }
+    }else{
+        console.log("client")
+        try{
+            const { data } = await axios.post(
+                "http://localhost:9999/db/ClientUsers/setPassword",
+                { username, password:pwd },
+                config,
+            );
+            console.log("still going")
+            return data; 
+        }catch(error){
+            console.log(error);
+            return error;
+        }
+    }
+    return user; 
+}
+const findOneEmployeeByPRT = async(token) => {
+    console.log(`Finding employee with token ${token}`); 
+    const config = {
+        header: {
+            "Content-Type": "application/json",
+        },
+    };
+    try{
+        const { data } = await axios.post(
+            "http://localhost:9999/db/EmployeeUsers/getUserByPasswordResetToken",
+            { PasswordResetToken: token },
+            config,
+        );
+        return data; 
+    }catch(error){
+        console.log(error);
+        return error;
+    }
+}
+const findOneClientByPRT = async(token) => {
+    console.log(`Finding client with toekn ${token}`); 
+    const config = {
+        header: {
+            "Content-Type": "application/json",
+        },
+    };
+    try{
+        const { data } = await axios.post(
+            "http://localhost:9999/db/ClientUsers/getUserByPasswordResetToken",
+            { PasswordResetToken: token },
             config,
         );
         return data; 
@@ -154,4 +254,4 @@ const findClientById = async(id) => {
     }
 }
 
-module.exports = {User, findOneEmployee, findOneClient, findEmployeeById, findClientById}; 
+module.exports = {User, findOneEmployee, findOneClient, findEmployeeById, findClientById, findOneByPasswordResetToken, setPassword}; 
