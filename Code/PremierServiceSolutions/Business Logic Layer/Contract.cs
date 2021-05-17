@@ -83,76 +83,6 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             return base.GetHashCode();
         }
 
-        public string CreateContractID(Client objClient,Contract objContract)
-        {
-            List<ContractType> lsAll = objConType.GetAllContractTypes();
-            string DateYear = Convert.ToString(DateTime.Now.Year);
-            bool validated = false;
-            while (validated == false)
-            {
-                string ContractType = null;
-                string ContractID = DateYear;
-
-                int ClientImportance = objClient.ClientPriority;
-                string ClientImp = null;
-
-                foreach (ContractType conitem in lsAll)
-                {
-                    if (objContract.contractType == conitem.ContractName)
-                    {
-                        ContractType = conitem.ContractChar;
-                    }
-                }
-                ContractID += ContractType;
-                switch (ClientImportance)
-                {
-                    case 1:
-                        {
-                            ClientImp = "D";
-                            break;
-                        }
-                    case 2:
-                        {
-                            ClientImp = "C";
-                            break;
-                        }
-                    case 3:
-                        {
-                            ClientImp = "B";
-                            break;
-                        }
-                    case 4:
-                        {
-                            ClientImp = "A";
-                            break;
-                        }
-                    default:
-                        break;
-                }
-                ContractID += ClientImp;
-
-                //Will get random int value between 1 and 99999999
-                Random rnd = new Random();
-                int number = rnd.Next(1, 999999);
-                string ContractNumber = Convert.ToString(number);
-
-                //Padding the number by 0 to the lenght of 8
-                ContractNumber = (ContractNumber.PadLeft(6, '0'));
-
-                ContractID += ContractNumber;
-
-                if (objConDH.GetByID(ContractID)==0)
-                {
-                    validated = true;
-                    return ContractID;
-                }
-
-                
-            }
-            return null;
-
-
-        }
 
         public List<Contract> GetContractRecords()
         {
@@ -221,51 +151,77 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             }
         }
 
-        private string CreateContractID(string ContractTypeNew, int ClientPriorityNew)
+        public bool CreateContract(Contract objCon)
+        {
+            bool submitted = false;
+            try
+            {
+               submitted = objConDH.Create(objCon);
+                return submitted;
+            }
+            catch(Exception E)
+            {
+                System.Windows.Forms.MessageBox.Show(E.Message);
+                return submitted;
+            }
+        }
+
+        public string CreateContractID(string ContractTypeNew, int ClientPriorityNew)
         {
             string ContractIDNew = "";
+            bool validated = false;
             try 
             {
-                StringBuilder sb = new StringBuilder();
-                int year = DateTime.Now.Year; //Get the year the contract was created
-                sb.Append(Convert.ToString(year));
-                sb.Append(ContractTypeNew);
-                switch (ClientPriorityNew)
+                while (validated == false)
                 {
-                    case 1:
-                        {
-                            sb.Append("D");
+                    StringBuilder sb = new StringBuilder();
+                    int year = DateTime.Now.Year; //Get the year the contract was created
+                    sb.Append(Convert.ToString(year));
+                    sb.Append(ContractTypeNew);
+                    switch (ClientPriorityNew)
+                    {
+                        case 1:
+                            {
+                                sb.Append("D");
+                                break;
+                            }
+                        case 2:
+                            {
+                                sb.Append("C");
+                                break;
+                            }
+                        case 3:
+                            {
+                                sb.Append("B");
+                                break;
+                            }
+                        case 4:
+                            {
+                                sb.Append("A");
+                                break;
+                            }
+                        default:
                             break;
-                        }
-                    case 2:
-                        {
-                            sb.Append("C");
-                            break;
-                        }
-                    case 3:
-                        {
-                            sb.Append("B");
-                            break;
-                        }
-                    case 4:
-                        {
-                            sb.Append("A");
-                            break;
-                        }
-                    default:
-                        break;
+                    }
+
+                    //Will get random int value between 1 and 99999999
+                    Random rnd = new Random();
+                    int number = rnd.Next(1, 999999);
+                    string PaddNumber = Convert.ToString(number);
+
+                    //Padding the number by 0 to the lenght of 6
+                    PaddNumber = (PaddNumber.PadLeft(6, '0'));
+
+                    sb.Append(PaddNumber);
+                    ContractIDNew = sb.ToString();
+
+                    if (objConDH.GetByID(ContractID) == 0)
+                    {
+                        validated = true;
+                        return ContractIDNew;
+                    }
+
                 }
-
-                //Will get random int value between 1 and 99999999
-                Random rnd = new Random();
-                int number = rnd.Next(1, 99999999);
-                string PaddNumber = Convert.ToString(number);
-
-                //Padding the number by 0 to the lenght of 6
-                PaddNumber = (PaddNumber.PadLeft(6, '0'));
-
-                sb.Append(PaddNumber);
-                ContractIDNew = sb.ToString();
                 return ContractIDNew;
             }
             catch(Exception E)
