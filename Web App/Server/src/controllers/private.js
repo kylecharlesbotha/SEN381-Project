@@ -1,5 +1,5 @@
 const {getAllTickets, getTicketByID} = require("../models/Ticket");
-const getAllSatisfactions = require("../models/Satisfaction");
+const {getAllSatisfactions,addOneSatisfaction} = require("../models/Satisfaction");
 const getClientByID = require("./../models/Client");
 const getPrivateEmployeeData = (req,res,next) => {
     res.status(200).json({
@@ -44,4 +44,12 @@ const getClient = async(req,res,next) => {
         data: client
     })
 }
-module.exports = {getPrivateEmployeeData, getPrivateClientData, getTickets, getTicket, getSatisfactions, getClient}
+const addSatisfactions = async(req,res,next) => {
+    const satisfaction = await addOneSatisfaction(req.body.satisfaction);
+    res.status(200).json({
+        success: true, 
+        data: satisfaction
+    })
+}
+
+module.exports = {getPrivateEmployeeData, getPrivateClientData, getTickets, getTicket, getSatisfactions, getClient, addSatisfactions}
