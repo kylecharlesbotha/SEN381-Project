@@ -39,8 +39,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 {
                     objRecord.CustomerContractID = (int)sqlDataReader.GetValue(0);
                     objRecord.BusinessID = (int)sqlDataReader.GetValue(1);
-                    objRecord.ClientID = (int)sqlDataReader.GetValue(2);
-                    objRecord.ContractID = (int)sqlDataReader.GetValue(3);
+                    objRecord.ClientID = (string)sqlDataReader.GetValue(2);
+                    objRecord.ContractID = (string)sqlDataReader.GetValue(3);
                     objRecord.CustomerContractStatus = (string)sqlDataReader.GetValue(4);
                 }
                 //Close connection to database
@@ -61,41 +61,27 @@ namespace PremierServiceSolutions.Data_Access_Layer
         {
             try
             {
-                //Checking if the CustomerContract already exists
-                int CusConVal = Find(objCusCon);
-                if (CusConVal == 1)
-                {
-                    //If it finds a CustomerContract with same details return message saying CustomerContract already exists
-                    MessageBox.Show("CustomerContract Already Exists");
-                    return false;
-                }
-                else if (CusConVal == 0)
-                {
-                    //If CustomerContract does not exist then check if the Employee Record exists
-                    if (CheckTables(objCusCon) == true)
-                    {
-                        SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                        string InsertQuery = string.Format(@"INSERT INTO tblCustomerContract (BusinessID, ClientID, ContractID, CustomerContractStatus, StartDate, EndDate, CustomerState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
-                            objCusCon.BusinessID,
-                            objCusCon.ClientID,
-                            objCusCon.ContractID,
-                            objCusCon.CustomerContractStatus,
-                            objCusCon.StartDate,
-                            objCusCon.EndDate,
-                            objCusCon.CustomerState
-                            );
-                        SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
-                        sqlCon.Open();
-                        InsertCommand.ExecuteNonQuery();
-                        sqlCon.Close();
-                        return true;
-
-                    }
-                }
-                return false;
+      
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                string InsertQuery = string.Format(@"INSERT INTO tblCustomerContract (BusinessID, ClientID, ContractID, CustomerContractStatus, StartDate, EndDate, CustomerState) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",
+                    objCusCon.BusinessID,
+                    objCusCon.ClientID,
+                    objCusCon.ContractID,
+                    objCusCon.CustomerContractStatus,
+                   
+                objCusCon.StartDate.ToString("yyyy-MM-dd"),
+                    objCusCon.EndDate.ToString("yyyy-MM-dd"),
+                    objCusCon.CustomerState
+                    );
+                SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
+                sqlCon.Open();
+                InsertCommand.ExecuteNonQuery();
+                sqlCon.Close();
+                return true;
             }
             catch (SqlException SQLE)
             {
+                MessageBox.Show(SQLE.Message);
                 return false;
             }
             throw new NotImplementedException();
@@ -188,8 +174,8 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     allCusContracts.Add(new CustomerContract(
                         (int)sqlDataReader.GetValue(0),
                         (int)sqlDataReader.GetValue(1),
-                        (int)sqlDataReader.GetValue(2),
-                        (int)sqlDataReader.GetValue(3),
+                        (string)sqlDataReader.GetValue(2),
+                        (string)sqlDataReader.GetValue(3),
                         (string)sqlDataReader.GetValue(5),
                         (DateTime)sqlDataReader.GetValue(6),
                         (DateTime)sqlDataReader.GetValue(7),
@@ -255,7 +241,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                 //New SQL Connection which the query will use to perform the Select of tblClient
                 SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
                 //Select Query which will store the SQL qeury needed to return all the Clients
-                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblClient WHERE ClientID = '{0}'", objCusCon.ClientID);
+                string SelectQuery = string.Format("SELECT COUNT(*) FROM tblClient WHERE ClientIDNumber = '{0}'", objCusCon.ClientID);
                 //New Command which will take in the sqlCon and UpdateQuery var
                 SqlCommand sqlCommand = new SqlCommand(SelectQuery, sqlCon);
                 //Open the connection to the database
@@ -320,7 +306,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             catch (SqlException SQLE)
             {
                 //Will catch any errors that occur and will display a error message. it will also return a false value
-                MessageBox.Show("Error has occured");
+                MessageBox.Show(SQLE.Message);
                 return false;
             }
             throw new NotImplementedException();
