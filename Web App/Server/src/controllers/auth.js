@@ -1,6 +1,6 @@
-const {User, findOneEmployee, findOneClient} = require('../models/User'); 
+const {User, findOneEmployee, findOneClient, findOneByPasswordResetToken, setPassword} = require('../models/User'); 
 const ErrorResponse = require('../utils/errorResponse');
-
+const crypto = require("crypto"); 
 exports.register = async (req, res, next) => {
     const {username, email, password} = req.body;
     try{
@@ -89,8 +89,8 @@ exports.forgotpassword = async(req, res, next) => {
         };
         const resetToken = await user.getResetPasswordToken(); 
         
-
-        const resetUrl = `http:localhost:${process.env.FRONTEND_PORT}/passwordreset/${resetToken}`;
+        const resetUrl = `http://localhost:3001/passwordreset/${resetToken}`;
+        console.log(resetUrl);
          
         const message = `
         <h1>Password Reset Link</h1>
@@ -115,6 +115,25 @@ exports.forgotpassword = async(req, res, next) => {
         return next(error);
     }
 
+}
+exports.resetpassword = async (req,res,next) => {
+    const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest("hex"); 
+    try{
+        const userOBJ = await findOneByPasswordResetToken(resetPasswordToken);
+        const user = new User(userOBJ); 
+        
+        if (!user){
+            return next(new ErrorResponse("Invalid password reset token", 400)); 
+        };
+        //save new pwd and reset token to null  Client
+        console.dir(user.UserObj);
+        
+        setPassword(user.UserObj.ClientUserName, req.body.password);
+        // await user.save(); 
+        res.status(201).json({success: true, data: "Password has been reset succesfully."})
+    }catch(error){
+        next(error);
+    }
 }
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken();
