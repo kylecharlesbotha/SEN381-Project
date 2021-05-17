@@ -8,6 +8,33 @@ const findOneByUsername = async (username) => {
     const data = await execSQL(sql); 
     return data;  
 }
+router.post("/db/ClientUsers/setPassword", async (req,res,next) => {
+    try{
+        const sql = `UPDATE tblClientUsers SET ClientPassWord='${req.body.password}' WHERE ClientUserName='${req.body.username}'`;
+        console.log(sql);
+        const data = await execSQL(sql);
+        
+        console.dir(data);
+        res.send(data); 
+    }catch (error){
+        next(error);
+    }  
+})
+const findOneByPasswordResetToken = async (token) => {
+    const sql = `SELECT * FROM ${ClientUserCrud.tblName} WHERE ClientPasswordResetToken='${token}'`
+    console.log(sql)
+    const data = await execSQL(sql); 
+    return data;  
+}
+router.post("/db/ClientUsers/getUserByPasswordResetToken", async (req,res,next) => {
+    try{
+        const user = await findOneByPasswordResetToken(req.body.PasswordResetToken);
+        console.dir(user)
+        res.send(user.recordset[0]); 
+    }catch (error){
+        next(error);
+    }  
+})
 router.get("/db/ClientUsers/getUsers",async(req,res,next)=>{
     try{
         res.send(await ClientUserCrud.readAll());  
