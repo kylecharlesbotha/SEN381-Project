@@ -7,6 +7,6 @@ const {register, loginEmployee,loginClient, forgotpassword, resetpassword} = req
 router.route("/loginEmployee").post(loginEmployee);
 router.route("/loginClient").post(loginClient);
 router.route("/forgotpassword").post(forgotpassword);
-//router.route("/resetpassword/:resetToken").post(resetpassword);
+router.route("/resetpassword/:resetToken").post(resetpassword);
 
 module.exports = router; 
