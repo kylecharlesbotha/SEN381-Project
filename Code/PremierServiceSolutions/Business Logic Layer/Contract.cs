@@ -83,6 +83,22 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             return base.GetHashCode();
         }
 
+        public bool UploadContract(string filepath,string ContractName)
+        {
+            bool submitted = false;
+            try
+            {
+                objConDH.UpdateFileStream(filepath,ContractName);
+
+                return submitted;
+            }
+            catch(Exception E)
+            {
+                System.Windows.Forms.MessageBox.Show("Uploadcontract method" + E.Message);
+                return submitted;
+            }
+        }
+
 
         public List<Contract> GetContractRecords()
         {
