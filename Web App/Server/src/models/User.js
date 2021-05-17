@@ -1,5 +1,6 @@
 const axios = require("axios");
 const bcrypt = require("bcryptjs");
+const crypto = require("crypto"); 
 const jwt = require("jsonwebtoken");
 class User{
     constructor(UserObj){
@@ -18,6 +19,63 @@ class User{
     } 
     getSignedToken(){
         return jwt.sign({id: this.UserObj.UserID}, process.env.JWT_SECRET);
+    }
+    async getResetPasswordToken(){
+        
+        const resetToken = crypto.randomBytes(20).toString("hex");
+        this.UserObj.resetPasswordToken = crypto.createHash("sha256").update(resetToken).digest("hex"); 
+        try{
+            let result = await saveEmployeePasswordResetToken(this.UserObj.UserName,this.UserObj.resetPasswordToken);
+            console.log(typeof(result.rowsAffected[0]))
+            if (result.rowsAffected[0] > 1){
+                return resetToken;
+            }
+            console.log("DLAKJDAWOLJDLAKDJNAKL:WDNaw");
+            console.dir(this.UserObj);
+            saveClientPasswordResetToken(this.UserObj.ClientUserName,this.UserObj.resetPasswordToken);
+            return resetToken;
+        }catch{
+
+        }
+
+        
+    }
+
+}
+const saveEmployeePasswordResetToken = async(username, token) => {
+    const config = {
+        header: {
+            "Content-Type": "application/json",
+        },
+    };
+    try{
+        const { data } = await axios.post(
+            "http://localhost:9999/db/EmployeeUsers/saveUserToken",
+            { UserName: username, PasswordResetToken:token},
+            config,
+        );
+        return data; 
+    }catch(error){
+        console.log(error);
+        return error;
+    }
+}
+const saveClientPasswordResetToken = async(username, token) => {
+    const config = {
+        header: {
+            "Content-Type": "application/json",
+        },
+    };
+    try{
+        const { data } = await axios.post(
+            "http://localhost:9999/db/ClientUsers/saveUserToken",
+            { UserName: username, PasswordResetToken:token},
+            config,
+        );
+        return data; 
+    }catch(error){
+        console.log(error);
+        return error;
     }
 }
 const findOneEmployee = async(username) => {
@@ -52,6 +110,7 @@ const findOneClient = async(username) => {
             { UserName: username },
             config,
         );
+        console.log(username);
         return data; 
     }catch(error){
         console.log(error);
@@ -90,8 +149,9 @@ const findClientById = async(id) => {
         );
         return data; 
     }catch(error){
-        console.log(error);
+        console.log("find client err: " + error);
         next(error);
     }
 }
+
 module.exports = {User, findOneEmployee, findOneClient, findEmployeeById, findClientById}; 

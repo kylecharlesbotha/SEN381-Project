@@ -84,14 +84,14 @@ exports.forgotpassword = async(req, res, next) => {
         //
         const user = new User(userobj);
         console.dir(user)
-        if (!user){
+        if (!user){ 
             return next(new ErrorResponse("Username Error",404)); 
         };
         const resetToken = await user.getResetPasswordToken(); 
         
 
         const resetUrl = `http:localhost:${process.env.FRONTEND_PORT}/passwordreset/${resetToken}`;
-        console.log(resetUrl);
+         
         const message = `
         <h1>Password Reset Link</h1>
         <a href=${resetUrl} clicktracking=off>${resetUrl}></a>
