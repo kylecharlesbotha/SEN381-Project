@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 	modalWrapper: {
 		width: "90vw",
 		height: "80vh",
+		overflow: "auto",
 		boxShadow: "0 5px 16px rgba(0,0,0,0.1)",
 		background: "#fff",
 		display: "grid",
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 		position: "relative",
 		zIndex: "10",
 		borderRadius: "10px",
+		//backgroundColor: colors.blue[200],
 	},
 	modalImg: {
 		width: "100%",
@@ -110,6 +112,22 @@ const useStyles = makeStyles((theme) => ({
 		height: "13px",
 		paddingLeft: "11px",
 	},
+	headings: {
+		fontFamily: "Inter",
+		fontStyle: "normal",
+		//fontSize: "17px",
+		// /fontHeight: "10px",
+		marginLeft: "0px",
+		paddingLeft: "0px",
+		marginBottom: "15px",
+		textAlign: "left",
+		letterSpacing: "-0.09em",
+		color: "black",
+		height: "13px",
+		paddingLeft: "11px",
+		textDecoration: "underline",
+		fontWeight: "500",
+	},
 }));
 const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 	const [error, setError] = useState([]);
@@ -125,7 +143,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 		try {
 			axios
 				.post(
-					"http://41.1.129.59:3001/api/private/data/ticket",
+					"http://41.1.77.120:3001/api/private/data/ticket",
 					{ TicketID: satisfactionOBJ.TicketID },
 					config,
 				)
@@ -133,7 +151,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 					setTicket(res.data.data.recordset[0]);
 					axios
 						.post(
-							"http://41.1.129.59:3001/api/private/data/client",
+							"http://41.1.77.120:3001/api/private/data/client",
 							{ ClientID: res.data.data.recordset[0].ClientID },
 							config,
 						)
@@ -160,7 +178,10 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 							<div className="container">
 								<div className="row">
 									<div className={`col-md-6  ${classes.satisfcationDetails}`}>
-										<h3>Satisfcation Details</h3>
+										<h3 className={`${classes.headings}`}>
+											Satisfcation Details
+										</h3>
+
 										<p className={`${classes.ratings}`}>
 											SatisfactionID: {satisfactionOBJ.SatisfactionID}
 										</p>
@@ -185,7 +206,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 										</p>
 									</div>
 									<div className={`col-md-6 ${classes.ticketDetails}`}>
-										<h3>Ticket Details</h3>
+										<h3 className={`${classes.headings}`}>Ticket Details</h3>
 										<p className={`${classes.ticketText}`}>
 											Title: {ticket.TicketTitle}
 										</p>
@@ -208,7 +229,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 								</div>
 								<div className="row">
 									<div className={`col-md-6 ${classes.clientDetails}`}>
-										<h3>Client Details</h3>
+										<h3 className={`${classes.headings}`}>Client Details</h3>
 										<p className={`${classes.clientText}`}>
 											ID: {client.ClientID}
 										</p>
@@ -232,7 +253,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 										</p>
 									</div>
 									<div className={`col-md-6 ${classes.contactClient}`}>
-										<h3>Contact Client</h3>
+										<h3 className={`${classes.headings}`}>Contact Client</h3>
 									</div>
 								</div>
 							</div>
