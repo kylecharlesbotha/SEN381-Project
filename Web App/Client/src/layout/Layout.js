@@ -31,7 +31,7 @@ class Layout extends Component {
               component={ClientPortalDashboard}
             />
             <Route path="/Password/Forgot/Email" component={ForgotPassword} />
-            <Route path="/Password/Reset" component={ResetPassword} />
+            <Route path="/Password/Reset/:resetToken" component={ResetPassword} />
             <Route path="/Feedback" component={Feedback} />
           </Switch>
         </Aux>
