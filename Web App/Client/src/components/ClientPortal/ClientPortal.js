@@ -67,7 +67,7 @@ const ClientPortal = ({ history }) => {
 
     try {
       const { data } = await axios.post(
-        "http://41.1.129.59:3001/api/auth/loginClient",
+        "http://41.1.77.120:3001/api/auth/loginClient",
         { UserName: username, UserPassword: password },
         config
       );

@@ -39,7 +39,7 @@ const SatisfactionPage = (props) => {
         };
         try { 
             axios.get(
-                "http://41.1.129.59:3001/api/private/data/satisfactions",
+                "http://41.1.77.120:3001/api/private/data/satisfactions",
                 config
             ).then(res => {
                 console.dir(res.data.data.recordset); 
