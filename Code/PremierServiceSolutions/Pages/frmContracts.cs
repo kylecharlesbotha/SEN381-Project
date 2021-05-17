@@ -37,6 +37,8 @@ namespace PremierServiceSolutions.Pages
         byte[] ContractPath;
         private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
         private string FullPath;
+        private int clientpriority;
+        private string clientID;
 
         //Variables for frmNewContract
         bool CheckNewConCus = false;
@@ -63,6 +65,9 @@ namespace PremierServiceSolutions.Pages
             LoadNewContracts();
             lstClient = objClient.GetAll();
             flpSearchResults.BringToFront();
+            DateTime currentdate = new DateTime();
+            currentdate = DateTime.Now;
+            dtpConStart.MinDate = currentdate;
         }
         #region Loading Data for New Contracts
         private void LoadNewContracts()
@@ -590,6 +595,7 @@ namespace PremierServiceSolutions.Pages
         private void btnAddContract_Click(object sender, EventArgs e)
         {
             pnlNewContract.Visible = true;
+            pnlContractDetails.Visible = false;
             btnReset_Click(null,null);
         }
 
@@ -649,7 +655,7 @@ namespace PremierServiceSolutions.Pages
         #endregion
 
 
-        #region Search Methods new Contract
+        #region Search Client new Contract
         private void tbNewConCusSearc_TextChanged(object sender, EventArgs e)
         {
             if (tbNewConCusSearc.Text == "Start Typing CustomerID/Name")
@@ -677,6 +683,8 @@ namespace PremierServiceSolutions.Pages
                         if ((item.ClientIDNumber.ToLower().StartsWith(Text)) || (item.PersonName.ToLower().StartsWith(Text)))
                         {
                             CreateSearchEntry(item.PersonName, item.ClientIDNumber);
+                            clientpriority = item.ClientPriority;
+                            clientID = item.ClientID;
                             found = true;
                         }
                     }
@@ -870,7 +878,7 @@ namespace PremierServiceSolutions.Pages
         }
 
 
-        #endregion new Co
+        #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -1010,15 +1018,14 @@ namespace PremierServiceSolutions.Pages
         private void dtpConStart_ValueChanged(object sender, EventArgs e)
         {
             DateTime setDate = dtpConStart.Value;
-            DateTime currentdate = new DateTime();
-            currentdate = DateTime.Now;
-            dtpConStart.MinDate = currentdate;
+           
             setDate = setDate.AddMonths(3);
             dtpConEndDate.MinDate = setDate;
 
             CheckDateStart = true;
             lblNewContStartCheck.Text = "";
             pbNewContStartCheck.Image = Properties.Resources.checkmark;
+
         }
 
         #endregion
@@ -1066,5 +1073,36 @@ namespace PremierServiceSolutions.Pages
             bool CheckDateEnd = false;
         }
         #endregion
+
+        private void btnCreateContract_Click(object sender, EventArgs e)
+        {
+            Contract objNewContract = new Contract();
+            CustomerContract objNewCusCon = new CustomerContract();
+            try
+            {
+                objNewContract.ContractDescription = tbContractDescription.Text;
+                objNewContract.ContractType = lstNewContractType[cbContractType.SelectedIndex].ContractChar;
+                objNewContract.ContractState = 1;
+                objNewContract.ContractID = objNewContract.CreateContractID(objNewContract.ContractType, clientpriority);
+                MessageBox.Show(objNewContract.ContractID);
+                objNewContract.CreateContract(objNewContract); //Will send the Contract Data through, Create ID then will insert it
+
+                MessageBox.Show(tbNewContCus.Text);
+                objNewCusCon.BusinessID = 0;
+                objNewCusCon.ClientID = clientID;
+                objNewCusCon.ContractID = objNewContract.ContractID;
+                objNewCusCon.CustomerContractStatus = "In Progress";
+                objNewCusCon.StartDate = dtpConStart.Value;
+                objNewCusCon.EndDate = dtpConEndDate.Value;
+                objNewCusCon.CustomerState = 1;
+
+                bool valu = objNewCusCon.InsertCustomerContract(objNewCusCon);
+                MessageBox.Show(Convert.ToString(valu));
+            }
+            catch(Exception E)
+            {
+
+            }
+        }
     }
 }
