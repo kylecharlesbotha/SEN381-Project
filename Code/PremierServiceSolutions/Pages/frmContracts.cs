@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -627,7 +628,7 @@ namespace PremierServiceSolutions.Pages
             var fileContent = string.Empty;
             var filePath = string.Empty;
 
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using (OpenFileDialog openFileDialog = new OpenFileDialog() { Multiselect = false, ValidateNames = true })
             {
                 openFileDialog.InitialDirectory = "c:\\";
                 openFileDialog.Filter = "Pdf Files|*.pdf";
@@ -636,6 +637,12 @@ namespace PremierServiceSolutions.Pages
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    FileInfo fi = new FileInfo(openFileDialog.FileName);
+                    _inputParameter.Server = "ftp://flystudio.co.za";
+                    _inputParameter.Username = "PSS";
+                    _inputParameter.Password = "Fr35h5t@rt2021!";
+                    _inputParameter.FileName = fi.Name;
+                    _inputParameter.FullName = fi.FullName;
                     //Get the path of specified file
                     filePath = openFileDialog.FileName;
 
@@ -1080,30 +1087,96 @@ namespace PremierServiceSolutions.Pages
             CustomerContract objNewCusCon = new CustomerContract();
             try
             {
-                if((CheckNewConCus == true) && (CheckContractType == true) && (CheckFile == true) && (CheckDescription == true) && (CheckDateStart == true) && (CheckDateEnd == true))
+                if ((CheckNewConCus == true) && (CheckContractType == true) && (CheckFile == true) && (CheckDescription == true) && (CheckDateStart == true) && (CheckDateEnd == true))
+                {
                     //Create Record for tblContract
-                objNewContract.ContractDescription = tbContractDescription.Text;
-                objNewContract.ContractType = lstNewContractType[cbContractType.SelectedIndex].ContractChar;
-                objNewContract.ContractState = 1;
-                objNewContract.ContractID = objNewContract.CreateContractID(objNewContract.ContractType, clientpriority);
-                bool valcon = objNewContract.CreateContract(objNewContract); //Will send the Contract Data through, Create ID then will insert it
+                    objNewContract.ContractDescription = tbContractDescription.Text;
+                    objNewContract.ContractType = lstNewContractType[cbContractType.SelectedIndex].ContractChar;
+                    objNewContract.ContractState = 1;
+                    objNewContract.ContractID = objNewContract.CreateContractID(objNewContract.ContractType, clientpriority);
+                    bool valcon = objNewContract.CreateContract(objNewContract); //Will send the Contract Data through, Create ID then will insert it
 
 
-                //Create Record for tblCustomerRecord
-                objNewCusCon.BusinessID = 0;
-                objNewCusCon.ClientID = clientID;
-                objNewCusCon.ContractID = objNewContract.ContractID;
-                objNewCusCon.CustomerContractStatus = "In Progress";
-                objNewCusCon.StartDate = dtpConStart.Value;
-                objNewCusCon.EndDate = dtpConEndDate.Value;
-                objNewCusCon.CustomerState = 1;
-                bool valcuscon = objNewCusCon.InsertCustomerContract(objNewCusCon);
+                    //Create Record for tblCustomerRecord
+                    objNewCusCon.BusinessID = 0;
+                    objNewCusCon.ClientID = clientID;
+                    objNewCusCon.ContractID = objNewContract.ContractID;
+                    objNewCusCon.CustomerContractStatus = "In Progress";
+                    objNewCusCon.StartDate = dtpConStart.Value;
+                    objNewCusCon.EndDate = dtpConEndDate.Value;
+                    objNewCusCon.CustomerState = 1;
+                    bool valcuscon = objNewCusCon.InsertCustomerContract(objNewCusCon);
+
+
+                    //Uploading File to FTP Server
+                    bgwUpload.RunWorkerAsync(_inputParameter);
+                }
 
             }
             catch(Exception E)
             {
 
             }
+        }
+        #region FTP Upload Methods
+        private void UploadFile()
+        { }
+
+        struct FtpSetting
+        {
+            public string Server { get; set; }
+            public string Username { get; set; }
+            public string Password { get; set; }
+            public string FileName { get; set; }
+            public string FullName { get; set; }
+        }
+
+        FtpSetting _inputParameter;
+
+        #endregion
+
+        private void bgwUpload_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string filename = ((FtpSetting)e.Argument).FileName;
+            string fullname = ((FtpSetting)e.Argument).FullName;
+            string username = ((FtpSetting)e.Argument).Username;
+            string password = ((FtpSetting)e.Argument).Password;
+            string server = ((FtpSetting)e.Argument).Server;
+
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(new Uri(string.Format("{0}/{1}/{2}", server, "SLA Document", filename)));
+            request.Method = WebRequestMethods.Ftp.UploadFile;
+            request.Credentials = new NetworkCredential(username, password);
+            Stream ftpStream = request.GetRequestStream();
+            FileStream fs = File.OpenRead(fullname);
+            byte[] buffer = new byte[1024];
+            double total = (double)fs.Length;
+            int byteRead = 0;
+            double read = 0;
+            do
+            {
+                if (!bgwUpload.CancellationPending)
+                {
+                    byteRead = fs.Read(buffer, 0, 1024);
+                    ftpStream.Write(buffer, 0, byteRead);
+                    read += (double)byteRead;
+                    double percentage = read / total * 100;
+                    bgwUpload.ReportProgress((int)percentage);
+                }
+
+            }
+            while (byteRead != 0);
+            fs.Close();
+            ftpStream.Close();
+        }
+
+        private void bgwUpload_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void bgwUpload_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
         }
     }
 }
