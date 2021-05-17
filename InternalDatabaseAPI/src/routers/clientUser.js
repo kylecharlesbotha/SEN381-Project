@@ -37,7 +37,18 @@ router.post("/db/ClientUsers/getUserByUsername",async(req,res, next)=>{
         next(error);
     }  
 });
-
+router.post("/db/ClientUsers/saveUserToken",async(req,res, next)=>{
+    try{
+        console.dir(req.body)
+        const sql = `UPDATE tblClientUsers SET ClientPasswordResetToken='${req.body.PasswordResetToken}' WHERE ClientUserName='${req.body.UserName}'`;
+        const data = await execSQL(sql);
+        console.log(sql)
+        console.dir(data);
+        res.send(data); 
+    }catch (error){
+        next(error);
+    }  
+});
 
 router.post("/db/ClientUsers/updateUser",async(req,res,next)=>{
     try{
