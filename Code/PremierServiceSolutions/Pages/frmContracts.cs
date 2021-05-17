@@ -40,6 +40,8 @@ namespace PremierServiceSolutions.Pages
         private string FullPath;
         private int clientpriority;
         private string clientID;
+        private string contractid;
+       
 
         //Variables for frmNewContract
         bool CheckNewConCus = false;
@@ -1095,7 +1097,7 @@ namespace PremierServiceSolutions.Pages
                     objNewContract.ContractState = 1;
                     objNewContract.ContractID = objNewContract.CreateContractID(objNewContract.ContractType, clientpriority);
                     bool valcon = objNewContract.CreateContract(objNewContract); //Will send the Contract Data through, Create ID then will insert it
-
+                    contractid = objNewContract.ContractID;
 
                     //Create Record for tblCustomerRecord
                     objNewCusCon.BusinessID = 0;
@@ -1109,13 +1111,22 @@ namespace PremierServiceSolutions.Pages
 
 
                     //Uploading File to FTP Server
-                    bgwUpload.RunWorkerAsync(_inputParameter);
+                    try
+                    {
+                        bgwUpload.RunWorkerAsync(_inputParameter);
+
+                       // 
+                    }
+                    catch(Exception E)
+                    {
+                        MessageBox.Show("FTp Section" + E.Message);
+                    }
                 }
 
             }
             catch(Exception E)
             {
-
+                MessageBox.Show(E.Message);
             }
         }
         #region FTP Upload Methods
@@ -1160,7 +1171,7 @@ namespace PremierServiceSolutions.Pages
                     ftpStream.Write(buffer, 0, byteRead);
                     read += (double)byteRead;
                     double percentage = read / total * 100;
-                    bgwUpload.ReportProgress((int)percentage);
+                   
                 }
 
             }
@@ -1176,7 +1187,15 @@ namespace PremierServiceSolutions.Pages
 
         private void bgwUpload_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            objContract.UploadContract(_inputParameter.FileName, contractid);
+        }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show(_inputParameter.FileName);
+            //bgwUpload.RunWorkerAsync(_inputParameter);
+
+            //objContract.UploadContract(_inputParameter.FileName, objNewCusCon.ContractID);
         }
     }
 }
