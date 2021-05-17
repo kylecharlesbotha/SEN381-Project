@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -26,6 +27,8 @@ namespace PremierServiceSolutions.Pages
         List<Client> lstClients = new List<Client>();
         List<Client> lstSearchClients = new List<Client>();
         byte[] ContractPath;
+        private readonly string DirectoryPath = "{L7016943-D799-P227-S262-S52490120069}";
+        private string FullPath;
         #endregion
         public frmCustomers()
         {
@@ -39,6 +42,18 @@ namespace PremierServiceSolutions.Pages
 
             pnlCustomerDetails.Left = 9;
             pnlCustomerDetails.Top = 129;
+
+            pdfContractViewer.Left = 9;
+            pdfContractViewer.Top = 11;
+            pdfContractViewer.BringToFront();
+
+            FullPath = GetTemporaryDirectory();
+            FullPath += @"\Temp.pdf";
+        }
+        private string GetTemporaryDirectory()
+        {
+            string tempDirectory = Path.Combine(Path.GetTempPath(), DirectoryPath);
+            return tempDirectory;
         }
         private void LoadCus()
         {
@@ -149,6 +164,7 @@ namespace PremierServiceSolutions.Pages
             lID.MouseEnter += new EventHandler(HoverEnter);
             lID.MouseLeave += new EventHandler(HoverLeave);
             lID.Click += new EventHandler(CustomerDetails);
+            tTip.SetToolTip(lID, "Click to view Client Details");
             //lID.BackColor = Color.Red;            
             
             
@@ -200,6 +216,7 @@ namespace PremierServiceSolutions.Pages
             lEm.Click += new EventHandler(EmailClicked);
             lEm.MouseEnter += new EventHandler(HoverEnter);
             lEm.MouseLeave += new EventHandler(HoverLeave);
+            tTip.SetToolTip(lEm, "Click to Open Default Email and send Email to Customer");
             //lEm.BackColor = Color.Purple;
 
             //Creating Label for DateCreated
@@ -293,7 +310,6 @@ namespace PremierServiceSolutions.Pages
         {
             Label lbl = sender as Label;
             pnlCustomerDetails.Visible = true;
-            MessageBox.Show(lbl.Text);
             objClientDetails = objClientDetails.GetClientDetails(lbl.Text);
             PopulateClientDetails(objClientDetails);
         }
@@ -345,6 +361,17 @@ namespace PremierServiceSolutions.Pages
             }
             tbDetailsCustomerContract.Text = obj.ClientContract;
             ContractPath = obj.ClientContractPath;
+
+            if(string.IsNullOrWhiteSpace(tbDetailsCustomerContract.Text))
+            {
+
+                tTip.SetToolTip(btnViewContractPDF, "Client does not have a contract to view!");
+            }
+            else
+            {
+                tTip.SetToolTip(btnViewContractPDF, "Click to view the Contract of Client");
+            }
+
         }
         #endregion
 
@@ -1207,6 +1234,7 @@ namespace PremierServiceSolutions.Pages
         #endregion
 
 
+        #region Inserting Client
         private bool CheckValidEntry()
         {
             try
@@ -1241,6 +1269,7 @@ namespace PremierServiceSolutions.Pages
 
             return false;
         }
+        
 
         private void btnCreateCustomer_Click_1(object sender, EventArgs e)
         {
@@ -1276,6 +1305,7 @@ namespace PremierServiceSolutions.Pages
             }
 
         }
+        #endregion
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -1284,6 +1314,10 @@ namespace PremierServiceSolutions.Pages
 
         private void btnCloseContract_Click(object sender, EventArgs e)
         {
+            pdfContractViewer.Visible = false;
+            btnCloseContract.Visible = false;
+            btnDeleteCustomer.Visible = true;
+            btnClose.Visible = true;
 
         }
 
@@ -1296,5 +1330,27 @@ namespace PremierServiceSolutions.Pages
         {
 
         }
+
+        private void btnViewContractPDF_Click(object sender, EventArgs e)
+        {
+           
+            if (string.IsNullOrWhiteSpace(tbDetailsCustomerContract.Text))
+            {
+
+               
+            }
+            else
+            {
+                File.WriteAllBytes(FullPath, ContractPath);
+                pdfContractViewer.Load(FullPath);
+                pdfContractViewer.BringToFront();
+                pdfContractViewer.Visible = true;
+                btnCloseContract.Visible = true;
+                btnDeleteCustomer.Visible = false;
+
+                btnClose.Visible = false;
+            }
+        }
+
     }
 }

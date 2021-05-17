@@ -102,7 +102,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             catch (SqlException SQLE)
             {
                 //If any error has to occur during the try phase it will display a Error message and will return false to indicate it was unsuccessful
-                MessageBox.Show("Dh metho" + SQLE.Message);
+                MessageBox.Show(SQLE.Message);
             }
         }
 
