@@ -63,7 +63,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
                     //If Contract does not exist then insert
 
                     SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
-                    string InsertQuery = string.Format(@"INSERT INTO tblContract (ContractDescription, ContractType, ContractState) VALUES ('{0}','{1}','{2}')", objCon.ContractDescription, objCon.ContractType, objCon.ContractState);
+                    string InsertQuery = string.Format(@"INSERT INTO tblContract (ContractID, ContractDescription, ContractType, ContractState) VALUES ('{0}','{1}','{2}','{3}')",objCon.ContractID, objCon.ContractDescription, objCon.ContractType, objCon.ContractState);
                     SqlCommand InsertCommand = new SqlCommand(InsertQuery, sqlCon);
                     sqlCon.Open();
                     InsertCommand.ExecuteNonQuery();
@@ -76,6 +76,7 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
             catch (SqlException SQLE)
             {
+                MessageBox.Show(SQLE.Message);
                 return false;
             }
             throw new NotImplementedException();
