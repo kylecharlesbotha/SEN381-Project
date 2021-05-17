@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PremierServiceSolutions.Data_Access_Layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,12 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 {
     class CustomerContract
     {
+
+        CustomerContractDH objCusConDH = new CustomerContractDH();
         private int cusconID;
         private int businessID;
-        private int clientID;
-        private int contractID;
+        private string clientID;
+        private string contractID;
         private string cusconStatus;
         private DateTime startDate;
         private DateTime endDate;
@@ -20,8 +23,8 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         public int CustomerContractID { get => cusconID; set => cusconID = value; }
         public int BusinessID { get => businessID; set => businessID = value; }
-        public int ClientID { get => clientID; set => clientID = value; }
-        public int ContractID { get => contractID; set => contractID = value; }
+        public string ClientID { get => clientID; set => clientID = value; }
+        public string ContractID { get => contractID; set => contractID = value; }
         public string CustomerContractStatus { get => cusconStatus; set => cusconStatus = value; }
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime EndDate { get => endDate; set => endDate = value; }
@@ -32,7 +35,7 @@ namespace PremierServiceSolutions.Business_Logic_Layer
 
         }
 
-        public CustomerContract(int cusconID, int businessID, int clientID, int contractID, string cusconStatus, DateTime startDate, DateTime endDate, int customerState)
+        public CustomerContract(int cusconID, int businessID, string clientID, string contractID, string cusconStatus, DateTime startDate, DateTime endDate, int customerState)
         {
             this.cusconID = cusconID;
             this.businessID = businessID;
@@ -44,34 +47,19 @@ namespace PremierServiceSolutions.Business_Logic_Layer
             this.customerState = customerState;
         }
 
-        public void NotifyClient()
+        public bool InsertCustomerContract(CustomerContract objCusCon)
         {
-
-        }
-
-        public void GetAvalability()
-        {
-
-        }
-
-        public void GetPerformance()
-        {
-
-        }
-
-        public void GetClientDetails()
-        {
-
-        }
-
-        public void GetBusinessDetails()
-        {
-
-        }
-
-        public void GetContractEnd()
-        {
-
+            bool submitted = false;
+            try
+            {
+                submitted = objCusConDH.Create(objCusCon);
+                return submitted;
+            }
+            catch(Exception E)
+            {
+                System.Windows.Forms.MessageBox.Show(E.Message);
+                return submitted;
+            }
         }
     }
 }
