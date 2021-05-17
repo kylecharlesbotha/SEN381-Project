@@ -40,18 +40,38 @@ class ContactUs extends React.Component {
       input["Message"] = "";
       this.setState({ input: input });
 
-      const requestOptions = {
+      const requestOptionsCustomer = {
         method: "POST",
         headers: {
-          to: "teamviewer@flystudio.co.za",
-          subject: this.state.input.Subject,
-          text: "",
-          username: "",
-          password: "",
-          name: "",
+          to: this.state.input.Email,
+          subject: "Contact Us",
+          heading: this.state.input.Subject,
+          name: this.state.input.Name,
+          message: this.state.input.Message,
         },
       };
-      fetch("http://flystudio.co.za:7341/sendNewUser", requestOptions)
+      fetch(
+        "http://flystudio.co.za:7341/sendClientContactUs",
+        requestOptionsCustomer
+      )
+        .then((response) => response.json())
+        .then((data) => this.setState({ postId: data.id }));
+
+      const requestOptionsEmployee = {
+        method: "POST",
+        headers: {
+          to: "contactus@flystudio.co.za",
+          subject: "New Contact Us",
+          heading: this.state.input.Subject,
+          name: this.state.input.Name,
+          email: this.state.input.Email,
+          message: this.state.input.Message,
+        },
+      };
+      fetch(
+        "http://flystudio.co.za:7341/sendEmployeeContactUs",
+        requestOptionsEmployee
+      )
         .then((response) => response.json())
         .then((data) => this.setState({ postId: data.id }));
     }
@@ -65,7 +85,6 @@ class ContactUs extends React.Component {
       isValid = false;
       errors["Name"] = "Please enter your Name!";
     }
-
 
     if (!input["Email"]) {
       isValid = false;
