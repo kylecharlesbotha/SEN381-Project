@@ -220,6 +220,59 @@ namespace PremierServiceSolutions.Business_Logic_Layer
                 return value;
             }
         }
+
+        private string CreateContractID(string ContractTypeNew, int ClientPriorityNew)
+        {
+            string ContractIDNew = "";
+            try 
+            {
+                StringBuilder sb = new StringBuilder();
+                int year = DateTime.Now.Year; //Get the year the contract was created
+                sb.Append(Convert.ToString(year));
+                sb.Append(ContractTypeNew);
+                switch (ClientPriorityNew)
+                {
+                    case 1:
+                        {
+                            sb.Append("D");
+                            break;
+                        }
+                    case 2:
+                        {
+                            sb.Append("C");
+                            break;
+                        }
+                    case 3:
+                        {
+                            sb.Append("B");
+                            break;
+                        }
+                    case 4:
+                        {
+                            sb.Append("A");
+                            break;
+                        }
+                    default:
+                        break;
+                }
+
+                //Will get random int value between 1 and 99999999
+                Random rnd = new Random();
+                int number = rnd.Next(1, 99999999);
+                string PaddNumber = Convert.ToString(number);
+
+                //Padding the number by 0 to the lenght of 6
+                PaddNumber = (PaddNumber.PadLeft(6, '0'));
+
+                sb.Append(PaddNumber);
+                ContractIDNew = sb.ToString();
+                return ContractIDNew;
+            }
+            catch(Exception E)
+            {
+                return ContractIDNew;
+            }
+        }
     }
     
 }
