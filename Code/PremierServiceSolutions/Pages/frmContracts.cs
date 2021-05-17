@@ -1189,13 +1189,5 @@ namespace PremierServiceSolutions.Pages
         {
             objContract.UploadContract(_inputParameter.FileName, contractid);
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            MessageBox.Show(_inputParameter.FileName);
-            //bgwUpload.RunWorkerAsync(_inputParameter);
-
-            //objContract.UploadContract(_inputParameter.FileName, objNewCusCon.ContractID);
-        }
     }
 }

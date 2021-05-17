@@ -46,7 +46,6 @@ namespace PremierServiceSolutions.Pages
             this.iPBSearch = new FontAwesome.Sharp.IconPictureBox();
             this.btnAddContract = new PremierServiceSolutions.CustomComponents.ButtonRound();
             this.pnlNewContract = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblNewContCus = new System.Windows.Forms.Label();
             this.lblNewContServices = new System.Windows.Forms.Label();
             this.lblNewConCusCheck = new System.Windows.Forms.Label();
@@ -299,7 +298,6 @@ namespace PremierServiceSolutions.Pages
             // pnlNewContract
             // 
             this.pnlNewContract.BackColor = System.Drawing.Color.White;
-            this.pnlNewContract.Controls.Add(this.button1);
             this.pnlNewContract.Controls.Add(this.lblNewContCus);
             this.pnlNewContract.Controls.Add(this.lblNewContServices);
             this.pnlNewContract.Controls.Add(this.lblNewConCusCheck);
@@ -345,16 +343,6 @@ namespace PremierServiceSolutions.Pages
             this.pnlNewContract.Size = new System.Drawing.Size(883, 725);
             this.pnlNewContract.TabIndex = 31;
             this.pnlNewContract.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(627, 362);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 23);
-            this.button1.TabIndex = 170;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // lblNewContCus
             // 
@@ -1431,6 +1419,5 @@ namespace PremierServiceSolutions.Pages
         private System.Windows.Forms.FlowLayoutPanel flpSearchResults;
         private Syncfusion.WinForms.ListView.SfComboBox sfContractSLA;
         private System.ComponentModel.BackgroundWorker bgwUpload;
-        private System.Windows.Forms.Button button1;
     }
 }
