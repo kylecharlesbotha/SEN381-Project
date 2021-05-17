@@ -81,6 +81,30 @@ namespace PremierServiceSolutions.Data_Access_Layer
             }
             throw new NotImplementedException();
         }
+        public void UpdateFileStream(string strPath, string ContractID)
+        {
+            try
+            {
+                MessageBox.Show(strPath);
+                //New SQL Connection which the query will use to perform the update of tblClient
+                SqlConnection sqlCon = new SqlConnection(objHandler.ConnectionVal);
+                //Update Query which will store the SQL Query to be used when the connection is open
+                string UpdateQuery = string.Format(@"DECLARE @File varbinary(MAX);SELECT @File = CAST( bulkcolumn as varbinary(max) ) FROM OPENROWSET(BULK 'C:\PremierServiceSolutions\SLA Document\{0}', SINGLE_BLOB) as MyData; INSERT INTO tblContractFiles VALUES  ( NEWID(), '{1}',  @File)",strPath,ContractID);
+                //New Command which will take in the sqlCon and UpdateQuery var
+                SqlCommand UpdateCommand = new SqlCommand(UpdateQuery, sqlCon);
+                //Open the connection to the database
+                sqlCon.Open();
+                //Perform the Update Query
+                UpdateCommand.ExecuteNonQuery();
+                //Close the connection to the database
+                sqlCon.Close();
+            }
+            catch (SqlException SQLE)
+            {
+                //If any error has to occur during the try phase it will display a Error message and will return false to indicate it was unsuccessful
+                MessageBox.Show("Dh metho" + SQLE.Message);
+            }
+        }
 
         public bool Update(Contract oldObjCon, Contract newObjCon)
         {
