@@ -12,7 +12,7 @@ const PrivateScreen = ({ history }) => {
 	const [privateData, setPrivateData] = useState("");
 
 	useEffect(() => {
-		if (!localStorage.getItem("authToken")) {
+		if (!localStorage.getItem("clientToken")) {
 			history.push("/ClientPortal");
 		}
 
@@ -20,7 +20,7 @@ const PrivateScreen = ({ history }) => {
 			const config = {
 				headers: {
 					"Content-Type": "application/json",
-					Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+					Authorization: `Bearer ${localStorage.getItem("clientToken")}`,
 				},
 			};
 			try {           
@@ -28,15 +28,15 @@ const PrivateScreen = ({ history }) => {
 				setPrivateData(data.data);
 			} catch (error) {
                 
-
-				localStorage.removeItem("authToken");
+				 
+				localStorage.removeItem("clientToken");
 				setError("Not authorized.");
 			}
 		};
 		fetchPrivateData();
 	}, [history]);
 	const logoutHandler = () => {
-		localStorage.removeItem("authToken");
+		localStorage.removeItem("clientToken");
 		history.push("/ClientPortal");
 	};
 	return error ? (
@@ -50,55 +50,9 @@ const PrivateScreen = ({ history }) => {
 		<>	
 			<Aux>	
 				<BrowserRouter>	
-				<nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-2 mb-0 bg-white rounded">
-					<div className="container-fluid">
-						<img src={Logo} alt="Logo" className="logoimg" />
-						<button
-						className="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarNav"
-						>
-						<i className="fa fa-bars"></i>
-						</button>
-						<div className="collapse navbar-collapse" id="navbarNav">
-						<ul className="navbar-nav">
-								<li fontWeight="fontWeightBold" className="nav-item">
-									<Box fontWeight="fontWeightBold" m={1}>
-										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Dashboard">
-											Dashboard
-										</NavLink>
-									</Box>
-								</li>
-								<li fontWeight="fontWeightBold" className="nav-item">
-									<Box fontWeight="fontWeightBold" m={1}>
-										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Chat">
-											Chat
-										</NavLink>
-									</Box>
-								</li>
-							</ul>
-							<ul className="navbar-nav ms-auto">
-								<li fontWeight="fontWeightBold" className="nav-item">
-									<Box fontWeight="fontWeightBold" m={1}>
-										<a className="nav-link active" aria-current="page" href="/">
-											Exit portal
-										</a>
-									</Box>
-								</li>
-								<li fontWeight="fontWeightBold" className="nav-item">
-									<Box fontWeight="fontWeightBold" m={1}>
-										<a className="nav-link active" aria-current="page" href="/AgentPortal" onClick={logoutHandler}>
-											Logout
-										</a>
-									</Box>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</nav>		
+					
 					<Switch>     
-						<Route path="/ClientPortal/Dashboard" component={AgentPortalDashboard} />
+						<Route path="/ClientPortal/Tickets" component={ClientPortalDashboard} />
 					</Switch>
       			</BrowserRouter>
 			</Aux>
