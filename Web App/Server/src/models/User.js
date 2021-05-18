@@ -18,8 +18,14 @@ class User{
         return await bcrypt.compare(password, this.UserObj.ClientPassWord); 
     } 
     getSignedToken(){
+        console.dir(this.UserObj);
         return jwt.sign({id: this.UserObj.UserID}, process.env.JWT_SECRET);
     }
+    getSignedTokenForClient(){
+        console.dir(this.UserObj);
+        return jwt.sign({id: this.UserObj.ClientID}, process.env.JWT_SECRET);
+    }
+
     async getResetPasswordToken(){
         
         const resetToken = crypto.randomBytes(20).toString("hex");
@@ -236,6 +242,7 @@ const findEmployeeById = async(id) => {
     }
 }
 const findClientById = async(id) => {
+     
     const config = {
         header: {
             "Content-Type": "application/json",
@@ -247,11 +254,30 @@ const findClientById = async(id) => {
             { ClientID: id },
             config,
         );
+         
         return data; 
     }catch(error){
         console.log("find client err: " + error);
         next(error);
     }
 }
-
-module.exports = {User, findOneEmployee, findOneClient, findEmployeeById, findClientById, findOneByPasswordResetToken, setPassword}; 
+const findClientEmailByID = async(id) => {
+    console.log(id); 
+    const config = {
+        header: {
+            "Content-Type": "application/json",
+        },
+    };
+    try{
+        const { data } = await axios.post(
+            "http://localhost:9999/db/clientUsers/getEmail",
+            { ClientID: id },
+            config,
+        ); 
+        return data.recordset[0].ClientEmail; 
+    }catch(error){
+        console.log("find client err: " + error);
+        next(error);
+    }
+}
+module.exports = {User, findOneEmployee, findOneClient, findEmployeeById, findClientById, findOneByPasswordResetToken, setPassword, findClientEmailByID}; 
