@@ -3,7 +3,7 @@ import Aux from "../../../hoc/Auxillary";
 import "./Feedback.css";
 import { Box } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-
+import axios from "axios";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -16,32 +16,63 @@ class Feedback extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      service: 1,
-      technician: 1,
-      quality: 1,
+      TicketID: props.ticketID,
+      ServiceRating: 1,
+      TechnicianRating: 1,
+      QualityRating: 1,
+      Message: null
     };
   }
 
   handleServiceChange = (e) => {
     e.preventDefault();
     let { value } = e.target;
-    this.state.service = value;
-    console.log("service : " + value);
+    this.state.ServiceRating = parseInt(value);
+    
   };
 
   handleTechnicianChange = (e) => {
     e.preventDefault();
     let { value } = e.target;
-    this.state.technician = value;
-    console.log("technician:" + value);
+    this.state.TechnicianRating = parseInt(value);
+ 
   };
 
   handleQualityChange = (e) => {
     e.preventDefault();
     let { value } = e.target;
-    this.state.quality = value;
-    console.log("quality:" + value);
+    this.state.QualityRating = parseInt(value);
+     
   };
+  handleCommentChange = (e) => {
+    e.preventDefault();
+    let { value } = e.target;
+    this.state.Message = value;
+     
+  };
+  handleSubmit = async (e) => {
+    const satisfaction = this.state; 
+    e.preventDefault();
+    console.log("loggies: " + `Bearer ${localStorage.getItem("clientToken")}`);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("clientToken")}`,
+      },
+    };
+    console.dir(satisfaction)
+    try {
+      axios.post(
+        "http://41.1.77.120:3001/api/private/data/addSatisfaction",
+        {satisfaction},
+        config  
+      )  
+      
+      // history.push("/ClientPortalDashboard");
+    } catch (error) {
+      console.dir(error);
+    }
+  }
   render() {
     return (
       <Aux>
@@ -276,6 +307,7 @@ class Feedback extends React.Component {
                 size="small"
                 rowsMax={3}
                 color="secondary"
+                onChange={this.handleCommentChange}
               />
             </div>
             <Box className="redDivider col-md-7 mt-3 "></Box>
