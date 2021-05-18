@@ -14,16 +14,17 @@ const getAllSatisfactions = async() => {
     }
 }
 const addOneSatisfaction = async(obj) => {
+    console.dir(obj)
     const config = {
         header: {
             "Content-Type": "application/json",
         },
     };
     try{
-        const { data } = await axios.post("http://localhost:9999/db/satisfaction/addSatisfactions",obj, config);
+        const { data } = await axios.post("http://localhost:9999/db/satisfaction/insertSatisfaction",obj, config);
         return data; 
     }catch(error){
-        console.log(error);
+        //console.log(error);
         return error;
     }
 }
