@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
-		zIndex: "1",
+		zIndex: "100",
 	},
 	modalWrapper: {
 		width: "90vw",
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "grid",
 		gridTemplateColumns: "1fr",
 		position: "relative",
-		zIndex: "10",
+		zIndex: "200",
 		borderRadius: "10px",
 		//backgroundColor: colors.blue[200],
 	},
@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
 		lineHeight: "1.8",
 		color: "#141414",
+		zIndex: "1000",
 	},
 	p: {
 		marginBottom: "1rem",
@@ -128,6 +129,14 @@ const useStyles = makeStyles((theme) => ({
 		textDecoration: "underline",
 		fontWeight: "500",
 	},
+	modalClose : {
+		fontSize: "x-large",
+		color: "white", 
+		position: "absolute",
+		top: "6%", 
+		left: "50%",
+		transform: "translate(-50%, -50%)"
+	}
 }));
 const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 	const [error, setError] = useState([]);
@@ -173,7 +182,11 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 		<>
 			{showModal ? (
 				<div className={`${classes.background}`}>
+					<i onClick={() => {
+						setShowModal(prev => !prev);
+					}} className={`fa fa-power-off ${classes.modalClose}`}/>
 					<div className={`${classes.modalWrapper}`}>
+						
 						<div className={`${classes.modalContent}`}>
 							<div className="container">
 								<div className="row">
@@ -199,7 +212,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 										</p>
 										<p className={`${classes.ratings}`}>
 											Overall rating:{" "}
-											<StarBox rating={satisfactionOBJ.ServiceRating} />
+											<StarBox rating={Math.round((satisfactionOBJ.ServiceRating + satisfactionOBJ.TechnicianRating + satisfactionOBJ.QualityRating)/3)} />
 										</p>
 										<p className={`${classes.ratings}`}>
 											Overall rating: {satisfactionOBJ.Message}
@@ -257,7 +270,9 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 									</div>
 								</div>
 							</div>
+							
 						</div>
+						
 					</div>
 				</div>
 			) : null}
