@@ -28,7 +28,9 @@ router.post("/db/satisfaction/updateSatisfaction",async(req,res,next)=>{
 })
 router.post("/db/satisfaction/insertSatisfaction",async(req,res,next)=>{
     try{
-        res.send(await SatisfactionCrud.insertOne(req.body.satisfaction));
+        const satisfaction = req.body; 
+        // console.dir(satisfaction)
+        res.send(await SatisfactionCrud.insertOne(satisfaction));
     }catch (error){
         next(error);
     }
