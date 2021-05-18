@@ -1,6 +1,8 @@
-const {User, findOneEmployee, findOneClient, findOneByPasswordResetToken, setPassword} = require('../models/User'); 
+const {User, findOneEmployee, findOneClient, findOneByPasswordResetToken, setPassword, findClientEmailByID} = require('../models/User'); 
 const ErrorResponse = require('../utils/errorResponse');
 const crypto = require("crypto"); 
+const axios = require("axios"); 
+
 exports.register = async (req, res, next) => {
     const {username, email, password} = req.body;
     try{
@@ -53,23 +55,23 @@ exports.loginClient = async (req, res, next) => {
     try{
         //!Get user from db
         var userobj = await findOneClient(UserName)
-    console.log("2")
+     
          
         const user = new User(userobj);
-        console.log("3")
+         
 
         //var user = await User.findOne({email}).select("+password");
         if (!user){
             return next(new ErrorResponse("Authentication failed", 401)); 
         }
-        console.log("4")
+        
         
         const isMatch = await user.matchClientPasswords(UserPassword); 
-        console.log("5")
+        
         if (!isMatch){
             return next(new ErrorResponse("Authentication failed", 401)); 
         }
-        sendToken(user, 200, res);
+        sendTokenForClient(user, 200, res);
          
     }catch(error){
         console.log(error);
@@ -78,7 +80,7 @@ exports.loginClient = async (req, res, next) => {
 };
 exports.forgotpassword = async(req, res, next) => {
     const {username} = req.body; 
-    
+
     try{
         const userobj = await findOneClient(username) || await findOneEmployee(username); 
         //
@@ -89,21 +91,29 @@ exports.forgotpassword = async(req, res, next) => {
         };
         const resetToken = await user.getResetPasswordToken(); 
         
-        const resetUrl = `http://localhost:3001/passwordreset/${resetToken}`;
-        console.log(resetUrl);
-         
-        const message = `
-        <h1>Password Reset Link</h1>
-        <a href=${resetUrl} clicktracking=off>${resetUrl}></a>
-        `; 
+        const resetUrl = `http://localhost:3000/Password/Reset/${resetToken}`;     
 
         try{
+            const config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    to: await findClientEmailByID(user.UserObj.ClientID),
+                    link: resetUrl
+                },
+            };
+            try{
+                await axios.post("http://flystudio.co.za:7341/sendResetPassword",{}, config);
+                
+            }catch(error){
+                console.log(error);
+                return error;
+            } 
             // await sendEmail({
             //     to: user.email, 
             //     subject: "Password Reset Request", 
             //     text: message
             // });
-            console.log("1234");
+           
             res.status(200).json({success: true, data: "Email sent."});
         }catch(error){
             //user.resetPasswordToken = undefined; 
@@ -117,6 +127,7 @@ exports.forgotpassword = async(req, res, next) => {
 
 }
 exports.resetpassword = async (req,res,next) => {
+    console.log("RESETTTING PWD")
     const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest("hex"); 
     try{
         const userOBJ = await findOneByPasswordResetToken(resetPasswordToken);
@@ -137,5 +148,9 @@ exports.resetpassword = async (req,res,next) => {
 }
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken();
+    res.status(statusCode).json({success: true, token});
+}
+const sendTokenForClient = (user, statusCode, res) => {
+    const token = user.getSignedTokenForClient();
     res.status(statusCode).json({success: true, token});
 }
