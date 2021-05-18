@@ -7,10 +7,48 @@ import Logo from "../../../assets/images/PSSLogo.png";
 import { NavLink } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Arrow from "../../../assets/images/arrow.png";
+import { useState } from "react";
+import axios from "axios";
+const Reset = ({ match }) => {
+  const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
+	const [error, setError] = useState("");
+	const [success, setSuccess] = useState("");
 
-const Reset = (props) => {
+	const resetPasswordHandler = async (e) => {
+		e.preventDefault();
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		if (password !== confirmPassword) {
+			setPassword("");
+			setConfirmPassword("");
+			setTimeout(() => {
+				setError("");
+			}, 5000);
+			return setError("Passwords do not match");
+		}
+		try {
+			const { data } = await axios.post(
+				`http://41.1.77.120:3001/api/auth/resetpassword/${match.params.resetToken}`,
+				{ password },
+				config,
+			);
+			console.log(data);
+			setSuccess(data.data);
+		} catch (error) {
+			setError(error.response.data.error);
+			setTimeout(() => {
+				setError("");
+			}, 5000);
+		}
+	};
   return (
+     
     <Aux>
+      {console.log(success)}
       <Typography component="div">
         <Box>
           <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-2 mb-2 bg-white rounded">
@@ -30,7 +68,7 @@ const Reset = (props) => {
         <div className="container justify-content-center">
           <div className="row justify-content-center bg-light shadow-lg p-2 mb-2 bg-white rounded">
             <div className="col-md-8 resetgroup">
-            <form>
+            <form onSubmit={resetPasswordHandler}>
                 <h2>Change your Password</h2>
                 <p>Enter your new account password below. Once confirmed, you'll be logged into your new account and your new password will be active</p>
                 <div className="row mb-3">
@@ -47,6 +85,7 @@ const Reset = (props) => {
                     className="form-control lblHeader mt-2 mb-2"
                     size="small"
                     color="secondary"
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   </div>
                 </div>
@@ -64,7 +103,11 @@ const Reset = (props) => {
                     className="form-control lblHeader mt-2 mb-2"
                     size="small"
                     color="secondary"
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+
                   />
+                  {error && <span className="error-message">{error}</span>}
+                  {success && <span>{success}</span>}
                   </div>
                 </div>
 
