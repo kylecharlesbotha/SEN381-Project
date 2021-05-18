@@ -53,14 +53,15 @@ const ClientPortal = ({ history }) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem("authToken")) {
-      history.push("/ClientPortal/Dashboard");
+    
+    if (localStorage.getItem("clientToken")) {
+      history.push("/ClientPortal/Tickets");
     }
   }, [history]);
   const loginHandler = async (e) => {
     e.preventDefault();
     const config = {
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     };
@@ -71,8 +72,10 @@ const ClientPortal = ({ history }) => {
         { UserName: username, UserPassword: password },
         config
       );
-      localStorage.setItem("authToken", data.token);
-      history.push("/ClientPortalDashboard");
+      
+
+      localStorage.setItem("clientToken", data.token);
+      history.push("/ClientPortal/Tickets");
     } catch (error) {
       console.dir(error);
       setError(error.response.data.error);
