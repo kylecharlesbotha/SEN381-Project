@@ -37,7 +37,7 @@ const TicketsPage = (props) => {
         };
         try { 
             axios.get(
-                "http://41.1.77.120:3001/api/private/data/tickets",
+                "http://premierservicesolutions.flystudio.co.za:3001/api/private/data/tickets",
                 config
             ).then(res => {     
                 setTickets(res.data.data.recordset);

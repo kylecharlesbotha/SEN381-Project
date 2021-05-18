@@ -66,7 +66,7 @@ const AgentPortal = ({ history }) => {
 
     try {
       const { data } = await axios.post(
-        "http://41.1.77.120:3001/api/auth/loginEmployee",
+        "http://premierservicesolutions.flystudio.co.za:3001/api/auth/loginEmployee",
         { UserName: username, UserPassword: password },
         config
       );
@@ -169,7 +169,10 @@ const AgentPortal = ({ history }) => {
       </div>
       <div className="text-center p-3 footer">
         © 2021 Copyright:
-        <a className="text-dark" href="https://premierservicesolutions.co.za">
+        <a
+          className="text-dark"
+          href="https://premierservicesolutions.flystudio.co.za.co.za"
+        >
           PremierServiceSolutions
         </a>
       </div>

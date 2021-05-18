@@ -152,7 +152,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 		try {
 			axios
 				.post(
-					"http://41.1.77.120:3001/api/private/data/ticket",
+					"http://premierservicesolutions.flystudio.co.za:3001/api/private/data/ticket",
 					{ TicketID: satisfactionOBJ.TicketID },
 					config,
 				)
@@ -160,7 +160,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 					setTicket(res.data.data.recordset[0]);
 					axios
 						.post(
-							"http://41.1.77.120:3001/api/private/data/client",
+							"http://premierservicesolutions.flystudio.co.za:3001/api/private/data/client",
 							{ ClientID: res.data.data.recordset[0].ClientID },
 							config,
 						)
@@ -255,18 +255,15 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 										<p className={`${classes.clientText}`}>
 											Title: {client.ClientTitle}
 										</p>
-										<p className={`${classes.clientText}`}>
-											Email: {client.ClientEmail}
-										</p>
-										<p className={`${classes.clientText}`}>
-											Cell: {client.ClientCell}
-										</p>
+										
 										<p className={`${classes.clientText}`}>
 											Address: {client.ClientAddress}
 										</p>
 									</div>
 									<div className={`col-md-6 ${classes.contactClient}`}>
 										<h3 className={`${classes.headings}`}>Contact Client</h3>
+										<a  className={`${classes.clientText}`} href ={`mailto: ${client.ClientEmail}`}>Email: {client.ClientEmail}</a>
+										<p className={`${classes.clientText}`} >Cell: {client.ClientCell}</p>
 									</div>
 								</div>
 							</div>

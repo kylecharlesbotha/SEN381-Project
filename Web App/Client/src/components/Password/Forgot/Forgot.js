@@ -12,33 +12,33 @@ import axios from "axios";
 const Forgot = ({ props }) => {
   const browhistory = useHistory();
   const [username, setUsername] = useState("");
-	const [error, setError] = useState("");
-	const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-	const forgotPasswordHandler = async (e) => {
-		e.preventDefault();
+  const forgotPasswordHandler = async (e) => {
+    e.preventDefault();
 
-		const config = {
-			header: {
-				"Content-Type": "application/json",
-			},
-		};
-    console.log(username); 
-		try {
-			const { data } = await axios.post(
-				"http://41.1.77.120:3001/api/auth/forgotpassword",
-				{ username },
-				config,
-			);
-			setSuccess(data.data);
-		} catch (error) {
-			setError(error.response.data.error);
-			setUsername("");
-			setTimeout(() => {
-				setError("");
-			}, 5000);
-		}
-	};
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+    console.log(username);
+    try {
+      const { data } = await axios.post(
+        "http://premierservicesolutions.flystudio.co.za:3001/api/auth/forgotpassword",
+        { username },
+        config
+      );
+      setSuccess(data.data);
+    } catch (error) {
+      setError(error.response.data.error);
+      setUsername("");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    }
+  };
 
   return (
     <Aux>
@@ -68,7 +68,7 @@ const Forgot = ({ props }) => {
               <p className="emailp">Please enter your email linked to your account.</p>
               <TextField
                 id="filled-basic Subject"
-                label="Email Address"
+                label="Username"
                 required
                 name="Emaill Address"
                 variant="outlined"
@@ -78,6 +78,8 @@ const Forgot = ({ props }) => {
                 style ={{width: '75%'}}
                 onChange={(e) => setUsername(e.target.value)}
               />
+              <p>{error && <span className="error-message">{error}</span>}
+                  {success && <span>{success}</span>}</p>
               <p className="infop">
                 We will send you a email to reset the password for your account
                 so you can continue.
@@ -85,7 +87,7 @@ const Forgot = ({ props }) => {
 
               <button
                 type="submit"
-                className="btn btnsignin justify-content-center"
+                className="btn btn-dark btnsendemail btn-rounded"
                 color="#ff5c5c"
               >
                 SEND EMAIL
@@ -105,7 +107,10 @@ const Forgot = ({ props }) => {
         </div>
         <div className="text-center p-3 footer">
           © 2021 Copyright:
-          <a className="text-dark" href="https://premierservicesolutions.co.za">
+          <a
+            className="text-dark"
+            href="https://premierservicesolutions.flystudio.co.za.co.za"
+          >
             PremierServiceSolutions
           </a>
         </div>

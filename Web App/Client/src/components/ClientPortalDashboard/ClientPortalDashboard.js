@@ -34,7 +34,7 @@ const ClientPortalDashboard = (props) => {
                       <a
                         className="nav-link active"
                         aria-current="page"
-                        href="/"
+                        href="/ClientPortal/tickets"
                       >
                         Tickets
                       </a>

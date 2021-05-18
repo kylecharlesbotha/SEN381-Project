@@ -24,7 +24,7 @@ const PrivateScreen = ({ history }) => {
 				},
 			};
 			try {           
-				const { data } = await axios.get("http://41.1.77.120:3001/api/private/clientData", config);
+				const { data } = await axios.get("http://premierservicesolutions.flystudio.co.za:3001/api/private/clientData", config);
 				setPrivateData(data.data);
 			} catch (error) {
                 
