@@ -7,10 +7,38 @@ import Logo from "../../../assets/images/PSSLogo.png";
 import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
-
-const Forgot = ({ props }) => {
+import { useState } from "react";
+import axios from "axios";
+const Forgot = ({ match }) => {
   const browhistory = useHistory();
-  console.log(browhistory);
+  const [username, setUsername] = useState("");
+	const [error, setError] = useState("");
+	const [success, setSuccess] = useState("");
+
+	const forgotPasswordHandler = async (e) => {
+		e.preventDefault();
+
+		const config = {
+			header: {
+				"Content-Type": "application/json",
+			},
+		};
+    console.log(username); 
+		try {
+			const { data } = await axios.post(
+				"http://41.1.77.120:3001/api/auth/forgotpassword",
+				{ username },
+				config,
+			);
+			setSuccess(data.data);
+		} catch (error) {
+			setError(error.response.data.error);
+			setUsername("");
+			setTimeout(() => {
+				setError("");
+			}, 5000);
+		}
+	};
 
   return (
     <Aux>
@@ -35,6 +63,7 @@ const Forgot = ({ props }) => {
         <div className="container justify-content-center">
           <div className="row justify-content-center">
             <div className="col-md-7 forgotemail">
+              <form onSubmit={forgotPasswordHandler} >
               <h2>Are you having trouble signing in?</h2>
               <p className="emailp">Please enter your email linked to your account.</p>
               <TextField
@@ -47,7 +76,7 @@ const Forgot = ({ props }) => {
                 size="small"
                 color="secondary"
                 style ={{width: '75%'}}
-                
+                onChange={(e) => setUsername(e.target.value)}
               />
               <p className="infop">
                 We will send you a email to reset the password for your account
@@ -61,6 +90,7 @@ const Forgot = ({ props }) => {
               >
                 SEND EMAIL
               </button>
+              </form>
             </div>
             <div className="col-md-3 forgottext">
               <p>
