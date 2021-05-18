@@ -42,23 +42,34 @@ module.exports = class Crud {
         return data;
     }
     async insertOne(obj){
+        console.dir(obj)
+        
         let sql = `INSERT INTO ${this.tblName} (`; 
         Object.entries(obj).forEach(		
             ([key, value]) => {
             	sql += `${key},`	
             }
         ); 
-        sql = str = sql.slice(0, -1);   
+      
+        sql = sql.slice(0, -1);   
         sql += ") VALUES (";
         Object.entries(obj).forEach(		
-            ([key, value]) => {
-            	sql += `${value},`     	
+            ([key, value]) => {  
+                sql += Number.isInteger(value) ? `${value},` : `'${value}',`  
             }
         ); 
-        sql = str = sql.slice(0, -1);   
+       
+        
+         
+        sql = sql.slice(0, -1);   
         sql += ")";
         console.log(sql);
-        const data = await execSQL(sql);
+        try{
+            const data = await execSQL(sql);
+        }catch(error){
+            console.log(error)
+        }
+        
         return data;
     }
 }
