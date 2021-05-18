@@ -78,6 +78,7 @@ const Reset = ({ match }) => {
                   <div className="col-md-7 passwordentry">
                   <TextField
                     id="filled-basic Email"
+                    type="password"
                     label="Password"
                     variant="outlined"
                     required
@@ -96,6 +97,7 @@ const Reset = ({ match }) => {
                   <div className="col-md-7 passwordentry">
                   <TextField
                     id="filled-basic"
+                    type="password"
                     label=" Re-Type Password"
                     variant="outlined"
                     required
