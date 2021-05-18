@@ -53,13 +53,13 @@ const AgentPortal = ({ history }) => {
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      history.push("/AgentPortal/Dashboard");
+      history.push("/AgentPortal/Tickets");
     }
   }, [history]);
   const loginHandler = async (e) => {
     e.preventDefault();
     const config = {
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     };
@@ -71,7 +71,7 @@ const AgentPortal = ({ history }) => {
         config
       );
       localStorage.setItem("authToken", data.token);
-      history.push("/AgentPortal/Dashboard");
+      history.push("/AgentPortal/Tickets");
     } catch (error) {
       console.dir(error);
       setError(error.response.data.error);
