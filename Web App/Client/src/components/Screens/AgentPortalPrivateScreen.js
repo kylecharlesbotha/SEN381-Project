@@ -66,13 +66,7 @@ const PrivateScreen = ({ history }) => {
 						</button>
 						<div className="collapse navbar-collapse" id="navbarNav">
 						<ul className="navbar-nav">
-								<li fontWeight="fontWeightBold" className="nav-item">
-									<Box fontWeight="fontWeightBold" m={1}>
-										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Dashboard">
-											Dashboard
-										</NavLink>
-									</Box>
-								</li>
+								
 								<li fontWeight="fontWeightBold" className="nav-item">
 									<Box fontWeight="fontWeightBold" m={1}>
 										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Tickets">
@@ -83,12 +77,6 @@ const PrivateScreen = ({ history }) => {
 									<Box fontWeight="fontWeightBold" m={1}>
 										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Satisfaction">
 											Satisfaction
-										</NavLink>
-									</Box>
-								</li><li fontWeight="fontWeightBold" className="nav-item">
-									<Box fontWeight="fontWeightBold" m={1}>
-										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Chat">
-											Chat
 										</NavLink>
 									</Box>
 								</li>
@@ -112,11 +100,9 @@ const PrivateScreen = ({ history }) => {
 						</div>
 					</div>
 				</nav>		
-					<Switch>     
-						<Route path="/AgentPortal/Dashboard" component={AgentPortalDashboard} />
+					<Switch>     		
 						<Route path="/AgentPortal/Tickets" component={TicketsPage}/>
-						<Route path="/AgentPortal/Satisfaction" component={SatisfactionPage}/>
-						<Route path="/AgentPortal/Chat" component={ChatPage}/>
+						<Route path="/AgentPortal/Satisfaction" component={SatisfactionPage}/>	
 					</Switch>
       			</BrowserRouter>
 			</Aux>
