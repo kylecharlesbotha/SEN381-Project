@@ -68,7 +68,7 @@ const Forgot = ({ props }) => {
               <p className="emailp">Please enter your email linked to your account.</p>
               <TextField
                 id="filled-basic Subject"
-                label="Email Address"
+                label="Username"
                 required
                 name="Emaill Address"
                 variant="outlined"
@@ -78,6 +78,8 @@ const Forgot = ({ props }) => {
                 style ={{width: '75%'}}
                 onChange={(e) => setUsername(e.target.value)}
               />
+              <p>{error && <span className="error-message">{error}</span>}
+                  {success && <span>{success}</span>}</p>
               <p className="infop">
                 We will send you a email to reset the password for your account
                 so you can continue.
@@ -85,7 +87,7 @@ const Forgot = ({ props }) => {
 
               <button
                 type="submit"
-                className="btn btnsignin justify-content-center"
+                className="btn btn-dark btnsendemail btn-rounded"
                 color="#ff5c5c"
               >
                 SEND EMAIL
