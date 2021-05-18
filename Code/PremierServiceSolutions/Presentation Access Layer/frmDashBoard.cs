@@ -310,7 +310,7 @@ namespace PremierServiceSolutions.Presentation_Access_Layer
             pnlMainPage.Controls.Add(frmCustomerSupport);
             frmCustomerSupport.Show();
 
-            Process.Start("http://www.Google.com");
+            Process.Start("http://premierservicesolutions.flystudio.co.za");
         }
         private void btnEmployees_Click(object sender, EventArgs e)
         {

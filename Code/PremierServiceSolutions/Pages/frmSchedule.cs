@@ -80,27 +80,27 @@ namespace PremierServiceSolutions.Pages
         {
             if (e.Action == ItemAction.Edit)
             {
-                MessageBox.Show("Edit option");
+
                 SaveUpdate();
             }
             else if (e.Action == ItemAction.Delete)
             {
-                MessageBox.Show("Delete option");
+
                 SaveUpdate();
             }
             else if (e.Action == ItemAction.Add)
             {
-                MessageBox.Show("Add option");
+
                 SaveUpdate();
             }
             else if (e.Action == ItemAction.ItemDrag)
             {
-                MessageBox.Show("Drag option");
+
                 SaveUpdate();
             }
             else if (e.Action == ItemAction.TimeDrag)
             {
-                MessageBox.Show("Time option");
+
                 SaveUpdate();
             }
         }
@@ -610,7 +610,6 @@ namespace PremierServiceSolutions.Pages
             
             
             int monthDiff = ((SelectedDate.Year - this.schedContCal.Calendar.DateValue.Year) * 12) + SelectedDate.Month - this.schedContCal.Calendar.DateValue.Month;
-            MessageBox.Show(Convert.ToString(monthDiff));
             if (monthDiff == 0)
             {
                 this.schedContCal.Calendar.AdjustSelectionsByMonth(0);
