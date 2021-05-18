@@ -1,0 +1,32 @@
+.Servicescon h2 {
+  color: rgb(218, 0, 0);
+  font-weight: 900;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+.services {
+  margin-top: 12%;
+  margin-bottom: 5%;
+  background-color: white;
+}
+
+.servicecontainer h4 {
+  font-weight: 900;
+}
+
+.serviceitem {
+  background-color: bisque;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.serviceitem img {
+  float: left;
+}
+
+.serviceitem h4 {
+  float: right;
+}

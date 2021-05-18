@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Dashboard from "../AgentPortalDashboard/AgentPortalDashboard";
+import AgentPortalDashboard from "../AgentPortalDashboard/AgentPortalDashboard";
 import { NavLink } from "react-router-dom"; 
 import Logo from "../../assets/images/PSSLogo.png";
 import Aux from "../../hoc/Auxillary";
 import Box from "@material-ui/core/Box";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import TicketsPage from "../AgentPortalTickets/AgentPortalTickets";
+import SatisfactionPage from "../AgentPortalSatisfaction/AgentPortalSatisfaction";
+import ChatPage from "../AgentPortalChat/AgentPortalChat";
 const PrivateScreen = ({ history }) => {
 	const [error, setError] = useState("");
 	const [privateData, setPrivateData] = useState("");
@@ -21,13 +25,11 @@ const PrivateScreen = ({ history }) => {
 					Authorization: `Bearer ${localStorage.getItem("authToken")}`,
 				},
 			};
-			try {
-                console.log(config.headers.Authorization);
-				const { data } = await axios.get("http://localhost:3001/api/private/", config);
-                console.dir(data);
+			try {           
+				const { data } = await axios.get("http://41.1.77.120:3001/api/private/employeeData", config);
 				setPrivateData(data.data);
 			} catch (error) {
-                console.dir(error);
+                
 
 				localStorage.removeItem("authToken");
 				setError("Not authorized.");
@@ -49,7 +51,9 @@ const PrivateScreen = ({ history }) => {
 		// </>
 		<>	
 			<Aux>
-				<nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-2 mb-2 bg-white rounded">
+				
+				<BrowserRouter>	
+				<nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-2 mb-0 bg-white rounded">
 					<div className="container-fluid">
 						<img src={Logo} alt="Logo" className="logoimg" />
 						<button
@@ -61,6 +65,22 @@ const PrivateScreen = ({ history }) => {
 						<i className="fa fa-bars"></i>
 						</button>
 						<div className="collapse navbar-collapse" id="navbarNav">
+						<ul className="navbar-nav">
+								
+								<li fontWeight="fontWeightBold" className="nav-item">
+									<Box fontWeight="fontWeightBold" m={1}>
+										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Tickets">
+											Tickets
+										</NavLink>
+									</Box>
+								</li><li fontWeight="fontWeightBold" className="nav-item">
+									<Box fontWeight="fontWeightBold" m={1}>
+										<NavLink className="nav-link active" aria-current="page" to="/AgentPortal/Satisfaction">
+											Satisfaction
+										</NavLink>
+									</Box>
+								</li>
+							</ul>
 							<ul className="navbar-nav ms-auto">
 								<li fontWeight="fontWeightBold" className="nav-item">
 									<Box fontWeight="fontWeightBold" m={1}>
@@ -79,9 +99,13 @@ const PrivateScreen = ({ history }) => {
 							</ul>
 						</div>
 					</div>
-				</nav>
+				</nav>		
+					<Switch>     		
+						<Route path="/AgentPortal/Tickets" component={TicketsPage}/>
+						<Route path="/AgentPortal/Satisfaction" component={SatisfactionPage}/>	
+					</Switch>
+      			</BrowserRouter>
 			</Aux>
-		<Dashboard/>
 		</>
 	);
 };

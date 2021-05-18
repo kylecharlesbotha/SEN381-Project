@@ -41,4 +41,35 @@ module.exports = class Crud {
         const data = await execSQL(sql);
         return data;
     }
+    async insertOne(obj){
+        console.dir(obj)
+        
+        let sql = `INSERT INTO ${this.tblName} (`; 
+        Object.entries(obj).forEach(		
+            ([key, value]) => {
+            	sql += `${key},`	
+            }
+        ); 
+      
+        sql = sql.slice(0, -1);   
+        sql += ") VALUES (";
+        Object.entries(obj).forEach(		
+            ([key, value]) => {  
+                sql += Number.isInteger(value) ? `${value},` : `'${value}',`  
+            }
+        ); 
+       
+        
+         
+        sql = sql.slice(0, -1);   
+        sql += ")";
+        console.log(sql);
+        try{
+            const data = await execSQL(sql);
+        }catch(error){
+            console.log(error)
+        }
+        
+        return data;
+    }
 }

@@ -1,6 +1,13 @@
 const express = require("express"); 
 const router = express.Router(); 
-const {getPrivateData} = require("../controllers/private"); 
-const {protect} = require("../middleware/auth");
-router.route("/").get(protect,getPrivateData); 
+const {getPrivateEmployeeData,getPrivateClientData,  getTickets, getTicket, getSatisfactions,getClient, addSatisfactions, getClientTickets} = require("../controllers/private"); 
+const {protectEmployeeData, protectClientData} = require("../middleware/auth");
+router.route("/employeeData").get(protectEmployeeData,getPrivateEmployeeData); 
+router.route("/clientData").get(protectClientData,getPrivateClientData); 
+router.route("/data/tickets").get(protectEmployeeData,getTickets); 
+router.route("/data/ticket").post(protectEmployeeData,getTicket); 
+router.route("/data/satisfactions").get(protectEmployeeData,getSatisfactions); 
+router.route("/data/client").post(protectEmployeeData,getClient);
+router.route("/data/addSatisfaction").post(protectClientData, addSatisfactions);
+router.route("/data/clientTickets").post(protectClientData, getClientTickets);
 module.exports = router;

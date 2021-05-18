@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
 namespace PremierServiceSolutions
 {
     static class Program
@@ -21,6 +22,8 @@ namespace PremierServiceSolutions
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmDashBoard());
+
         }
+
     }
 }
