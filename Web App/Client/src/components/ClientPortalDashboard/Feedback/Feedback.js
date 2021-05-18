@@ -63,7 +63,7 @@ class Feedback extends React.Component {
     console.dir(satisfaction)
     try {
       axios.post(
-        "http://41.1.77.120:3001/api/private/data/addSatisfaction",
+        "http://premierservicesolutions.flystudio.co.za:3001/api/private/data/addSatisfaction",
         {satisfaction},
         config  
       )  

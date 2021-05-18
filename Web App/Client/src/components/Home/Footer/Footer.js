@@ -1,7 +1,6 @@
 import Aux from "../../../hoc/Auxillary";
 import "./../Footer/Footer.css";
 import "font-awesome/css/font-awesome.min.css";
-import "mdb-ui-kit/css/mdb.min.css";
 
 const Footer = () => {
   return (
@@ -125,7 +124,7 @@ const Footer = () => {
             © 2021 Copyright:
             <a
               className="text-white"
-              href="https://premierservicesolutions.co.za"
+              href="https://premierservicesolutions.flystudio.co.za.co.za"
             >
               PremierServiceSolutions
             </a>
