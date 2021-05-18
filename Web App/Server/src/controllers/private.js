@@ -1,4 +1,4 @@
-const {getAllTickets, getTicketByID} = require("../models/Ticket");
+const {getAllTickets, getTicketByID, findTicketsByClientID} = require("../models/Ticket");
 const {getAllSatisfactions,addOneSatisfaction} = require("../models/Satisfaction");
 const getClientByID = require("./../models/Client");
 const getPrivateEmployeeData = (req,res,next) => {
@@ -45,11 +45,19 @@ const getClient = async(req,res,next) => {
     })
 }
 const addSatisfactions = async(req,res,next) => {
+    console.dir(req.body.satisfaction);
     const satisfaction = await addOneSatisfaction(req.body.satisfaction);
     res.status(200).json({
         success: true, 
         data: satisfaction
     })
 }
-
-module.exports = {getPrivateEmployeeData, getPrivateClientData, getTickets, getTicket, getSatisfactions, getClient, addSatisfactions}
+const getClientTickets = async (req, res, next) => {
+     
+    const tickets = await findTicketsByClientID(req.user.ClientID); 
+    res.status(200).json({
+        success: true, 
+        data: tickets
+    })
+}
+module.exports = {getPrivateEmployeeData, getPrivateClientData, getTickets, getTicket, getSatisfactions, getClient, addSatisfactions, getClientTickets}
