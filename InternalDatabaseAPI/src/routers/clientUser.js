@@ -46,7 +46,7 @@ router.get("/db/ClientUsers/getUsers",async(req,res,next)=>{
 router.post("/db/ClientUsers/getUser",async(req,res, next)=>{
     //!Expects userid header inside post req
     try{
-        const user = await ClientUserCrud.readOne(req.body.clientid);
+        const user = await ClientUserCrud.readOne(req.body.ClientID);
         res.send(user.recordset[0]); 
     }catch (error){
         next(error);
@@ -84,5 +84,16 @@ router.post("/db/ClientUsers/updateUser",async(req,res,next)=>{
         next(error);
     }
 });
-
+router.post("/db/ClientUsers/getEmail",async(req,res,next)=>{
+    try{
+        console.dir(req.body);
+        const sql = `SELECT ClientEmail FROM tblClient WHERE ClientID='${req.body.ClientID}' `;
+        const data = await execSQL(sql);
+        console.log(sql)
+        console.dir(data);
+        res.send(data); 
+    }catch (error){
+        next(error);
+    }  
+});
 module.exports = router;
