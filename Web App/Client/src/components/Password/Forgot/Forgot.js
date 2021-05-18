@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import { useState } from "react";
 import axios from "axios";
-const Forgot = ({ match }) => {
+const Forgot = ({ props }) => {
   const browhistory = useHistory();
   const [username, setUsername] = useState("");
 	const [error, setError] = useState("");
