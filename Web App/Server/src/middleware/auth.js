@@ -13,11 +13,11 @@ exports.protectEmployeeData = async (req, res, next) => {
     }
     try{
         const decoded = await jwt.verify(token, process.env.JWT_SECRET);
-        
+         
         const user = await findEmployeeById(decoded.id);
         
         if (!user){
-            return next(new ErrorResponse("Invalid user token", 404)); 
+            return next(new ErrorResponse("Invalid user token", 401)); 
         }
         req.user = user; 
             
@@ -30,7 +30,7 @@ exports.protectEmployeeData = async (req, res, next) => {
 
 exports.protectClientData = async (req, res, next) => {
     let token; 
-    
+     
     if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
         token = req.headers.authorization.split(" ")[1]; 
     }
@@ -42,9 +42,9 @@ exports.protectClientData = async (req, res, next) => {
         const decoded = await jwt.verify(token, process.env.JWT_SECRET);
         
         const user = await findClientById(decoded.id);
-        
+       
         if (!user){
-            return next(new ErrorResponse("Invalid user token", 404)); 
+            return next(new ErrorResponse("Invalid user token", 500)); 
         }
         req.user = user; 
             
