@@ -1,7 +1,6 @@
 import Aux from "../../../hoc/Auxillary";
 import "./../Footer/Footer.css";
 import "font-awesome/css/font-awesome.min.css";
-import "mdb-ui-kit/css/mdb.min.css";
 
 const Footer = () => {
   return (
