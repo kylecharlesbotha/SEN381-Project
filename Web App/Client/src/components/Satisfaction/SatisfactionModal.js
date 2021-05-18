@@ -255,18 +255,15 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 										<p className={`${classes.clientText}`}>
 											Title: {client.ClientTitle}
 										</p>
-										<p className={`${classes.clientText}`}>
-											Email: {client.ClientEmail}
-										</p>
-										<p className={`${classes.clientText}`}>
-											Cell: {client.ClientCell}
-										</p>
+										
 										<p className={`${classes.clientText}`}>
 											Address: {client.ClientAddress}
 										</p>
 									</div>
 									<div className={`col-md-6 ${classes.contactClient}`}>
 										<h3 className={`${classes.headings}`}>Contact Client</h3>
+										<a  className={`${classes.clientText}`} href ={`mailto: ${client.ClientEmail}`}>Email: {client.ClientEmail}</a>
+										<p className={`${classes.clientText}`} >Cell: {client.ClientCell}</p>
 									</div>
 								</div>
 							</div>
