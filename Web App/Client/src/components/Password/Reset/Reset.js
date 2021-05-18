@@ -32,7 +32,7 @@ const Reset = ({ match }) => {
 		}
 		try {
 			const { data } = await axios.post(
-				`http://41.1.77.120:3001/api/auth/resetpassword/${match.params.resetToken}`,
+				`http://premierservicesolutions.flystudio.co.za:3001/api/auth/resetpassword/${match.params.resetToken}`,
 				{ password },
 				config,
 			);

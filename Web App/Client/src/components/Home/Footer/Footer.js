@@ -124,7 +124,7 @@ const Footer = () => {
             © 2021 Copyright:
             <a
               className="text-white"
-              href="https://premierservicesolutions.co.za"
+              href="https://premierservicesolutions.flystudio.co.za.co.za"
             >
               PremierServiceSolutions
             </a>

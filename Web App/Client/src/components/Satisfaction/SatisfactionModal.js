@@ -152,7 +152,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 		try {
 			axios
 				.post(
-					"http://41.1.77.120:3001/api/private/data/ticket",
+					"http://premierservicesolutions.flystudio.co.za:3001/api/private/data/ticket",
 					{ TicketID: satisfactionOBJ.TicketID },
 					config,
 				)
@@ -160,7 +160,7 @@ const SatisfactionModal = ({ showModal, setShowModal, satisfactionOBJ }) => {
 					setTicket(res.data.data.recordset[0]);
 					axios
 						.post(
-							"http://41.1.77.120:3001/api/private/data/client",
+							"http://premierservicesolutions.flystudio.co.za:3001/api/private/data/client",
 							{ ClientID: res.data.data.recordset[0].ClientID },
 							config,
 						)

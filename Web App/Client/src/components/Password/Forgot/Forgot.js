@@ -12,33 +12,33 @@ import axios from "axios";
 const Forgot = ({ props }) => {
   const browhistory = useHistory();
   const [username, setUsername] = useState("");
-	const [error, setError] = useState("");
-	const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-	const forgotPasswordHandler = async (e) => {
-		e.preventDefault();
+  const forgotPasswordHandler = async (e) => {
+    e.preventDefault();
 
-		const config = {
-			header: {
-				"Content-Type": "application/json",
-			},
-		};
-    console.log(username); 
-		try {
-			const { data } = await axios.post(
-				"http://41.1.77.120:3001/api/auth/forgotpassword",
-				{ username },
-				config,
-			);
-			setSuccess(data.data);
-		} catch (error) {
-			setError(error.response.data.error);
-			setUsername("");
-			setTimeout(() => {
-				setError("");
-			}, 5000);
-		}
-	};
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+    console.log(username);
+    try {
+      const { data } = await axios.post(
+        "http://premierservicesolutions.flystudio.co.za:3001/api/auth/forgotpassword",
+        { username },
+        config
+      );
+      setSuccess(data.data);
+    } catch (error) {
+      setError(error.response.data.error);
+      setUsername("");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    }
+  };
 
   return (
     <Aux>
@@ -107,7 +107,10 @@ const Forgot = ({ props }) => {
         </div>
         <div className="text-center p-3 footer">
           © 2021 Copyright:
-          <a className="text-dark" href="https://premierservicesolutions.co.za">
+          <a
+            className="text-dark"
+            href="https://premierservicesolutions.flystudio.co.za.co.za"
+          >
             PremierServiceSolutions
           </a>
         </div>

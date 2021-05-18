@@ -37,7 +37,7 @@ const TicketsPage = (props) => {
         };
         try { 
             axios.post(
-                "http://41.1.77.120:3001/api/private/data/clientTickets",{},
+                "http://premierservicesolutions.flystudio.co.za:3001/api/private/data/clientTickets",{},
 
                 config
             ).then(res => {     
